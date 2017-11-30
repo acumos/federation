@@ -36,6 +36,23 @@
     },
     {
       "key": {
+        "uuid": "b37c508c_da98dfd6",
+        "filename": "gateway/application.properties",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2017-11-30T14:58:56Z",
+      "side": 1,
+      "message": "There is a spring security and implemented with X509 mutual Authentication and Authorities.",
+      "revId": "e523beda8050f8314bb1e65fcaa7561f37a6273b",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d41e49f9_a4768b0e",
         "filename": "gateway/pom.xml",
         "patchSetId": 1
