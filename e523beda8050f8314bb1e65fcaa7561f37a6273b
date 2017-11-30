@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7310b65f_50385b76",
+        "filename": "gateway/.factorypath",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2017-11-30T10:53:52Z",
+      "side": 1,
+      "message": "This kind of metadata probably should not be committed",
+      "revId": "e523beda8050f8314bb1e65fcaa7561f37a6273b",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eaefb2f0_11bf7428",
+        "filename": "gateway/application.properties",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2017-11-30T10:53:52Z",
+      "side": 1,
+      "message": "I don\u0027t see any spring-security credentials here, does this server require any?  It\u0027s not simply open, right?",
+      "revId": "e523beda8050f8314bb1e65fcaa7561f37a6273b",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d41e49f9_a4768b0e",
+        "filename": "gateway/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2017-11-30T10:53:52Z",
+      "side": 1,
+      "message": "Please add the jacoco plugin to measure code coverage",
+      "revId": "e523beda8050f8314bb1e65fcaa7561f37a6273b",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8853a571_0e9f8b83",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/PeerGateway.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2017-11-30T10:53:52Z",
+      "side": 1,
+      "message": "Please remove individual credentials from code",
+      "revId": "e523beda8050f8314bb1e65fcaa7561f37a6273b",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45fb19c1_da5adbff",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/onap/ONAP.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2017-11-30T10:53:52Z",
+      "side": 1,
+      "message": "Please remove usernames from code",
+      "revId": "e523beda8050f8314bb1e65fcaa7561f37a6273b",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab474dfa_18b13969",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/onap/ONAP.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2017-11-30T10:53:52Z",
+      "side": 1,
+      "message": "On exception you probably want to log to the errorLogger",
+      "revId": "e523beda8050f8314bb1e65fcaa7561f37a6273b",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8f83ac2_3d3fa066",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/task/package-info.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2017-11-30T10:53:52Z",
+      "side": 1,
+      "message": "Can remove this empty file",
+      "revId": "e523beda8050f8314bb1e65fcaa7561f37a6273b",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
