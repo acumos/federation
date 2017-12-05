@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f5834c07_31c93bda",
+        "filename": "gateway/application-adapter.properties",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2017-12-05T20:55:25Z",
+      "side": 1,
+      "message": "please remove personal names and paths like this",
+      "revId": "c5d7731f04d2b26667a496d7b3c7630ecc16cb8b",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "007fdfb6_ef8be68d",
+        "filename": "gateway/application-gateway.properties",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2017-12-05T20:55:25Z",
+      "side": 1,
+      "message": "Please remove \"ATT\"",
+      "revId": "c5d7731f04d2b26667a496d7b3c7630ecc16cb8b",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d11d260_b4e02a33",
+        "filename": "gateway/application-gateway.properties",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2017-12-05T20:55:25Z",
+      "side": 1,
+      "message": "please remove username and password entries",
+      "revId": "c5d7731f04d2b26667a496d7b3c7630ecc16cb8b",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
