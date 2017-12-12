@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a24e76e5_298aa137",
+        "filename": ".mvn/jvm.config",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2017-12-12T19:39:14Z",
+      "side": 1,
+      "message": "Does this metadata need to be committed?",
+      "revId": "76c82240a42ffc1a147e43d0036aa72cb5cb1e7a",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c15024d7_33a54ab1",
+        "filename": "gateway/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2017-12-12T19:39:14Z",
+      "side": 1,
+      "message": "Please right-click on this file in Eclipse and pick SOURCE -\u003e FORMAT",
+      "revId": "76c82240a42ffc1a147e43d0036aa72cb5cb1e7a",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c716386_32742923",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/PeerGateway.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2017-12-12T19:39:14Z",
+      "side": 1,
+      "message": "Possibly right-click Source -\u003e Format?",
+      "revId": "76c82240a42ffc1a147e43d0036aa72cb5cb1e7a",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79d1ff2f_f6c88090",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/PeerGateway.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2017-12-12T19:39:14Z",
+      "side": 1,
+      "message": "HttpStatusCodeException is the right one to catch, report the result of ex.getResponseBodyAsString()",
+      "revId": "76c82240a42ffc1a147e43d0036aa72cb5cb1e7a",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "de8be8ec_52b7dc9c",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/AbstractServiceLocalImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2017-12-12T19:39:14Z",
+      "side": 1,
+      "message": "my goodness look at all those TABS",
+      "revId": "76c82240a42ffc1a147e43d0036aa72cb5cb1e7a",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "363765aa_f8b7104a",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/util/LocalWatchService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2017-12-12T19:39:14Z",
+      "side": 1,
+      "message": "Best way to log exceptions: \n\nlogger.warn(EELFLoggerDelegate.errorLogger, \"setupSourceWatcher failed\", ex);\n\nIt will print a stack trace.  Calling toString() is not what you want it to do.",
+      "revId": "76c82240a42ffc1a147e43d0036aa72cb5cb1e7a",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
