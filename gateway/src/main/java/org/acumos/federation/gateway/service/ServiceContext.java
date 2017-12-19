@@ -21,21 +21,22 @@
 /**
  * 
  */
-package org.acumos.federation.gateway.config;
+package org.acumos.federation.gateway.service;
+
+import org.acumos.federation.gateway.security.Peer;
+
+
 
 /**
- * 
- *
+ * Expose the invocation frame for service calls (whenever a call is selectively
+ * provided).
  */
-public class APINames {
-	 //Solutions APIs for MarketPlace Catalog
-    public static final String PEER_SOLUTIONS = "/solutions";
-    public static final String PEER_SOLUTION_DETAILS = "/solutions/{solutionId}";
-    
-    public static final String PEER_SOLUTION_REVISIONS = "/solutions/{solutionId}/revisions";
-    public static final String PEER_SOLUTION_REVISION_DETAILS = "/solutions/{solutionId}/revisions/{revisionId}";
-    
-    public static final String PEER_SOLUTION_REVISION_ARTIFACTS = "/solutions/{solutionId}/revisions/{revisionId}/artifacts";
-    public static final String PEER_ARTIFACT_DETAILS = "/artifacts/{artifactId}";
-    public static final String PEER_ARTIFACT_DOWNLOAD = "/artifacts/{artifactId}/download";
+public interface ServiceContext {
+	
+	/*
+	 * In who's behalf are we providing the service
+	 */
+	public Peer	getPeer();
+
 }
+

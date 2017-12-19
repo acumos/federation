@@ -95,7 +95,7 @@ public class X509AuthenticationFilter extends WebSecurityConfigurerAdapter {
 			log.info(EELFLoggerDelegate.debugLogger, " Peers matching X509 subject : " + mlpPeers);
       if(!Utils.isEmptyList(mlpPeers)) {
 				log.info(EELFLoggerDelegate.debugLogger, " We are providing a matching Use ");
-				return new User(username, "", AuthorityUtils.commaSeparatedStringToAuthorityList("PEER"));
+				return new Peer(username, AuthorityUtils.commaSeparatedStringToAuthorityList("PEER"));
 			}
 			else	{
 				return null;

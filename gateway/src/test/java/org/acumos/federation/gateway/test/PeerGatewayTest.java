@@ -104,7 +104,7 @@ public class PeerGatewayTest {
 		assertTrue(response.getBody().getResponseBody().size() == 1);
 	}
 
-/*
+
 	@Test
 	public void testSolutionSuccess() {
 
@@ -124,7 +124,7 @@ public class PeerGatewayTest {
 		assertTrue(response.getStatusCodeValue() == 200);
 		assertTrue(response.getBody().getResponseBody().getModelTypeCode().equals("CL")); //no errors
 	}
-*/
+
 	@Test
 	public void testSolutionRevisionsSuccess() {
     
@@ -146,6 +146,26 @@ public class PeerGatewayTest {
 	}
 
 	@Test
+	public void testSolutionRevisionSuccess() {
+
+    ((HttpComponentsClientHttpRequestFactory)
+			this.restTemplate.getRestTemplate().getRequestFactory())
+				.setHttpClient(prepareHttpClient());
+
+		ResponseEntity<JsonResponse<MLPSolution>> response =
+			this.restTemplate.exchange("/solutions/00000000-0000-0000-0000-000000000000/revisions/01010101-0101-0101-0101-010101010101", HttpMethod.GET, prepareRequest(), new ParameterizedTypeReference<JsonResponse<MLPSolution>>() {} );
+	
+		if (response != null)	{
+			System.out.println("testSolution: " + response.getBody());
+			System.out.println("testSolution: " + response);
+		}
+
+		assertTrue(response != null);
+		assertTrue(response.getStatusCodeValue() == 200);
+		assertTrue(response.getBody().getResponseBody().getOwnerId().equals("admin")); //no errors
+	}
+
+	@Test
 	public void testSolutionRevisionArtifactsSuccess() {
     
 		((HttpComponentsClientHttpRequestFactory)
@@ -153,7 +173,7 @@ public class PeerGatewayTest {
 				.setHttpClient(prepareHttpClient());
 
 		ResponseEntity<JsonResponse<List<MLPArtifact>>> response =
-			this.restTemplate.exchange("/solutions/00000000-0000-0000-0000-000000000000/revisions/01010101-0101-0101-0101-010101010101", HttpMethod.GET, prepareRequest(), new ParameterizedTypeReference<JsonResponse<List<MLPArtifact>>>() {});
+			this.restTemplate.exchange("/solutions/00000000-0000-0000-0000-000000000000/revisions/01010101-0101-0101-0101-010101010101/artifacts", HttpMethod.GET, prepareRequest(), new ParameterizedTypeReference<JsonResponse<List<MLPArtifact>>>() {});
 		
 		if (response != null)	{
 			System.out.println("testSolutionRevisionsArtifacts: " + response.getBody());
