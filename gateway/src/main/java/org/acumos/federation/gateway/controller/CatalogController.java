@@ -104,7 +104,8 @@ public class CatalogController extends AbstractController {
 	 * @return List of Published ML Solutions in JSON format.
 	 */
 	@CrossOrigin
-	@PreAuthorize("hasAuthority('PEER')")
+//@PreAuthorize("hasAuthority('PEER')"
+	@PreAuthorize("hasAuthority(T(org.acumos.federation.gateway.security.Priviledge).CATALOG_ACCESS)")
 	@ApiOperation(value = "Invoked by Peer Acumos to get a list of Published Solutions from the Catalog of the local Acumos Instance .", response = MLPSolution.class, responseContainer = "List")
 	@RequestMapping(value = {APINames.PEER_SOLUTIONS}, method = RequestMethod.GET, produces = APPLICATION_JSON)
 	@ResponseBody
@@ -125,20 +126,20 @@ public class CatalogController extends AbstractController {
 				response.setResponseDetail(JSONTags.TAG_STATUS_SUCCESS);
 				response.setStatus(true);
 				theHttpResponse.setStatus(HttpServletResponse.SC_OK);
-				log.debug(EELFLoggerDelegate.debugLogger, "getSolutionsListFromPeer: size is " + peerCatalogSolutions.size());
+				log.debug(EELFLoggerDelegate.debugLogger, "getSolutions: size is " + peerCatalogSolutions.size());
 			}
 		} catch (Exception e) {
 			response.setResponseCode(String.valueOf(HttpServletResponse.SC_BAD_REQUEST));
 			response.setResponseDetail(JSONTags.TAG_STATUS_FAILURE);
 			response.setStatus(false);
 			theHttpResponse.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-			log.error(EELFLoggerDelegate.errorLogger, "Exception Occurred Fetching Solutions for Market Place Catalog", e);
+			log.error(EELFLoggerDelegate.errorLogger, "Exception occurred fetching Solutions for Market Place Catalog", e);
 		}
 		return response;
 	}
 
 	@CrossOrigin
-	@PreAuthorize("hasAuthority('PEER')")
+	@PreAuthorize("hasAuthority('CATALOG_ACCESS')")
 	@ApiOperation(value = "Invoked by Peer Acumos to get a list detailed solution information from the Catalog of the local Acumos Instance .", response = MLPSolution.class)
 	@RequestMapping(value = {APINames.PEER_SOLUTION_DETAILS}, method = RequestMethod.GET, produces = APPLICATION_JSON)
 	@ResponseBody
@@ -179,7 +180,7 @@ public class CatalogController extends AbstractController {
 	 * @return List of Published ML Solutions in JSON format.
 	 */
 	@CrossOrigin
-	@PreAuthorize("hasAuthority('PEER')")
+	@PreAuthorize("hasAuthority('CATALOG_ACCESS')")
 	@ApiOperation(value = "Invoked by Peer Acumos to get a list of Solution Revision from the Catalog of the local Acumos Instance .", response = MLPSolutionRevision.class, responseContainer = "List")
 	@RequestMapping(value = {APINames.PEER_SOLUTION_REVISIONS}, method = RequestMethod.GET, produces = APPLICATION_JSON)
 	@ResponseBody
@@ -198,7 +199,7 @@ public class CatalogController extends AbstractController {
 				response.setResponseDetail(JSONTags.TAG_STATUS_SUCCESS);
 				response.setStatus(true);
 				theHttpResponse.setStatus(HttpServletResponse.SC_OK);
-				log.debug(EELFLoggerDelegate.debugLogger, "getSolutionsRevisionListFromPeer: size is {} ", solutionRevisions.size());
+				log.debug(EELFLoggerDelegate.debugLogger, "getSolutionsRevisions: size is {} ", solutionRevisions.size());
 			}
 		}
 		catch (Exception e) {
@@ -219,7 +220,7 @@ public class CatalogController extends AbstractController {
 	 * @return List of Published ML Solutions in JSON format.
 	 */
 	@CrossOrigin
-	@PreAuthorize("hasAuthority('PEER')")
+	@PreAuthorize("hasAuthority('CATALOG_ACCESS')")
 	@ApiOperation(value = "Invoked by Peer Acumos to get Solution Revision details from the Catalog of the local Acumos Instance .", response = MLPSolutionRevision.class)
 	@RequestMapping(value = {APINames.PEER_SOLUTION_REVISION_DETAILS}, method = RequestMethod.GET, produces = APPLICATION_JSON)
 	@ResponseBody
@@ -259,7 +260,7 @@ public class CatalogController extends AbstractController {
 	 * @return List of Published ML Solutions in JSON format.
 	 */
 	@CrossOrigin
-	@PreAuthorize("hasAuthority('PEER')")
+	@PreAuthorize("hasAuthority('CATALOG_ACCESS')")
 	@ApiOperation(value = "Invoked by Peer Acumos to get a list of Solution Revision Artifacts from the Catalog of the local Acumos Instance .", response = MLPArtifact.class, responseContainer = "List")
 	@RequestMapping(value = {APINames.PEER_SOLUTION_REVISION_ARTIFACTS}, method = RequestMethod.GET, produces = APPLICATION_JSON)
 	@ResponseBody
@@ -291,7 +292,7 @@ public class CatalogController extends AbstractController {
 				response.setResponseDetail(JSONTags.TAG_STATUS_SUCCESS);
 				response.setStatus(true);
 				theHttpResponse.setStatus(HttpServletResponse.SC_OK);
-				log.debug(EELFLoggerDelegate.debugLogger, "getSolutionsRevisionArtifactListFromPeer: size is {} ", solutionRevisionArtifacts.size());
+				log.debug(EELFLoggerDelegate.debugLogger, "getSolutionRevisionArtifacts: size is {} ", solutionRevisionArtifacts.size());
 			}
 		}
 		catch (Exception e) {
@@ -312,7 +313,7 @@ public class CatalogController extends AbstractController {
 	 * @return Archive file of the Artifact for the Solution.
 	 */
 	@CrossOrigin
-	@PreAuthorize("hasAuthority('PEER')")
+	@PreAuthorize("hasAuthority('CATALOG_ACCESS')")
 	@ApiOperation(value = "API to download the Machine Learning Artifact of the Machine Learning Solution", response = InputStreamResource.class, code = 200)
 	@RequestMapping(value = {APINames.PEER_ARTIFACT_DOWNLOAD}, method = RequestMethod.GET, produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
 	@ResponseBody

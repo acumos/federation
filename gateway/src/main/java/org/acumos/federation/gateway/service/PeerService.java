@@ -36,6 +36,11 @@ public interface PeerService {
 	List<MLPPeer> getPeers();
 	
 	/**
+	 * Provide the list of locally registered peers to one of our peers
+	 */
+	List<MLPPeer> getPeers(ServiceContext theContext);
+	
+	/**
 	 * @return Peer based on the configured Subject Name
 	 */
 	List<MLPPeer> getPeer(String subjectName);

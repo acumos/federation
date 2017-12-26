@@ -50,7 +50,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 
 @Configuration
 @EnableWebSecurity
-//@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class X509AuthenticationFilter extends WebSecurityConfigurerAdapter {
 	
 	private final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(getClass().getName());
@@ -62,14 +62,13 @@ public class X509AuthenticationFilter extends WebSecurityConfigurerAdapter {
 	private boolean securityEnabled;
 
 	public X509AuthenticationFilter() {
-		// TODO Auto-generated constructor stub
 	}
 
+/*
 	public X509AuthenticationFilter(boolean disableDefaults) {
 		super(disableDefaults);
-		// TODO Auto-generated constructor stub
 	}
-
+*/
 	/**
      * subjectPrincipalRegex("CN=(.*?)(?:,|$)") :- The regular expression used to extract a username from the client certificates subject name.
      * (CN value of the client certificate)
@@ -87,7 +86,7 @@ public class X509AuthenticationFilter extends WebSecurityConfigurerAdapter {
 
 	}
 	
-	@Bean
+	//@Bean
 	public UserDetailsService userDetailsService() {
 		return (username -> {
 			log.info(EELFLoggerDelegate.debugLogger, " X509 subject : " + username);
@@ -95,10 +94,11 @@ public class X509AuthenticationFilter extends WebSecurityConfigurerAdapter {
 			log.info(EELFLoggerDelegate.debugLogger, " Peers matching X509 subject : " + mlpPeers);
       if(!Utils.isEmptyList(mlpPeers)) {
 				log.info(EELFLoggerDelegate.debugLogger, " We are providing a matching Use ");
-				return new Peer(username, AuthorityUtils.commaSeparatedStringToAuthorityList("PEER"));
+				return new Peer(username, Role.PEER.priviledges());
 			}
 			else	{
-				return null;
+				return new Peer(username, Role.ANY.priviledges());
+				//return null;
 			}
 		});
  	}

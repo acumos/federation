@@ -19,19 +19,45 @@
  */
 package org.acumos.federation.gateway.security;
 
+
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Arrays;
 
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 
 /**
+ * Each Role states a predefined set of available federation priviledges.
  */
-public class Peer extends User {
+public enum Role {
 
-	//private MLPPeer	peer;
+	/**
+   * Un-authenticated client. Will at most be granted access to subscribe
+	 * functionality
+	 */
+	ANY(Collections.EMPTY_LIST),
+	/**
+	 * Common peer, grants generic solution catalog access
+	 */
+	PEER(Arrays.asList(Priviledge.CATALOG_ACCESS)),
+	/**
+   * Enhanced peer, gains (some lovel of) read access to the local peer list
+	 */
+	PARTNER(Arrays.asList(Priviledge.CATALOG_ACCESS, Priviledge.PEERS_ACCESS)),
+	/**
+	 * The actual gateway system, used for local calls, grants all proviledges
+	 */
+	SYSTEM(Arrays.asList(Priviledge.class.getEnumConstants()));
 
-	public Peer(String theName, Collection<? extends GrantedAuthority> theAuthorities) {
-		super (theName, "", true, true, true, true, theAuthorities);
+
+	private Collection<Priviledge> priviledges;
+
+	Role(Collection<Priviledge> thePriviledges) {
+		this.priviledges = thePriviledges;
+	}
+
+	public Collection<Priviledge> priviledges() {
+		return this.priviledges;
 	}
 
 }
