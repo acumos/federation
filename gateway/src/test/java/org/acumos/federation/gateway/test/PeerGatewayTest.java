@@ -52,6 +52,7 @@ import org.acumos.federation.gateway.common.JsonResponse;
 import org.acumos.federation.gateway.common.HttpClientConfigurationBuilder;
 import static org.acumos.federation.gateway.common.HttpClientConfigurationBuilder.SSLBuilder;
 
+import org.acumos.cds.domain.MLPPeer;
 import org.acumos.cds.domain.MLPSolution;
 import org.acumos.cds.domain.MLPSolutionRevision;
 import org.acumos.cds.domain.MLPArtifact;
@@ -183,6 +184,24 @@ public class PeerGatewayTest {
 		assertTrue(response != null);
 		assertTrue(response.getStatusCodeValue() == 200);
 		assertTrue(response.getBody().getResponseBody().size() == 1); //no errors
+	}
+
+	@Test
+	public void testPeersForbidden() {
+
+    ((HttpComponentsClientHttpRequestFactory)
+			this.restTemplate.getRestTemplate().getRequestFactory())
+				.setHttpClient(prepareHttpClient());
+
+		ResponseEntity<JsonResponse<List<MLPPeer>>> response =
+			this.restTemplate.exchange("/peers", HttpMethod.GET, prepareRequest(), new ParameterizedTypeReference<JsonResponse<List<MLPPeer>>>() {} );
+	
+		if (response != null)	{
+			System.out.println("testPeers: " + response.getBody());
+			System.out.println("testPeers: " + response);
+		}
+
+		assertTrue(response.getStatusCodeValue() == 403);
 	}
 
 	private HttpEntity prepareRequest(String theResourceName) {

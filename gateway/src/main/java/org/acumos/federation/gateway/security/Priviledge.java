@@ -19,20 +19,35 @@
  */
 package org.acumos.federation.gateway.security;
 
-import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 
 /**
+ * An enumeratoin of federated access fine grained proviledges
  */
-public class Peer extends User {
+public enum Priviledge implements GrantedAuthority {
 
-	//private MLPPeer	peer;
+	/** 
+		Gives access to catalog items (solutions); coarse at this point, all
+		(list/read/download) or nothing
+	 */
+	CATALOG_ACCESS,
+	/**
+		Gives access to the local list of peers.
+		In the future we might want to refine this by defining which peers should be provided (byb some base selection criteria)
+	 */
+	PEERS_ACCESS,
+	/**
+		The right to submit a subscription request. This is granted to ANY if so enabled system wide.
+	 */
+	SUBSCRIPTION;
 
-	public Peer(String theName, Collection<? extends GrantedAuthority> theAuthorities) {
-		super (theName, "", true, true, true, true, theAuthorities);
+	Priviledge() {
 	}
 
+	@Override
+	public String getAuthority() {
+		return name();
+	}
 }
 

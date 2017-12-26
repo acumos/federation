@@ -38,4 +38,9 @@ public class APINames {
     public static final String PEER_SOLUTION_REVISION_ARTIFACTS = "/solutions/{solutionId}/revisions/{revisionId}/artifacts";
     public static final String PEER_ARTIFACT_DETAILS = "/artifacts/{artifactId}";
     public static final String PEER_ARTIFACT_DOWNLOAD = "/artifacts/{artifactId}/download";
+    
+		public static final String PEER_PEERS = "/peers";
+		
+		//public static final String PEER_SUBSCRIBE = "/peer/subscribe";
+		//public static final String PEER_UNSUBSCRIBE = "/peer/unsubscribe";
 }
