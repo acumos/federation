@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "47eab57c_beb7b361",
+        "filename": "gateway/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 62
+      },
+      "writtenOn": "2018-01-13T01:57:43Z",
+      "side": 1,
+      "message": "Should keep indentation consistent in the file.",
+      "revId": "67f1f9ce3747cc46d737e3ae0d2a2c84a145c260",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
