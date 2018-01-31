@@ -337,6 +337,10 @@ public class PeerGateway {
 		/**
 		 * Here comes the core process of updating a local solution's related
 		 * information with what is available from a peer.
+		 * @param theSolution the local solution who's related information
+		 *				(revisions and artifacts) we are trying to sync
+		 * @param cdsClient CDS client to use in the process
+		 * @throws Exception any error related to CDS and peer interaction
 		 */		
 		protected void mapSolution(MLPSolution theSolution, ICommonDataServiceRestClient cdsClient) throws Exception {
 
