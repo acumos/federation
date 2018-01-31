@@ -36,38 +36,66 @@ import org.acumos.cds.transport.RestPageResponse;
 
 
 /**
- * Handles access to the solutions catalog 
+ * Handles access to the solutions catalog.
+ * The APIs of tis interface take a ServiceContext argument which determines
+ * the identity of the peer on bahalf of whom the call is executed. This 
+ * information allows us to tailor the response according to a peer's granted
+ * access. It is the responsability of each implementation to ensure that
+ * the peer on who's behalf the service is executed only accesses solutions
+ * it was granted access to.
  */
 public interface CatalogService {
 	
 
 	/**
+	 * API to be invoked by Peer Acumos to fetch the Catalog Solutions List.
 	 * 
-	 *  API to be invoked by Peer Acumos to fetch the Catalog Solutions List.
+	 * @param theSelector contains the selection criteria. Must match the
+	 *				available criteria in CDS.
+	 * @param theContext the execution context.
 	 * 
-	 * @param theSelector contains the selection criteria.
-	 * 
-	 * @return List of the Catalog Solutions for the specified list of query parameters
+	 * @return List of the Catalog Solutions for the selection criteria
 	 */
 	public List<MLPSolution> getSolutions(Map<String,?> theSelector, ServiceContext theContext);
-	
+
+	/**
+	 * Default interface for calls in behalf of the local Acumos service.
+	 *
+	 * @param theSelector contains the selection criteria. Must match the
+	 *				available criteria in CDS
+	 * @return list of the solutions for the selection criteria
+	 */	
 	public default List<MLPSolution> getSolutions(Map<String,?> theSelector) {
 		return getSolutions(theSelector, ServiceContext.selfService());
 	}
 
 	/**
+	 * Retrieve a solution's details from CDS. 
+	 * @param theSolutionId solution identifier (UUID).
+	 * @param theContext the execution context
+	 * @return solution information
 	 */
 	public MLPSolution getSolution(String theSolutionId, ServiceContext theContext);
 	
+	/**
+	 * Default solution access interface for calls in behalf of the local
+	 * Acumos service.
+	 *
+	 * @param theSolutionId solution identifier (UUID).
+	 * @return solution information
+	 */
 	public default MLPSolution getSolution(String theSolutionId) {
 		return getSolution(theSolutionId, ServiceContext.selfService());
 	}
 	
 	
 	/**
-	 * @param solutionId : SolutionId for which Solution Revision Needs to be returned
-	 * 
-	 * @return List of the Solution Revision for the specified solution Id
+	 * Provides revision information given a solution identifier.
+
+	 * @param theSolutionId identifier of the solution who's revisions are
+	 *				to be provided
+	 * @param theContext the execution context
+	 * @return list of the solution revision for the specified solution Id
 	 */
 	public List<MLPSolutionRevision> getSolutionRevisions(
 		String theSolutionId, ServiceContext theContext);
@@ -75,34 +103,62 @@ public interface CatalogService {
 	public default List<MLPSolutionRevision> getSolutionRevisions(String theSolutionId) {
 		return getSolutionRevisions(theSolutionId, ServiceContext.selfService());
 	}
+
 	/**
+	 * Access to a solution revision information.
+	 *
+	 * @param theSolutionId solution identifier (UUID).
+	 * @param theRevisionId revision identifier (UUID).
+	 * @param theContext the execution context
+	 * @return solution revision information
 	 */
 	public MLPSolutionRevision getSolutionRevision(
 		String theSolutionId, String theRevisionId, ServiceContext theContext);
 
+	/**
+	 * Default solution revision access interface for calls in behalf of the local
+	 * Acumos service.
+	 *
+	 * @param theSolutionId solution identifier (UUID).
+	 * @param theRevisionId revision identifier (UUID).
+	 * @return solution revision information
+	 */	
 	public default MLPSolutionRevision getSolutionRevision(
 		String theSolutionId, String theRevisionId) {
 		return getSolutionRevision(theSolutionId, theRevisionId, ServiceContext.selfService());
 	}
 
 	/**
-	 * @param solutionId : SolutionId for which Solution Revision Artifacts Needs to be returned
-	 * 
-	 * @param revisionid : RevisionId of the Solution for which List of Artifacts are needed.
-	 * 
-	 * @return List of the Solution Artifacts for the specified solution Id & revisionId
+	 * Access the list of solution revision artifacts.
+
+	 * @param theSolutionId solution identifier (UUID).
+	 * @param theRevisionId revision identifier (UUID).
+	 * @param theContext the execution context
+	 * @return list of the related artifacts 
 	 */
 	public List<MLPArtifact> getSolutionRevisionArtifacts(
 		String theSolutionId, String theRevisionId, ServiceContext theContext);
 	
+	/**
+	 * Default solution revision access interface for calls in behalf of the local
+	 * Acumos service.
+	 *
+	 * @param theSolutionId solution identifier (UUID).
+	 * @param theRevisionId revision identifier (UUID).
+	 * @return list of the related artifacts
+	 */
 	public default List<MLPArtifact> getSolutionRevisionArtifacts(
 		String theSolutionId, String theRevisionId) {
 		return getSolutionRevisionArtifacts(theSolutionId, theRevisionId, ServiceContext.selfService());
 	}
 	
 	/**
-	 * @param artifactId of the File stored in Nexus repository
-	 * @return Artifact File for the Machine Learning Solution 
+	 * Retrieve artifact content.
+	 *
+	 * @param theArtifactId identifier of the acumos artifact who's content
+	 *				needs to be retrieved
+	 * @param theContext the execution context
+	 * @return resource containing access to the actual artifact content
 	 */
 	public InputStreamResource getSolutionRevisionArtifactContent(String theArtifactId, ServiceContext theContext);
 	
