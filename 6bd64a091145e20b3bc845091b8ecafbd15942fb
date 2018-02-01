@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "33ce6549_dbbd31aa",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/CatalogService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-01T10:42:36Z",
+      "side": 1,
+      "message": "I recommend using the Eclipse code formatter to avoid strange tab sequences like here.",
+      "revId": "6bd64a091145e20b3bc845091b8ecafbd15942fb",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f71f1bd_2f4516d1",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/CatalogService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-01T10:42:36Z",
+      "side": 1,
+      "message": "who\u0027s \u003d\u003d who is   :)",
+      "revId": "6bd64a091145e20b3bc845091b8ecafbd15942fb",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf4d9c72_12c511af",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/PeerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-01T10:42:36Z",
+      "side": 1,
+      "message": "Please use the Eclipse code formatter",
+      "revId": "6bd64a091145e20b3bc845091b8ecafbd15942fb",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
