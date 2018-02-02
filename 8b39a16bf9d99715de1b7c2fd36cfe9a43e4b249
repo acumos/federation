@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "389febfb_44b27689",
+        "filename": "docs/federated-gateway.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-02T17:40:22Z",
+      "side": 1,
+      "message": "perhaps add a space between \"information\" and \"available\" ?",
+      "revId": "8b39a16bf9d99715de1b7c2fd36cfe9a43e4b249",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
