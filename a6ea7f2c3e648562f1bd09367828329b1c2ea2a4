@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6482c669_3e84b133",
+        "filename": "gateway/debug-logs/EELF/debug.log",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 0,
+      "message": "Please don\u0027t commit log output",
+      "revId": "a6ea7f2c3e648562f1bd09367828329b1c2ea2a4",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}

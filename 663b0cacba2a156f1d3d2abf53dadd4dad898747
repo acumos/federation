@@ -1,0 +1,1211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a4fcb59d_f2b8a71e",
+        "filename": "gateway/application-acumosa.properties",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "Don\u0027t commit filesystem-specific paths like this",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f7bf6a7b_626b223f",
+        "filename": "gateway/application-acumosb.properties",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "Avoid committing user names, file-system specific details",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27458ec5_6d276a1b",
+        "filename": "gateway/application-ghost.properties",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "Pls clean up",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b97fb430_7fdc1d38",
+        "filename": "gateway/application-test.properties",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "Is this essential to push to Gerrit?",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "535f302d_4ea6cc9e",
+        "filename": "gateway/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "Suggest upgrading to 1.5.10.RELEASE",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67831534_028ec7a1",
+        "filename": "gateway/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "This is the default you don\u0027t need this property",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7fc50872_4f89fded",
+        "filename": "gateway/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "Why do you have all these extra version properties?  Spring-boot parent  will handle this, right?",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5329691_f67d1ece",
+        "filename": "gateway/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "Remove, don\u0027t comment out",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d179657_1f6c7e22",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/PeerGateway.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "remove, don\u0027t comment out",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "620a5277_57d7cfcb",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/PeerGateway.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "why use \"this.\"?  That\u0027s not necessary here",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c662de0c_060b42ee",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/PeerGateway.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "Use logger {} feature to avoid string catenation.  Should be:\n\nlogger.debug(EELFLD.dL, \"Received {}\", theEvent);",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d69b1831_65069530",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/PeerGateway.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "Log errors to the error log",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "55bd716b_57636d2b",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/PeerGateway.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "You catch and discard the exception - generally bad practice.  Can you throw again?",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33a90e41_cb2d16db",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/PeerGateway.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "Log errors to the error logger, not debug",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34f7b354_58cb7208",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/PeerGateway.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "Again you catch and discard - can this be cleaned up?",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c694aed_43d12a5c",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/PeerGateway.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "errors to error logger, not debug",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c00a934_53b2cb50",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/PeerGateway.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "error !\u003d debug",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c57dd3f_c3722c05",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/PeerGateway.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "warnings to the debug logger?  Probably the wrong thing",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "527d4d25_01aa3e80",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/PeerGateway.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "error !\u003d debug",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84949fef_7a29dc71",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/PeerGateway.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "both problems: catch and discard; log to wrong logger",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1e20166_81a891b4",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/PeerGateway.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "the double threat again here",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c317234a_7e20ad75",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/PeerGateway.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "catch+ discard; wrong logger",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76ee24c7_64f5b9bf",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/PeerGateway.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "See above",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5d657b4_bd825909",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/onap/ONAP.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "you may -- totally at your discretion - may wish to log enter/exit messages at level TRACE.  Like this:  \n\nlog.trace(EELFLD.debugLogger, \"init\");",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0537854d_a1533b47",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/onap/ONAP.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "log exceptions at error level to error logger",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fdc33e35_92ff6bba",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/onap/ONAP.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "See above",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "920d9d1c_76302049",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/onap/ONAP.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "see above",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "26f375c7_0d4718d6",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/onap/ONAP.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "Glad to see you\u0027re not discarding the exception!",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f3e1e1a8_afd65a32",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/onap/ONAP.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "see above",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "26dc0d3b_98867fa3",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/onap/ONAP.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "see above",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7213fa9_ad727576",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/onap/ONAP.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "suggest using {} feature to avoid string catenation",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4eafc9ae_aa8b3e78",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/onap/ONAP.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "maybe debug level for debug logger?",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "571522dc_ee1bd45e",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/onap/ONAP.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8183b680_e9bb3f3d",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/onap/ONAP.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "log exceptions at error level to error loggerC",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a78819bc_1b5d0afd",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/onap/ONAP.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "catch+discard; wrong logger",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3d77b26e_d90f26cf",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/onap/ONAP.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "level debug is probably what you want",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "acef8a8a_27659943",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/onap/ONAP.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "catch+discard; wrong logger",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "29ae8897_a157b97a",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/onap/ONAP.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "wrong level, wrong logger",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e4e39c2_1dc8b849",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/onap/ONAP.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2556fea4_fbf51f5b",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/cds/PeerStatus.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "Peer status values updated in 1.14.0",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "937a0c55_cd822823",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/cds/SubscriptionScope.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "I believe scope is available in CDS 1.13.x",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18224726_3421f713",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/common/Clients.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "Probably should be private?",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74f7b96b_9b047f4b",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/common/Clients.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "Should be private static final",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24d7b75e_69cd093a",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/common/FederationClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "log at level error - and  you want to get the response message because that\u0027s where the valuable information is: ex.getResponseBodyAsString",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07cdf639_faa363a8",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/common/FederationClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "log this too",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "688f5414_d4fd38eb",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/common/FederationClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "use level error",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d6bfcd8_de9b76e1",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/common/FederationClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "use level error",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ec7441a_7c68303c",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/common/FederationClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "see above",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adeadaa0_2a2919ef",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/common/FederationClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "see above",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f25b6b2_137654f5",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/common/FederationClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "see above",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "98137338_b9716897",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/common/FederationClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "see above",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d98d6c00_12a578c2",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/common/FederationClient.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "see above",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76222411_5b05dc14",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/config/AdapterConfiguration.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "remove code instead of commenting out",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "edecf7fa_3aa15102",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/config/InterfaceConfiguration.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "Use logger, not system.out",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b23e0de_04086731",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/config/InterfaceConfiguration.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "May want to log the exceptions",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27c489cd_032c3279",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/config/InterfaceConfigurationBuilder.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "Remove instead of commenting out",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ad179b9_8e91a3fd",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/controller/PeerPingController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "should be private",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e49bf28_339e6083",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/controller/PingController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "make private",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c996a949_57354d1c",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/controller/RegistrationController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "create a logger for this class",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e3a4976_7d0ae23d",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/controller/RegistrationController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "make private",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bdba689_d2ab0891",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/controller/RegistrationController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "Which logger is being used??",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "150be04b_92e9531a",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/CatalogServiceImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "Use {}",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "befc7be1_1a33caa2",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/task/PeerSubscriptionTask.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "Log at error level",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a7cec68f_cd4770eb",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/task/TaskConfiguration.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "Remove code, don\u0027t comment out",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7cb3ce7d_1b6af854",
+        "filename": "gateway/src/main/resources/application.properties.old",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "Can this file be deleted?",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f20a816a_d028e104",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/test/ControllerTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "Use logger, not System.out",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2dea0e60_5c97d8c4",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/test/TaskTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "Use logger, not system.out",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "352c3558_5206fe65",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/test/TaskTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "Use logger, not System.out",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ebd4c661_fc098d61",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/test/TestAdapter.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "catch and discard; wrong logger",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8c876fcc_6fa0c459",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/test/TestAdapter.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "catch and discard; wrong logger",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8fbdcd97_1e55a6b0",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/test/TestAdapter.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-23T13:54:57Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "663b0cacba2a156f1d3d2abf53dadd4dad898747",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
