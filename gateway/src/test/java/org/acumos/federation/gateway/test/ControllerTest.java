@@ -30,6 +30,8 @@ import org.junit.runners.MethodSorters;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextHierarchy;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -49,8 +51,8 @@ import org.apache.http.client.HttpClient;
 
 /* this is not good for unit testing .. */
 import org.acumos.federation.gateway.common.JsonResponse;
-import org.acumos.federation.gateway.common.HttpClientConfigurationBuilder;
-import static org.acumos.federation.gateway.common.HttpClientConfigurationBuilder.SSLBuilder;
+import org.acumos.federation.gateway.config.InterfaceConfigurationBuilder;
+import static org.acumos.federation.gateway.config.InterfaceConfigurationBuilder.SSLBuilder;
 
 import org.acumos.cds.domain.MLPPeer;
 import org.acumos.cds.domain.MLPSolution;
@@ -64,20 +66,25 @@ import org.acumos.cds.domain.MLPArtifact;
 
 //@RunWith(SpringJUnit4ClassRunner.class)
 @RunWith(SpringRunner.class)
+@ContextHierarchy({
+	@ContextConfiguration(classes = org.acumos.federation.gateway.test.TestAdapterConfiguration.class),
+	@ContextConfiguration(classes = org.acumos.federation.gateway.config.FederationConfiguration.class)
+})
 @SpringBootTest(classes = org.acumos.federation.gateway.Application.class,
 								webEnvironment = WebEnvironment.RANDOM_PORT,
 								properties = {
 									"federation.instance=adapter",
-									"federation.instance.name=ghost",
-									"peersLocal.source=classpath:/test-peers.json",
-									"catalogLocal.source=classpath:/test-catalog.json",
-									"server.ssl.key-store=classpath:acumosa.pkcs12",
-									"server.ssl.key-store-password=acumosa",
-									"server.ssl.key-store-type=PKCS12",
-									"server.ssl.key-password = acumosa",
-									"server.ssl.trust-store=classpath:acumosTrustStore.jks",
-									"server.ssl.trust-store-password=acumos",
-									"server.ssl.client-auth=need"
+									"federation.instance.name=test",
+									"federation.operator=admin",
+									"peersLocal.source=classpath:test-peers.json",
+									"catalogLocal.source=classpath:test-catalog.json",
+									"federation.ssl.key-store=classpath:acumosa.pkcs12",
+									"federation.ssl.key-store-password=acumosa",
+									"federation.ssl.key-store-type=PKCS12",
+									"federation.ssl.key-password = acumosa",
+									"federation.ssl.trust-store=classpath:acumosTrustStore.jks",
+									"federation.ssl.trust-store-password=acumos",
+									"federation.ssl.client-auth=need"
 								})
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ControllerTest {
@@ -102,7 +109,7 @@ public class ControllerTest {
 		
 		assertTrue(response != null);
 		assertTrue(response.getStatusCodeValue() == 200);
-		assertTrue(response.getBody().getResponseBody().size() == 1);
+		assertTrue(response.getBody().getContent().size() == 1);
 	}
 
 
@@ -123,7 +130,7 @@ public class ControllerTest {
 
 		assertTrue(response != null);
 		assertTrue(response.getStatusCodeValue() == 200);
-		assertTrue(response.getBody().getResponseBody().getModelTypeCode().equals("CL")); //no errors
+		assertTrue(response.getBody().getContent().getModelTypeCode().equals("CL")); //no errors
 	}
 
 	@Test
@@ -143,7 +150,7 @@ public class ControllerTest {
 
 		assertTrue(response != null);
 		assertTrue(response.getStatusCodeValue() == 200);
-		assertTrue(response.getBody().getResponseBody().size() == 1); //no errors
+		assertTrue(response.getBody().getContent().size() == 1); //no errors
 	}
 
 	@Test
@@ -163,7 +170,7 @@ public class ControllerTest {
 
 		assertTrue(response != null);
 		assertTrue(response.getStatusCodeValue() == 200);
-		assertTrue(response.getBody().getResponseBody().getOwnerId().equals("admin")); //no errors
+		assertTrue(response.getBody().getContent().getOwnerId().equals("admin")); //no errors
 	}
 
 	@Test
@@ -183,7 +190,7 @@ public class ControllerTest {
 
 		assertTrue(response != null);
 		assertTrue(response.getStatusCodeValue() == 200);
-		assertTrue(response.getBody().getResponseBody().size() == 1); //no errors
+		assertTrue(response.getBody().getContent().size() == 1); //no errors
 	}
 
 	@Test
@@ -221,7 +228,7 @@ public class ControllerTest {
 	}
 
 	private HttpClient prepareHttpClient() {
-		return new HttpClientConfigurationBuilder()
+		return new InterfaceConfigurationBuilder()
 								.withSSL(new SSLBuilder()
 															.withKeyStore("classpath:/acumosb.pkcs12")
 															.withKeyStorePassword("acumosb")

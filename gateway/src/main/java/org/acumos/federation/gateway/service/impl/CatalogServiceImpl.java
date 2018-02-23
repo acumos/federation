@@ -41,7 +41,6 @@ import org.acumos.federation.gateway.config.EELFLoggerDelegate;
 import org.acumos.federation.gateway.service.CatalogService;
 import org.acumos.federation.gateway.service.ServiceContext;
 import org.acumos.federation.gateway.util.Utils;
-import org.acumos.federation.gateway.common.GatewayCondition;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.InputStreamResource;
@@ -63,7 +62,6 @@ import org.acumos.cds.transport.RestPageResponse;
  *
  */
 @Service
-@Conditional(GatewayCondition.class)
 public class CatalogServiceImpl extends AbstractServiceImpl implements CatalogService {
 
 	@Autowired
@@ -94,10 +92,12 @@ public class CatalogServiceImpl extends AbstractServiceImpl implements CatalogSe
 		if (theSelector != null)
 			selector.putAll(theSelector);
 
-		List<MLPSolution> solutions = cdsClient.searchSolutions(selector, false);
-		log.debug(EELFLoggerDelegate.debugLogger, "getSolutions: cds solutions " + solutions);
+		//TODO: load all pages ?? 
+		RestPageResponse<MLPSolution> response = 
+			getClient().searchSolutions(selector, false, null);
+		log.debug(EELFLoggerDelegate.debugLogger, "getSolutions: cds solutions count " + response.getSize());
 
-		return solutions;
+		return response.getContent();
 	}
 
 	@Override
