@@ -23,6 +23,7 @@ package org.acumos.federation.gateway.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.acumos.federation.gateway.config.EELFLoggerDelegate;
+import org.acumos.federation.gateway.common.Clients;
 
 import org.acumos.cds.client.ICommonDataServiceRestClient;
 
@@ -35,7 +36,7 @@ public abstract class AbstractServiceImpl {
 	protected final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(getClass().getName());
 
 	public ICommonDataServiceRestClient getClient() {
-		return clients.getClient();
+		return clients.getCDSClient();
 	}
 
 }
