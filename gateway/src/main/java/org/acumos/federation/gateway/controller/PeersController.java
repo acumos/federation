@@ -44,15 +44,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import io.swagger.annotations.ApiOperation;
 
 @Controller
-@RequestMapping("/")
-public class PeerController extends AbstractController {
-
-	private static final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(PeerController.class.getName());
+@RequestMapping(API.Roots.FEDERATION)
+public class PeersController extends AbstractController {
 
 	@Autowired
 	PeerService peerService;
 
 	/**
+	 * Basic built-in 'discovery' service.
 	 * @param theHttpResponse
 	 *            HttpServletResponse
 	 * @return List of Published ML Solutions in JSON format.
@@ -70,28 +69,20 @@ public class PeerController extends AbstractController {
 		List<MLPPeer> peers = null;
 		log.debug(EELFLoggerDelegate.debugLogger, API.Paths.PEERS);
 		try {
-			response = new JsonResponse<List<MLPPeer>>();
-			log.debug(EELFLoggerDelegate.debugLogger, "getPeers");
-
 			peers = peerService.getPeers(new ControllerContext());
-			/*
-			 * TODO: We only expose simple peers, not the partners. But we only serve this
-			 * service to parners so .. ?? No pb.
-			 */
-			if (peers != null) {
-				response.setResponseBody(peers);
-				response.setResponseCode(String.valueOf(HttpServletResponse.SC_OK));
-				response.setResponseDetail(JSONTags.TAG_STATUS_SUCCESS);
-				response.setStatus(true);
-				theHttpResponse.setStatus(HttpServletResponse.SC_OK);
-				log.debug(EELFLoggerDelegate.debugLogger, "getPeers: size is " + peers.size());
-			}
-		} catch (Exception e) {
-			response.setResponseCode(String.valueOf(HttpServletResponse.SC_BAD_REQUEST));
-			response.setResponseDetail(JSONTags.TAG_STATUS_FAILURE);
-			response.setStatus(false);
-			theHttpResponse.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-			log.error(EELFLoggerDelegate.errorLogger, "Exception Occurred Fetching Peers", e);
+			response = JsonResponse.<List<MLPPeer>> buildResponse()
+														 .withMessage("peers")
+														 .withContent(peers)
+														 .build();
+			theHttpResponse.setStatus(HttpServletResponse.SC_OK);
+			log.debug(EELFLoggerDelegate.debugLogger, "peers request provided {} peers.", peers == null ? 0 : peers.size());
+		} 
+		catch (Exception x) {
+			response = JsonResponse.<List<MLPPeer>> buildErrorResponse()
+														 .withError(x)
+														 .build();
+			theHttpResponse.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+			log.error(EELFLoggerDelegate.errorLogger, "An error ooccured while fetching local peers", x);
 		}
 		return response;
 	}

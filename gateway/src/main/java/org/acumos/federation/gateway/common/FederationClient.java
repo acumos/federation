@@ -18,13 +18,14 @@
  * ===============LICENSE_END=========================================================
  */
 
-package org.acumos.federation.gateway.service.impl;
+package org.acumos.federation.gateway.common;
 
 import java.net.URI;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+import org.acumos.cds.domain.MLPPeer;
 import org.acumos.cds.domain.MLPArtifact;
 import org.acumos.cds.domain.MLPSolution;
 import org.acumos.cds.domain.MLPSolutionRevision;
@@ -60,6 +61,31 @@ public class FederationClient extends AbstractClient {
 	}
 
 	/**
+	 */
+	public JsonResponse<MLPPeer> ping()
+			throws HttpStatusCodeException {
+		URI uri = API.PING.buildUri(this.baseUrl);
+		logger.info(EELFLoggerDelegate.debugLogger, "Query for " + uri);
+		ResponseEntity<JsonResponse<MLPPeer>> response = null;
+		try {
+			response = restTemplate.exchange(uri, HttpMethod.GET, null,
+					new ParameterizedTypeReference<JsonResponse<MLPPeer>>() {
+					});
+		}
+		catch (HttpStatusCodeException x) {
+			logger.info(EELFLoggerDelegate.errorLogger, uri + " failed.", x);
+			throw x;
+		}
+		catch (Throwable t) {
+			logger.info(EELFLoggerDelegate.errorLogger, uri + " unexpected failure.", t);
+		}
+		finally {
+			logger.info(EELFLoggerDelegate.debugLogger, uri + " response " + response);
+		}
+		return response == null ? null : response.getBody();
+	}	
+
+	/**
 	 * 
 	 * @param theSelection
 	 *            key-value pairs; ignored if null or empty. Gives special treatment
@@ -76,7 +102,8 @@ public class FederationClient extends AbstractClient {
 			selectorParam = theSelection == null ? null
 					// : UriUtils.encodeQueryParam(Utils.mapToJsonString(theSelection),"UTF-8");
 					: Base64Utils.encodeToString(Utils.mapToJsonString(theSelection).getBytes("UTF-8"));
-		} catch (Exception x) {
+		}
+		catch (Exception x) {
 			throw new IllegalArgumentException("Cannot process the selection argument", x);
 		}
 
@@ -88,12 +115,41 @@ public class FederationClient extends AbstractClient {
 			response = restTemplate.exchange(uri, HttpMethod.GET, null,
 					new ParameterizedTypeReference<JsonResponse<List<MLPSolution>>>() {
 					});
-		} catch (HttpStatusCodeException x) {
-			logger.info(EELFLoggerDelegate.debugLogger, uri + " failed.", x);
+		}
+		catch (HttpStatusCodeException x) {
+			logger.info(EELFLoggerDelegate.errorLogger, uri + " failed.", x);
 			throw x;
-		} catch (Throwable t) {
-			logger.info(EELFLoggerDelegate.debugLogger, uri + " unexpected failure.", t);
-		} finally {
+		}
+		catch (Throwable t) {
+			logger.info(EELFLoggerDelegate.errorLogger, uri + " unexpected failure.", t);
+		}
+		finally {
+			logger.info(EELFLoggerDelegate.debugLogger, uri + " response " + response);
+		}
+		return response == null ? null : response.getBody();
+	}
+
+	/**
+	 */
+	public JsonResponse<MLPSolution> getSolution(String theSolutionId)
+			throws HttpStatusCodeException {
+
+		URI uri = API.SOLUTION_DETAIL.buildUri(this.baseUrl, theSolutionId);
+		logger.info(EELFLoggerDelegate.debugLogger, "Query for " + uri);
+		ResponseEntity<JsonResponse<MLPSolution>> response = null;
+		try {
+			response = restTemplate.exchange(uri, HttpMethod.GET, null,
+					new ParameterizedTypeReference<JsonResponse<MLPSolution>>() {
+					});
+		}
+		catch (HttpStatusCodeException x) {
+			logger.info(EELFLoggerDelegate.errorLogger, uri + " failed.", x);
+			throw x;
+		}
+		catch (Throwable t) {
+			logger.info(EELFLoggerDelegate.errorLogger, uri + " unexpected failure.", t);
+		}
+		finally {
 			logger.info(EELFLoggerDelegate.debugLogger, uri + " response " + response);
 		}
 		return response == null ? null : response.getBody();
@@ -118,12 +174,15 @@ public class FederationClient extends AbstractClient {
 			response = restTemplate.exchange(uri, HttpMethod.GET, null,
 					new ParameterizedTypeReference<JsonResponse<List<MLPSolutionRevision>>>() {
 					});
-		} catch (HttpStatusCodeException x) {
-			logger.info(EELFLoggerDelegate.debugLogger, uri + " failed.", x);
+		}
+		catch (HttpStatusCodeException x) {
+			logger.info(EELFLoggerDelegate.errorLogger, uri + " failed.", x);
 			throw x;
-		} catch (Throwable t) {
-			logger.info(EELFLoggerDelegate.debugLogger, uri + " unexpected failure.", t);
-		} finally {
+		}
+		catch (Throwable t) {
+			logger.info(EELFLoggerDelegate.errorLogger, uri + " unexpected failure.", t);
+		}
+		finally {
 			logger.info(EELFLoggerDelegate.debugLogger, uri + " response " + response);
 		}
 		return response == null ? null : response.getBody();
@@ -148,12 +207,15 @@ public class FederationClient extends AbstractClient {
 			response = restTemplate.exchange(uri, HttpMethod.GET, null,
 					new ParameterizedTypeReference<JsonResponse<List<MLPArtifact>>>() {
 					});
-		} catch (HttpStatusCodeException x) {
-			logger.info(EELFLoggerDelegate.debugLogger, uri + " failed.", x);
+		}
+		catch (HttpStatusCodeException x) {
+			logger.info(EELFLoggerDelegate.errorLogger, uri + " failed.", x);
 			throw x;
-		} catch (Throwable t) {
-			logger.info(EELFLoggerDelegate.debugLogger, uri + " unexpected failure.", t);
-		} finally {
+		}
+		catch (Throwable t) {
+			logger.info(EELFLoggerDelegate.errorLogger, uri + " unexpected failure.", t);
+		}
+		finally {
 			logger.info(EELFLoggerDelegate.debugLogger, uri + " response " + response);
 		}
 		return response == null ? null : response.getBody();
@@ -172,12 +234,15 @@ public class FederationClient extends AbstractClient {
 		ResponseEntity<Resource> response = null;
 		try {
 			response = restTemplate.exchange(uri, HttpMethod.GET, null, Resource.class);
-		} catch (HttpStatusCodeException x) {
-			logger.info(EELFLoggerDelegate.debugLogger, uri + " failed.", x);
+		}
+		catch (HttpStatusCodeException x) {
+			logger.info(EELFLoggerDelegate.errorLogger, uri + " failed.", x);
 			throw x;
-		} catch (Throwable t) {
-			logger.info(EELFLoggerDelegate.debugLogger, uri + " unexpected failure.", t);
-		} finally {
+		}
+		catch (Throwable t) {
+			logger.info(EELFLoggerDelegate.errorLogger, uri + " unexpected failure.", t);
+		}
+		finally {
 			logger.info(EELFLoggerDelegate.debugLogger, uri + " response " + response);
 		}
 

@@ -18,7 +18,7 @@
  * ===============LICENSE_END=========================================================
  */
 
-package org.acumos.federation.gateway.service.impl;
+package org.acumos.federation.gateway.common;
 
 import java.net.MalformedURLException;
 import java.net.URI;

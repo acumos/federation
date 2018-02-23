@@ -34,6 +34,8 @@ import org.junit.runners.MethodSorters;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextHierarchy;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.test.context.ContextConfiguration;
@@ -80,9 +82,9 @@ import org.apache.http.entity.ContentType;
 
 /* this is not good for unit testing .. */
 import org.acumos.federation.gateway.common.JsonResponse;
-import org.acumos.federation.gateway.common.HttpClientConfigurationBuilder;
 import org.acumos.federation.gateway.event.PeerSubscriptionEvent;
-import static org.acumos.federation.gateway.common.HttpClientConfigurationBuilder.SSLBuilder;
+import org.acumos.federation.gateway.common.Clients;
+import org.acumos.federation.gateway.common.FederationClient;
 
 import org.acumos.cds.domain.MLPPeer;
 import org.acumos.cds.domain.MLPSolution;
@@ -96,25 +98,31 @@ import org.acumos.cds.domain.MLPArtifact;
 
 //@RunWith(SpringJUnit4ClassRunner.class)
 @RunWith(SpringRunner.class)
+@ContextHierarchy({
+	@ContextConfiguration(classes = org.acumos.federation.gateway.test.TestAdapterConfiguration.class),
+	@ContextConfiguration(classes = org.acumos.federation.gateway.config.FederationConfiguration.class),
+	@ContextConfiguration(classes = TaskTest.TaskTestConfiguration.class)
+})
 @SpringBootTest(classes = org.acumos.federation.gateway.Application.class,
 								webEnvironment = WebEnvironment.RANDOM_PORT,
 								properties = {
 									"federation.instance=adapter",
-									"federation.instance.name=ghost",
+									"federation.instance.name=test",
+									"federation.ssl.key-store=classpath:acumosa.pkcs12",
+									"federation.ssl.key-store-password=acumosa",
+									"federation.ssl.key-store-type=PKCS12",
+									"federation.ssl.key-password = acumosa",
+									"federation.ssl.trust-store=classpath:acumosTrustStore.jks",
+									"federation.ssl.trust-store-password=acumos",
+									"federation.ssl.client-auth=need",
 									"peersLocal.source=classpath:/task-test-peers.json",
-									"catalogLocal.source=classpath:/task-test-catalog.json",
-									"server.ssl.key-store=classpath:acumosa.pkcs12",
-									"server.ssl.key-store-password=acumosa",
-									"server.ssl.key-store-type=PKCS12",
-									"server.ssl.key-password = acumosa",
-									"server.ssl.trust-store=classpath:acumosTrustStore.jks",
-									"server.ssl.trust-store-password=acumos",
-									"server.ssl.client-auth=need"
+									"catalogLocal.source=classpath:/task-test-catalog.json"
 								})
-@ContextConfiguration(classes = {TaskTest.TaskTestConfiguration.class})
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class TaskTest {
 
+	@MockBean(name = "clients")
+	private Clients	clients;
 
 	@MockBean(name = "federationClient")
 	private HttpClient	federationClient;
@@ -178,10 +186,8 @@ public class TaskTest {
 			mockSolution.setActive(true);
 
 			JsonResponse<List<MLPSolution>> mockPayload = new JsonResponse();
-			mockPayload.setStatus(Boolean.TRUE);
-			mockPayload.setResponseCode("200");
-			mockPayload.setResponseDetail("Success");
-			mockPayload.setResponseBody(Collections.singletonList(mockSolution));
+			mockPayload.setMessage("Success");
+			mockPayload.setContent(Collections.singletonList(mockSolution));
 
 			when(
 				this.federationClient.execute(
@@ -237,6 +243,22 @@ public class TaskTest {
 				)
 			).thenReturn(mockPayload);
 
+			//prepare the clients
+			when(
+				this.clients.getFederationClient(
+					any(String.class)
+				)
+			)
+			.thenAnswer(new Answer<FederationClient>() {
+					public FederationClient answer(InvocationOnMock theInvocation) {
+						//this ends up providing a client based on the mocked http client
+					  return new FederationClient(
+                  (String)theInvocation.getArguments()[0]/*the URI*/,
+                  federationClient);
+					}
+				});
+
+	
 		}
 		catch(Exception x) {
 			System.out.println(" *** Failed to setup mock : " + x);
@@ -245,7 +267,10 @@ public class TaskTest {
 		}
 
 		try {
-			assertTrue(listener.peerEventLatch.await(10, TimeUnit.SECONDS));
+			boolean complete = listener.peerEventLatch.await(10, TimeUnit.SECONDS);
+		System.out.println(" *** event: " + complete + "/" + listener.peerEventLatch.getCount());
+			assertTrue("All expected events have occured in the test interval",
+								 complete);
 		}
 		catch (InterruptedException ix) {
 			assertTrue(1 == 0);
