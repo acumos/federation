@@ -1,0 +1,129 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3968d978_b24abe54",
+        "filename": "docs/design-notes.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-03-06T11:00:24Z",
+      "side": 1,
+      "message": "Please add license header",
+      "revId": "8b151b38c8b2364437812026b09511f893142e0c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bb6ce556_09dbf37a",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/PeerGateway.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-03-06T11:00:24Z",
+      "side": 1,
+      "message": "Would a copy constructor help?  All this code to set fields, ouch",
+      "revId": "8b151b38c8b2364437812026b09511f893142e0c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99a27636_16ef9347",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/PeerGateway.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-03-06T11:00:24Z",
+      "side": 1,
+      "message": "Ditto",
+      "revId": "8b151b38c8b2364437812026b09511f893142e0c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "975c4155_9cc6d92e",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/PeerGateway.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-03-06T11:00:24Z",
+      "side": 1,
+      "message": "Ditto",
+      "revId": "8b151b38c8b2364437812026b09511f893142e0c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "293ecebf_36135886",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/task/PeerSubscriptionTask.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-03-06T11:00:24Z",
+      "side": 1,
+      "message": "Why all the extra tabs here?",
+      "revId": "8b151b38c8b2364437812026b09511f893142e0c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fd9bb690_e64a53ca",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/task/PeerSubscriptionTaskScheduler.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-03-06T11:00:24Z",
+      "side": 1,
+      "message": "Use {} not string catenation",
+      "revId": "8b151b38c8b2364437812026b09511f893142e0c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bd3aa437_15edae92",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/task/PeerSubscriptionTaskScheduler.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-03-06T11:00:24Z",
+      "side": 1,
+      "message": "Ditto",
+      "range": {
+        "startLine": 164,
+        "startChar": 30,
+        "endLine": 164,
+        "endChar": 31
+      },
+      "revId": "8b151b38c8b2364437812026b09511f893142e0c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
