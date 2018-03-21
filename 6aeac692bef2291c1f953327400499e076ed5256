@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eaf90025_00881897",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/onap/ONAP.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-03-21T14:39:38Z",
+      "side": 1,
+      "message": "Plan migration away from these enums.  They are not to be trusted as of 1.15.",
+      "revId": "6aeac692bef2291c1f953327400499e076ed5256",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7cb44c2a_85b2e85f",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/onap/ONAP.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-03-21T14:39:38Z",
+      "side": 1,
+      "message": "Remove don\u0027t comment",
+      "revId": "6aeac692bef2291c1f953327400499e076ed5256",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84b0077f_cba63b5e",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/onap/ONAP.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-03-21T14:39:38Z",
+      "side": 1,
+      "message": "catch and discard seems unwise - do you want to stop here?",
+      "revId": "6aeac692bef2291c1f953327400499e076ed5256",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59b70116_8d1cd20e",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/onap/ToscaLab.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-03-21T14:39:38Z",
+      "side": 1,
+      "message": "Please don\u0027t put people\u0027s names in code",
+      "revId": "6aeac692bef2291c1f953327400499e076ed5256",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3562c849_e12eb4e5",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/onap/ToscaLab.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-03-21T14:39:38Z",
+      "side": 1,
+      "message": "Remove don\u0027t comment out",
+      "revId": "6aeac692bef2291c1f953327400499e076ed5256",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3f59b4d_f5bc8892",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/onap/ToscaLab.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-03-21T14:39:38Z",
+      "side": 1,
+      "message": "Use logger, not system.out?  At the very least, System.err??",
+      "revId": "6aeac692bef2291c1f953327400499e076ed5256",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7546648_f3d519b3",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/task/PeerSubscriptionTask.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-03-21T14:39:38Z",
+      "side": 1,
+      "message": "Why these fields?  Looks like trouble in a component",
+      "revId": "6aeac692bef2291c1f953327400499e076ed5256",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2fbeb406_ef040daf",
+        "filename": "gateway/src/test/resources/onap-catalog.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-03-21T14:39:38Z",
+      "side": 1,
+      "message": "Empty list was the intent?",
+      "revId": "6aeac692bef2291c1f953327400499e076ed5256",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d3ca976_dbd911f2",
+        "filename": "gateway/toscalab.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-03-21T14:39:38Z",
+      "side": 1,
+      "message": "remove don\u0027t comment out",
+      "revId": "6aeac692bef2291c1f953327400499e076ed5256",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
