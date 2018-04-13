@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cd94ba85_a62dd404",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/config/LocalConfiguration.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-04-13T15:20:31Z",
+      "side": 1,
+      "message": "Neans?",
+      "revId": "394664e7607b6e8e3548304df370333eec003fd5",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
