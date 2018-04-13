@@ -41,6 +41,7 @@ import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletCon
 
 import org.acumos.federation.gateway.config.EELFLoggerDelegate;
 import org.acumos.federation.gateway.controller.PeerPingController;
+import org.acumos.federation.gateway.controller.PeerPeersController;
 import org.acumos.federation.gateway.controller.PeerCatalogController;
 import org.acumos.federation.gateway.controller.PeerSubscriptionController;
 import org.acumos.federation.gateway.security.AuthenticationConfiguration;
@@ -75,6 +76,12 @@ public class LocalConfiguration /* implements ApplicationContextAware */ {
 	public PeerSubscriptionController peerSubscriptionServer() {
 		return new PeerSubscriptionController();
 	}
+	
+	@Bean
+	public PeerPeersController peerPeersServer() {
+		return new PeerPeersController();
+	}
+
 	/**
    * Build a client for interacting with other local Acumos components
 	 * through the local interface.
