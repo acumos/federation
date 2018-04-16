@@ -23,8 +23,6 @@ package org.acumos.federation.gateway;
 import java.io.IOException;
 
 import org.acumos.federation.gateway.config.EELFLoggerDelegate;
-import org.acumos.federation.gateway.config.GatewayConfiguration;
-import org.acumos.federation.gateway.config.AdapterConfiguration;
 import org.acumos.federation.gateway.config.LocalConfiguration;
 import org.acumos.federation.gateway.config.FederationConfiguration;
 
@@ -35,9 +33,6 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
-import org.springframework.core.env.ConfigurableEnvironment;
-import org.springframework.scheduling.annotation.EnableScheduling;
 
 import org.springframework.boot.Banner;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -47,8 +42,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-
-import org.springframework.web.context.support.StandardServletEnvironment;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -79,12 +72,12 @@ public class Application {
 			new SpringApplicationBuilder(Application.class)
 											.bannerMode(Banner.Mode.OFF)
 											.web(false);
-		ApplicationContext fedCtx =
+		//ApplicationContext fedCtx =
 				gatewayBuilder.child(FederationConfiguration.class)
 											.bannerMode(Banner.Mode.OFF)
 											.web(true)
 											.run(args);
-		ApplicationContext localCtx =
+		//ApplicationContext localCtx =
 				gatewayBuilder.child(LocalConfiguration.class)
 											.bannerMode(Banner.Mode.OFF)
 											.web(true)

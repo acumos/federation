@@ -72,6 +72,7 @@ public enum API {
 		return theParams;
 	}
 
+	@Override
 	public String toString() {
 		return this.path;
 	}
@@ -143,6 +144,8 @@ public enum API {
 		 * Maybe too particular but at this point all LOCAL interface operations are with respect to one peer
 		 */
 		public static final String LOCAL = "/peer/{peerId}";
+
+		private Roots() {}
 	}
 
 	public static class Paths {
@@ -164,15 +167,21 @@ public enum API {
 
 		public static final String PEER_REGISTER = "/peer/register";
 		public static final String PEER_UNREGISTER = "/peer/unregister";
+
+		private Paths() {}
 	}
 
 	public static class QueryParameters {
 
 		public static final String SOLUTIONS_SELECTOR = "selector";
+		
+		private QueryParameters() {}
 	}
 
 	public static class Queries {
 
 		public static final String[] SOLUTIONS = { QueryParameters.SOLUTIONS_SELECTOR };
+
+		private Queries() {}
 	}
 }
