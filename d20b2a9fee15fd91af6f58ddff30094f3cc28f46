@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "73b97951_c66963b7",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/Application.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-04-16T18:08:24Z",
+      "side": 1,
+      "message": "instead of commenting out, you can call logger.debug(\"init {}\", fedCtx.someLittleReadMethod());",
+      "revId": "d20b2a9fee15fd91af6f58ddff30094f3cc28f46",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fd48e3f0_eb9fd336",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/PeerGateway.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-04-16T18:08:24Z",
+      "side": 1,
+      "message": "Pls remove",
+      "revId": "d20b2a9fee15fd91af6f58ddff30094f3cc28f46",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b43adce_e4a4527e",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/common/API.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-04-16T18:08:24Z",
+      "side": 1,
+      "message": "Much better to publish constants in an INTERFACE instead of a garden-variety class",
+      "revId": "d20b2a9fee15fd91af6f58ddff30094f3cc28f46",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f93031db_9fc99446",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/config/InterfaceConfiguration.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-04-16T18:08:24Z",
+      "side": 1,
+      "message": "Log the exception, Sonar will complain about this next",
+      "revId": "d20b2a9fee15fd91af6f58ddff30094f3cc28f46",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "415f943b_46afd6b4",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/config/InterfaceConfiguration.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-04-16T18:08:24Z",
+      "side": 1,
+      "message": "Ditto",
+      "revId": "d20b2a9fee15fd91af6f58ddff30094f3cc28f46",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
