@@ -17,34 +17,33 @@
  * limitations under the License.
  * ===============LICENSE_END=========================================================
  */
+package org.acumos.federation.gateway.cds;
 
-package org.acumos.federation.gateway.service.impl;
+import org.acumos.cds.domain.MLPArtifact;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.beans.factory.annotation.Autowired;
+/**
+ */
+public class Artifact extends MLPArtifact {
 
-import org.acumos.federation.gateway.config.EELFLoggerDelegate;
-import org.acumos.federation.gateway.common.Clients;
-import org.acumos.federation.gateway.service.ServiceContext;
-import org.acumos.federation.gateway.security.Peer;
-
-import org.acumos.cds.client.ICommonDataServiceRestClient;
-
-/** */
-public abstract class AbstractServiceImpl {
-
-	@Autowired
-	protected Clients clients;
-	@Autowired
-	protected ApplicationContext appCtx;
-
-	protected final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(getClass().getName());
-
-	public ICommonDataServiceRestClient getClient() {
-		return clients.getCDSClient();
+	public Artifact() {
 	}
 
-	public ServiceContext selfService() {
-		return ServiceContext.forPeer((Peer)appCtx.getBean("self"));		
+	public Artifact(MLPArtifact theCDSArtifact) {
+		super(theCDSArtifact);
 	}
+	
+	public Artifact(Artifact theArtifact) {
+		super(theArtifact);
+	}
+
+	public static ArtifactBuilder build() {
+		return new ArtifactBuilder(new Artifact());
+	}
+
+	public static ArtifactBuilder buildFrom(MLPArtifact theArtifact) {
+		return new ArtifactBuilder(new Artifact(theArtifact));
+	}
+
 }
+
+

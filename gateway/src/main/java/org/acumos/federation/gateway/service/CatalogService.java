@@ -53,9 +53,10 @@ public interface CatalogService {
 	 * @param theContext
 	 *            the execution context.
 	 * 
-	 * @return List of the Catalog Solutions for the selection criteria
+	 * @return List of the Catalog Solutions for the selection criteria. An empty list is returned when no
+	 * solutions satisfy the criteria.
 	 */
-	public List<MLPSolution> getSolutions(Map<String, ?> theSelector, ServiceContext theContext);
+	public List<MLPSolution> getSolutions(Map<String, ?> theSelector, ServiceContext theContext) throws ServiceException;
 
 	/**
 	 * Default interface for calls in behalf of the local Acumos service.
@@ -63,10 +64,11 @@ public interface CatalogService {
 	 * @param theSelector
 	 *            contains the selection criteria. Must match the available criteria
 	 *            in CDS
-	 * @return list of the solutions for the selection criteria
+	 * @return List of the Catalog Solutions for the selection criteria. An empty list is returned when no
+	 * solutions satisfy the criteria.
 	 */
-	public default List<MLPSolution> getSolutions(Map<String, ?> theSelector) {
-		return getSolutions(theSelector, ServiceContext.selfService());
+	public default List<MLPSolution> getSolutions(Map<String, ?> theSelector) throws ServiceException {
+		return getSolutions(theSelector, selfService());
 	}
 
 	/**
@@ -76,9 +78,9 @@ public interface CatalogService {
 	 *            solution identifier (UUID).
 	 * @param theContext
 	 *            the execution context
-	 * @return solution information
+	 * @return solution information. Will return null if the given solution id does not match an existing solution;
 	 */
-	public MLPSolution getSolution(String theSolutionId, ServiceContext theContext);
+	public MLPSolution getSolution(String theSolutionId, ServiceContext theContext) throws ServiceException ;
 
 	/**
 	 * Default solution access interface for calls in behalf of the local Acumos
@@ -88,8 +90,8 @@ public interface CatalogService {
 	 *            solution identifier (UUID).
 	 * @return solution information
 	 */
-	public default MLPSolution getSolution(String theSolutionId) {
-		return getSolution(theSolutionId, ServiceContext.selfService());
+	public default MLPSolution getSolution(String theSolutionId) throws ServiceException {
+		return getSolution(theSolutionId, selfService());
 	}
 
 	/**
@@ -99,12 +101,13 @@ public interface CatalogService {
 	 *            identifier of the solution whose revisions are to be provided
 	 * @param theContext
 	 *            the execution context
-	 * @return list of the solution revision for the specified solution Id
+	 * @return list of the solution revision for the specified solution Id. Will return an empty list if the
+	 * given solution does not have revisions. Null is return if no solution with the given id exists.
 	 */
-	public List<MLPSolutionRevision> getSolutionRevisions(String theSolutionId, ServiceContext theContext);
+	public List<MLPSolutionRevision> getSolutionRevisions(String theSolutionId, ServiceContext theContext) throws ServiceException ;
 
-	public default List<MLPSolutionRevision> getSolutionRevisions(String theSolutionId) {
-		return getSolutionRevisions(theSolutionId, ServiceContext.selfService());
+	public default List<MLPSolutionRevision> getSolutionRevisions(String theSolutionId) throws ServiceException {
+		return getSolutionRevisions(theSolutionId, selfService());
 	}
 
 	/**
@@ -119,7 +122,7 @@ public interface CatalogService {
 	 * @return solution revision information
 	 */
 	public MLPSolutionRevision getSolutionRevision(String theSolutionId, String theRevisionId,
-			ServiceContext theContext);
+			ServiceContext theContext) throws ServiceException ;
 
 	/**
 	 * Default solution revision access interface for calls in behalf of the local
@@ -131,8 +134,8 @@ public interface CatalogService {
 	 *            revision identifier (UUID).
 	 * @return solution revision information
 	 */
-	public default MLPSolutionRevision getSolutionRevision(String theSolutionId, String theRevisionId) {
-		return getSolutionRevision(theSolutionId, theRevisionId, ServiceContext.selfService());
+	public default MLPSolutionRevision getSolutionRevision(String theSolutionId, String theRevisionId) throws ServiceException {
+		return getSolutionRevision(theSolutionId, theRevisionId, selfService());
 	}
 
 	/**
@@ -144,10 +147,10 @@ public interface CatalogService {
 	 *            revision identifier (UUID).
 	 * @param theContext
 	 *            the execution context
-	 * @return list of the related artifacts
+	 * @return list of the related artifacts. Null is returned if the solution id or the revision id do not indicate existing items.
 	 */
 	public List<MLPArtifact> getSolutionRevisionArtifacts(String theSolutionId, String theRevisionId,
-			ServiceContext theContext);
+			ServiceContext theContext) throws ServiceException;
 
 	/**
 	 * Default solution revision access interface for calls in behalf of the local
@@ -159,8 +162,8 @@ public interface CatalogService {
 	 *            revision identifier (UUID).
 	 * @return list of the related artifacts
 	 */
-	public default List<MLPArtifact> getSolutionRevisionArtifacts(String theSolutionId, String theRevisionId) {
-		return getSolutionRevisionArtifacts(theSolutionId, theRevisionId, ServiceContext.selfService());
+	public default List<MLPArtifact> getSolutionRevisionArtifacts(String theSolutionId, String theRevisionId) throws ServiceException {
+		return getSolutionRevisionArtifacts(theSolutionId, theRevisionId, selfService());
 	}
 
 	/**
@@ -171,9 +174,27 @@ public interface CatalogService {
 	 *            retrieved
 	 * @param theContext
 	 *            the execution context
-	 * @return resource containing access to the actual artifact content
+	 * @return the artifact information
 	 */
-	public InputStreamResource getSolutionRevisionArtifactContent(String theArtifactId, ServiceContext theContext)
+	public MLPArtifact getSolutionRevisionArtifact(String theArtifactId, ServiceContext theContext)
 																																													throws ServiceException;
+
+	/**
+	 * Retrieve artifact content.
+	 *
+	 * @param theArtifactId
+	 *            identifier of the acumos artifact whose content needs to be
+	 *            retrieved
+	 * @return the artifact information
+	 */
+	public default MLPArtifact getSolutionRevisionArtifact(String theArtifactId) throws ServiceException {
+		return getSolutionRevisionArtifact(theArtifactId, selfService());
+	}
+
+	/**
+	 * This would belong as a static method of ServiceContext but ServicrCOntext are not beans so I cannot wire them to access the
+	 * self bean; in here it exposes an implementation detail which is ugly ..
+	 */
+	public ServiceContext selfService();
 
 }

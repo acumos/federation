@@ -37,6 +37,8 @@ import org.acumos.federation.gateway.util.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.Configuration;
 
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -128,6 +130,18 @@ public class AuthenticationConfiguration extends WebSecurityConfigurerAdapter {
 		});
 	}
 
+	//@Bean
+	//@Scope("prototype")
+	//public Peer getPeer(MLPPeer theInfo, Role theRole) {
+	//	return new Peer(theInfo, theRole);
+	//}
+
+	@Bean
+	@Lazy
+	public Peer self() {
+		return new Peer(peerService.getSelf(), Role.SELF.priviledges());
+	}
+
 	/** */
 	@Bean
 	public UserDetailsService userDetailsService() {
@@ -170,6 +184,7 @@ public class AuthenticationConfiguration extends WebSecurityConfigurerAdapter {
 			log.info(EELFLoggerDelegate.debugLogger, " Peers matching X509 subject : " + mlpPeers);
 			if (!Utils.isEmptyList(mlpPeers)) {
 				MLPPeer mlpPeer = mlpPeers.get(0);
+				//!!here we create other instances of 'self'
 				return new Peer(mlpPeer, mlpPeer.isSelf() ? Role.SELF : Role.PEER);
 			}
 			else {

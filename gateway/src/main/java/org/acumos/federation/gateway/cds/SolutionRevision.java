@@ -17,34 +17,44 @@
  * limitations under the License.
  * ===============LICENSE_END=========================================================
  */
+package org.acumos.federation.gateway.cds;
 
-package org.acumos.federation.gateway.service.impl;
+import java.util.List;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.acumos.cds.domain.MLPSolutionRevision;
+import org.acumos.cds.domain.MLPArtifact;
 
-import org.acumos.federation.gateway.config.EELFLoggerDelegate;
-import org.acumos.federation.gateway.common.Clients;
-import org.acumos.federation.gateway.service.ServiceContext;
-import org.acumos.federation.gateway.security.Peer;
+/**
+ * Supplements the CDS representation of a solution with related information: revisions.
+ * Allows federation to pack information passed between peers.
+ */
+public class SolutionRevision extends MLPSolutionRevision {
 
-import org.acumos.cds.client.ICommonDataServiceRestClient;
+	private List<MLPArtifact>		artifacts;
 
-/** */
-public abstract class AbstractServiceImpl {
-
-	@Autowired
-	protected Clients clients;
-	@Autowired
-	protected ApplicationContext appCtx;
-
-	protected final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(getClass().getName());
-
-	public ICommonDataServiceRestClient getClient() {
-		return clients.getCDSClient();
+	public SolutionRevision() {
 	}
 
-	public ServiceContext selfService() {
-		return ServiceContext.forPeer((Peer)appCtx.getBean("self"));		
+	public SolutionRevision(MLPSolutionRevision theCDSRevision) {
+		super(theCDSRevision);
 	}
+
+	public void setArtifacts(List<MLPArtifact> theArtifacts) {
+		this.artifacts = theArtifacts;
+	}
+
+	public List<MLPArtifact>	getArtifacts() {
+		return this.artifacts;
+	}
+
+	public static SolutionRevisionBuilder build() {
+		return new SolutionRevisionBuilder(new SolutionRevision());
+	}
+
+	public static SolutionRevisionBuilder buildFrom(MLPSolutionRevision theRevision) {
+		return new SolutionRevisionBuilder(new SolutionRevision(theRevision));
+	}
+
 }
+
+
