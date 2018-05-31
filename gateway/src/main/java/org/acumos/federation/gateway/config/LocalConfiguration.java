@@ -50,10 +50,8 @@ import org.acumos.federation.gateway.security.AuthenticationConfiguration;
  * Provides the beans used in interactions with the local Acumos system
  */
 @Configuration
-@Import(AuthenticationConfiguration.class)
 @EnableAutoConfiguration
-//@ConfigurationProperties(prefix = "local", ignoreInvalidFields = true)
-public class LocalConfiguration /* implements ApplicationContextAware */ {
+public class LocalConfiguration {
 
 	@Autowired
 	private LocalInterfaceConfiguration interfaceConfig;
@@ -102,15 +100,6 @@ public class LocalConfiguration /* implements ApplicationContextAware */ {
 	 * local interface requests (see controllers built here).
 	 */
 	/*
-	@Bean
-	public EmbeddedServletContainerFactory localServer() {
-		TomcatEmbeddedServletContainerFactory tomcat =
-			new TomcatEmbeddedServletContainerFactory();
-		tomcat.addAdditionalTomcatConnectors(this.interfaceConfig.buildConnector());
-		return tomcat;
-	}
-	*/
-
 	@Bean
 	public EmbeddedServletContainerCustomizer localServer() {
 		log.debug(EELFLoggerDelegate.debugLogger, this + "::localServer from " + this.interfaceConfig);
