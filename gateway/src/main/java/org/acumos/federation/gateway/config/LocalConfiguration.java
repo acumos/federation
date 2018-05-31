@@ -50,7 +50,6 @@ import org.acumos.federation.gateway.security.AuthenticationConfiguration;
  * Provides the beans used in interactions with the local Acumos system
  */
 @Configuration
-@Import(AuthenticationConfiguration.class)
 @EnableAutoConfiguration
 //@ConfigurationProperties(prefix = "local", ignoreInvalidFields = true)
 public class LocalConfiguration /* implements ApplicationContextAware */ {

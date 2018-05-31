@@ -24,9 +24,6 @@ import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-import org.acumos.federation.gateway.service.PeerService;
 import org.acumos.federation.gateway.cds.PeerStatus;
 
 import org.acumos.cds.domain.MLPPeer;
@@ -59,27 +56,5 @@ public class Peer extends User {
 //		PeerStatus peerStatus =  PeerStatus.forCode(this.peerInfo.getStatusCode());
 //		return peerStatus == PeerStatus.Active;
 //	}
-
-	private static PeerService peerService = null;
-
-	@Autowired
-	public void setPeerService(PeerService thePeerService) {
-		if (peerService != null)
-			throw new IllegalStateException("Already set");
-
-		peerService = thePeerService;
-	}
-
-	private static Peer self = null;
-
-	public static Peer self() {
-		if (self == null) {
-			if (peerService == null)
-				throw new IllegalStateException("Initialization not completed");
-			self = new Peer(peerService.getSelf(), Role.SELF.priviledges());
-		}
-
-		return self;
-	}
 
 }

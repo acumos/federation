@@ -49,7 +49,7 @@ import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletCon
  * Provide those beans used in the interaction with other peers (federation)
  */
 @Configuration
-@Import(AuthenticationConfiguration.class)
+//@Import(AuthenticationConfiguration.class)
 @EnableAutoConfiguration
 //@ConfigurationProperties(prefix = "federation", ignoreInvalidFields = true)
 public class FederationConfiguration {

@@ -18,38 +18,35 @@
  * ===============LICENSE_END=========================================================
  */
 
-package org.acumos.federation.gateway.service;
-
-import java.util.List;
-
-import org.acumos.cds.domain.MLPPeerSubscription;
-
 /**
  * 
- *
  */
-public interface PeerSubscriptionService {
+package org.acumos.federation.gateway.service;
+
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.InputStreamResource;
+
+import org.acumos.cds.domain.MLPArtifact;
+
+/**
+ * Handles access to the artifacts repository. 
+ */
+public interface ArtifactService {
 
 	/**
-	 * @param peerId
-	 *            Peer ID
-	 * @return List of PeerSubscription configured in the Local Acumos Instance
+	 * @param theArtifact
+	 *            The CDS representation of artifact metadata
+	 * @param theContext
+	 *            the execution context
+	 * @return resource containing access to the actual artifact content
 	 */
-	List<MLPPeerSubscription> getPeerSubscriptions(String peerId);
+	public InputStreamResource getArtifactContent(MLPArtifact theArtifactInfo, ServiceContext theContext)
+																																										throws ServiceException;
+
 
 	/**
-	 * @param subId
-	 *            Peer subscription ID
-	 * @return Peer Subscription based on the configured Subject Name
+	 * If the call is succesful the artifact information is updated with the content uri.
+	 * No service context here as this call is always used with respect to the local gateway instance.
 	 */
-	MLPPeerSubscription getPeerSubscription(Long subId);
-
-	/**
-	 * @param mlpPeerSubscription
-	 *            MLPPeer Configuration that needs to be updated on the Platform
-	 * 
-	 * @return MLPPeerSubscription configuration that has been updated.
-	 */
-	void updatePeerSubscription(MLPPeerSubscription mlpPeerSubscription) throws ServiceException;
-
+	public void putArtifactContent(MLPArtifact theArtifact, Resource theResource) throws ServiceException;
 }

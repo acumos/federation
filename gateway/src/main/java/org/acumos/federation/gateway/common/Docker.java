@@ -18,33 +18,18 @@
  * ===============LICENSE_END=========================================================
  */
 
-package org.acumos.federation.gateway.service.impl;
+package org.acumos.federation.gateway.common;
 
-import org.springframework.context.ApplicationContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import org.acumos.federation.gateway.config.EELFLoggerDelegate;
-import org.acumos.federation.gateway.common.Clients;
-import org.acumos.federation.gateway.service.ServiceContext;
-import org.acumos.federation.gateway.security.Peer;
+import org.acumos.federation.gateway.config.DockerConfiguration;
 
-import org.acumos.cds.client.ICommonDataServiceRestClient;
 
-/** */
-public abstract class AbstractServiceImpl {
+/**
+ */
+public class Docker {
 
 	@Autowired
-	protected Clients clients;
-	@Autowired
-	protected ApplicationContext appCtx;
+	private DockerConfiguration	config;
 
-	protected final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(getClass().getName());
-
-	public ICommonDataServiceRestClient getClient() {
-		return clients.getCDSClient();
-	}
-
-	public ServiceContext selfService() {
-		return ServiceContext.forPeer((Peer)appCtx.getBean("self"));		
-	}
 }
