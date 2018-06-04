@@ -1,0 +1,566 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a1881bf7_186cd8bd",
+        "filename": "gateway/pom.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-04T19:36:15Z",
+      "side": 1,
+      "message": "Please fix indentation",
+      "revId": "09ae77e59639354a82be8077b68e1f1ec60530b9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf91a56b_cd597653",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/cds/ArtifactType.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-04T19:36:15Z",
+      "side": 1,
+      "message": "I don\u0027t recommend this.  The codes can vary on each installation, they are in config data (not CDS library).",
+      "revId": "09ae77e59639354a82be8077b68e1f1ec60530b9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39c5f2e2_2a748963",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/cds/Mapper.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-04T19:36:15Z",
+      "side": 1,
+      "message": "Why is this required?  What does this do?",
+      "revId": "09ae77e59639354a82be8077b68e1f1ec60530b9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04c30e49_7951d854",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/cds/SolutionBuilder.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-04T19:36:15Z",
+      "side": 1,
+      "message": "If you like these builders so well, maybe other people will like them also and use them.  How would you suggest I enhance CDS so you don\u0027t have to create them like this?",
+      "revId": "09ae77e59639354a82be8077b68e1f1ec60530b9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "91ce4554_bc888e8f",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/cds/Updater.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-04T19:36:15Z",
+      "side": 1,
+      "message": "Perhaps a less generic interface class name??",
+      "revId": "09ae77e59639354a82be8077b68e1f1ec60530b9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67dfe8ea_84159f45",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/common/AbstractClient.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-04T19:36:15Z",
+      "side": 1,
+      "message": "How abstract? what kind of client?",
+      "range": {
+        "startLine": 44,
+        "startChar": 25,
+        "endLine": 44,
+        "endChar": 38
+      },
+      "revId": "09ae77e59639354a82be8077b68e1f1ec60530b9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b982420e_26f0d3b8",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/common/AbstractClient.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-04T19:36:15Z",
+      "side": 1,
+      "message": "Minor typo",
+      "range": {
+        "startLine": 92,
+        "startChar": 55,
+        "endLine": 92,
+        "endChar": 62
+      },
+      "revId": "09ae77e59639354a82be8077b68e1f1ec60530b9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bfda7408_63200c6f",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/common/Clients.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-04T19:36:15Z",
+      "side": 1,
+      "message": "You don\u0027t need to repeat the class name",
+      "range": {
+        "startLine": 77,
+        "startChar": 45,
+        "endLine": 77,
+        "endChar": 52
+      },
+      "revId": "09ae77e59639354a82be8077b68e1f1ec60530b9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f583604_2a2c9594",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/common/Clients.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-04T19:36:15Z",
+      "side": 1,
+      "message": "remove don\u0027t comment out",
+      "revId": "09ae77e59639354a82be8077b68e1f1ec60530b9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcb5b6c6_b939faa0",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/common/Docker.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-04T19:36:15Z",
+      "side": 1,
+      "message": "A single-field POJO?  Why is this needed?  And the name seems like it could cause confusion.",
+      "revId": "09ae77e59639354a82be8077b68e1f1ec60530b9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "daf70d4d_952c6a3b",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/config/AdapterConfiguration.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-04T19:36:15Z",
+      "side": 1,
+      "message": "pls remove don\u0027t comment out",
+      "revId": "09ae77e59639354a82be8077b68e1f1ec60530b9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f83906c_b1ae8a14",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/config/DockerConfiguration.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-04T19:36:15Z",
+      "side": 1,
+      "message": "pls remove don\u0027t comment out",
+      "revId": "09ae77e59639354a82be8077b68e1f1ec60530b9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4c1ee15e_6ddec93c",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/config/FederationConfiguration.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-04T19:36:15Z",
+      "side": 1,
+      "message": "pls remove don\u0027t comment",
+      "revId": "09ae77e59639354a82be8077b68e1f1ec60530b9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf023272_d9091fe5",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/config/GatewayConfiguration.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-04T19:36:15Z",
+      "side": 1,
+      "message": "please comment to explain the purpose of these special profiles",
+      "revId": "09ae77e59639354a82be8077b68e1f1ec60530b9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3da615ab_2237094d",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/config/LocalConfiguration.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-04T19:36:15Z",
+      "side": 1,
+      "message": "pls remove don\u0027t comment out",
+      "revId": "09ae77e59639354a82be8077b68e1f1ec60530b9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "edd452d0_ee2e0c92",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/controller/CatalogController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-04T19:36:15Z",
+      "side": 1,
+      "message": "pls fix indentation",
+      "revId": "09ae77e59639354a82be8077b68e1f1ec60530b9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71df3d03_e14ace55",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/security/AuthenticationConfiguration.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-04T19:36:15Z",
+      "side": 1,
+      "message": "please remove don\u0027t comment out",
+      "revId": "09ae77e59639354a82be8077b68e1f1ec60530b9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9de0c514_79a97d11",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/security/Peer.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-04T19:36:15Z",
+      "side": 1,
+      "message": "pls remove don\u0027t comment out",
+      "revId": "09ae77e59639354a82be8077b68e1f1ec60530b9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88b3d73f_c25946a2",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/CatalogService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-04T19:36:15Z",
+      "side": 1,
+      "message": "add @throws annotation",
+      "revId": "09ae77e59639354a82be8077b68e1f1ec60530b9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "032a1178_aa822e00",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/CatalogService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-04T19:36:15Z",
+      "side": 1,
+      "message": "Ditto",
+      "revId": "09ae77e59639354a82be8077b68e1f1ec60530b9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "46f5dd59_eb83b74f",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/PeerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-04T19:36:15Z",
+      "side": 1,
+      "message": "Same as what?",
+      "revId": "09ae77e59639354a82be8077b68e1f1ec60530b9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bb0b582_202ef7cd",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/ServiceContext.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-04T19:36:15Z",
+      "side": 1,
+      "message": "Pls remove don\u0027t comment out",
+      "revId": "09ae77e59639354a82be8077b68e1f1ec60530b9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "182893ce_b41a869c",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/AbstractServiceImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-04T19:36:15Z",
+      "side": 1,
+      "message": "Log should always (always) be private; subclasses should NEVER inherit a logger",
+      "revId": "09ae77e59639354a82be8077b68e1f1ec60530b9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e15ab71_d7aa1c88",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/AbstractServiceLocalImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-04T19:36:15Z",
+      "side": 1,
+      "message": "Logger should be private",
+      "revId": "09ae77e59639354a82be8077b68e1f1ec60530b9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10afcf7e_d0efd46f",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/ArtifactServiceLocalImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-04T19:36:15Z",
+      "side": 1,
+      "message": "Catalog or Artifact?",
+      "revId": "09ae77e59639354a82be8077b68e1f1ec60530b9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fbbd4a89_5929cfde",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/PeerServiceImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-04T19:36:15Z",
+      "side": 1,
+      "message": "create a logger for this class",
+      "revId": "09ae77e59639354a82be8077b68e1f1ec60530b9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b2bd668_e692a962",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/PeerServiceImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-04T19:36:15Z",
+      "side": 1,
+      "message": "you probably don\u0027t want to log so much output?",
+      "revId": "09ae77e59639354a82be8077b68e1f1ec60530b9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "069789b1_c4b060d3",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/ServiceImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-04T19:36:15Z",
+      "side": 1,
+      "message": "Please explain more",
+      "revId": "09ae77e59639354a82be8077b68e1f1ec60530b9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0a5bfa8_e61dacd9",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/ServiceImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-04T19:36:15Z",
+      "side": 1,
+      "message": "Pls remove don\u0027t comment out",
+      "revId": "09ae77e59639354a82be8077b68e1f1ec60530b9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54d69d81_019628e2",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/ServiceImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-04T19:36:15Z",
+      "side": 1,
+      "message": "Ditto",
+      "revId": "09ae77e59639354a82be8077b68e1f1ec60530b9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a0ca7a0e_52dde9da",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/test/PeerGatewayTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-04T19:36:15Z",
+      "side": 1,
+      "message": "pls remove don\u0027t comment out",
+      "revId": "09ae77e59639354a82be8077b68e1f1ec60530b9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a4210c5_7e6121e3",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/test/TestAdapter.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-04T19:36:15Z",
+      "side": 1,
+      "message": "Pls remove don\u0027t comment out",
+      "revId": "09ae77e59639354a82be8077b68e1f1ec60530b9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
