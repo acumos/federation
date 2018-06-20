@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a881ca7_80a8ebce",
+        "filename": "docs/release-notes.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-20T23:54:58Z",
+      "side": 1,
+      "message": "Same comment as on pom - could stay with 1.1.4",
+      "range": {
+        "startLine": 25,
+        "startChar": 8,
+        "endLine": 25,
+        "endChar": 12
+      },
+      "revId": "519418c32644332e82f4c2c712da25d9e26de968",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5a12a61_c66a34c2",
+        "filename": "gateway/pom.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-20T23:54:58Z",
+      "side": 1,
+      "message": "This time you could have kept 1.1.4 :) you have not released nor advertised this one for use.  As long as nobody knows about it, you can keep pushing changes and posting \"build release\"",
+      "range": {
+        "startLine": 27,
+        "startChar": 10,
+        "endLine": 27,
+        "endChar": 24
+      },
+      "revId": "519418c32644332e82f4c2c712da25d9e26de968",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3782667b_3d1fee6d",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/controller/CatalogController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-20T23:54:58Z",
+      "side": 1,
+      "message": "Don\u0027t believe this will ever, ever happen.  HOWEVER you might get an empty list.",
+      "range": {
+        "startLine": 188,
+        "startChar": 7,
+        "endLine": 188,
+        "endChar": 32
+      },
+      "revId": "519418c32644332e82f4c2c712da25d9e26de968",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ec3fc086_3682ede1",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/controller/CatalogController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-20T23:54:58Z",
+      "side": 1,
+      "message": "Again don\u0027t expect you will ever get null, but may get empty list",
+      "range": {
+        "startLine": 290,
+        "startChar": 7,
+        "endLine": 290,
+        "endChar": 40
+      },
+      "revId": "519418c32644332e82f4c2c712da25d9e26de968",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa353491_16fc26e3",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/CatalogServiceImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-20T23:54:58Z",
+      "side": 1,
+      "message": "Please move to a constant somewhere",
+      "range": {
+        "startLine": 119,
+        "startChar": 29,
+        "endLine": 119,
+        "endChar": 37
+      },
+      "revId": "519418c32644332e82f4c2c712da25d9e26de968",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "316cc5da_deae7ccb",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/CatalogServiceImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-20T23:54:58Z",
+      "side": 1,
+      "message": "Please move hard-coded strings to constants",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 47
+      },
+      "revId": "519418c32644332e82f4c2c712da25d9e26de968",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5528061b_d9141fa6",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/PeerServiceImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-20T23:54:58Z",
+      "side": 1,
+      "message": "Ken showed me something this - it was returning multiple peers, one of which was \"self\"  - ?",
+      "range": {
+        "startLine": 105,
+        "startChar": 15,
+        "endLine": 105,
+        "endChar": 34
+      },
+      "revId": "519418c32644332e82f4c2c712da25d9e26de968",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
