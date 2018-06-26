@@ -27,6 +27,8 @@ import org.springframework.context.annotation.Configuration;
 import com.github.dockerjava.core.DockerClientConfig; 
 import com.github.dockerjava.core.DefaultDockerClientConfig; 
 
+import org.acumos.federation.gateway.config.EELFLoggerDelegate;
+
 /**
  * 
  */
@@ -34,6 +36,7 @@ import com.github.dockerjava.core.DefaultDockerClientConfig;
 @ConfigurationProperties(prefix = "docker")
 public class DockerConfiguration {
 
+	private static final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(DockerConfiguration.class.getName());
 	private DefaultDockerClientConfig.Builder builder;
 
 	public DockerConfiguration() {
