@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ed3dda2a_b20ad025",
+        "filename": "gateway/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-27T00:10:47Z",
+      "side": 1,
+      "message": "pls fix indentation",
+      "revId": "034dc27334badeb66af659e2642287a3e07f2722",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37275a7c_e1762886",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/config/DockerConfiguration.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-27T00:10:47Z",
+      "side": 1,
+      "message": "Please learn this way to create a logger and use it everywhere:\n\n    \tprivate static final EELFLoggerDelegate logger \u003d EELFLoggerDelegate.getLogger(MethodHandles.lookup().lookupClass());",
+      "revId": "034dc27334badeb66af659e2642287a3e07f2722",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cae147a_044c43bc",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/ArtifactServiceImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-27T00:10:47Z",
+      "side": 1,
+      "message": "Pls fix indentation",
+      "revId": "034dc27334badeb66af659e2642287a3e07f2722",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cab726a7_137e3a03",
+        "filename": "gateway/src/test/resources/docker-compose.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-06-27T00:10:47Z",
+      "side": 1,
+      "message": "I understand this is for test, but you must not expose internal AT\u0026T usernames and passwords in the Gerrit repository.",
+      "range": {
+        "startLine": 40,
+        "startChar": 19,
+        "endLine": 40,
+        "endChar": 59
+      },
+      "revId": "034dc27334badeb66af659e2642287a3e07f2722",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
