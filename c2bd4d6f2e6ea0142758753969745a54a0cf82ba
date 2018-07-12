@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "00ee6529_25919450",
+        "filename": "docs/release-notes.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-07-12T17:57:41Z",
+      "side": 1,
+      "message": "Please fix line length so we don\u0027t have to get additional Jira issues from Aimee to silence RST warnings",
+      "range": {
+        "startLine": 31,
+        "startChar": 24,
+        "endLine": 31,
+        "endChar": 25
+      },
+      "revId": "c2bd4d6f2e6ea0142758753969745a54a0cf82ba",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cc118b98_b58db5f4",
+        "filename": "docs/release-notes.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-07-12T17:57:41Z",
+      "side": 1,
+      "message": "No Jira issue number?",
+      "revId": "c2bd4d6f2e6ea0142758753969745a54a0cf82ba",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b207cc9_3bdb0249",
+        "filename": "gateway/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-07-12T17:57:41Z",
+      "side": 1,
+      "message": "Should be 1.15.4",
+      "range": {
+        "startLine": 77,
+        "startChar": 17,
+        "endLine": 77,
+        "endChar": 18
+      },
+      "revId": "c2bd4d6f2e6ea0142758753969745a54a0cf82ba",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
