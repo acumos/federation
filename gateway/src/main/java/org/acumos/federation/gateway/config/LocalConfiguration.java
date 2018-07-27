@@ -20,31 +20,21 @@
 
 package org.acumos.federation.gateway.config;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import java.lang.invoke.MethodHandles;
+
+import org.acumos.federation.gateway.controller.PeerCatalogController;
+import org.acumos.federation.gateway.controller.PeerPeersController;
+import org.acumos.federation.gateway.controller.PeerPingController;
+import org.acumos.federation.gateway.controller.PeerSubscriptionController;
+import org.apache.http.client.HttpClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import org.springframework.context.ApplicationContextAware;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Scope;
-import org.springframework.context.annotation.Import;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-
-import org.apache.http.client.HttpClient;
-
 import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
-import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory;
-import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
-
-
-import org.acumos.federation.gateway.config.EELFLoggerDelegate;
-import org.acumos.federation.gateway.controller.PeerPingController;
-import org.acumos.federation.gateway.controller.PeerPeersController;
-import org.acumos.federation.gateway.controller.PeerCatalogController;
-import org.acumos.federation.gateway.controller.PeerSubscriptionController;
-import org.acumos.federation.gateway.security.AuthenticationConfiguration;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 /**
  * Provides the beans used in interactions with the local Acumos system
@@ -55,7 +45,7 @@ public class LocalConfiguration {
 
 	@Autowired
 	private LocalInterfaceConfiguration interfaceConfig;
-	private EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(getClass().getName());
+	private static final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(MethodHandles.lookup().lookupClass());
 
 	public LocalConfiguration() {
 	}
@@ -81,15 +71,16 @@ public class LocalConfiguration {
 	}
 
 	/**
-   * Build a client for interacting with other local Acumos components
+	 * Builds a client for interacting with other local Acumos components
 	 * through the local interface.
 	 * We assume the same configuration takes place for client and server
 	 * roles when interacting with peers: we'll assume the same identity, use the
 	 * same network interface, etc. If this ever needs to change we can pick
 	 * the values from a separate configuration properties set.
+	 * @return HttpClient
 	 */
 	@Bean
-  @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+	@Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 	public HttpClient localClient() {
 		log.debug(EELFLoggerDelegate.debugLogger, this + "::localClient from " + this.interfaceConfig);
 		return interfaceConfig.buildClient();
@@ -98,6 +89,7 @@ public class LocalConfiguration {
 	/**
 	 * Build a servlet container running on the local interface for serving
 	 * local interface requests (see controllers built here).
+	 * @return EmbeddedServletContainerCustomizer
 	 */
 	@Bean
 	public EmbeddedServletContainerCustomizer localServer() {

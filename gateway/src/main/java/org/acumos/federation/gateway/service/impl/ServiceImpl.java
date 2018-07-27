@@ -20,10 +20,8 @@
 
 package org.acumos.federation.gateway.service.impl;
 
-import java.util.Map;
 import java.util.List;
-
-import org.acumos.federation.gateway.service.ServiceException;
+import java.util.Map;
 
 import org.acumos.cds.domain.MLPSolution;
 
@@ -35,6 +33,9 @@ public interface ServiceImpl {
 
 	/**
 	 * Bit of a primitive implementation
+	 * @param theSolution Solution
+	 * @param theSelector Selector map
+	 * @return true or false
 	 */
 	public static boolean isSelectable(MLPSolution theSolution, Map<String, ?> theSelector) /*throws ServiceException*/ {
 		boolean res = true;

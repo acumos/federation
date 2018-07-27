@@ -20,38 +20,28 @@
 
 package org.acumos.federation.gateway.common;
 
-import java.io.IOException;
-import java.util.HashMap;
+import java.lang.invoke.MethodHandles;
 
-import org.apache.http.client.HttpClient;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Scope;
-import org.springframework.context.annotation.Import;
-import org.springframework.core.env.Environment;
-import org.springframework.stereotype.Component;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
-import org.springframework.boot.web.client.RestTemplateBuilder;
-
+import org.acumos.cds.client.CommonDataServiceRestClientImpl;
+import org.acumos.cds.client.ICommonDataServiceRestClient;
+import org.acumos.federation.gateway.cds.Mapper;
+import org.acumos.federation.gateway.config.DockerConfiguration;
+import org.acumos.federation.gateway.config.EELFLoggerDelegate;
+import org.acumos.federation.gateway.config.FederationInterfaceConfiguration;
+import org.acumos.federation.gateway.config.LocalInterfaceConfiguration;
 import org.acumos.nexus.client.NexusArtifactClient;
 import org.acumos.nexus.client.RepositoryLocation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Scope;
+import org.springframework.core.env.Environment;
+import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.stereotype.Component;
 
 import com.github.dockerjava.api.DockerClient;
 import com.github.dockerjava.core.DockerClientBuilder;
-
-import org.acumos.federation.gateway.config.EELFLoggerDelegate;
-import org.acumos.federation.gateway.config.DockerConfiguration;
-import org.acumos.federation.gateway.config.InterfaceConfiguration;
-import org.acumos.federation.gateway.config.LocalInterfaceConfiguration;
-import org.acumos.federation.gateway.config.FederationInterfaceConfiguration;
-import org.acumos.federation.gateway.cds.Mapper;
-
-import org.acumos.cds.client.ICommonDataServiceRestClient;
-import org.acumos.cds.client.CommonDataServiceRestClientImpl;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * Unique entry point for building clients: peer access clients, cds clients
@@ -71,7 +61,7 @@ public class Clients {
 	@Autowired
 	private DockerConfiguration dockerConfig = null;
 
-	private final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(getClass().getName());
+	private static final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(MethodHandles.lookup().lookupClass());
 
 	public Clients() {
 	}
@@ -100,12 +90,15 @@ public class Clients {
 
 	/**
 	 * Build a client for the given peer uri
+	 * @param thePeerURI 
+	 *             Peer URI
+	 * @return 
+	 *             Federation client
 	 */
 	public FederationClient getFederationClient(String thePeerURI) {
 		return new FederationClient(thePeerURI, federationConfig.buildClient(), Mapper.build());
 	}
 
-	/** */
 	public NexusArtifactClient getNexusClient() {
 		RepositoryLocation repositoryLocation = new RepositoryLocation();
 
@@ -119,19 +112,16 @@ public class Clients {
 		return new NexusArtifactClient(repositoryLocation);
 	}
 
-	/** */
 	public Object getNexusProperty(String theName) {
 		return env.getProperty("nexus." + theName);
 	}
 
-	/** */
 	public DockerClient	getDockerClient() {
     return DockerClientBuilder.getInstance(dockerConfig.buildConfig())
         		.withDockerCmdExecFactory(DockerClientBuilder.getDefaultDockerCmdExecFactory())
         		.build();
 	}
 
-	/** */
 	public Object getDockerProperty(String theName) {
 		return env.getProperty("docker." + theName);
 	}

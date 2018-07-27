@@ -20,47 +20,26 @@
 
 package org.acumos.federation.gateway.service;
 
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.BufferedReader;
 import java.io.IOException;
-
+import java.lang.invoke.MethodHandles;
+import java.net.URI;
+import java.nio.file.FileSystems;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardWatchEventKinds;
 import java.nio.file.WatchEvent;
 import java.nio.file.WatchKey;
 import java.nio.file.WatchService;
-import java.nio.file.FileSystems;
-
-import java.net.URI;
-import java.net.URISyntaxException;
-
-import java.util.Set;
-import java.util.Map;
 import java.util.HashMap;
-import java.util.List;
-import java.util.LinkedList;
-import java.util.Date;
-import java.text.DateFormat;
-import java.util.stream.Collectors;
+import java.util.Map;
 import java.util.function.Consumer;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
-import org.json.JSONObject;
-import org.json.JSONArray;
-
-import org.springframework.core.env.Environment;
-import org.springframework.stereotype.Service;
-import org.springframework.beans.factory.BeanInitializationException;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.scheduling.annotation.Scheduled;
-
 import org.acumos.federation.gateway.config.EELFLoggerDelegate;
-
-import org.apache.commons.io.IOUtils;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Service;
 
 /**
  * Local implementations get their info from local file(s), we help them here a
@@ -72,7 +51,7 @@ public class LocalWatchService {
 	private Map<URI, Consumer<URI>> sources = new HashMap<URI, Consumer<URI>>();
 	private WatchService sourceWatcher = null;
 
-	private final EELFLoggerDelegate logger = EELFLoggerDelegate.getLogger(LocalWatchService.class);
+	private static final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(MethodHandles.lookup().lookupClass());
 
 	public void watchOn(URI theUri, Consumer<URI> theHandler) {
 		this.sources.put(theUri, theHandler);
@@ -82,7 +61,7 @@ public class LocalWatchService {
 	protected void setupSourceWatcher(URI theSource) {
 
 		if (this.sourceWatcher == null)
-			logger.warn(EELFLoggerDelegate.errorLogger, "source watcher not available ");
+			log.warn(EELFLoggerDelegate.errorLogger, "source watcher not available ");
 
 		if ("file".equals(theSource.getScheme())) {
 			// we can only watch directories ..
@@ -90,24 +69,24 @@ public class LocalWatchService {
 			try {
 				sourcePath.register(this.sourceWatcher, StandardWatchEventKinds.ENTRY_MODIFY);
 			} catch (IOException iox) {
-				logger.warn(EELFLoggerDelegate.errorLogger, "Failed to setup source watcher for " + theSource, iox);
+				log.warn(EELFLoggerDelegate.errorLogger, "Failed to setup source watcher for " + theSource, iox);
 			}
 		}
 	}
 
 	@PostConstruct
 	public void initLocalService() {
-		logger.debug(EELFLoggerDelegate.debugLogger, "init local service");
+		log.debug(EELFLoggerDelegate.debugLogger, "init local service");
 
 		try {
 			this.sourceWatcher = FileSystems.getDefault().newWatchService();
 		} catch (IOException iox) {
-			logger.warn(EELFLoggerDelegate.debugLogger, "Failed to setup source watcher: " + iox);
+			log.warn(EELFLoggerDelegate.debugLogger, "Failed to setup source watcher: " + iox);
 			this.sourceWatcher = null;
 		}
 
 		// Done
-		logger.debug(EELFLoggerDelegate.debugLogger, "local service available");
+		log.debug(EELFLoggerDelegate.debugLogger, "local service available");
 	}
 
 	@PreDestroy
@@ -122,9 +101,9 @@ public class LocalWatchService {
 
 	@Scheduled(fixedRateString = "${peer.local.interval:60}000")
 	protected void updateInfo() {
-		logger.info(EELFLoggerDelegate.debugLogger, "ckecking for updates");
+		log.info(EELFLoggerDelegate.debugLogger, "ckecking for updates");
 		if (this.sourceWatcher == null) {
-			logger.debug(EELFLoggerDelegate.debugLogger, "source watcher not in place");
+			log.debug(EELFLoggerDelegate.debugLogger, "source watcher not in place");
 			return;
 		}
 
@@ -138,7 +117,7 @@ public class LocalWatchService {
 			for (WatchEvent<?> event : key.pollEvents()) {
 				final Path changedPath = (Path) event.context();
 				URI uri = changedPath.toUri();
-				logger.info(EELFLoggerDelegate.debugLogger, "Local update: " + uri);
+				log.info(EELFLoggerDelegate.debugLogger, "Local update: " + uri);
 				Consumer c = sources.get(uri);
 				if (c != null)
 					c.accept(uri);

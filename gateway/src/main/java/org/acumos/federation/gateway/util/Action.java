@@ -20,8 +20,6 @@
 
 package org.acumos.federation.gateway.util;
 
-/**
- */
 public interface Action<T> {
 
 	public Future<T> execute();

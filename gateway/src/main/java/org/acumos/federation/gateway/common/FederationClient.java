@@ -20,22 +20,19 @@
 
 package org.acumos.federation.gateway.common;
 
+import java.lang.invoke.MethodHandles;
 import java.net.URI;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import org.acumos.cds.domain.MLPPeer;
 import org.acumos.cds.domain.MLPArtifact;
+import org.acumos.cds.domain.MLPPeer;
 import org.acumos.cds.domain.MLPSolution;
 import org.acumos.cds.domain.MLPSolutionRevision;
-import org.acumos.federation.gateway.common.API;
-import org.acumos.federation.gateway.common.JsonResponse;
 import org.acumos.federation.gateway.config.EELFLoggerDelegate;
 import org.acumos.federation.gateway.util.Utils;
-
 import org.apache.http.client.HttpClient;
-
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpMethod;
@@ -48,6 +45,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 /**
  */
 public class FederationClient extends AbstractClient {
+
+	private static final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(MethodHandles.lookup().lookupClass());
 
 	/**
 	 * @param theTarget
@@ -91,8 +90,6 @@ public class FederationClient extends AbstractClient {
 		return response == null ? null : response.getBody();
 	}	
 
-	/**
-	 */
 	public JsonResponse<List<MLPPeer>> getPeers()
 			throws HttpStatusCodeException {
 		URI uri = API.PEERS.buildUri(this.baseUrl);
@@ -162,6 +159,8 @@ public class FederationClient extends AbstractClient {
 	}
 
 	/**
+	 * @param theSolutionId
+	 *          Solution ID
 	 * @return Peer information from Remote Acumos
 	 * @throws HttpStatusCodeException
 	 *             Throws HttpStatusCodeException if remote acumos interaction has failed.
@@ -289,6 +288,8 @@ public class FederationClient extends AbstractClient {
 	}
 
 	/**
+	 * @param theSelf 
+	 *            Peer
 	 * @return Register self with the peer this client points to.
 	 * @throws HttpStatusCodeException
 	 *             Throws HttpStatusCodeException if remote acumos interaction has failed.

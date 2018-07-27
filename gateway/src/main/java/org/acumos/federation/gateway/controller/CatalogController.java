@@ -20,9 +20,9 @@
 
 package org.acumos.federation.gateway.controller;
 
+import java.lang.invoke.MethodHandles;
 import java.net.URI;
 import java.net.URISyntaxException;
-
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Callable;
@@ -35,20 +35,15 @@ import org.acumos.cds.domain.MLPSolution;
 import org.acumos.cds.domain.MLPSolutionRevision;
 import org.acumos.federation.gateway.cds.ArtifactType;
 import org.acumos.federation.gateway.common.API;
-import org.acumos.federation.gateway.common.JSONTags;
 import org.acumos.federation.gateway.common.JsonResponse;
 import org.acumos.federation.gateway.config.EELFLoggerDelegate;
-import org.acumos.federation.gateway.security.Peer;
-import org.acumos.federation.gateway.service.CatalogService;
 import org.acumos.federation.gateway.service.ArtifactService;
-import org.acumos.federation.gateway.service.ServiceContext;
+import org.acumos.federation.gateway.service.CatalogService;
 import org.acumos.federation.gateway.util.Utils;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Base64Utils;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -58,9 +53,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import io.swagger.annotations.ApiOperation;
-
 import com.github.dockerjava.api.model.Identifier;
+
+import io.swagger.annotations.ApiOperation;
 
 /**
  * 
@@ -70,7 +65,7 @@ import com.github.dockerjava.api.model.Identifier;
 @RequestMapping(API.Roots.FEDERATION)
 public class CatalogController extends AbstractController {
 
-	private static final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(CatalogController.class.getName());
+	private static final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(MethodHandles.lookup().lookupClass());
 
 	@Autowired
 	private CatalogService catalogService;
@@ -78,6 +73,8 @@ public class CatalogController extends AbstractController {
 	private ArtifactService artifactService;
 
 	/**
+	 * @param theHttpRequest 
+	 *            HttpServletRequest
 	 * @param theHttpResponse
 	 *            HttpServletResponse
 	 * @param theSelector

@@ -20,9 +20,10 @@
 
 package org.acumos.federation.gateway.task;
 
+import java.lang.invoke.MethodHandles;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import java.util.Date;
 import java.util.concurrent.ScheduledFuture;
 
 import javax.annotation.PostConstruct;
@@ -30,17 +31,13 @@ import javax.annotation.PreDestroy;
 
 import org.acumos.cds.domain.MLPPeer;
 import org.acumos.cds.domain.MLPPeerSubscription;
+import org.acumos.federation.gateway.cds.PeerStatus;
 import org.acumos.federation.gateway.config.EELFLoggerDelegate;
 import org.acumos.federation.gateway.service.PeerService;
 import org.acumos.federation.gateway.service.PeerSubscriptionService;
-import org.acumos.federation.gateway.cds.PeerStatus;
 import org.acumos.federation.gateway.util.Utils;
-
-import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -58,7 +55,7 @@ import com.google.common.collect.Table;
 @EnableScheduling
 public class PeerSubscriptionTaskScheduler {
 
-	private final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(getClass().getName());
+	private static final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(MethodHandles.lookup().lookupClass());
 
 	@Autowired
 	private Environment env;
@@ -117,8 +114,13 @@ public class PeerSubscriptionTaskScheduler {
 	}
 
 	/**
-	 * Schedule a one time execution of the subscription.
-	 * The scheduler will not track the execution of suck a task.
+	 * Schedule a one time execution of the subscription. The scheduler will not
+	 * track the execution of suck a task.
+	 * 
+	 * @param thePeer
+	 *            Peer
+	 * @param theSub
+	 *            Peer subscription
 	 */
 	public void runOnce(MLPPeer thePeer, MLPPeerSubscription theSub) {
 		new PeerTaskHandler().runTask(thePeer, theSub);

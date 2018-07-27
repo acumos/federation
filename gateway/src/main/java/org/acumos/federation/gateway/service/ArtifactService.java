@@ -23,10 +23,9 @@
  */
 package org.acumos.federation.gateway.service;
 
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.InputStreamResource;
-
 import org.acumos.cds.domain.MLPArtifact;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.core.io.Resource;
 
 /**
  * Handles access to the artifacts repository. 
@@ -39,6 +38,8 @@ public interface ArtifactService {
 	 * @param theContext
 	 *            the execution context
 	 * @return resource containing access to the actual artifact content
+	 * @throws ServiceException
+	 *            on failure
 	 */
 	public InputStreamResource getArtifactContent(MLPArtifact theArtifact, ServiceContext theContext)
 																																										throws ServiceException;
@@ -51,6 +52,8 @@ public interface ArtifactService {
 	 *            The CDS representation of artifact metadata
 	 * @param theResource
 	 *            the resource providing the artifact content
+	 * @throws ServiceException
+	 *            on failure
 	 */
 	public void putArtifactContent(MLPArtifact theArtifact, Resource theResource) throws ServiceException;
 }
