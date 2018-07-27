@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fd1b9176_7341d4ee",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/Application.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-07-27T12:46:35Z",
+      "side": 1,
+      "message": "Serban please check this",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 99
+      },
+      "revId": "a94577031e642ee26d211f4f875ea6a5c88118ad",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "423edb64_7da3b506",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/PeerGateway.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-07-27T12:46:35Z",
+      "side": 1,
+      "message": "Serban please check this",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 192,
+        "endChar": 90
+      },
+      "revId": "a94577031e642ee26d211f4f875ea6a5c88118ad",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c94fed0f_48d4c5cf",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/PeerGateway.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-07-27T12:46:35Z",
+      "side": 1,
+      "message": "Serban please check this",
+      "range": {
+        "startLine": 277,
+        "startChar": 0,
+        "endLine": 277,
+        "endChar": 56
+      },
+      "revId": "a94577031e642ee26d211f4f875ea6a5c88118ad",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65b77dd3_8fda23e0",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/PeerGateway.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-07-27T12:46:35Z",
+      "side": 1,
+      "message": "Serban please check this",
+      "range": {
+        "startLine": 309,
+        "startChar": 0,
+        "endLine": 309,
+        "endChar": 71
+      },
+      "revId": "a94577031e642ee26d211f4f875ea6a5c88118ad",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2605039d_520cc1be",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/onap/ToscaLab.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-07-27T12:46:35Z",
+      "side": 1,
+      "message": "Serban please check this",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 60
+      },
+      "revId": "a94577031e642ee26d211f4f875ea6a5c88118ad",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
