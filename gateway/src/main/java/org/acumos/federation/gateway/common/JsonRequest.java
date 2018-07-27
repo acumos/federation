@@ -29,8 +29,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * client. Getters and setters encapsulate the fields of a class by making them
  * accessible only through its public methods and keep the values themselves
  * private.
+ * @param <T> Request body class
  */
-
 public class JsonRequest<T> implements Serializable {
 
 	private static final long serialVersionUID = 7576436006913504503L;

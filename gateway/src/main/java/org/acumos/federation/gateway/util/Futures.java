@@ -20,15 +20,12 @@
 
 package org.acumos.federation.gateway.util;
 
-import java.util.List;
-import java.util.LinkedList;
 import java.util.Collections;
-
+import java.util.LinkedList;
+import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.function.Function;
 
-/**
- */
 public class Futures<T> {
 
 	private Futures() {
@@ -64,7 +61,6 @@ public class Futures<T> {
 		return adv;
 	}
 
-	/** */
 	public static class BasicFuture<T> implements Future<T> {
 
 		protected boolean succeeded, failed;
@@ -148,7 +144,6 @@ public class Futures<T> {
 		}
 	}
 
-	/** */
 	public static class BasicHandler<T> implements FutureHandler<T> {
 
 		protected T result = null;
@@ -198,7 +193,6 @@ public class Futures<T> {
 		}
 	}
 
-	/** */
 	public static class Accumulator<T> extends BasicFuture<List<T>> implements Future<List<T>> {
 
 		protected List<Future<T>> futures = new LinkedList<Future<T>>();

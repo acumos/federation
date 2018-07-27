@@ -19,13 +19,9 @@
  */
 package org.acumos.federation.gateway.adapter.onap;
 
-import java.io.File;
-import java.io.InputStream;
-import java.io.FileInputStream;
 import java.io.ByteArrayOutputStream;
-
-import java.net.URI;
-import java.net.URL;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.Properties;
 
 import org.python.util.PythonInterpreter;
@@ -58,6 +54,8 @@ public class ToscaLab {
 
 	public String create_model(InputStream theSpec) throws Exception {
 
+		// TODO: close the python interpreter AND script resources
+		
 		//if (this.create_model_interpreter == null) {
 			PythonInterpreter python = new PythonInterpreter();
 			python.setIn(theSpec);

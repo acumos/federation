@@ -20,22 +20,18 @@
 
 package org.acumos.federation.gateway.controller;
 
-import java.util.List;
+import java.lang.invoke.MethodHandles;
 
 import javax.servlet.http.HttpServletResponse;
 
 import org.acumos.cds.domain.MLPPeer;
 import org.acumos.federation.gateway.common.API;
 import org.acumos.federation.gateway.common.Clients;
-import org.acumos.federation.gateway.common.JSONTags;
 import org.acumos.federation.gateway.common.JsonResponse;
 import org.acumos.federation.gateway.config.EELFLoggerDelegate;
-import org.acumos.federation.gateway.security.Peer;
 import org.acumos.federation.gateway.service.PeerService;
-import org.acumos.federation.gateway.service.ServiceContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -49,6 +45,8 @@ import io.swagger.annotations.ApiOperation;
 @RequestMapping(API.Roots.LOCAL)
 public class PeerRegistrationController extends AbstractController {
 
+	private static final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(MethodHandles.lookup().lookupClass());
+
 	@Autowired
 	private Clients	clients;
 	@Autowired
@@ -57,6 +55,8 @@ public class PeerRegistrationController extends AbstractController {
 
 	/**
 	 * Allows local components to require this Acumos instance to register with another Acumos instance.
+	 * @param thePeerId 
+	 *            Peer ID
 	 * @param theHttpResponse
 	 *            HttpServletResponse
 	 * @return The remote peer information
@@ -67,7 +67,6 @@ public class PeerRegistrationController extends AbstractController {
 	@RequestMapping(value = { API.Paths.PEER_REGISTER }, method = RequestMethod.POST, produces = APPLICATION_JSON)
 	@ResponseBody
 	public JsonResponse<MLPPeer> register(
-			/* HttpServletRequest theHttpRequest, */
 			HttpServletResponse theHttpResponse,
 			@PathVariable("peerId") String thePeerId) {
 

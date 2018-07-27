@@ -20,17 +20,17 @@
 
 package org.acumos.federation.gateway.adapter.onap;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.lang.invoke.MethodHandles;
 import java.net.URI;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-import java.util.Collections;
-import java.util.Comparator;
-
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -46,26 +46,22 @@ import org.acumos.federation.gateway.adapter.onap.sdc.ASDC.ArtifactType;
 import org.acumos.federation.gateway.adapter.onap.sdc.ASDC.AssetType;
 import org.acumos.federation.gateway.adapter.onap.sdc.ASDC.LifecycleState;
 import org.acumos.federation.gateway.adapter.onap.sdc.ASDCException;
-import org.acumos.federation.gateway.config.EELFLoggerDelegate;
-import org.acumos.federation.gateway.event.PeerSubscriptionEvent;
 import org.acumos.federation.gateway.common.Clients;
 import org.acumos.federation.gateway.common.FederationClient;
-import org.apache.commons.io.IOUtils;
-
+import org.acumos.federation.gateway.config.EELFLoggerDelegate;
+import org.acumos.federation.gateway.event.PeerSubscriptionEvent;
 import org.json.JSONArray;
-import org.json.JSONObject;
 import org.json.JSONException;
-
+import org.json.JSONObject;
 import org.springframework.beans.factory.BeanInitializationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.Conditional;
+import org.springframework.context.annotation.Scope;
 import org.springframework.context.event.EventListener;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.util.StreamUtils;
 
 @Component("onap")
@@ -74,7 +70,7 @@ import org.springframework.util.StreamUtils;
 @Conditional(ONAPAdapterCondition.class)
 public class ONAP {
 
-	private final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(ONAP.class);
+	private static final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(MethodHandles.lookup().lookupClass());
 	private ASDC asdc = new ASDC();
 	private String asdcOperator;
 	private TaskExecutor taskExecutor;
@@ -252,6 +248,8 @@ public class ONAP {
 		 *            Asset info
 		 * @param theSolution
 		 *            solution
+		 * @param theRevisions 
+		 *            revisions
 		 * @return SDC Asset info
 		 */
 		public JSONObject updateSdcAsset(JSONObject theAssetInfo, MLPSolution theSolution, List<MLPSolutionRevision> theRevisions) {
@@ -280,7 +278,7 @@ public class ONAP {
 
 			//we could have a new model, a new model revision or updates to the currently mapped revision's artifacts.
 			//currently we always fast-forward to the latest revision available in acumos
-			MLPSolutionRevision mappedAcumosRevision = mappedAcumosRevision = theRevisions.get(theRevisions.size() - 1);
+			MLPSolutionRevision mappedAcumosRevision = theRevisions.get(theRevisions.size() - 1);
 
 			List<MLPArtifact> acumosArtifacts = null;
 			try {
@@ -357,7 +355,7 @@ public class ONAP {
 
 			log.warn(EELFLoggerDelegate.debugLogger, "Updated SDC artifacts: " + updatedArtifacts.keySet());
 			for (Map.Entry<MLPArtifact, JSONArray> updateEntry : updatedArtifacts.entrySet()) {
-				MLPArtifact acumosArtifact = updateEntry.getKey();
+				// TODO: remove MLPArtifact acumosArtifact = updateEntry.getKey();
 				try {
 					for (ASDC.ArtifactUpdateAction updateAction:  mapArtifact(theAssetInfo, updateEntry.getKey(), updateEntry.getValue())) {
 						updateAction.execute().waitForResult();
@@ -409,7 +407,7 @@ public class ONAP {
 					content = retrieveContent(theAcumosArtifact);
 				}
 				catch (Exception x) {
-					log.error(EELFLoggerDelegate.errorLogger, "Failed to retrieve Acumoms artifact content from " + theAcumosArtifact.getUri(), x);
+					log.error(EELFLoggerDelegate.errorLogger, "Failed to retrieve Acumos artifact content from " + theAcumosArtifact.getUri(), x);
 					return Collections.EMPTY_LIST;
 				}
 

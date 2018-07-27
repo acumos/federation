@@ -23,33 +23,16 @@
  */
 package org.acumos.federation.gateway.service.impl;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
+import java.lang.invoke.MethodHandles;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Date;
-import java.util.Collections;
 import java.util.stream.Collectors;
 
-import java.lang.invoke.MethodHandles;
-
 import javax.annotation.PostConstruct;
-
-import org.apache.commons.io.FileUtils;
-
-import org.acumos.federation.gateway.util.Utils;
-import org.acumos.federation.gateway.util.Errors;
-import org.acumos.federation.gateway.config.EELFLoggerDelegate;
-import org.acumos.federation.gateway.service.CatalogService;
-import org.acumos.federation.gateway.service.ServiceContext;
-import org.acumos.federation.gateway.service.ServiceException;
-
-import org.acumos.nexus.client.NexusArtifactClient;
 
 import org.acumos.cds.AccessTypeCode;
 import org.acumos.cds.ValidationStatusCode;
@@ -57,21 +40,21 @@ import org.acumos.cds.client.ICommonDataServiceRestClient;
 import org.acumos.cds.domain.MLPArtifact;
 import org.acumos.cds.domain.MLPSolution;
 import org.acumos.cds.domain.MLPSolutionRevision;
-import org.acumos.cds.transport.RestPageResponse;
 import org.acumos.cds.transport.RestPageRequest;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
-import org.springframework.core.io.InputStreamResource;
-import org.springframework.stereotype.Service;
-import org.springframework.context.annotation.Conditional;
-import org.springframework.web.client.HttpStatusCodeException;
-
+import org.acumos.cds.transport.RestPageResponse;
+import org.acumos.federation.gateway.cds.Artifact;
 import org.acumos.federation.gateway.cds.Solution;
 import org.acumos.federation.gateway.cds.SolutionRevision;
-import org.acumos.federation.gateway.cds.Artifact;
-
+import org.acumos.federation.gateway.config.EELFLoggerDelegate;
+import org.acumos.federation.gateway.service.CatalogService;
+import org.acumos.federation.gateway.service.ServiceContext;
+import org.acumos.federation.gateway.service.ServiceException;
+import org.acumos.federation.gateway.util.Errors;
 import org.apache.commons.beanutils.PropertyUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpStatusCodeException;
 
 /**
  * CDS based implementation of the CatalogService.
@@ -162,6 +145,8 @@ public class CatalogServiceImpl extends AbstractServiceImpl
 																					selector.containsKey(Solution.Fields.tags) ?
 																						new String[] {selector.get(Solution.Fields.tags).toString()} :
 																						null,
+																					null, // TODO author
+																					null, // TODO publisher
 																					pageRequest);
 						//cdsClient.searchSolutions(selector, false, pageRequest);
 					pageSolutions = pageResponse.getContent();

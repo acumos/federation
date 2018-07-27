@@ -19,9 +19,6 @@
  */
 package org.acumos.federation.gateway.cds;
 
-
-/**
- */
 @FunctionalInterface
 public interface Updater<R,T> {
 

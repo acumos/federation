@@ -198,6 +198,7 @@ public interface PeerService {
 
 	/**
 	 * Provide a context for self service calls, ie calls made on the behalf of the gateway itself.
+	 * @return ServiceContext
 	 */
 	public ServiceContext selfService();
 

@@ -20,38 +20,30 @@
 
 package org.acumos.federation.gateway.security;
 
+import java.lang.invoke.MethodHandles;
 import java.util.List;
 
+import javax.naming.InvalidNameException;
 import javax.naming.ldap.LdapName;
 import javax.naming.ldap.Rdn;
-import javax.naming.InvalidNameException;
-
 import javax.servlet.http.HttpServletResponse;
 
 import org.acumos.cds.domain.MLPPeer;
-
 import org.acumos.federation.gateway.config.EELFLoggerDelegate;
 import org.acumos.federation.gateway.service.PeerService;
 import org.acumos.federation.gateway.util.Utils;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.Configuration;
-
+import org.springframework.context.annotation.Lazy;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.web.authentication.preauth.x509.X509AuthenticationFilter;
-import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.authority.AuthorityUtils;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.web.access.AccessDeniedHandler;
 
 /**
  * 
@@ -67,7 +59,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class AuthenticationConfiguration extends WebSecurityConfigurerAdapter {
 
-	private final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(getClass().getName());
+	private static final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(MethodHandles.lookup().lookupClass());
 
 	@Autowired
 	private PeerService peerService;
@@ -111,7 +103,6 @@ public class AuthenticationConfiguration extends WebSecurityConfigurerAdapter {
 							.userDetailsService(userDetailsService());
 	}
 
-	/** */
 	@Bean
 	public AccessDeniedHandler accessDeniedHandler() {
 		return ((request, response, exception) -> {
@@ -126,7 +117,6 @@ public class AuthenticationConfiguration extends WebSecurityConfigurerAdapter {
 		return new Peer(peerService.getSelf(), Role.SELF.priviledges());
 	}
 
-	/** */
 	@Bean
 	public UserDetailsService userDetailsService() {
 		return (subject -> {

@@ -21,27 +21,21 @@
 package org.acumos.federation.gateway;
 
 import java.io.IOException;
+import java.lang.invoke.MethodHandles;
 
 import org.acumos.federation.gateway.config.EELFLoggerDelegate;
-import org.acumos.federation.gateway.config.LocalConfiguration;
 import org.acumos.federation.gateway.config.FederationConfiguration;
-
-import org.springframework.boot.SpringApplication;
+import org.acumos.federation.gateway.config.LocalConfiguration;
+import org.springframework.boot.Banner;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
-import org.springframework.context.ApplicationContext;
-
-import org.springframework.boot.Banner;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.context.annotation.FilterType;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.FilterType;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -61,9 +55,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 																							 org.acumos.federation.gateway.config.AdapterConfiguration.class}))
 public class Application {
 
-	private final static EELFLoggerDelegate logger = EELFLoggerDelegate.getLogger(Application.class);
+	private static final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(MethodHandles.lookup().lookupClass());
 
-	/**
+	/*
 	 * We should be able to swap the LocalConfiguration in the case of adapters.
 	 */
 	public static void main(String[] args) throws Exception {
@@ -85,15 +79,16 @@ public class Application {
 
 	public static final String CONFIG_ENV_VAR_NAME = "SPRING_APPLICATION_JSON";
 
+	// TODO: Call this from main to check the configuration, saves time when config errors are present
 	private static void checkEnvironmentConfig() throws IOException {
 		final String springApplicationJson = System.getenv(CONFIG_ENV_VAR_NAME);
 		if (springApplicationJson != null && springApplicationJson.contains("{")) {
 			final ObjectMapper mapper = new ObjectMapper();
 			// ensure it's valid
 			mapper.readTree(springApplicationJson);
-			logger.info("main: successfully parsed configuration from environment {}", CONFIG_ENV_VAR_NAME);
+			log.info("main: successfully parsed configuration from environment {}", CONFIG_ENV_VAR_NAME);
 		} else {
-			logger.warn("main: no configuration found in environment {}", CONFIG_ENV_VAR_NAME);
+			log.warn("main: no configuration found in environment {}", CONFIG_ENV_VAR_NAME);
 		}
 	}
 }

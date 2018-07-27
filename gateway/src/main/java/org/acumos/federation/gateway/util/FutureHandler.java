@@ -20,8 +20,6 @@
 
 package org.acumos.federation.gateway.util;
 
-/**
- */
 @FunctionalInterface
 public interface FutureHandler<T> {
 

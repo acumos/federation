@@ -20,85 +20,51 @@
 
 package org.acumos.federation.gateway.adapter.onap.sdc;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-import javax.net.ssl.HttpsURLConnection;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.UncheckedIOException;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-
-import java.util.List;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.UUID;
+import java.lang.invoke.MethodHandles;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.Collections;
-
-import java.util.function.BiFunction;
+import java.util.List;
+import java.util.UUID;
 import java.util.function.UnaryOperator;
 
-import java.util.logging.Logger;
-import java.util.logging.Level;
-
-import java.util.zip.ZipInputStream;
-import java.util.zip.ZipEntry;
-
 import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
 
-import org.springframework.http.MediaType;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpRequest;
-import org.springframework.http.HttpMethod;
+import org.acumos.federation.gateway.config.EELFLoggerDelegate;
+import org.acumos.federation.gateway.util.Action;
+import org.acumos.federation.gateway.util.Future;
+import org.acumos.federation.gateway.util.Futures;
+import org.acumos.federation.gateway.util.JSONHttpMessageConverter;
+//import org.springframework.util.DigestUtils;
+import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Scope;
 import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpRequest;
+import org.springframework.http.MediaType;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.AsyncClientHttpRequestExecution;
 import org.springframework.http.client.AsyncClientHttpRequestInterceptor;
 import org.springframework.http.client.ClientHttpResponse;
-import org.springframework.web.client.RestTemplate;
-import org.springframework.web.client.AsyncRestTemplate;
-import org.springframework.web.client.RestClientException;
-import org.springframework.web.client.HttpClientErrorException;
-import org.springframework.web.client.DefaultResponseErrorHandler;
 import org.springframework.http.converter.HttpMessageConverter;
-
-import org.springframework.util.Base64Utils;
-//import org.springframework.util.DigestUtils;
-import org.apache.commons.codec.digest.DigestUtils;
-
-import org.springframework.stereotype.Component;
-import org.springframework.context.annotation.Scope;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-
+import org.springframework.stereotype.Component;
+import org.springframework.util.Base64Utils;
 import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.util.concurrent.ListenableFutureCallback;
-
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang3.StringUtils;
-
-import com.google.common.collect.ImmutableMap;
-
-import org.acumos.federation.gateway.util.JSONHttpMessageConverter;
-import org.acumos.federation.gateway.util.Action;
-import org.acumos.federation.gateway.util.Future;
-import org.acumos.federation.gateway.util.Futures;
-
-import org.json.JSONObject;
-import org.json.JSONArray;
-
-import org.apache.commons.cli.BasicParser;
-import org.apache.commons.cli.CommandLine;
-import org.apache.commons.cli.CommandLineParser;
-import org.apache.commons.cli.HelpFormatter;
-import org.apache.commons.cli.OptionBuilder;
-import org.apache.commons.cli.Option;
-import org.apache.commons.cli.Options;
-import org.apache.commons.cli.ParseException;
+import org.springframework.web.client.AsyncRestTemplate;
+import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.client.RestClientException;
 
 @Component("asdc")
 @Scope("singleton")
@@ -125,9 +91,9 @@ public class ASDC {
 	// @Target(ElementType.METHOD)
 	// public @interface Mandatory {
 	// }
-
-	private Logger log = Logger.getLogger(ASDC.class.getName());
-
+	
+	private static final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(MethodHandles.lookup().lookupClass());
+	
 	private URI rootUri;
 	private String rootPath = "/asdc/"; // "/sdc1/feproxy/"; //"/sdc/v1/catalog/";
 	private String user, passwd;
@@ -533,8 +499,9 @@ public class ASDC {
 	protected static final String[] artifactMandatoryEntries = new String[] {};
 
 	/**
-	 * We use teh same API to operate on artifacts attached to assets or to their
+	 * We use the same API to operate on artifacts attached to assets or to their
 	 * instances
+	 * @param <A> Action class
 	 */
 	public abstract class ASDCArtifactAction<A extends ASDCArtifactAction<A>> extends ASDCAction<A, JSONObject> {
 
@@ -943,10 +910,10 @@ public class ASDC {
 		try {
 			restTemplate.exchange(uri, theMethod, theRequest, theResponseType).addCallback(result.callback);
 		} catch (RestClientException rcx) {
-			log.log(Level.WARNING, "Failed to fetch " + uri, rcx);
+			log.warn("Failed to fetch " + uri, rcx);
 			return Futures.failedFuture(rcx);
 		} catch (Exception x) {
-			log.log(Level.WARNING, "Failed to fetch " + uri, x);
+			log.warn("Failed to fetch " + uri, x);
 			return Futures.failedFuture(x);
 		}
 

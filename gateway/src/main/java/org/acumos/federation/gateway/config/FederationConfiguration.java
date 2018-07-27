@@ -20,30 +20,23 @@
 
 package org.acumos.federation.gateway.config;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
-//import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Scope;
-import org.springframework.context.annotation.Import;
-import org.springframework.context.annotation.Conditional;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import java.lang.invoke.MethodHandles;
 
-import org.acumos.federation.gateway.config.EELFLoggerDelegate;
 import org.acumos.federation.gateway.controller.CatalogController;
 import org.acumos.federation.gateway.controller.PeersController;
 import org.acumos.federation.gateway.controller.PingController;
 import org.acumos.federation.gateway.controller.RegistrationController;
-import org.acumos.federation.gateway.security.AuthenticationConfiguration;
-
 import org.apache.http.client.HttpClient;
-
+//import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
-import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory;
-import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Conditional;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 /**
  * Provide those beans used in the interaction with other peers (federation)
@@ -54,7 +47,7 @@ public class FederationConfiguration {
 
 	@Autowired
 	private FederationInterfaceConfiguration interfaceConfig;
-	private EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(getClass().getName());
+	private static final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(MethodHandles.lookup().lookupClass());
 
 	public FederationConfiguration() {
 	}
@@ -81,15 +74,16 @@ public class FederationConfiguration {
 	}
 
 	/**
-   * Build a client for interacting with peers through the defined
+     * Builds a client for interacting with peers through the defined
 	 * federation interface.
 	 * We assume the same configuration takes place for client and server
 	 * roles when interacting with peers: we'll assume the same identity, use the
 	 * same network interface, etc. If this ever needs to change we can pick
 	 * the values from a separate configuration properties set.
+	 * @return HttpClient
 	 */
 	@Bean
-  @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+	@Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 	//@ConfigurationProperties(prefix = "server", ignoreInvalidFields = true)
 	public HttpClient federationClient() {
 		log.debug(EELFLoggerDelegate.debugLogger, this + "::federationClient from " + this.interfaceConfig);

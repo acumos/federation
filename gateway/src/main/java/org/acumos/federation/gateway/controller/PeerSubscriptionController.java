@@ -20,28 +20,22 @@
 
 package org.acumos.federation.gateway.controller;
 
-import java.util.List;
+import java.lang.invoke.MethodHandles;
 
 import javax.servlet.http.HttpServletResponse;
 
 import org.acumos.cds.domain.MLPPeer;
 import org.acumos.cds.domain.MLPPeerSubscription;
-
 import org.acumos.federation.gateway.common.API;
 import org.acumos.federation.gateway.common.JsonResponse;
 import org.acumos.federation.gateway.config.EELFLoggerDelegate;
-import org.acumos.federation.gateway.security.Peer;
 import org.acumos.federation.gateway.service.PeerService;
 import org.acumos.federation.gateway.service.PeerSubscriptionService;
-import org.acumos.federation.gateway.service.ServiceContext;
 import org.acumos.federation.gateway.task.PeerSubscriptionTaskScheduler;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -57,6 +51,8 @@ import io.swagger.annotations.ApiOperation;
 @RequestMapping(API.Roots.LOCAL)
 public class PeerSubscriptionController extends AbstractController {
 
+	private static final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(MethodHandles.lookup().lookupClass());
+
 	@Autowired
 	private PeerService peerService;
 
@@ -67,7 +63,12 @@ public class PeerSubscriptionController extends AbstractController {
 	private ApplicationContext appCtx;
 
 	/**
-	 * @param theHttpResponse
+	 * @param theHttpResponse HttpServletResponse
+	 * @param thePeerId 
+	 *            Peer ID
+	 * @param theSubscriptionId
+	 *            Subscription ID
+	 * @return JsonResponse
 	 */
 	@CrossOrigin
 	@PreAuthorize("hasAuthority(T(org.acumos.federation.gateway.security.Priviledge).PEER_ACCESS)")
@@ -75,7 +76,6 @@ public class PeerSubscriptionController extends AbstractController {
 	@RequestMapping(value = { API.Paths.SUBSCRIPTION }, method = RequestMethod.POST, produces = APPLICATION_JSON)
 	@ResponseBody
 	public JsonResponse<String> triggerPeerSubscription(
-			/* HttpServletRequest theHttpRequest, */
 			HttpServletResponse theHttpResponse,
 			@PathVariable("peerId") String thePeerId,
 			@PathVariable("subscriptionId") Long theSubscriptionId) {
