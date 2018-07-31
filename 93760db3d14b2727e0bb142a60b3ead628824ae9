@@ -1,0 +1,312 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "80282d21_ce447a4b",
+        "filename": "docs/release-notes.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-07-31T19:27:55Z",
+      "side": 1,
+      "message": "I would avoid 4-component versions unless absolutely necessary. And I don\u0027t think it\u0027s necessary here.",
+      "range": {
+        "startLine": 25,
+        "startChar": 12,
+        "endLine": 25,
+        "endChar": 15
+      },
+      "revId": "93760db3d14b2727e0bb142a60b3ead628824ae9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90177922_07a0525a",
+        "filename": "gateway/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-07-31T19:27:55Z",
+      "side": 1,
+      "message": "See comment in release-notes",
+      "range": {
+        "startLine": 27,
+        "startChar": 14,
+        "endLine": 27,
+        "endChar": 17
+      },
+      "revId": "93760db3d14b2727e0bb142a60b3ead628824ae9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1833e5a6_f950c8f5",
+        "filename": "gateway/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-07-31T19:27:55Z",
+      "side": 1,
+      "message": "pls fix indent",
+      "revId": "93760db3d14b2727e0bb142a60b3ead628824ae9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a89b0bab_b48690cd",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/CatalogServiceImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-07-31T19:27:55Z",
+      "side": 1,
+      "message": "Why so much indentation?",
+      "revId": "93760db3d14b2727e0bb142a60b3ead628824ae9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0a0a2e6_6d0ff1c4",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/PeerSubscriptionServiceImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-07-31T19:27:55Z",
+      "side": 1,
+      "message": "Remove empty javadoc",
+      "revId": "93760db3d14b2727e0bb142a60b3ead628824ae9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a4c624b_91e3a169",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/PeerSubscriptionServiceImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-07-31T19:27:55Z",
+      "side": 1,
+      "message": "Ditto",
+      "revId": "93760db3d14b2727e0bb142a60b3ead628824ae9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9d95dd51_28dbc299",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/PeerSubscriptionServiceImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-07-31T19:27:55Z",
+      "side": 1,
+      "message": "Ditto",
+      "revId": "93760db3d14b2727e0bb142a60b3ead628824ae9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08c6f11a_691b13fe",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/test/CatalogServiceTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-07-31T19:27:55Z",
+      "side": 1,
+      "message": "Maybe make these constants instead of repeating them in strings?",
+      "range": {
+        "startLine": 160,
+        "startChar": 45,
+        "endLine": 160,
+        "endChar": 49
+      },
+      "revId": "93760db3d14b2727e0bb142a60b3ead628824ae9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ec003cf9_4d35935b",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/test/MockResponse.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-07-31T19:27:55Z",
+      "side": 1,
+      "message": "What do you have your tab width set to in your editor?",
+      "revId": "93760db3d14b2727e0bb142a60b3ead628824ae9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "396031ca_c94bcedc",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/test/PeerServiceTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-07-31T19:27:55Z",
+      "side": 1,
+      "message": "You must have defined these as constants somewhere??",
+      "revId": "93760db3d14b2727e0bb142a60b3ead628824ae9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06e2ae1f_f5d883c1",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/test/ServiceTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-07-31T19:27:55Z",
+      "side": 1,
+      "message": "Please remove empty Javadoc comments",
+      "revId": "93760db3d14b2727e0bb142a60b3ead628824ae9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2994f967_ca5d6e64",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/test/ServiceTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-07-31T19:27:55Z",
+      "side": 1,
+      "message": "Ditto",
+      "revId": "93760db3d14b2727e0bb142a60b3ead628824ae9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8bfde73e_ac817288",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/test/ServiceTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-07-31T19:27:55Z",
+      "side": 1,
+      "message": "Ditto",
+      "revId": "93760db3d14b2727e0bb142a60b3ead628824ae9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2d7cc2f_c45b407c",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/test/ServiceTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-07-31T19:27:55Z",
+      "side": 1,
+      "message": "Asterisks don\u0027t add much value",
+      "range": {
+        "startLine": 141,
+        "startChar": 30,
+        "endLine": 141,
+        "endChar": 33
+      },
+      "revId": "93760db3d14b2727e0bb142a60b3ead628824ae9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "29a9b640_4af5e606",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/test/ServiceTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-07-31T19:27:55Z",
+      "side": 1,
+      "message": "Ditto",
+      "range": {
+        "startLine": 157,
+        "startChar": 30,
+        "endLine": 157,
+        "endChar": 33
+      },
+      "revId": "93760db3d14b2727e0bb142a60b3ead628824ae9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9282efaa_777755a8",
+        "filename": "gateway/src/test/resources/mockCDSSolutionRevisionsResponse.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-07-31T19:27:55Z",
+      "side": 1,
+      "message": "this will be userId soon",
+      "range": {
+        "startLine": 13,
+        "startChar": 5,
+        "endLine": 13,
+        "endChar": 12
+      },
+      "revId": "93760db3d14b2727e0bb142a60b3ead628824ae9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
