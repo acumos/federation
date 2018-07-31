@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "294f4591_89aafd66",
+        "filename": "docs/release-notes.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-07-31T19:46:36Z",
+      "side": 1,
+      "message": "Please make 1.1.6.  You can\u0027t push the same thing out twice.",
+      "range": {
+        "startLine": 25,
+        "startChar": 12,
+        "endLine": 25,
+        "endChar": 13
+      },
+      "revId": "5d9f18f46196f4af24d73c8ac99f039d9ceb6f5a",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e0ca5fa_cd356502",
+        "filename": "gateway/pom.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-07-31T19:46:36Z",
+      "side": 1,
+      "message": "Please make 1.1.6",
+      "revId": "5d9f18f46196f4af24d73c8ac99f039d9ceb6f5a",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
