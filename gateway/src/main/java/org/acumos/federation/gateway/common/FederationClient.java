@@ -25,6 +25,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+import java.lang.invoke.MethodHandles;
+
 import org.acumos.cds.domain.MLPPeer;
 import org.acumos.cds.domain.MLPArtifact;
 import org.acumos.cds.domain.MLPSolution;
@@ -48,6 +50,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 /**
  */
 public class FederationClient extends AbstractClient {
+
+	private static final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(MethodHandles.lookup().lookupClass());
 
 	/**
 	 * @param theTarget
@@ -89,7 +93,7 @@ public class FederationClient extends AbstractClient {
 			log.info(EELFLoggerDelegate.debugLogger, uri + " response " + response);
 		}
 		return response == null ? null : response.getBody();
-	}	
+	}
 
 	/**
 	 */
@@ -162,6 +166,7 @@ public class FederationClient extends AbstractClient {
 	}
 
 	/**
+	 * @param theSolutionId the solution id
 	 * @return Peer information from Remote Acumos
 	 * @throws HttpStatusCodeException
 	 *             Throws HttpStatusCodeException if remote acumos interaction has failed.
@@ -192,9 +197,7 @@ public class FederationClient extends AbstractClient {
 
 	/**
 	 * 
-	 * @param theSolutionId
-	 *            key-value pairs; ignored if null or empty. Gives special treatment
-	 *            to Date-type values.
+	 * @param theSolutionId the solution id
 	 * @return List of MLPSolution Revisions from Remote Acumos
 	 * @throws HttpStatusCodeException
 	 *             Throws HttpStatusCodeException is remote acumos is not available

@@ -173,7 +173,7 @@ public class ControllerTest {
 
 		assertTrue(response != null);
 		assertTrue(response.getStatusCodeValue() == 200);
-		assertTrue(response.getBody().getContent().getOwnerId().equals("admin")); //no errors
+		assertTrue(response.getBody().getContent().getUserId().equals("admin")); //no errors
 	}
 
 	@Test

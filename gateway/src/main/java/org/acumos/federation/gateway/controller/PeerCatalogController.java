@@ -24,6 +24,8 @@ import java.net.URI;
 import java.util.List;
 import java.util.Map;
 
+import java.lang.invoke.MethodHandles;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -62,6 +64,8 @@ import io.swagger.annotations.ApiOperation;
 @Controller
 @RequestMapping(API.Roots.LOCAL)
 public class PeerCatalogController extends AbstractController {
+
+	private static final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(MethodHandles.lookup().lookupClass());
 
 	@Autowired
 	private Clients clients;
