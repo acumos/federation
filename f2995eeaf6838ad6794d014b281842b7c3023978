@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "46169b9b_b302d2c6",
+        "filename": "docs/release-notes.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-08-01T18:42:38Z",
+      "side": 1,
+      "message": "line length please",
+      "range": {
+        "startLine": 26,
+        "startChar": 23,
+        "endLine": 26,
+        "endChar": 25
+      },
+      "revId": "f2995eeaf6838ad6794d014b281842b7c3023978",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "100320f1_75d37faa",
+        "filename": "docs/release-notes.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-08-01T18:42:38Z",
+      "side": 1,
+      "message": "line length pls",
+      "range": {
+        "startLine": 32,
+        "startChar": 20,
+        "endLine": 32,
+        "endChar": 22
+      },
+      "revId": "f2995eeaf6838ad6794d014b281842b7c3023978",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "571d8c4f_141172cd",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/PeerGateway.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-08-01T18:42:38Z",
+      "side": 1,
+      "message": "Serban did you check line 309, variable solution vs use of localSolution?",
+      "revId": "f2995eeaf6838ad6794d014b281842b7c3023978",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
