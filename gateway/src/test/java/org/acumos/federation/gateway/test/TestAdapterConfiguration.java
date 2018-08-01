@@ -29,13 +29,12 @@ import org.springframework.context.annotation.Configuration;
 
 import org.acumos.federation.gateway.config.AdapterConfiguration;
 
-
 /**
  * Adds the specifics of a Test adapter to the generic adapter configuration.
  */
 @Configuration
-@Conditional({TestAdapterCondition.class})
-public class TestAdapterConfiguration extends AdapterConfiguration  {
+@Conditional({ TestAdapterCondition.class })
+public class TestAdapterConfiguration extends AdapterConfiguration {
 
 	@Bean
 	public TestAdapter testAdapter() {

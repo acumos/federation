@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import static org.junit.Assert.assertTrue;
-import static org.assertj.core.api.Assertions.assertThat; 
+import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.FixMethodOrder;
 import org.junit.runners.MethodSorters;
@@ -60,34 +60,20 @@ import org.acumos.cds.domain.MLPSolution;
 import org.acumos.cds.domain.MLPSolutionRevision;
 import org.acumos.cds.domain.MLPArtifact;
 
-
-
 /**
  */
 
-//@RunWith(SpringJUnit4ClassRunner.class)
+// @RunWith(SpringJUnit4ClassRunner.class)
 @RunWith(SpringRunner.class)
-@ContextHierarchy({
-	@ContextConfiguration(classes = org.acumos.federation.gateway.test.TestAdapterConfiguration.class),
-	@ContextConfiguration(classes = org.acumos.federation.gateway.config.FederationConfiguration.class)
-})
-@SpringBootTest(classes = org.acumos.federation.gateway.Application.class,
-								webEnvironment = WebEnvironment.RANDOM_PORT,
-								properties = {
-									"federation.instance=adapter",
-									"federation.instance.name=test",
-									"federation.operator=admin",
-									"federation.registration.enabled=true",
-									"peersLocal.source=classpath:test-peers.json",
-									"catalogLocal.source=classpath:test-catalog.json",
-									"federation.ssl.key-store=classpath:acumosa.pkcs12",
-									"federation.ssl.key-store-password=acumosa",
-									"federation.ssl.key-store-type=PKCS12",
-									"federation.ssl.key-password = acumosa",
-									"federation.ssl.trust-store=classpath:acumosTrustStore.jks",
-									"federation.ssl.trust-store-password=acumos",
-									"federation.ssl.client-auth=need"
-								})
+@ContextHierarchy({ @ContextConfiguration(classes = org.acumos.federation.gateway.test.TestAdapterConfiguration.class),
+		@ContextConfiguration(classes = org.acumos.federation.gateway.config.FederationConfiguration.class) })
+@SpringBootTest(classes = org.acumos.federation.gateway.Application.class, webEnvironment = WebEnvironment.RANDOM_PORT, properties = {
+		"federation.instance=adapter", "federation.instance.name=test", "federation.operator=admin",
+		"federation.registration.enabled=true", "peersLocal.source=classpath:test-peers.json",
+		"catalogLocal.source=classpath:test-catalog.json", "federation.ssl.key-store=classpath:acumosa.pkcs12",
+		"federation.ssl.key-store-password=acumosa", "federation.ssl.key-store-type=PKCS12",
+		"federation.ssl.key-password = acumosa", "federation.ssl.trust-store=classpath:acumosTrustStore.jks",
+		"federation.ssl.trust-store-password=acumos", "federation.ssl.client-auth=need" })
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class AuthorizationTest {
 
@@ -98,105 +84,96 @@ public class AuthorizationTest {
 	@Test
 	public void testUnknownPeerSolutionsAccess() {
 
-    ((HttpComponentsClientHttpRequestFactory)
-			this.restTemplate.getRestTemplate().getRequestFactory())
+		((HttpComponentsClientHttpRequestFactory) this.restTemplate.getRestTemplate().getRequestFactory())
 				.setHttpClient(prepareUnknownHttpClient());
-		
-		ResponseEntity<JsonResponse<List<MLPSolution>>> response =
-			this.restTemplate.exchange("/solutions", HttpMethod.GET, prepareRequest(), new ParameterizedTypeReference<JsonResponse<List<MLPSolution>>>() {});
-		
-		if (response != null)	{
+
+		ResponseEntity<JsonResponse<List<MLPSolution>>> response = this.restTemplate.exchange("/solutions",
+				HttpMethod.GET, prepareRequest(), new ParameterizedTypeReference<JsonResponse<List<MLPSolution>>>() {
+				});
+
+		if (response != null) {
 			log.info(EELFLoggerDelegate.debugLogger, "test unknown peer access: {}", response.getBody());
 			log.info(EELFLoggerDelegate.debugLogger, "test unknown peer access: {}", response);
 		}
-		
+
 		assertTrue(response != null);
-		assertTrue("Expected status code 401, got " + response.getStatusCodeValue(), response.getStatusCodeValue() == 401);
+		assertTrue("Expected status code 401, got " + response.getStatusCodeValue(),
+				response.getStatusCodeValue() == 401);
 	}
 
 	@Test
 	public void testKnownPeerSolutionsAccess() {
 
-    ((HttpComponentsClientHttpRequestFactory)
-			this.restTemplate.getRestTemplate().getRequestFactory())
+		((HttpComponentsClientHttpRequestFactory) this.restTemplate.getRestTemplate().getRequestFactory())
 				.setHttpClient(prepareKnownHttpClient());
 
-		ResponseEntity<JsonResponse<List<MLPSolution>>> response =
-			this.restTemplate.exchange("/solutions", HttpMethod.GET, prepareRequest(), new ParameterizedTypeReference<JsonResponse<List<MLPSolution>>>() {});
-		
-		if (response != null)	{
+		ResponseEntity<JsonResponse<List<MLPSolution>>> response = this.restTemplate.exchange("/solutions",
+				HttpMethod.GET, prepareRequest(), new ParameterizedTypeReference<JsonResponse<List<MLPSolution>>>() {
+				});
+
+		if (response != null) {
 			log.info(EELFLoggerDelegate.debugLogger, "test known peer access: {}", response.getBody());
 			log.info(EELFLoggerDelegate.debugLogger, "test known peer access: {}", response);
 		}
-		
+
 		assertTrue(response != null);
-		assertTrue("Expected status code 200, got " + response.getStatusCodeValue(), response.getStatusCodeValue() == 200);
+		assertTrue("Expected status code 200, got " + response.getStatusCodeValue(),
+				response.getStatusCodeValue() == 200);
 		assertTrue(response.getBody().getContent().size() == 1);
-	
+
 	}
 
 	@Test
 	public void testUnknownRegisterAccess() {
 
-    ((HttpComponentsClientHttpRequestFactory)
-			this.restTemplate.getRestTemplate().getRequestFactory())
+		((HttpComponentsClientHttpRequestFactory) this.restTemplate.getRestTemplate().getRequestFactory())
 				.setHttpClient(prepareUnknownHttpClient());
-		
-		ResponseEntity<JsonResponse<MLPPeer>> response =
-			this.restTemplate.exchange("/peer/register", HttpMethod.POST, prepareRequest(), new ParameterizedTypeReference<JsonResponse<MLPPeer>>() {});
-		
-		if (response != null)	{
+
+		ResponseEntity<JsonResponse<MLPPeer>> response = this.restTemplate.exchange("/peer/register", HttpMethod.POST,
+				prepareRequest(), new ParameterizedTypeReference<JsonResponse<MLPPeer>>() {
+				});
+
+		if (response != null) {
 			log.info(EELFLoggerDelegate.debugLogger, "test unknown peer access to register: {}", response.getBody());
 			log.info(EELFLoggerDelegate.debugLogger, "test unknown peer access to register: {}", response);
 		}
-		
-		assertTrue(response != null);
-		assertTrue("Expected status code 202, got " + response.getStatusCodeValue(), response.getStatusCodeValue() == 202);
-	}
 
+		assertTrue(response != null);
+		assertTrue("Expected status code 202, got " + response.getStatusCodeValue(),
+				response.getStatusCodeValue() == 202);
+	}
 
 	private HttpEntity prepareRequest(String theResourceName) {
 		String content = new Scanner(
-    									   Thread.currentThread().getContextClassLoader().getResourceAsStream(theResourceName), "UTF-8")
-											.useDelimiter("\\Z").next();
+				Thread.currentThread().getContextClassLoader().getResourceAsStream(theResourceName), "UTF-8")
+						.useDelimiter("\\Z").next();
 
 		HttpHeaders headers = new HttpHeaders();
- 		headers.setContentType(MediaType.APPLICATION_JSON);
- 		return new HttpEntity<String>(content, headers);
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		return new HttpEntity<String>(content, headers);
 	}
-	
+
 	private HttpEntity prepareRequest() {
 		HttpHeaders headers = new HttpHeaders();
- 		headers.setContentType(MediaType.APPLICATION_JSON);
- 		return new HttpEntity<String>(headers);
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		return new HttpEntity<String>(headers);
 	}
 
 	private HttpClient prepareKnownHttpClient() {
 		return new InterfaceConfigurationBuilder()
-								.withSSL(new SSLBuilder()
-															.withKeyStore("classpath:/acumosb.pkcs12")
-															.withKeyStorePassword("acumosb")
-															//.withKeyPassword("acumosb")
-															.withTrustStore("classpath:/acumosTrustStore.jks")
-															.withTrustStoreType("JKS")
-															.withTrustStorePassword("acumos")
-															.build())
-								.buildConfig()
-								.buildClient();
+				.withSSL(new SSLBuilder().withKeyStore("classpath:/acumosb.pkcs12").withKeyStorePassword("acumosb")
+						// .withKeyPassword("acumosb")
+						.withTrustStore("classpath:/acumosTrustStore.jks").withTrustStoreType("JKS")
+						.withTrustStorePassword("acumos").build())
+				.buildConfig().buildClient();
 	}
 
 	private HttpClient prepareUnknownHttpClient() {
 		return new InterfaceConfigurationBuilder()
-								.withSSL(new SSLBuilder()
-															.withKeyStore("classpath:/acumosc.pkcs12")
-															.withKeyStorePassword("acumosc")
-															//.withKeyPassword("acumosb")
-															.withTrustStore("classpath:/acumosTrustStore.jks")
-															.withTrustStoreType("JKS")
-															.withTrustStorePassword("acumos")
-															.build())
-								.buildConfig()
-								.buildClient();
+				.withSSL(new SSLBuilder().withKeyStore("classpath:/acumosc.pkcs12").withKeyStorePassword("acumosc")
+						// .withKeyPassword("acumosb")
+						.withTrustStore("classpath:/acumosTrustStore.jks").withTrustStoreType("JKS")
+						.withTrustStorePassword("acumos").build())
+				.buildConfig().buildClient();
 	}
 }
-

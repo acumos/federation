@@ -65,34 +65,31 @@ import static org.acumos.federation.gateway.config.InterfaceConfigurationBuilder
 import org.acumos.cds.domain.MLPPeer;
 import org.acumos.cds.domain.MLPSolution;
 
-
-
 /**
  * Standalone tester of the local interface
  */
 public class LocalTester {
-
 
 	/**
 	 */
 	public static void main(String[] theArgs) throws Exception {
 
 		RestTemplate template = new RestTemplate(
-															new HttpComponentsClientHttpRequestFactory(
-																prepareHttpClient(theArgs[0])));
+				new HttpComponentsClientHttpRequestFactory(prepareHttpClient(theArgs[0])));
 
-		ResponseEntity<JsonResponse<MLPPeer>> pingResponse =
-			template.exchange(theArgs[1] + "/ping", HttpMethod.GET, prepareRequest(), new ParameterizedTypeReference<JsonResponse<MLPPeer>>() {});
-		
-		if (pingResponse != null)	{
+		ResponseEntity<JsonResponse<MLPPeer>> pingResponse = template.exchange(theArgs[1] + "/ping", HttpMethod.GET,
+				prepareRequest(), new ParameterizedTypeReference<JsonResponse<MLPPeer>>() {
+				});
+
+		if (pingResponse != null) {
 			System.out.println("testPeerPing: " + pingResponse);
 		}
 
+		ResponseEntity<JsonResponse<List<MLPSolution>>> solutionsResponse = template.exchange(theArgs[1] + "/solutions",
+				HttpMethod.GET, prepareRequest(), new ParameterizedTypeReference<JsonResponse<List<MLPSolution>>>() {
+				});
 
-		ResponseEntity<JsonResponse<List<MLPSolution>>> solutionsResponse =
-			template.exchange(theArgs[1] + "/solutions", HttpMethod.GET, prepareRequest(), new ParameterizedTypeReference<JsonResponse<List<MLPSolution>>>() {});
-		
-		if (solutionsResponse != null)	{
+		if (solutionsResponse != null) {
 			System.out.println("testPeerSolutions: " + solutionsResponse);
 		}
 
@@ -100,21 +97,17 @@ public class LocalTester {
 
 	private static HttpEntity prepareRequest() {
 		HttpHeaders headers = new HttpHeaders();
- 		headers.setContentType(MediaType.APPLICATION_JSON);
- 		return new HttpEntity<String>(headers);
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		return new HttpEntity<String>(headers);
 	}
 
 	private static HttpClient prepareHttpClient(String theTestSystem) {
 		return new InterfaceConfigurationBuilder()
-								.withSSL(new SSLBuilder()
-															.withKeyStore("classpath:/acumos" + theTestSystem + ".pkcs12")
-															.withKeyStorePassword("acumos" + theTestSystem)
-															//.withKeyPassword("acumosb")
-															.withTrustStore("classpath:/acumosTrustStore.jks")
-															.withTrustStoreType("JKS")
-															.withTrustStorePassword("acumos")
-															.build())
-								.buildConfig()
-								.buildClient();
+				.withSSL(new SSLBuilder().withKeyStore("classpath:/acumos" + theTestSystem + ".pkcs12")
+						.withKeyStorePassword("acumos" + theTestSystem)
+						// .withKeyPassword("acumosb")
+						.withTrustStore("classpath:/acumosTrustStore.jks").withTrustStoreType("JKS")
+						.withTrustStorePassword("acumos").build())
+				.buildConfig().buildClient();
 	}
 }

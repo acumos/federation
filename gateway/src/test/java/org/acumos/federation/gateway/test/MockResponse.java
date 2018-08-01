@@ -19,13 +19,11 @@
  */
 package org.acumos.federation.gateway.test;
 
-
-
 public class MockResponse {
 
-	private String 	resourceName;
-	private int			responseCode;
-	private String	responseMsg;
+	private String resourceName;
+	private int responseCode;
+	private String responseMsg;
 
 	/** */
 	public MockResponse(int theCode, String theMessage, String theResourceName) {
@@ -48,6 +46,5 @@ public class MockResponse {
 
 	public static MockResponse success(String theResource) {
 		return new MockResponse(200, "Success", theResource);
-	}	
+	}
 }
-

@@ -55,7 +55,7 @@ import org.springframework.stereotype.Component;
 @Component("test")
 @Scope("singleton")
 @ConfigurationProperties(prefix = "test")
-@Conditional({TestAdapterCondition.class})
+@Conditional({ TestAdapterCondition.class })
 public class TestAdapter {
 
 	private final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(getClass().getName());
@@ -118,15 +118,15 @@ public class TestAdapter {
 					if (peerImport == null) {
 						log.info(EELFLoggerDelegate.debugLogger, "New solution {}", solution.getSolutionId());
 						peerImports.put(solution.getSolutionId(), solution);
-					}
-					else {
+					} else {
 						log.info(EELFLoggerDelegate.debugLogger, "Existing solution {}", solution.getSolutionId());
 						if (peerImport.getModified().equals(solution.getModified())) {
-							log.info(EELFLoggerDelegate.debugLogger, "No updates to solution {}", solution.getSolutionId());
+							log.info(EELFLoggerDelegate.debugLogger, "No updates to solution {}",
+									solution.getSolutionId());
 							continue;
-						}
-						else {
-							log.info(EELFLoggerDelegate.debugLogger, "Solution {} has updates", solution.getSolutionId());
+						} else {
+							log.info(EELFLoggerDelegate.debugLogger, "Solution {} has updates",
+									solution.getSolutionId());
 						}
 					}
 
@@ -134,28 +134,24 @@ public class TestAdapter {
 
 					List<MLPSolutionRevision> revisions = null;
 					try {
-						Solution sol = (Solution)fedClient.getSolution(solution.getSolutionId()).getContent();
+						Solution sol = (Solution) fedClient.getSolution(solution.getSolutionId()).getContent();
 						log.info(EELFLoggerDelegate.debugLogger, "retrieved solution {}", solution);
-						revisions = (List)sol.getRevisions();
-					}
-					catch (Exception x) {
+						revisions = (List) sol.getRevisions();
+					} catch (Exception x) {
 						log.error(EELFLoggerDelegate.errorLogger, "Failed to retrieve revisions", x);
 						continue;
 					}
-					log.info(EELFLoggerDelegate.debugLogger,
-							"Received {} revisions {}", revisions.size(), revisions);
+					log.info(EELFLoggerDelegate.debugLogger, "Received {} revisions {}", revisions.size(), revisions);
 
 					List<MLPArtifact> artifacts = null;
 					try {
 						artifacts = (List<MLPArtifact>) fedClient.getArtifacts(solution.getSolutionId(),
 								revisions.get(revisions.size() - 1).getRevisionId()).getContent();
-					}
-					catch (Exception x) {
+					} catch (Exception x) {
 						log.error(EELFLoggerDelegate.errorLogger, "Failed to retrieve artifacts", x);
 						continue;
 					}
-					log.info(EELFLoggerDelegate.debugLogger,
-							"Received {} artifacts {}", artifacts.size(), artifacts);
+					log.info(EELFLoggerDelegate.debugLogger, "Received {} artifacts {}", artifacts.size(), artifacts);
 
 					for (MLPArtifact artifact : artifacts) {
 						Resource artifactContent = null;
@@ -164,8 +160,7 @@ public class TestAdapter {
 							log.warn(EELFLoggerDelegate.debugLogger, "Received artifact content: "
 									+ new BufferedReader(new InputStreamReader(artifactContent.getInputStream()))
 											.lines().collect(Collectors.joining("\n")));
-						}
-						catch (Exception x) {
+						} catch (Exception x) {
 							log.error(EELFLoggerDelegate.errorLogger, "Failed to download artifact", x);
 						}
 					}
