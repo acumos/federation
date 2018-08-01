@@ -22,6 +22,8 @@ package org.acumos.federation.gateway.controller;
 
 import java.util.List;
 
+import java.lang.invoke.MethodHandles;
+
 import javax.servlet.http.HttpServletResponse;
 
 import org.acumos.cds.domain.MLPPeer;
@@ -48,6 +50,8 @@ import io.swagger.annotations.ApiOperation;
 @Controller
 @RequestMapping(API.Roots.LOCAL)
 public class PeerPeersController extends AbstractController {
+
+	private static final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(MethodHandles.lookup().lookupClass());
 
 	@Autowired
 	private Clients	clients;

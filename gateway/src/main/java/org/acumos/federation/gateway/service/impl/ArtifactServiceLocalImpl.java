@@ -17,10 +17,6 @@
  * limitations under the License.
  * ===============LICENSE_END=========================================================
  */
-
-/**
- * 
- */
 package org.acumos.federation.gateway.service.impl;
 
 import java.io.File;

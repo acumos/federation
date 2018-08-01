@@ -27,7 +27,6 @@ import java.util.Date;
 import java.util.Map;
 
 import org.acumos.cds.transport.RestPageRequest;
-import org.acumos.federation.gateway.config.EELFLoggerDelegate;
 
 import org.apache.http.client.HttpClient;
 
@@ -44,8 +43,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * service interface.
  */
 public abstract class AbstractClient {
-
-	protected final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(getClass().getName());
 
 	protected String baseUrl;
 	protected RestTemplate restTemplate;

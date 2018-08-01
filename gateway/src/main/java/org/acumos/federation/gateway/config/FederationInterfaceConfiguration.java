@@ -22,7 +22,6 @@ package org.acumos.federation.gateway.config;
 
 import org.springframework.stereotype.Component;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
 
 /**
  * Defines a specific external configuration prefix for the federation interface.

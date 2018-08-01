@@ -119,8 +119,7 @@ public class PeerSubscriptionTaskScheduler {
 	}
 
 	/**
-	 * Schedule a one time execution of the subscription.
-	 * The scheduler will not track the execution of suck a task.
+	 * Schedule a one time execution of the subscription. The scheduler will not track the execution of suck a task.
 	 */
 	public void runOnce(MLPPeer thePeer, MLPPeerSubscription theSub) {
 		new PeerTaskHandler().runTask(thePeer, theSub);

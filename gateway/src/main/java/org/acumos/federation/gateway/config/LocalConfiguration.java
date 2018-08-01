@@ -20,6 +20,8 @@
 
 package org.acumos.federation.gateway.config;
 
+import java.lang.invoke.MethodHandles;
+
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,7 +57,7 @@ public class LocalConfiguration {
 
 	@Autowired
 	private LocalInterfaceConfiguration interfaceConfig;
-	private EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(getClass().getName());
+	private static final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(MethodHandles.lookup().lookupClass());
 
 	public LocalConfiguration() {
 	}

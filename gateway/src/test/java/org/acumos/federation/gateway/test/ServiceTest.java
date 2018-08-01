@@ -25,45 +25,12 @@ import java.io.IOException;
 
 import java.util.Map;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Scanner;
-import java.util.Collections;
-
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.CountDownLatch;
 
 import org.junit.Before;
-import static org.junit.Assert.assertTrue;
-import static org.assertj.core.api.Assertions.assertThat; 
 
-import org.junit.FixMethodOrder;
-import org.junit.runners.MethodSorters;
-import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
-import org.springframework.boot.test.web.client.TestRestTemplate;
-
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.ApplicationListener;
-import org.springframework.context.event.EventListener;
-import org.springframework.context.annotation.Bean;
-
 import org.springframework.boot.test.mock.mockito.MockBean;
-
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.ResponseEntity;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
-import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.context.ApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 
 import static org.mockito.Mockito.*;
@@ -90,7 +57,6 @@ import org.apache.http.entity.InputStreamEntity;
 import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.entity.ContentType;
 
-/* this is not good for unit testing .. */
 import org.acumos.federation.gateway.config.LocalInterfaceConfiguration;
 
 
@@ -157,7 +123,7 @@ public abstract class ServiceTest {
 						httpResponse.addHeader("Content-Length", String.valueOf(resource.contentLength()));
 					}
 					catch (IOException iox) {
-						throw new IOException("Failed to load mock resource " + resource);
+						throw new IOException("Failed to load mock resource " + resource, iox);
 					}
 
 					return httpResponse;

@@ -153,7 +153,7 @@ public class CatalogServiceImpl extends AbstractServiceImpl
 																						new String[] {selector.get(Solution.Fields.description).toString()} :
 																						null,
 																					(Boolean)selector.get(Solution.Fields.active),
-																					null, //owner ids
+																					null, //user ids
 																					new String[] {selector.get(Solution.Fields.accessTypeCode).toString()},
 																					selector.containsKey(Solution.Fields.modelTypeCode) ?
 																						new String[] {selector.get(Solution.Fields.modelTypeCode).toString()} :
@@ -162,8 +162,23 @@ public class CatalogServiceImpl extends AbstractServiceImpl
 																					selector.containsKey(Solution.Fields.tags) ?
 																						new String[] {selector.get(Solution.Fields.tags).toString()} :
 																						null,
+																					null,	//authorKeywords
+																					null, //publisherKeywords
 																					pageRequest);
-						//cdsClient.searchSolutions(selector, false, pageRequest);
+/*
+	RestPageResponse<MLPSolution> findPortalSolutions(
+																					String[] nameKeywords,
+																					String[] descriptionKeywords,
+																					boolean active,
+																					String[] userIds,
+																					String[] accessTypeCodes,
+																					String[] modelTypeCodes,
+																					String[] validationStatusCodes,
+																					String[] tags,
+																					String[] authorKeywords,
+																					String[] publisherKeywords,
+			RestPageRequest pageRequest);
+*/
 					pageSolutions = pageResponse.getContent();
 				}
 				log.debug(EELFLoggerDelegate.debugLogger, "getSolutions page response {}", pageResponse);

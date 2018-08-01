@@ -23,6 +23,8 @@ package org.acumos.federation.gateway.common;
 import java.io.IOException;
 import java.util.HashMap;
 
+import java.lang.invoke.MethodHandles;
+
 import org.apache.http.client.HttpClient;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,7 +73,7 @@ public class Clients {
 	@Autowired
 	private DockerConfiguration dockerConfig = null;
 
-	private final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(getClass().getName());
+	private static final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(MethodHandles.lookup().lookupClass());
 
 	public Clients() {
 	}

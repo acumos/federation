@@ -24,6 +24,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import java.lang.invoke.MethodHandles;
+
 import org.acumos.cds.domain.MLPPeer;
 import org.acumos.cds.domain.MLPPeerSubscription;
 import org.acumos.cds.domain.MLPSolution;
@@ -50,8 +52,7 @@ import org.springframework.stereotype.Component;
 @Scope("prototype")
 public class PeerSubscriptionTask implements Runnable {
 
-	private final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(getClass().getName());
-
+	private static final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(MethodHandles.lookup().lookupClass());
 
 	private MLPPeer	peer;
 	private MLPPeerSubscription subscription;
