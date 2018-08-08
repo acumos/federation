@@ -191,6 +191,9 @@ public class PeerGateway {
 			//should the creted/modified reflect this information or the information we got from the peer ?
 																	.withUser(getUserId(this.sub))
 																	.withSource(this.peer.getPeerId())
+																	//clear the tags and web info for now.
+																	.withTags(null)
+																	.withWebStats(null)
 																	.build();
 			try {
 				cdsClient.createSolution(localSolution);
@@ -299,6 +302,8 @@ public class PeerGateway {
 																		return newSourceId;
 																	}
 																})
+															.withTags(null)
+															.withWebStats(null)
 															.build();
 
 			try {
