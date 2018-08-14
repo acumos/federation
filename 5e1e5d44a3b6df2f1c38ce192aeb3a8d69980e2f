@@ -1,0 +1,124 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "322b0c58_c9bb42c8",
+        "filename": "gateway/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-08-14T10:17:14Z",
+      "side": 1,
+      "message": "Please use 1.17.1",
+      "range": {
+        "startLine": 77,
+        "startChar": 12,
+        "endLine": 77,
+        "endChar": 18
+      },
+      "revId": "5e1e5d44a3b6df2f1c38ce192aeb3a8d69980e2f",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36c7990c_088689e2",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/PeerGateway.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-08-14T10:17:14Z",
+      "side": 1,
+      "message": "private static final EELFLoggerDelegate log \u003d EELFLoggerDelegate.getLogger(MethodHandles.lookup().lookupClass());",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 88
+      },
+      "revId": "5e1e5d44a3b6df2f1c38ce192aeb3a8d69980e2f",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2e9efac_b8ff3b0a",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/cds/Mapper.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-08-14T10:17:14Z",
+      "side": 1,
+      "message": "fedModule.addDeserializer(MLPRevisionDescription.class, new ...);",
+      "revId": "5e1e5d44a3b6df2f1c38ce192aeb3a8d69980e2f",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3cc0dda_1c523ac4",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/cds/SolutionRevision.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-08-14T10:17:14Z",
+      "side": 1,
+      "message": "private List\u003c? extends MLPRevisionDescription\u003e  descriptions;",
+      "revId": "5e1e5d44a3b6df2f1c38ce192aeb3a8d69980e2f",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fba1bdf0_83865d3d",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/ContentServiceImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-08-14T10:17:14Z",
+      "side": 1,
+      "message": "Pls don\u0027t add empty javadoc.",
+      "revId": "5e1e5d44a3b6df2f1c38ce192aeb3a8d69980e2f",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b584673_2ff92df2",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/ContentServiceImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-08-14T10:17:14Z",
+      "side": 1,
+      "message": "Sonar bitches about repeated strings like this, possibly make a local var with the value?",
+      "range": {
+        "startLine": 161,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 78
+      },
+      "revId": "5e1e5d44a3b6df2f1c38ce192aeb3a8d69980e2f",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
