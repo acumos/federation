@@ -30,6 +30,7 @@ import java.util.concurrent.Callable;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.acumos.cds.domain.MLPDocument;
 import org.acumos.cds.domain.MLPArtifact;
 import org.acumos.cds.domain.MLPSolution;
 import org.acumos.cds.domain.MLPSolutionRevision;
@@ -37,7 +38,7 @@ import org.acumos.federation.gateway.cds.ArtifactType;
 import org.acumos.federation.gateway.common.API;
 import org.acumos.federation.gateway.common.JsonResponse;
 import org.acumos.federation.gateway.config.EELFLoggerDelegate;
-import org.acumos.federation.gateway.service.ArtifactService;
+import org.acumos.federation.gateway.service.ContentService;
 import org.acumos.federation.gateway.service.CatalogService;
 import org.acumos.federation.gateway.util.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,7 +71,7 @@ public class CatalogController extends AbstractController {
 	@Autowired
 	private CatalogService catalogService;
 	@Autowired
-	private ArtifactService artifactService;
+	private ContentService contentService;
 
 	/**
 	 * @param theHttpResponse
@@ -264,7 +265,7 @@ public class CatalogController extends AbstractController {
 	 *            Solution ID
 	 * @param theRevisionId
 	 *            Revision ID
-	 * @return List of Published ML Solutions in JSON format.
+	 * @return List of solution revision artifacts in JSON format.
 	 */
 	@CrossOrigin
 	@PreAuthorize("hasAuthority('CATALOG_ACCESS')")
@@ -318,17 +319,76 @@ public class CatalogController extends AbstractController {
 	 *            HttpServletRequest
 	 * @param theHttpResponse
 	 *            HttpServletResponse
+	 * @param theSolutionId
+	 *            Solution ID
+	 * @param theRevisionId
+	 *            Revision ID
+	 * @return List of solution revision documents in JSON format.
+	 */
+	@CrossOrigin
+	@PreAuthorize("hasAuthority('CATALOG_ACCESS')")
+	@ApiOperation(value = "Invoked by Peer Acumos to get a list of solution revision public documents from the local Acumos Instance .", response = MLPArtifact.class, responseContainer = "List")
+	@RequestMapping(value = {
+			API.Paths.SOLUTION_REVISION_DOCUMENTS }, method = RequestMethod.GET, produces = APPLICATION_JSON)
+	@ResponseBody
+	public JsonResponse<List<MLPDocument>> getSolutionRevisionDocuments(HttpServletRequest theHttpRequest,
+			HttpServletResponse theHttpResponse, @PathVariable("solutionId") String theSolutionId,
+			@PathVariable("revisionId") String theRevisionId) {
+		JsonResponse<List<MLPDocument>> response = null;
+		List<MLPDocument> solutionRevisionDocuments = null;
+		ControllerContext context = new ControllerContext();
+		log.debug(EELFLoggerDelegate.debugLogger,
+				API.Paths.SOLUTION_REVISION_DOCUMENTS + "(" + theSolutionId + "," + theRevisionId + ")");
+		try {
+			solutionRevisionDocuments = catalogService.getSolutionRevisionDocuments(theSolutionId, theRevisionId, context);
+			if (null == solutionRevisionDocuments) {
+				response = JsonResponse.<List<MLPDocument>> buildResponse()
+																.withMessage("No solution revision " + theSolutionId + "/" + theRevisionId + " is available.")
+																.build();
+				theHttpResponse.setStatus(HttpServletResponse.SC_NOT_FOUND);
+			}
+			else {
+				for (MLPDocument document : solutionRevisionDocuments) {
+					if (!context.getPeer().getPeerInfo().isLocal()) {
+						encodeDocument(document, theHttpRequest);
+					}
+				}
+				response = JsonResponse.<List<MLPDocument>> buildResponse()
+														.withMessage("solution revision documents")
+														.withContent(solutionRevisionDocuments)
+														.build();
+				theHttpResponse.setStatus(HttpServletResponse.SC_OK);
+				log.debug(EELFLoggerDelegate.debugLogger, "getSolutionRevisionDocuments provided {} documents",
+							solutionRevisionDocuments.size());
+			}
+		} 
+		catch (Exception x) {
+			response = JsonResponse.<List<MLPDocument>> buildErrorResponse()
+														 .withError(x)
+														 .build();
+			theHttpResponse.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+			log.error(EELFLoggerDelegate.errorLogger, "An error occured while fetching solution " + theSolutionId + " revision " + theRevisionId + " documents", x);
+		}
+		return response;
+	}
+
+
+	/**
+	 * @param theHttpRequest
+	 *            HttpServletRequest
+	 * @param theHttpResponse
+	 *            HttpServletResponse
 	 * @param theArtifactId
 	 *            Artifact ID
 	 * @return Archive file of the Artifact for the Solution.
 	 */
 	@CrossOrigin
 	@PreAuthorize("hasAuthority('CATALOG_ACCESS')")
-	@ApiOperation(value = "API to download the Machine Learning Artifact of the Machine Learning Solution", response = InputStreamResource.class, code = 200)
+	@ApiOperation(value = "API to download artifact content", response = InputStreamResource.class, code = 200)
 	@RequestMapping(value = {
 			API.Paths.ARTIFACT_DOWNLOAD }, method = RequestMethod.GET, produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
 	@ResponseBody
-	public Callable<InputStreamResource> downloadSolutionArtifact(HttpServletRequest theHttpRequest,
+	public Callable<InputStreamResource> downloadArtifact(HttpServletRequest theHttpRequest,
 			HttpServletResponse theHttpResponse, @PathVariable("artifactId") String theArtifactId) {
 			
 		theHttpResponse.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
@@ -340,12 +400,51 @@ public class CatalogController extends AbstractController {
 		return new Callable<InputStreamResource>() {
 			public InputStreamResource call() throws Exception {
 				try {	
-					return artifactService.getArtifactContent(
+					return contentService.getArtifactContent(
 									catalogService.getSolutionRevisionArtifact(theArtifactId, ctx), ctx);
 				} 
 				catch (Exception x) {
 					log.error(EELFLoggerDelegate.errorLogger,
 						"An error occurred while retrieving artifact content " + theArtifactId, x);
+					throw x;
+				}
+			}
+		};
+	}
+
+	/**
+	 * @param theHttpRequest
+	 *            HttpServletRequest
+	 * @param theHttpResponse
+	 *            HttpServletResponse
+	 * @param theArtifactId
+	 *            Artifact ID
+	 * @return Archive file of the Artifact for the Solution.
+	 */
+	@CrossOrigin
+	@PreAuthorize("hasAuthority('CATALOG_ACCESS')")
+	@ApiOperation(value = "API to download a documents' content", response = InputStreamResource.class, code = 200)
+	@RequestMapping(value = {
+			API.Paths.DOCUMENT_DOWNLOAD }, method = RequestMethod.GET, produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
+	@ResponseBody
+	public Callable<InputStreamResource> downloadDocument(HttpServletRequest theHttpRequest,
+			HttpServletResponse theHttpResponse, @PathVariable("documentId") String theDocumentId) {
+			
+		theHttpResponse.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+		theHttpResponse.setHeader("Pragma", "no-cache");
+		theHttpResponse.setHeader("Expires", "0");
+		theHttpResponse.setStatus(HttpServletResponse.SC_OK);
+
+		final ControllerContext ctx = new ControllerContext();
+		return new Callable<InputStreamResource>() {
+			public InputStreamResource call() throws Exception {
+				try {	
+					return contentService.getDocumentContent(
+									catalogService.getSolutionRevisionDocument(theDocumentId, ctx), ctx);
+				} 
+				catch (Exception x) {
+					log.error(EELFLoggerDelegate.errorLogger,
+						"An error occurred while retrieving artifact content " + theDocumentId, x);
 					throw x;
 				}
 			}
@@ -379,7 +478,7 @@ public class CatalogController extends AbstractController {
 													new URI(requestUri.getScheme(), null, requestUri.getHost(),
 																	requestUri.getPort(), null, null, null).toString(),
 													theArtifact.getArtifactId());
-			log.debug(EELFLoggerDelegate.debugLogger,	"getSolutionRevisionArtifacts: redirected artifact uri " + redirectUri);
+			log.debug(EELFLoggerDelegate.debugLogger,	"encodeArtifact: redirected artifact uri " + redirectUri);
 			theArtifact.setUri(redirectUri.toString());
 		}
 		
@@ -389,7 +488,7 @@ public class CatalogController extends AbstractController {
 			
 				String imageTag = imageId.tag.orNull();
 				if (imageTag != null) {
-					log.debug(EELFLoggerDelegate.debugLogger,	"getSolutionRevisionArtifacts: encoded docker image uri to tag " + imageTag);
+					log.debug(EELFLoggerDelegate.debugLogger,	"encodeArtifact: encoded docker image uri to tag " + imageTag);
 					theArtifact.setName(imageTag);
 					theArtifact.setDescription(imageTag);
 				}
@@ -397,4 +496,22 @@ public class CatalogController extends AbstractController {
 		}
 	}
 	
+	/** */
+	private void encodeDocument(MLPDocument theDocument, HttpServletRequest theRequest) throws URISyntaxException {
+
+		String artifactUri = theDocument.getUri();
+
+		//redirect		
+		{
+			URI requestUri = new URI(theRequest.getRequestURL().toString());
+			URI redirectUri = API.DOCUMENT_DOWNLOAD
+												.buildUri(
+													new URI(requestUri.getScheme(), null, requestUri.getHost(),
+																	requestUri.getPort(), null, null, null).toString(),
+													theDocument.getDocumentId());
+			log.debug(EELFLoggerDelegate.debugLogger,	"encodeDocument: redirected document uri " + redirectUri);
+			theDocument.setUri(redirectUri.toString());
+		}
+	}
+
 }

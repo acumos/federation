@@ -27,10 +27,11 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.lang.invoke.MethodHandles;
 
+import org.acumos.cds.domain.MLPDocument;
 import org.acumos.cds.domain.MLPArtifact;
 import org.acumos.federation.gateway.cds.ArtifactType;
 import org.acumos.federation.gateway.config.EELFLoggerDelegate;
-import org.acumos.federation.gateway.service.ArtifactService;
+import org.acumos.federation.gateway.service.ContentService;
 import org.acumos.federation.gateway.service.ServiceContext;
 import org.acumos.federation.gateway.service.ServiceException;
 import org.acumos.nexus.client.NexusArtifactClient;
@@ -47,12 +48,12 @@ import com.github.dockerjava.core.command.PushImageResultCallback;
 
 
 /**
- * CDS based implementation of the CatalogService.
+ * Nexus based implementation of the ContentService.
  *
  */
 @Service
-public class ArtifactServiceImpl extends AbstractServiceImpl
-																	implements ArtifactService {
+public class ContentServiceImpl extends AbstractServiceImpl
+																	implements ContentService {
 
 	private static final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(MethodHandles.lookup().lookupClass());
 
@@ -66,11 +67,10 @@ public class ArtifactServiceImpl extends AbstractServiceImpl
 		if (theArtifact.getUri() == null) {
 			throw new ServiceException("No artifact uri available for " + theArtifact);
 		}
-		log.info(EELFLoggerDelegate.debugLogger, "Retrieving artifact content for {}",theArtifact);
+		log.info(EELFLoggerDelegate.debugLogger, "Retrieving artifact content for {}", theArtifact);
 
-		InputStreamResource streamResource = null;
-		try {
-			if (ArtifactType.DockerImage == ArtifactType.forCode(theArtifact.getArtifactTypeCode())) {
+		if (ArtifactType.DockerImage == ArtifactType.forCode(theArtifact.getArtifactTypeCode())) {
+			try {
 				//pull followed by save
 				DockerClient docker = this.clients.getDockerClient();
 
@@ -82,29 +82,21 @@ public class ArtifactServiceImpl extends AbstractServiceImpl
 
 				return new InputStreamResource(docker.saveImageCmd(theArtifact.getUri()).exec());
 			}
-			else {	
-				NexusArtifactClient artifactClient = this.clients.getNexusClient();
-				ByteArrayOutputStream artifactContent = artifactClient.getArtifact(theArtifact.getUri());
-				log.info(EELFLoggerDelegate.debugLogger, "Retrieved {} bytes of artifact content", artifactContent.size());
-				streamResource = new InputStreamResource(
-													new ByteArrayInputStream(
-														artifactContent.toByteArray()
-												));
+			catch (Exception x) {
+				log.error(EELFLoggerDelegate.errorLogger, "Failed to retrieve artifact content for docker artifact " + theArtifact, x);
+				throw new ServiceException("Failed to retrieve artifact content for docker artifact " + theArtifact, x);
 			}
 		}
-		catch (Exception x) {
-			log.error(EELFLoggerDelegate.errorLogger, "Failed to retrieve artifact content for artifact " + theArtifact, x);
-			throw new ServiceException("Failed to retrieve artifact content for artifact " + theArtifact, x);
+		else {	
+			return getNexusContent(theArtifact.getUri());
 		}
-		return streamResource;
 	}
 
+	@Override
 	public void putArtifactContent(MLPArtifact theArtifact, Resource theResource) throws ServiceException {
-		UploadArtifactInfo uploadInfo = null;
-		try {
-			if (ArtifactType.DockerImage == ArtifactType.forCode(theArtifact.getArtifactTypeCode())) {
+		if (ArtifactType.DockerImage == ArtifactType.forCode(theArtifact.getArtifactTypeCode())) {
+			try {
 				//load followed by push
-
 				DockerClient docker = this.clients.getDockerClient();
 
 				docker.loadImageCmd(theResource.getInputStream())
@@ -126,24 +118,67 @@ public class ArtifactServiceImpl extends AbstractServiceImpl
 				theArtifact.setName(imageId.toString());
 				theArtifact.setDescription(imageId.toString());
 			}
-			else {
-				uploadInfo = this.clients.getNexusClient()
-											.uploadArtifact((String)this.clients.getNexusProperty("groupId"),
-																			theArtifact.getName(), /* probably wrong */
-																			theArtifact.getVersion(),
-																			"",
-																			theResource.contentLength(),
-																			theResource.getInputStream());
-				log.info(EELFLoggerDelegate.debugLogger, "Wrote artifact content to {}", uploadInfo.getArtifactMvnPath());
-				// update artifact with local repo reference
-				theArtifact.setUri(uploadInfo.getArtifactMvnPath());
+			catch (Exception x) {
+				log.error(EELFLoggerDelegate.errorLogger,
+									"Failed to push docker artifact content to Nexus repo", x);
+				throw new ServiceException("Failed to push docker artifact content to Nexus repo", x);
 			}
 		}
-		catch (Exception x) {
-			log.error(EELFLoggerDelegate.errorLogger,
-								"Failed to push artifact content to local Nexus repo", x);
-			throw new ServiceException("Failed to push artifact content to local Nexus repo", x);
+		else {
+			UploadArtifactInfo info = putNexusContent(theArtifact.getName(), theArtifact.getVersion(), theResource);
+			// update artifact with local repo reference
+			theArtifact.setUri(info.getArtifactMvnPath());
 		}
-
 	}
+
+	@Override
+	public InputStreamResource getDocumentContent(MLPDocument theDocument, ServiceContext theContext)
+																																										throws ServiceException {
+		if (theDocument.getUri() == null) {
+			throw new ServiceException("No document uri available for " + theDocument);
+		}
+		log.info(EELFLoggerDelegate.debugLogger, "Retrieving document content for {}", theDocument);
+		return getNexusContent(theDocument.getUri());
+	}
+
+	@Override
+	public void putDocumentContent(MLPDocument theDocument, Resource theResource) throws ServiceException {
+		UploadArtifactInfo info = putNexusContent(theDocument.getName(), theDocument.getVersion(), theResource);
+		theDocument.setUri(info.getArtifactMvnPath());
+	}
+
+	protected InputStreamResource getNexusContent(String theUri) throws ServiceException {
+		try {
+			NexusArtifactClient artifactClient = this.clients.getNexusClient();
+			ByteArrayOutputStream artifactContent = artifactClient.getArtifact(theUri);
+			log.info(EELFLoggerDelegate.debugLogger, "Retrieved {} bytes of content from {}", artifactContent.size(), theUri);
+			return new InputStreamResource(
+										new ByteArrayInputStream(
+											artifactContent.toByteArray()
+									));
+		}
+		catch (Exception x) {
+			log.error(EELFLoggerDelegate.errorLogger, "Failed to retrieve content from  " + theUri, x);
+			throw new ServiceException("Failed to retrieve content from " + theUri, x);
+		}
+	}
+
+	protected UploadArtifactInfo putNexusContent(String theName, String theVersion, Resource theResource) throws ServiceException {
+		try {
+			UploadArtifactInfo info = this.clients.getNexusClient()
+																	.uploadArtifact((String)this.clients.getNexusProperty("groupId"),
+																									theName,
+																									theVersion,
+																									"",
+																									theResource.contentLength(),
+																									theResource.getInputStream());
+			log.info(EELFLoggerDelegate.debugLogger, "Wrote artifact content to {}", info.getArtifactMvnPath());
+			return info;
+		}
+		catch (Exception x) {
+			log.error(EELFLoggerDelegate.errorLogger,	"Failed to push content to Nexus repo", x);
+			throw new ServiceException("Failed to push content to Nexus repo", x);
+		}
+	}
+
 }

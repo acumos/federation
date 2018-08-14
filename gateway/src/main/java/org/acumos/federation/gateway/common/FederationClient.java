@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.acumos.cds.domain.MLPArtifact;
+import org.acumos.cds.domain.MLPDocument;
 import org.acumos.cds.domain.MLPPeer;
 import org.acumos.cds.domain.MLPSolution;
 import org.acumos.cds.domain.MLPSolutionRevision;
@@ -264,11 +265,28 @@ public class FederationClient extends AbstractClient {
 	 *             On failure
 	 */
 	public Resource downloadArtifact(String theArtifactId) throws HttpStatusCodeException {
-		URI uri = API.ARTIFACT_DOWNLOAD.buildUri(this.baseUrl, theArtifactId);
+		return download(API.ARTIFACT_DOWNLOAD.buildUri(this.baseUrl, theArtifactId));
+	}
+
+	/**
+	 * 
+	 * @param theSolutionId
+	 *            Solution ID
+	 * @param theRevisionId
+	 *            Revision ID
+	 * @return List of MLPDocuments from Remote Acumos
+	 * @throws HttpStatusCodeException
+	 *             Throws HttpStatusCodeException is remote acumos is not available
+	 */
+	public JsonResponse<List<MLPDocument>> getDocuments(String theSolutionId, String theRevisionId)
+			throws HttpStatusCodeException {
+		URI uri = API.SOLUTION_REVISION_DOCUMENTS.buildUri(this.baseUrl, theSolutionId, theRevisionId);
 		log.info(EELFLoggerDelegate.debugLogger, "Query for " + uri);
-		ResponseEntity<Resource> response = null;
+		ResponseEntity<JsonResponse<List<MLPDocument>>> response = null;
 		try {
-			response = restTemplate.exchange(uri, HttpMethod.GET, null, Resource.class);
+			response = restTemplate.exchange(uri, HttpMethod.GET, null,
+					new ParameterizedTypeReference<JsonResponse<List<MLPDocument>>>() {
+					});
 		}
 		catch (HttpStatusCodeException x) {
 			log.error(EELFLoggerDelegate.errorLogger, uri + " failed", x);
@@ -276,11 +294,41 @@ public class FederationClient extends AbstractClient {
 		}
 		catch (Throwable t) {
 			log.error(EELFLoggerDelegate.errorLogger, uri + " unexpected failure.", t);
-			//not very clean
-			throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, uri + " unexpected failure: " + t);
 		}
 		finally {
 			log.info(EELFLoggerDelegate.debugLogger, uri + " response " + response);
+		}
+		return response == null ? null : response.getBody();
+	}
+
+	/**
+	 * @param theDocumentId
+	 *            Document ID
+	 * @return Resource
+	 * @throws HttpStatusCodeException
+	 *             On failure
+	 */
+	public Resource downloadDocument(String theDocumentId) throws HttpStatusCodeException {
+		return download(API.DOCUMENT_DOWNLOAD.buildUri(this.baseUrl, theDocumentId));
+	}
+
+	protected Resource download(URI theUri) throws HttpStatusCodeException {
+		log.info(EELFLoggerDelegate.debugLogger, "Query for {}", theUri);
+		ResponseEntity<Resource> response = null;
+		try {
+			response = restTemplate.exchange(theUri, HttpMethod.GET, null, Resource.class);
+		}
+		catch (HttpStatusCodeException x) {
+			log.error(EELFLoggerDelegate.errorLogger, theUri + " failed", x);
+			throw x;
+		}
+		catch (Throwable t) {
+			log.error(EELFLoggerDelegate.errorLogger, theUri + " unexpected failure.", t);
+			//not very clean
+			throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, theUri + " unexpected failure: " + t);
+		}
+		finally {
+			log.info(EELFLoggerDelegate.debugLogger, theUri + " response " + response);
 		}
 
 		if (response == null) {

@@ -38,6 +38,9 @@ public enum API {
 	SOLUTION_REVISION_ARTIFACTS(Paths.SOLUTION_REVISION_ARTIFACTS),
 	ARTIFACT_DETAILS(Paths.ARTIFACT_DETAILS),
 	ARTIFACT_DOWNLOAD(Paths.ARTIFACT_DOWNLOAD),
+	SOLUTION_REVISION_DOCUMENTS(Paths.SOLUTION_REVISION_DOCUMENTS),
+	DOCUMENT_DETAILS(Paths.DOCUMENT_DETAILS),
+	DOCUMENT_DOWNLOAD(Paths.DOCUMENT_DOWNLOAD),
 	PEERS(Paths.PEERS),
 	SUBSCRIPTION(Paths.SUBSCRIPTION),
 	PING(Paths.PING),
@@ -157,6 +160,10 @@ public enum API {
 		public static final String SOLUTION_REVISION_ARTIFACTS = "/solutions/{solutionId}/revisions/{revisionId}/artifacts";
 		public static final String ARTIFACT_DETAILS = "/artifacts/{artifactId}";
 		public static final String ARTIFACT_DOWNLOAD = "/artifacts/{artifactId}/download";
+
+		public static final String SOLUTION_REVISION_DOCUMENTS = "/solutions/{solutionId}/revisions/{revisionId}/documents";
+		public static final String DOCUMENT_DETAILS = "/documents/{documentId}";
+		public static final String DOCUMENT_DOWNLOAD = "/documents/{documentId}/download";
 
 		public static final String SUBSCRIPTION = "/subscription/{subscriptionId}";
 

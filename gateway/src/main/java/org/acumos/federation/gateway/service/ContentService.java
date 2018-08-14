@@ -23,14 +23,15 @@
  */
 package org.acumos.federation.gateway.service;
 
+import org.acumos.cds.domain.MLPDocument;
 import org.acumos.cds.domain.MLPArtifact;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 
 /**
- * Handles access to the artifacts repository. 
+ * Handles access to the content repository. 
  */
-public interface ArtifactService {
+public interface ContentService {
 
 	/**
 	 * @param theArtifact
@@ -52,4 +53,26 @@ public interface ArtifactService {
 	 *            the resource providing the artifact content
 	 */
 	public void putArtifactContent(MLPArtifact theArtifact, Resource theResource) throws ServiceException;
+
+	/**
+	 * @param theDocument
+	 *            The CDS representation of document metadata
+	 * @param theContext
+	 *            the execution context
+	 * @return resource containing access to the actual document content
+	 */
+	public InputStreamResource getDocumentContent(MLPDocument theDocument, ServiceContext theContext)
+																																										throws ServiceException;
+
+
+	/**
+	 * If the call is succesful the document information is updated with the content uri.
+	 * No service context here as this call is always used with respect to the local gateway instance.
+	 * @param theDocument
+	 *            The CDS representation of document metadata
+	 * @param theResource
+	 *            the resource providing the document content
+	 */
+	public void putDocumentContent(MLPDocument theDocument, Resource theResource) throws ServiceException;
+
 }

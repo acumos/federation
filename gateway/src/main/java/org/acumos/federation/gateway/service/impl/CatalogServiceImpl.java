@@ -37,11 +37,13 @@ import javax.annotation.PostConstruct;
 import org.acumos.cds.AccessTypeCode;
 import org.acumos.cds.ValidationStatusCode;
 import org.acumos.cds.client.ICommonDataServiceRestClient;
+import org.acumos.cds.domain.MLPDocument;
 import org.acumos.cds.domain.MLPArtifact;
 import org.acumos.cds.domain.MLPSolution;
 import org.acumos.cds.domain.MLPSolutionRevision;
 import org.acumos.cds.transport.RestPageRequest;
 import org.acumos.cds.transport.RestPageResponse;
+import org.acumos.federation.gateway.cds.Document;
 import org.acumos.federation.gateway.cds.Artifact;
 import org.acumos.federation.gateway.cds.Solution;
 import org.acumos.federation.gateway.cds.SolutionRevision;
@@ -246,7 +248,8 @@ public class CatalogServiceImpl extends AbstractServiceImpl
 		try {
 			SolutionRevision revision =
 					(SolutionRevision)cdsClient.getSolutionRevision(theSolutionId, theRevisionId);
-			revision.setArtifacts(cdsClient.getSolutionRevisionArtifacts(theSolutionId, theRevisionId));
+			revision.setArtifacts(getSolutionRevisionArtifacts(theSolutionId, theRevisionId, theContext.withAttribute(Attributes.cdsClient, cdsClient)));
+			revision.setDocuments(getSolutionRevisionDocuments(theSolutionId, theRevisionId, theContext.withAttribute(Attributes.cdsClient, cdsClient)));
 			return revision;
 		}	
 		catch (HttpStatusCodeException restx) {
@@ -263,13 +266,13 @@ public class CatalogServiceImpl extends AbstractServiceImpl
 
 		log.trace(EELFLoggerDelegate.debugLogger, "getSolutionRevisionArtifacts");
 		try {
-			return getClient().getSolutionRevisionArtifacts(theSolutionId, theRevisionId);
+			return getClient(theContext).getSolutionRevisionArtifacts(theSolutionId, theRevisionId);
 		}
 		catch (HttpStatusCodeException restx) {
 			if (Errors.isCDSNotFound(restx))
 				return null;
 			else
-				throw new ServiceException("Failed to retrieve solution information", restx);
+				throw new ServiceException("Failed to retrieve solution revision artifacts information", restx);
 		}
 	}
 
@@ -282,6 +285,7 @@ public class CatalogServiceImpl extends AbstractServiceImpl
 
 		log.trace(EELFLoggerDelegate.debugLogger, "getSolutionRevisionArtifact");
 		try {
+			//one should check that this belongs to at least one public revision of some solution accessible within the given context ..
 			return (Artifact)getClient().getArtifact(theArtifactId);
 		}	
 		catch (HttpStatusCodeException restx) {
@@ -289,6 +293,35 @@ public class CatalogServiceImpl extends AbstractServiceImpl
 				return null;
 			else
 				throw new ServiceException("Failed to retrieve solution revision artifact information", restx);
+		}
+	}
+
+	@Override
+	public List<MLPDocument> getSolutionRevisionDocuments(String theSolutionId, String theRevisionId, ServiceContext theContext) throws ServiceException {
+		log.trace(EELFLoggerDelegate.debugLogger, "getSolutionRevisionDocuments");
+		try {
+			return getClient(theContext).getSolutionRevisionDocuments(theRevisionId, AccessTypeCode.PB.name());
+		}
+		catch (HttpStatusCodeException restx) {
+			if (Errors.isCDSNotFound(restx))
+				return null;
+			else
+				throw new ServiceException("Failed to retrieve solution revision documents information", restx);
+		}
+	}
+
+	@Override
+	public Document getSolutionRevisionDocument(String theDocumentId, ServiceContext theContext) throws ServiceException {
+		log.trace(EELFLoggerDelegate.debugLogger, "getSolutionRevisionDocument");
+		try {
+			//one should check that this has a public visibility within at least one revision of some solution accessible within the given context ..
+			return (Document)getClient().getDocument(theDocumentId);
+		}	
+		catch (HttpStatusCodeException restx) {
+			if (Errors.isCDSNotFound(restx))
+				return null;
+			else
+				throw new ServiceException("Failed to retrieve solution revision document information", restx);
 		}
 	}
 
