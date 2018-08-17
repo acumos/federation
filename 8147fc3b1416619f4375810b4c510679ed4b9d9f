@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b5dc343_d1141a97",
+        "filename": "docs/release-notes.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-08-17T11:37:06Z",
+      "side": 1,
+      "message": "and description?",
+      "range": {
+        "startLine": 29,
+        "startChar": 15,
+        "endLine": 29,
+        "endChar": 23
+      },
+      "revId": "8147fc3b1416619f4375810b4c510679ed4b9d9f",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "346d7160_57ff5fa9",
+        "filename": "gateway/pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-08-17T11:37:06Z",
+      "side": 1,
+      "message": "you MUST use version 2.2.1 to upload documents \u003e 2MB",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 27
+      },
+      "revId": "8147fc3b1416619f4375810b4c510679ed4b9d9f",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e7350e4a_45c474c8",
+        "filename": "gateway/src/test/resources/mockPeerSolutionRevisionResponse.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-08-17T11:37:06Z",
+      "side": 1,
+      "message": "user ID should be a UUID, if that matters",
+      "range": {
+        "startLine": 10,
+        "startChar": 12,
+        "endLine": 10,
+        "endChar": 17
+      },
+      "revId": "8147fc3b1416619f4375810b4c510679ed4b9d9f",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
