@@ -275,8 +275,8 @@ public class PeerGatewayTest {
 						MLPPeer peer = new MLPPeer();
 						if (selector != null && selector.containsKey("isSelf") && selector.get("isSelf").equals(Boolean.TRUE)) {
 							peer.setPeerId("0");
-							peer.setName("testSelf");
-							peer.setSubjectName("test.org");
+							peer.setName("acumosa");
+							peer.setSubjectName("gateway.acumosa.org");
 							peer.setStatusCode(PeerStatus.Active.code());
 							peer.setSelf(true);
 							peer.setApiUrl("https://localhost:1110");

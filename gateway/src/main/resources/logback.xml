@@ -132,7 +132,7 @@
   	<appender-ref ref="asyncEELFError" />
   </logger>
   
-   <logger name="com.att.eelf.debug" level="debug" additivity="false">
+   <logger name="com.att.eelf.debug" level="trace" additivity="false">
         <appender-ref ref="asyncEELFDebug" />
   </logger>
   
