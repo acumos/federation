@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb6168ce_eb420e6a",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/security/Tools.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-08-24T20:42:30Z",
+      "side": 1,
+      "message": "it sure would be nice to see real javadoc on public methods like this",
+      "range": {
+        "startLine": 45,
+        "startChar": 1,
+        "endLine": 45,
+        "endChar": 7
+      },
+      "revId": "2ba084e785c9f073863867a9e912e051a316c02b",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4226c00e_0c7a4b87",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/CatalogServiceConfiguration.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-08-24T20:42:30Z",
+      "side": 1,
+      "message": "suggest removing instead of commenting out",
+      "range": {
+        "startLine": 68,
+        "startChar": 6,
+        "endLine": 68,
+        "endChar": 12
+      },
+      "revId": "2ba084e785c9f073863867a9e912e051a316c02b",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6be2e7b1_cf976452",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/PeerServiceImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-08-24T20:42:30Z",
+      "side": 1,
+      "message": "Please add javadoc.  Or strip empty javadoc.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 3
+      },
+      "revId": "2ba084e785c9f073863867a9e912e051a316c02b",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1845bb97_cf83104c",
+        "filename": "gateway/src/main/resources/logback.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-08-24T20:42:30Z",
+      "side": 1,
+      "message": "is it truly essential to set the level at trace for deployed code?  this seems like a local test only kind of thing.",
+      "range": {
+        "startLine": 135,
+        "startChar": 44,
+        "endLine": 135,
+        "endChar": 49
+      },
+      "revId": "2ba084e785c9f073863867a9e912e051a316c02b",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c31b51b3_ecae683a",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/test/CatalogServiceTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-08-24T20:42:30Z",
+      "side": 1,
+      "message": "please remove instead of commenting out",
+      "range": {
+        "startLine": 90,
+        "startChar": 4,
+        "endLine": 90,
+        "endChar": 24
+      },
+      "revId": "2ba084e785c9f073863867a9e912e051a316c02b",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b90b70c8_58328edd",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/test/PeerServiceTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-08-24T20:42:30Z",
+      "side": 1,
+      "message": "pls remove instead of commenting",
+      "range": {
+        "startLine": 80,
+        "startChar": 4,
+        "endLine": 80,
+        "endChar": 24
+      },
+      "revId": "2ba084e785c9f073863867a9e912e051a316c02b",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
