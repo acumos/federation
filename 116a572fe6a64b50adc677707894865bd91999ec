@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ed2cc7c_ba80c2a5",
+        "filename": "gateway/pom.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-09-04T20:59:26Z",
+      "side": 1,
+      "message": "Please bump to version 1.17.1",
+      "range": {
+        "startLine": 27,
+        "startChar": 10,
+        "endLine": 27,
+        "endChar": 16
+      },
+      "revId": "116a572fe6a64b50adc677707894865bd91999ec",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "887f6e27_eefbedfc",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/config/CDMSClientConfiguration.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-09-04T20:59:26Z",
+      "side": 1,
+      "message": "Please don\u0027t add empty javadoc in new files",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 3
+      },
+      "revId": "116a572fe6a64b50adc677707894865bd91999ec",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4ad2c5c_b8868257",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/security/Tools.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-09-04T20:59:26Z",
+      "side": 1,
+      "message": "Maybe SecurityTools is a better name?",
+      "range": {
+        "startLine": 38,
+        "startChar": 13,
+        "endLine": 38,
+        "endChar": 18
+      },
+      "revId": "116a572fe6a64b50adc677707894865bd91999ec",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
