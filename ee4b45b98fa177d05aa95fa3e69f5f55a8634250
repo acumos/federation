@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d8772e7_757f7536",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/cds/AccessType.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-09-05T18:58:15Z",
+      "side": 1,
+      "message": "Please don\u0027t add commented-out code in a new item",
+      "range": {
+        "startLine": 46,
+        "startChar": 10,
+        "endLine": 46,
+        "endChar": 23
+      },
+      "revId": "ee4b45b98fa177d05aa95fa3e69f5f55a8634250",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
