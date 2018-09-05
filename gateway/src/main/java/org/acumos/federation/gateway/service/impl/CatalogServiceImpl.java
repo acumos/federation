@@ -82,7 +82,7 @@ public class CatalogServiceImpl extends AbstractServiceImpl
 	public List<MLPSolution> getSolutions(Map<String, ?> theSelector, ServiceContext theContext) throws ServiceException {
 		log.debug(EELFLoggerDelegate.debugLogger, "getSolutions with selector {}", theSelector);
 
-		Map<String, Object> selector = new HashMap<String, Object>();
+		Map<String, Object> selector = new HashMap<String, Object>(this.config.getSolutionsSelectorDefaults());
 		if (theSelector != null)
 			selector.putAll(theSelector);
 		//it is essential that this gets done at the end as to force all baseSelector criteria (otherwise a submitted accessTypeCode
