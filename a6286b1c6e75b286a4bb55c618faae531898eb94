@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "873b3f4b_00370a0c",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/task/PeerSubscriptionTaskScheduler.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-09-10T09:50:52Z",
+      "side": 1,
+      "message": "Why is shutdown commented out?",
+      "revId": "a6286b1c6e75b286a4bb55c618faae531898eb94",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9da9cac_d44f521e",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/task/TaskConfiguration.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-09-10T09:50:52Z",
+      "side": 1,
+      "message": "Pls fix indent",
+      "revId": "a6286b1c6e75b286a4bb55c618faae531898eb94",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
