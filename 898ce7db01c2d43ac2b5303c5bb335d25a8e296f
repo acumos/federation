@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "261c906e_18cbfe2a",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/PeerGateway.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-09-13T15:50:47Z",
+      "side": 1,
+      "message": "I recommend debug level here, and by default set the root level to INFO.",
+      "range": {
+        "startLine": 114,
+        "startChar": 6,
+        "endLine": 114,
+        "endChar": 11
+      },
+      "revId": "898ce7db01c2d43ac2b5303c5bb335d25a8e296f",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3802d7a0_40ad124a",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/CatalogServiceImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-09-13T15:50:47Z",
+      "side": 1,
+      "message": "There is no test here, the code does not seem to match the comments, please check.",
+      "revId": "898ce7db01c2d43ac2b5303c5bb335d25a8e296f",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
