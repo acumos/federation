@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "caa39281_a81f2477",
+        "filename": "gateway/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-09-17T15:54:50Z",
+      "side": 1,
+      "message": "2g is enough to hold a 1g docker image plus your code",
+      "range": {
+        "startLine": 312,
+        "startChar": 50,
+        "endLine": 312,
+        "endChar": 56
+      },
+      "revId": "7301a5941a749a43b4efa1deda1e72a7c2c3ab00",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dd2bd40e_fb090f56",
+        "filename": "gateway/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-09-17T15:54:50Z",
+      "side": 1,
+      "message": "Please use 2g",
+      "range": {
+        "startLine": 351,
+        "startChar": 51,
+        "endLine": 351,
+        "endChar": 56
+      },
+      "revId": "7301a5941a749a43b4efa1deda1e72a7c2c3ab00",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
