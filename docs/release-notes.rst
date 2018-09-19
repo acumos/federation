@@ -22,6 +22,11 @@ Federated Gateway Release Notes
 
 The Federated Gateway server is available as a Docker image in a Docker registry.
 
+Version 1.18.4, 2018-09-19
+--------------------------
+
+* Upgrade Spring-Boot to 1.5.16.RELEASE
+
 Version 1.18.3, 2018-09-14
 --------------------------
 
