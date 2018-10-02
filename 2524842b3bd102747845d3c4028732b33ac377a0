@@ -1,0 +1,371 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "44f0dad6_7e17f65c",
+        "filename": "docs/release-notes.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-10-02T18:14:35Z",
+      "side": 1,
+      "message": "Does this include fixes for ACUMOS-1780?  Please list that number here",
+      "revId": "2524842b3bd102747845d3c4028732b33ac377a0",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0c53965a_2d2f0af9",
+        "filename": "gateway/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-10-02T18:14:35Z",
+      "side": 1,
+      "message": "Thank you for updating to 1.18.2",
+      "range": {
+        "startLine": 72,
+        "startChar": 17,
+        "endLine": 72,
+        "endChar": 19
+      },
+      "revId": "2524842b3bd102747845d3c4028732b33ac377a0",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f2563c0_1d3fb477",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/PeerGateway.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-10-02T18:14:35Z",
+      "side": 1,
+      "message": "Pls remove, don\u0027t comment out",
+      "revId": "2524842b3bd102747845d3c4028732b33ac377a0",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64fc94c5_0d59e80f",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/config/InterfaceConfiguration.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-10-02T18:14:35Z",
+      "side": 1,
+      "message": "please don\u0027t add stump javadoc, just leave it off",
+      "range": {
+        "startLine": 398,
+        "startChar": 2,
+        "endLine": 398,
+        "endChar": 8
+      },
+      "revId": "2524842b3bd102747845d3c4028732b33ac377a0",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "815ac37b_f40db9d2",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/controller/CatalogController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-10-02T18:14:35Z",
+      "side": 1,
+      "message": "Pls remove don\u0027t comment out",
+      "range": {
+        "startLine": 85,
+        "startChar": 5,
+        "endLine": 85,
+        "endChar": 17
+      },
+      "revId": "2524842b3bd102747845d3c4028732b33ac377a0",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ec7690a8_3c3b9c49",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/controller/CatalogController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-10-02T18:14:35Z",
+      "side": 1,
+      "message": "Why is this T(org...) required?  I don\u0027t see it in use on others",
+      "range": {
+        "startLine": 86,
+        "startChar": 41,
+        "endLine": 86,
+        "endChar": 93
+      },
+      "revId": "2524842b3bd102747845d3c4028732b33ac377a0",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a6523a3_0cc3d27e",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/controller/CatalogController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-10-02T18:14:35Z",
+      "side": 1,
+      "message": "Why is this different from line 86?",
+      "range": {
+        "startLine": 128,
+        "startChar": 28,
+        "endLine": 128,
+        "endChar": 40
+      },
+      "revId": "2524842b3bd102747845d3c4028732b33ac377a0",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "623af752_1a4d9e2c",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/controller/CatalogController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-10-02T18:14:35Z",
+      "side": 1,
+      "message": "This is worthless javadoc and nobody ever sees it.  Strike all javadoc from your controller method! Put your effort into making the Swagger annotations detailed \u0026 correct, those are visible to the world.",
+      "range": {
+        "startLine": 166,
+        "startChar": 1,
+        "endLine": 172,
+        "endChar": 4
+      },
+      "revId": "2524842b3bd102747845d3c4028732b33ac377a0",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e78a13ee_24d523d3",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/controller/PingController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-10-02T18:14:35Z",
+      "side": 1,
+      "message": "Even Ping isn\u0027t open?",
+      "revId": "2524842b3bd102747845d3c4028732b33ac377a0",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2f14cc6_1b49fc9e",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/controller/PingController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-10-02T18:14:35Z",
+      "side": 1,
+      "message": "Pls remove, don\u0027t comment",
+      "range": {
+        "startLine": 63,
+        "startChar": 6,
+        "endLine": 63,
+        "endChar": 24
+      },
+      "revId": "2524842b3bd102747845d3c4028732b33ac377a0",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7642754c_bd369519",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/security/FederationMethodSecurityConfiguration.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-10-02T18:14:35Z",
+      "side": 1,
+      "message": "Pls remove, don\u0027t comment",
+      "range": {
+        "startLine": 38,
+        "startChar": 28,
+        "endLine": 38,
+        "endChar": 50
+      },
+      "revId": "2524842b3bd102747845d3c4028732b33ac377a0",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b7ef033_440dcb45",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/security/FederationMethodSecurityExpressionRoot.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-10-02T18:14:35Z",
+      "side": 1,
+      "message": "Pls remove",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 3
+      },
+      "revId": "2524842b3bd102747845d3c4028732b33ac377a0",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6c7430ae_47e92ebf",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/security/Peer.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-10-02T18:14:35Z",
+      "side": 1,
+      "message": "Where does isActive come from?  Not CDS",
+      "range": {
+        "startLine": 49,
+        "startChar": 16,
+        "endLine": 49,
+        "endChar": 24
+      },
+      "revId": "2524842b3bd102747845d3c4028732b33ac377a0",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8c0e1df8_b7c9d0df",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/ContentServiceImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-10-02T18:14:35Z",
+      "side": 1,
+      "message": "Pls drop empty javadoc",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 3
+      },
+      "revId": "2524842b3bd102747845d3c4028732b33ac377a0",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef07d6f2_1499bb74",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/ContentServiceImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-10-02T18:14:35Z",
+      "side": 1,
+      "message": "Is this delete not being done?",
+      "range": {
+        "startLine": 177,
+        "startChar": 20,
+        "endLine": 177,
+        "endChar": 26
+      },
+      "revId": "2524842b3bd102747845d3c4028732b33ac377a0",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f940bad_20ce77e8",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/ContentServiceImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-10-02T18:14:35Z",
+      "side": 1,
+      "message": "Pls fix indent",
+      "revId": "2524842b3bd102747845d3c4028732b33ac377a0",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2d9cc6d_4440f0d1",
+        "filename": "gateway/src/main/resources/logback.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-10-02T18:14:35Z",
+      "side": 1,
+      "message": "These are not compliant with the Athena-mandated pattern.\n\nPlease see CDS copy of logback.xml, I don\u0027t want to paste it here, too long",
+      "range": {
+        "startLine": 43,
+        "startChar": 17,
+        "endLine": 44,
+        "endChar": 23
+      },
+      "revId": "2524842b3bd102747845d3c4028732b33ac377a0",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
