@@ -22,6 +22,15 @@ Federated Gateway Release Notes
 
 The Federated Gateway server is available as a Docker image in a Docker registry.
 
+--------------------------
+Version 1.18.5, 2018-10-02
+--------------------------
+
+* Fixes to the processing of docker artifacts, in particular the push to the local registry (ACUMOS-1781)
+* Add peer 'isActive' as controller calls pre-authorization check
+* Fix the artifact content processing condition in the gateway
+
+--------------------------
 Version 1.18.4, 2018-09-21
 --------------------------
 
