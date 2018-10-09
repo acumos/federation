@@ -28,6 +28,7 @@ import java.util.Map;
 import org.acumos.cds.domain.MLPPeer;
 import org.acumos.cds.domain.MLPPeerSubscription;
 import org.acumos.cds.domain.MLPSolution;
+import org.acumos.federation.gateway.cds.PeerSubscription;
 import org.acumos.federation.gateway.common.Clients;
 import org.acumos.federation.gateway.common.FederationClient;
 import org.acumos.federation.gateway.common.JsonResponse;
@@ -117,7 +118,7 @@ public class PeerSubscriptionTask implements Runnable {
 			this.peerSubscriptionService.updatePeerSubscription(this.subscription);
 		}
 		catch (Exception x) {
-			log.error(EELFLoggerDelegate.errorLogger, "Peer task failed for " + peer.getName() + ", " + peer.getApiUrl() + ", " + subscription.getSelector(), x);
+			log.error(EELFLoggerDelegate.errorLogger, "Peer task failed for " + peer.getName() + ", " + peer.getApiUrl() + ", " + subscription, x);
 		}
 	}
 }

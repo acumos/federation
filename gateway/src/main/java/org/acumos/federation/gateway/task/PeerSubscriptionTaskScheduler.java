@@ -33,6 +33,7 @@ import javax.annotation.PreDestroy;
 import org.acumos.cds.domain.MLPPeer;
 import org.acumos.cds.domain.MLPPeerSubscription;
 import org.acumos.federation.gateway.cds.PeerStatus;
+import org.acumos.federation.gateway.cds.PeerSubscription;
 import org.acumos.federation.gateway.config.EELFLoggerDelegate;
 import org.acumos.federation.gateway.service.PeerService;
 import org.acumos.federation.gateway.service.PeerSubscriptionService;
@@ -84,7 +85,7 @@ public class PeerSubscriptionTaskScheduler {
 		}
 	}
 
-	protected boolean same(MLPPeerSubscription theFirstSub, MLPPeerSubscription theSecondSub) {
+	protected boolean same(PeerSubscription theFirstSub, PeerSubscription theSecondSub) {
 		log.debug(EELFLoggerDelegate.debugLogger,
 				"comparing subs : [" + theFirstSub.getSubId() + "," + theFirstSub.getCreated() + ","
 						+ theFirstSub.getModified() + "] vs. [" + theSecondSub.getSubId() + ","
