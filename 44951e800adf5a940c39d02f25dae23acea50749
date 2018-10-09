@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c722c7f_3570dee4",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/task/PeerSubscriptionTask.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-10-09T09:42:41Z",
+      "side": 1,
+      "message": "Please consider using the SLF4J feature of {} within strings instead of Java string catenation.",
+      "range": {
+        "startLine": 120,
+        "startChar": 45,
+        "endLine": 120,
+        "endChar": 104
+      },
+      "revId": "44951e800adf5a940c39d02f25dae23acea50749",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
