@@ -125,6 +125,12 @@ Step 5: Create a JKS-format truststore with the Acumos CA certificate::
   keytool -import -file acumosCA.crt -alias acumosCA -keypass $ACUMOS_PASS \
       -keystore acumosTrustStore.jks -storepass $ACUMOS_PASS -noprompt
 
+The recommended practice here is to import the self-signed Acumos CA
+certificate into an existing trust store. For example you can extend
+the file "cacerts" that is included with a Java Runtime Engine (JRE)
+distribution below directory "jre/lib/security" which usually uses the
+password "changeit".
+
 Step 6: Create the server private key::
 
   openssl genrsa -out acumos.key -passout pass:$ACUMOS_PASS 4096
@@ -190,8 +196,17 @@ certificates).
 Troubleshooting
 ---------------
 
-First, use the following steps to extract certificates and keys to
-test connections manually.
+Inspect the certificate advertised by your server using this command::
+
+  openssl s_client -connect yourserver.yourmodels.org:9084
+
+Look carefully at the "Certificate chain" section.  In case of error
+you may see a message like this::
+
+  Verify return code: 21 (unable to verify the first certificate)
+
+For advanced troubleshooting, use the following steps to extract
+certificates and keys to test connections manually.
 
 Extract the CA certificate created above in PEM format::
 
