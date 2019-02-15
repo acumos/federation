@@ -34,7 +34,8 @@ import org.acumos.cds.domain.MLPDocument;
 import org.acumos.cds.domain.MLPPeer;
 import org.acumos.cds.domain.MLPSolution;
 import org.acumos.cds.domain.MLPSolutionRevision;
-import org.acumos.federation.gateway.config.EELFLoggerDelegate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.acumos.federation.gateway.util.Utils;
 import org.apache.commons.lang.exception.ExceptionUtils;
 import org.apache.http.client.HttpClient;
@@ -60,7 +61,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  */
 public class FederationClient extends AbstractClient {
 
-	private static final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(MethodHandles.lookup().lookupClass());
+	private static final Logger log = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
 	private HttpClient client;
 
@@ -88,7 +89,7 @@ public class FederationClient extends AbstractClient {
 	public JsonResponse<MLPPeer> ping()
 			throws FederationException {
 		URI uri = API.PING.buildUri(this.baseUrl);
-		log.info(EELFLoggerDelegate.debugLogger, "Query for " + uri);
+		log.info("Query for " + uri);
 		ResponseEntity<JsonResponse<MLPPeer>> response = null;
 		try {
 			response = restTemplate.exchange(uri, HttpMethod.GET, null,
@@ -96,15 +97,15 @@ public class FederationClient extends AbstractClient {
 					});
 		}
 		catch (HttpStatusCodeException scx) {
-			log.error(EELFLoggerDelegate.errorLogger, uri + " failed", scx);
+			log.error(uri + " failed", scx);
 			throw new PeerException(uri, scx);
 		}
 		catch (Throwable t) {
-			log.error(EELFLoggerDelegate.errorLogger, uri + " unexpected failure.", t);
+			log.error(uri + " unexpected failure.", t);
 			throw new FederationException(uri, t);
 		}
 		finally {
-			log.info(EELFLoggerDelegate.debugLogger, uri + " response " + response);
+			log.info(uri + " response " + response);
 		}
 		return response.getBody();
 	}
@@ -114,7 +115,7 @@ public class FederationClient extends AbstractClient {
 	public JsonResponse<List<MLPPeer>> getPeers()
 			throws FederationException {
 		URI uri = API.PEERS.buildUri(this.baseUrl);
-		log.info(EELFLoggerDelegate.debugLogger, "Query for " + uri);
+		log.info("Query for " + uri);
 		ResponseEntity<JsonResponse<List<MLPPeer>>> response = null;
 		try {
 			response = restTemplate.exchange(uri, HttpMethod.GET, null,
@@ -122,15 +123,15 @@ public class FederationClient extends AbstractClient {
 					});
 		}
 		catch (HttpStatusCodeException scx) {
-			log.error(EELFLoggerDelegate.errorLogger, uri + " failed", scx);
+			log.error(uri + " failed", scx);
 			throw new PeerException(uri, scx);
 		}
 		catch (Throwable t) {
-			log.error(EELFLoggerDelegate.errorLogger, uri + " unexpected failure.", t);
+			log.error(uri + " unexpected failure.", t);
 			throw new FederationException(uri, t);
 		}
 		finally {
-			log.info(EELFLoggerDelegate.debugLogger, uri + " response " + response);
+			log.info(uri + " response " + response);
 		}
 		return response.getBody();
 	}	
@@ -150,11 +151,11 @@ public class FederationClient extends AbstractClient {
 
 		String selectorParam = null;
 		try {
-			log.info(EELFLoggerDelegate.debugLogger, "getSolutions selector {}", Utils.mapToJsonString(theSelection));
+			log.info("getSolutions selector {}", Utils.mapToJsonString(theSelection));
 			selectorParam = theSelection == null ? null
 					// : UriUtils.encodeQueryParam(Utils.mapToJsonString(theSelection),"UTF-8");
 					: Base64Utils.encodeToString(Utils.mapToJsonString(theSelection).getBytes("UTF-8"));
-			log.info(EELFLoggerDelegate.debugLogger, "getSolutions encoded selector {}", selectorParam);
+			log.info("getSolutions encoded selector {}", selectorParam);
 		}
 		catch (Exception x) {
 			throw new IllegalArgumentException("Cannot process the selection argument", x);
@@ -162,7 +163,7 @@ public class FederationClient extends AbstractClient {
 
 		URI uri = API.SOLUTIONS.buildUri(this.baseUrl, selectorParam == null ? Collections.EMPTY_MAP
 				: Collections.singletonMap(API.QueryParameters.SOLUTIONS_SELECTOR, selectorParam));
-		log.info(EELFLoggerDelegate.debugLogger, "Query for " + uri);
+		log.info("Query for " + uri);
 		ResponseEntity<JsonResponse<List<MLPSolution>>> response = null;
 		try {
 			response = restTemplate.exchange(uri, HttpMethod.GET, null,
@@ -170,15 +171,15 @@ public class FederationClient extends AbstractClient {
 					});
 		}
 		catch (HttpStatusCodeException scx) {
-			log.error(EELFLoggerDelegate.errorLogger, uri + " failed", scx);
+			log.error(uri + " failed", scx);
 			throw new PeerException(uri, scx);
 		}
 		catch (Throwable t) {
-			log.error(EELFLoggerDelegate.errorLogger, uri + " unexpected failure.", t);
+			log.error(uri + " unexpected failure.", t);
 			throw new FederationException(uri, t);
 		}
 		finally {
-			log.info(EELFLoggerDelegate.debugLogger, uri + " response " + response);
+			log.info(uri + " response " + response);
 		}
 		return response.getBody();
 	}
@@ -193,7 +194,7 @@ public class FederationClient extends AbstractClient {
 			throws FederationException {
 
 		URI uri = API.SOLUTION_DETAIL.buildUri(this.baseUrl, theSolutionId);
-		log.info(EELFLoggerDelegate.debugLogger, "Query for " + uri);
+		log.info("Query for " + uri);
 		ResponseEntity<JsonResponse<MLPSolution>> response = null;
 		try {
 			response = restTemplate.exchange(uri, HttpMethod.GET, null,
@@ -201,15 +202,15 @@ public class FederationClient extends AbstractClient {
 					});
 		}
 		catch (HttpStatusCodeException scx) {
-			log.error(EELFLoggerDelegate.errorLogger, uri + " failed", scx);
+			log.error(uri + " failed", scx);
 			throw new PeerException(uri, scx);
 		}
 		catch (Throwable t) {
-			log.error(EELFLoggerDelegate.errorLogger, uri + " unexpected failure.", t);
+			log.error(uri + " unexpected failure.", t);
 			throw new FederationException(uri, t);
 		}
 		finally {
-			log.info(EELFLoggerDelegate.debugLogger, uri + " response " + response);
+			log.info(uri + " response " + response);
 		}
 		return response.getBody();
 	}
@@ -225,7 +226,7 @@ public class FederationClient extends AbstractClient {
 			throws FederationException {
 
 		URI uri = API.SOLUTION_REVISIONS.buildUri(this.baseUrl, theSolutionId);
-		log.info(EELFLoggerDelegate.debugLogger, "Query for " + uri);
+		log.info("Query for " + uri);
 		ResponseEntity<JsonResponse<List<MLPSolutionRevision>>> response = null;
 		try {
 			response = restTemplate.exchange(uri, HttpMethod.GET, null,
@@ -233,15 +234,15 @@ public class FederationClient extends AbstractClient {
 					});
 		}
 		catch (HttpStatusCodeException scx) {
-			log.error(EELFLoggerDelegate.errorLogger, uri + " failed", scx);
+			log.error(uri + " failed", scx);
 			throw new PeerException(uri, scx);
 		}
 		catch (Throwable t) {
-			log.info(EELFLoggerDelegate.errorLogger, uri + " unexpected failure.", t);
+			log.info(uri + " unexpected failure.", t);
 			throw new FederationException(uri, t);
 		}
 		finally {
-			log.info(EELFLoggerDelegate.debugLogger, uri + " response " + response);
+			log.info(uri + " response " + response);
 		}
 		return response.getBody();
 	}
@@ -259,7 +260,7 @@ public class FederationClient extends AbstractClient {
 			throws FederationException {
 
 		URI uri = API.SOLUTION_REVISION_DETAILS.buildUri(this.baseUrl, theSolutionId, theRevisionId);
-		log.info(EELFLoggerDelegate.debugLogger, "Query for " + uri);
+		log.info("Query for " + uri);
 		ResponseEntity<JsonResponse<MLPSolutionRevision>> response = null;
 		try {
 			response = restTemplate.exchange(uri, HttpMethod.GET, null,
@@ -267,15 +268,15 @@ public class FederationClient extends AbstractClient {
 					});
 		}
 		catch (HttpStatusCodeException scx) {
-			log.error(EELFLoggerDelegate.errorLogger, uri + " failed", scx);
+			log.error(uri + " failed", scx);
 			throw new PeerException(uri, scx);
 		}
 		catch (Throwable t) {
-			log.info(EELFLoggerDelegate.errorLogger, uri + " unexpected failure.", t);
+			log.info(uri + " unexpected failure.", t);
 			throw new FederationException(uri, t);
 		}
 		finally {
-			log.info(EELFLoggerDelegate.debugLogger, uri + " response " + response);
+			log.info(uri + " response " + response);
 		}
 		return response.getBody();
 	}
@@ -293,7 +294,7 @@ public class FederationClient extends AbstractClient {
 	public JsonResponse<List<MLPArtifact>> getArtifacts(String theSolutionId, String theRevisionId)
 			throws FederationException {
 		URI uri = API.SOLUTION_REVISION_ARTIFACTS.buildUri(this.baseUrl, theSolutionId, theRevisionId);
-		log.info(EELFLoggerDelegate.debugLogger, "Query for " + uri);
+		log.info("Query for " + uri);
 		ResponseEntity<JsonResponse<List<MLPArtifact>>> response = null;
 		try {
 			response = restTemplate.exchange(uri, HttpMethod.GET, null,
@@ -301,15 +302,15 @@ public class FederationClient extends AbstractClient {
 					});
 		}
 		catch (HttpStatusCodeException scx) {
-			log.error(EELFLoggerDelegate.errorLogger, uri + " failed", scx);
+			log.error(uri + " failed", scx);
 			throw new PeerException(uri, scx);
 		}
 		catch (Throwable t) {
-			log.error(EELFLoggerDelegate.errorLogger, uri + " unexpected failure.", t);
+			log.error(uri + " unexpected failure.", t);
 			throw new FederationException(uri, t);
 		}
 		finally {
-			log.info(EELFLoggerDelegate.debugLogger, uri + " response " + response);
+			log.info(uri + " response " + response);
 		}
 		return response.getBody();
 	}
@@ -343,7 +344,7 @@ public class FederationClient extends AbstractClient {
 	public JsonResponse<List<MLPDocument>> getDocuments(String theSolutionId, String theRevisionId)
 			throws FederationException {
 		URI uri = API.SOLUTION_REVISION_DOCUMENTS.buildUri(this.baseUrl, theSolutionId, theRevisionId);
-		log.info(EELFLoggerDelegate.debugLogger, "Query for " + uri);
+		log.info("Query for " + uri);
 		ResponseEntity<JsonResponse<List<MLPDocument>>> response = null;
 		try {
 			response = restTemplate.exchange(uri, HttpMethod.GET, null,
@@ -351,15 +352,15 @@ public class FederationClient extends AbstractClient {
 					});
 		}
 		catch (HttpStatusCodeException scx) {
-			log.error(EELFLoggerDelegate.errorLogger, uri + " failed", scx);
+			log.error(uri + " failed", scx);
 			throw new PeerException(uri, scx);
 		}
 		catch (Throwable t) {
-			log.error(EELFLoggerDelegate.errorLogger, uri + " unexpected failure.", t);
+			log.error(uri + " unexpected failure.", t);
 			throw new FederationException(uri, t);
 		}
 		finally {
-			log.info(EELFLoggerDelegate.debugLogger, uri + " response " + response);
+			log.info(uri + " response " + response);
 		}
 		return response == null ? null : response.getBody();
 	}
@@ -381,7 +382,7 @@ public class FederationClient extends AbstractClient {
 	}
 
 	protected Resource download(URI theUri) throws FederationException {
-		log.info(EELFLoggerDelegate.debugLogger, "Query for download {}", theUri);
+		log.info("Query for download {}", theUri);
 		ResponseEntity<Resource> response = null;
 		RequestEntity<Void> request = RequestEntity
 																	.get(theUri)
@@ -391,15 +392,15 @@ public class FederationClient extends AbstractClient {
 			response = restTemplate.exchange(request, Resource.class);
 		}
 		catch (HttpStatusCodeException scx) {
-			log.error(EELFLoggerDelegate.errorLogger, theUri + " failed", scx);
+			log.error(theUri + " failed", scx);
 			throw new PeerException(theUri, scx);
 		}
 		catch (Throwable t) {
-			log.error(EELFLoggerDelegate.errorLogger, theUri + " unexpected failure.", t);
+			log.error(theUri + " unexpected failure.", t);
 			throw new FederationException(theUri, t);
 		}
 		finally {
-			log.info(EELFLoggerDelegate.debugLogger, theUri + " response " + response);
+			log.info(theUri + " response " + response);
 		}
 
 		return response.getBody();
@@ -409,7 +410,7 @@ public class FederationClient extends AbstractClient {
 	 * Important: the Resource returned by this method MUST BE CLOSED by whoever uses it.
 	 */
 	protected StreamingResource download2(URI theUri) throws FederationException {
-		log.info(EELFLoggerDelegate.debugLogger, "Query for download {}", theUri);
+		log.info("Query for download {}", theUri);
 		ClientHttpResponse response = null;
 		try {
 			ClientHttpRequest request =	new HttpComponentsClientHttpRequestFactory(this.client)
@@ -420,7 +421,7 @@ public class FederationClient extends AbstractClient {
 			if (!status.is2xxSuccessful())
 				throw new HttpClientErrorException(status, response.getStatusText());
 		
-			log.info(EELFLoggerDelegate.debugLogger, "Query for download got response {}", response);
+			log.info("Query for download got response {}", response);
 	
 			return new StreamingResource(response);
 		}
@@ -432,7 +433,7 @@ public class FederationClient extends AbstractClient {
 	public static class StreamingResource extends InputStreamResource
 																				implements Closeable {
 
-		private static final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(MethodHandles.lookup().lookupClass());
+		private static final Logger log = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 		private ClientHttpResponse response;
 
 		StreamingResource(ClientHttpResponse theResponse) throws IOException {
@@ -442,7 +443,7 @@ public class FederationClient extends AbstractClient {
 
 		@Override
 		public InputStream getInputStream() throws IOException, IllegalStateException {
-			log.trace(EELFLoggerDelegate.debugLogger, "Download input stream access at {}",ExceptionUtils.getStackTrace(new RuntimeException("Input stream access")) );
+			log.trace("Download input stream access at {}",ExceptionUtils.getStackTrace(new RuntimeException("Input stream access")) );
 			return super.getInputStream();
 		}
 
@@ -453,7 +454,7 @@ public class FederationClient extends AbstractClient {
 
 		@Override
 		public void close()  throws IOException {
-			log.info(EELFLoggerDelegate.debugLogger, "Streaming resource closed");
+			log.info("Streaming resource closed");
 			this.response.close();
 		}
 	}
@@ -468,7 +469,7 @@ public class FederationClient extends AbstractClient {
 	public JsonResponse<MLPPeer> register(MLPPeer theSelf)
 			throws HttpStatusCodeException {
 		URI uri = API.PEER_REGISTER.buildUri(this.baseUrl);
-		log.info(EELFLoggerDelegate.debugLogger, "Query for " + uri);
+		log.info("Query for " + uri);
 		ResponseEntity<JsonResponse<MLPPeer>> response = null;
 		try {
 			response = restTemplate.exchange(uri, HttpMethod.GET, null,
@@ -476,14 +477,14 @@ public class FederationClient extends AbstractClient {
 					});
 		}
 		catch (HttpStatusCodeException x) {
-			log.error(EELFLoggerDelegate.errorLogger, uri + " failed", x);
+			log.error(uri + " failed", x);
 			throw x;
 		}
 		catch (Throwable t) {
-			log.error(EELFLoggerDelegate.errorLogger, uri + " unexpected failure.", t);
+			log.error(uri + " unexpected failure.", t);
 		}
 		finally {
-			log.info(EELFLoggerDelegate.debugLogger, uri + " response " + response);
+			log.info(uri + " response " + response);
 		}
 		return response == null ? null : response.getBody();
 	}	

@@ -102,6 +102,8 @@ public interface CatalogService {
 
 	/**
 	 * Create or update the given solution information set and directly associated information such as tags.
+	 * Whether a create or update is attemopted depends on the creteTime property of the given solution: if 0
+	 * a create will be attempted, otherwise an update.
 	 * @param theSolution
 	 *						extended solution information set
 	 * @param theContext
@@ -161,6 +163,8 @@ public interface CatalogService {
 
 	/**
 	 * Create or update the given solution revision information set.
+	 * Whether a create or update is attemopted depends on the creteTime property of the given revision: if 0
+	 * a create will be attempted, otherwise an update.
 	 * Should this handle associated information such as artifacts and documents ?
 	 * @param theRevision
 	 *						Extended revision information set including potential artifacts/documents/..

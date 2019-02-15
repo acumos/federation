@@ -22,6 +22,9 @@ package org.acumos.federation.gateway.config;
 
 import java.lang.invoke.MethodHandles;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.acumos.federation.gateway.controller.CatalogController;
 import org.acumos.federation.gateway.controller.PeersController;
 import org.acumos.federation.gateway.controller.PingController;
@@ -31,8 +34,8 @@ import org.apache.http.client.HttpClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
-import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
+import org.springframework.boot.web.servlet.server.ConfigurableServletWebServerFactory;
+import org.springframework.boot.web.server.WebServerFactoryCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
@@ -47,7 +50,7 @@ public class FederationConfiguration {
 
 	@Autowired
 	private FederationInterfaceConfiguration interfaceConfig;
-	private static final EELFLoggerDelegate log = EELFLoggerDelegate.getLogger(MethodHandles.lookup().lookupClass());
+	private static final Logger log = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
 	public FederationConfiguration() {
 	}
@@ -85,17 +88,17 @@ public class FederationConfiguration {
   @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 	//@ConfigurationProperties(prefix = "server", ignoreInvalidFields = true)
 	public HttpClient federationClient() {
-		log.debug(EELFLoggerDelegate.debugLogger, this + "::federationClient from " + this.interfaceConfig);
+		log.debug(this + "::federationClient from " + this.interfaceConfig);
 		return this.interfaceConfig.buildClient();
 	}
 
 	@Bean
-	public EmbeddedServletContainerCustomizer federationServer() {
-		log.debug(EELFLoggerDelegate.debugLogger, this + "::federationServer from " + this.interfaceConfig);
-		return new EmbeddedServletContainerCustomizer() {
+	public WebServerFactoryCustomizer<ConfigurableServletWebServerFactory> federationServer() {
+		log.debug(this + "::federationServer from " + this.interfaceConfig);
+		return new WebServerFactoryCustomizer<ConfigurableServletWebServerFactory>() {
 			@Override
-			public void customize(ConfigurableEmbeddedServletContainer theContainer) {
-				FederationConfiguration.this.interfaceConfig.configureContainer(theContainer);
+			public void customize(ConfigurableServletWebServerFactory theServer) {
+				FederationConfiguration.this.interfaceConfig.configureWebServer(theServer);
 			}
 		}; 
 	}
