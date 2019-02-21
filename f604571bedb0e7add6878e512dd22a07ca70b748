@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0fd5b4af_2413faec",
+        "filename": "docs/selectors.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2019-02-21T20:46:09Z",
+      "side": 1,
+      "message": "If you want everything, don\u0027t specify a selector or specify one without any keys.  That will return all active solutions modified since January 1st, 1970, at 00:00:00 GMT",
+      "parentUuid": "27fcb0a8_9d723cc6",
+      "revId": "f604571bedb0e7add6878e512dd22a07ca70b748",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e801559b_3eefe709",
         "filename": "docs/selectors.rst",
         "patchSetId": 3
@@ -30,6 +48,30 @@
       "writtenOn": "2019-02-21T20:17:47Z",
       "side": 1,
       "message": "or array of string?",
+      "range": {
+        "startLine": 52,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 8
+      },
+      "revId": "f604571bedb0e7add6878e512dd22a07ca70b748",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f68d302b_0e0ead33",
+        "filename": "docs/selectors.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2019-02-21T20:46:09Z",
+      "side": 1,
+      "message": "String only.  The CDS method for retrieving by catalog ID only allows a single catalog ID, and the catalog ID field isn\u0027t in the returned solutions so we can\u0027t use some other method and then filter ourselves.",
+      "parentUuid": "e801559b_3eefe709",
       "range": {
         "startLine": 52,
         "startChar": 2,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "452be2a9_30df6fa0",
+        "filename": "docs/selectors.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2019-02-21T20:46:09Z",
+      "side": 1,
+      "message": "The current code only supported a string, no arrays.  Should I enhance this version to support an array?",
+      "parentUuid": "c5ce4eb6_4a810b43",
+      "range": {
+        "startLine": 73,
+        "startChar": 2,
+        "endLine": 73,
+        "endChar": 8
+      },
+      "revId": "f604571bedb0e7add6878e512dd22a07ca70b748",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cc0801f1_2bf44a33",
         "filename": "docs/selectors.rst",
         "patchSetId": 3
@@ -76,6 +142,24 @@
       "writtenOn": "2019-02-21T20:17:47Z",
       "side": 1,
       "message": "can multiple selectors be present? E.g., name\u003dfoo, active\u003dtrue? In which case are the conditions ANDed or ORed together?",
+      "revId": "f604571bedb0e7add6878e512dd22a07ca70b748",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "091ef510_3db5a5ea",
+        "filename": "docs/selectors.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2019-02-21T20:46:09Z",
+      "side": 1,
+      "message": "I think the text, here, that \"only solutions that meet all of the specified constraints will be returned\" is clear that the conditions are ANDed.",
+      "parentUuid": "cc0801f1_2bf44a33",
       "revId": "f604571bedb0e7add6878e512dd22a07ca70b748",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": false
