@@ -23,9 +23,11 @@ package org.acumos.federation.gateway.service.impl;
 import java.io.IOException;
 import java.lang.invoke.MethodHandles;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import javax.annotation.PostConstruct;
@@ -106,10 +108,11 @@ public class CatalogServiceLocalImpl extends AbstractServiceLocalImpl implements
 	public List<MLPSolution> getSolutions(Map<String, ?> theSelector, ServiceContext theContext) throws ServiceException {
 
 		log.debug("getSolutions, selector {}", theSelector);
-
-		return solutions.stream()
-			.filter(solution -> ServiceImpl.isSelectable(solution, theSelector))
-			.collect(Collectors.toList());
+		try {
+			return(solutions.stream().filter(ServiceImpl.compileSelector(theSelector)).collect(Collectors.toList()));
+		} catch (IllegalArgumentException x) {
+			return(new ArrayList<MLPSolution>());
+		}
 	}
 
 	@Override
