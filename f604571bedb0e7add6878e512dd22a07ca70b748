@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e801559b_3eefe709",
+        "filename": "docs/selectors.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-02-21T20:17:47Z",
+      "side": 1,
+      "message": "or array of string?",
+      "range": {
+        "startLine": 52,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 8
+      },
+      "revId": "f604571bedb0e7add6878e512dd22a07ca70b748",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5ce4eb6_4a810b43",
+        "filename": "docs/selectors.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-02-21T20:17:47Z",
+      "side": 1,
+      "message": "or array of string?",
+      "range": {
+        "startLine": 73,
+        "startChar": 2,
+        "endLine": 73,
+        "endChar": 8
+      },
+      "revId": "f604571bedb0e7add6878e512dd22a07ca70b748",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cc0801f1_2bf44a33",
+        "filename": "docs/selectors.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-02-21T20:17:47Z",
+      "side": 1,
+      "message": "can multiple selectors be present? E.g., name\u003dfoo, active\u003dtrue? In which case are the conditions ANDed or ORed together?",
+      "revId": "f604571bedb0e7add6878e512dd22a07ca70b748",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
