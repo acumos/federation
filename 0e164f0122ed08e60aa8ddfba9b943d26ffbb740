@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ebcb4ba2_aa026439",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/CatalogServiceImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-02-21T14:42:42Z",
+      "side": 1,
+      "message": "Please log an error if an exception happens, don\u0027t discard",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 22
+      },
+      "revId": "0e164f0122ed08e60aa8ddfba9b943d26ffbb740",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "654f36db_77750976",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/ServiceImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-02-21T14:42:42Z",
+      "side": 1,
+      "message": "Real comments, this is great!  +1",
+      "revId": "0e164f0122ed08e60aa8ddfba9b943d26ffbb740",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
