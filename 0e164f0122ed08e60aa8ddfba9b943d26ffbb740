@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "ba658df4_c1f455f1",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/CatalogServiceImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-02-21T15:18:10Z",
+      "side": 1,
+      "message": "In general I never like to see a place where an exception is discarded.  Also please revise to return 500 internal server error here, not just an empty list, nothing worse than a controller endpoint that silently fails.",
+      "parentUuid": "f6327cc8_22f338d7",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 22
+      },
+      "revId": "0e164f0122ed08e60aa8ddfba9b943d26ffbb740",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "654f36db_77750976",
         "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/ServiceImpl.java",
         "patchSetId": 1
