@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "2943f288_e0a69f80",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/CatalogServiceImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2019-02-21T15:58:17Z",
+      "side": 1,
+      "message": "OK.  Returning 500 just means not catching the exception, and I\u0027ll change it in ServiceImpl.java to be a ServiceException, to be consistent with what is thrown to trigger a 500 elsewhere.",
+      "parentUuid": "ba658df4_c1f455f1",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 22
+      },
+      "revId": "0e164f0122ed08e60aa8ddfba9b943d26ffbb740",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "654f36db_77750976",
         "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/ServiceImpl.java",
         "patchSetId": 1
