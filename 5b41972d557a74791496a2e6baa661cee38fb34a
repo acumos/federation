@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50f987fa_a6478599",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/config/NexusConfiguration.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-02-22T20:13:48Z",
+      "side": 1,
+      "message": "Might be helpful to document that this ALWAYS returns a value with a trailing slash",
+      "range": {
+        "startLine": 87,
+        "startChar": 15,
+        "endLine": 87,
+        "endChar": 21
+      },
+      "revId": "5b41972d557a74791496a2e6baa661cee38fb34a",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
