@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1b9037e2_051f58c3",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/config/NexusConfiguration.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-07T19:53:24Z",
+      "side": 1,
+      "message": "Seperator or Separator ?  I prefer the latter :)",
+      "range": {
+        "startLine": 118,
+        "startChar": 20,
+        "endLine": 118,
+        "endChar": 29
+      },
+      "revId": "118387785fd92ead376a7e24520792687184da83",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
