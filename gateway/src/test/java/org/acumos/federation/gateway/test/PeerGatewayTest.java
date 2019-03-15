@@ -2,7 +2,7 @@
  * ===============LICENSE_START=======================================================
  * Acumos
  * ===================================================================================
- * Copyright (C) 2017 AT&T Intellectual Property & Tech Mahindra. All rights reserved.
+ * Copyright (C) 2017-2019 AT&T Intellectual Property & Tech Mahindra. All rights reserved.
  * ===================================================================================
  * This Acumos software file is distributed by AT&T and Tech Mahindra
  * under the Apache License, Version 2.0 (the "License");
@@ -28,9 +28,12 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 
+import org.acumos.federation.gateway.cds.Artifact;
+import org.acumos.federation.gateway.cds.Document;
 import org.acumos.federation.gateway.config.FederationInterfaceConfiguration;
 import org.acumos.federation.gateway.config.LocalInterfaceConfiguration;
 import org.acumos.federation.gateway.config.NexusConfiguration;
+import org.acumos.federation.gateway.service.ContentService;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -86,13 +89,13 @@ public class PeerGatewayTest {
 	@MockBean //(name = "local-org.acumos.federation.gateway.config.LocalInterfaceConfiguration")
 	private LocalInterfaceConfiguration	localConfig;
 
-	@MockBean(name = "localClient")
+	@Mock
 	private CloseableHttpClient	localClient;
 
 	@MockBean //(name = "federation-org.acumos.federation.gateway.config.FederationInterfaceConfiguration")
 	private FederationInterfaceConfiguration federationConfig;
 
-	@MockBean(name = "federationClient")
+	@Mock
 	private CloseableHttpClient	federationClient;
 
 	@Mock
@@ -101,16 +104,16 @@ public class PeerGatewayTest {
 	@MockBean
 	private NexusConfiguration nexusConfig;
 
-	//@MockBean(name = "clients")
-	//private Clients	clients;
-
 	@Autowired
 	private ApplicationContext context;
+
+	@Autowired
+	private ContentService content;
 
 	private MockAnswer peerAnswer = new MockAnswer();	
 	private MockAnswer cdsAnswer = new MockAnswer();	
 	//initialize with the number of checkpoints
-	private CountDownLatch stepLatch = new CountDownLatch(5);
+	private CountDownLatch stepLatch = new CountDownLatch(8);
 
 	@Before
 	public void initTest() throws IOException {
@@ -130,6 +133,9 @@ public class PeerGatewayTest {
 				.mockResponse(info -> info.getMethod().equals("GET") && info.getPath().equals("/ccds/solution/6793411f-c7a1-4e93-85bc-f91d267541d8/revision"), MockResponse.success("mockCDSNoSuchSolutionRevisionsResponse.json"))
 				.mockResponse(info -> info.getMethod().equals("POST") && info.getPath().equals("/ccds/solution/6793411f-c7a1-4e93-85bc-f91d267541d8/revision"), MockResponse.success("mockCDSCreateSolutionRevisionResponse.json", stepTrack))
 				.mockResponse(info -> info.getMethod().equals("POST") && info.getPath().equals("/ccds/artifact"), MockResponse.success("mockCDSCreateArtifactResponse.json", stepTrack))
+				.mockResponse(info -> info.getMethod().equals("POST") && info.getPath().equals("/ccds/document"), MockResponse.success("mockCDSCreateDocumentResponse.json", stepTrack))
+				.mockResponse(info -> info.getMethod().equals("POST") && info.getPath().equals("/ccds/revision/2c7e4481-6e6f-47d9-b7a4-c4e674d2b341/access/PB/descr"), MockResponse.success("mockCDSCreateRevisionDescriptionResponse.json", stepTrack))
+				.mockResponse(info -> info.getMethod().equals("POST") && info.getPath().equals("/ccds/revision/2c7e4481-6e6f-47d9-b7a4-c4e674d2b341/access/PB/document/2c2c2c2c-6e6f-47d9-b7a4-c4e674d2b342"), MockResponse.success("mockCDSCreateRevisionDocumentResponse.json", stepTrack))
 				.mockResponse(info -> info.getMethod().equals("POST") && info.getPath().equals("/ccds/revision/2c7e4481-6e6f-47d9-b7a4-c4e674d2b341/artifact/2c2c2c2c-6e6f-47d9-b7a4-c4e674d2b341"), MockResponse.success("mockCDSCreateRevisionArtifactResponse.json", stepTrack))
 				.mockResponse(info -> info.getPath().equals("/ccds/code/pair/PEER_STATUS"), MockResponse.success("mockCDSPeerStatusResponse.json"))
 				.mockResponse(info -> info.getPath().equals("/ccds/code/pair/ARTIFACT_TYPE"), MockResponse.success("mockCDSArtifactTypeResponse.json"));
@@ -170,7 +176,9 @@ public class PeerGatewayTest {
 					.mockResponse(info -> info.getPath().endsWith("/artifacts"), MockResponse.success("mockPeerSolutionRevisionArtifactsResponse.json"))
 					.mockResponse(info -> info.getPath().endsWith("/documents"), MockResponse.success("mockPeerSolutionRevisionDocumentsResponse.json"))
 					.mockResponse(info -> info.getPath().endsWith("/download"), MockResponse.success("mockPeerDownload.tgz"))
-					.mockResponse(info -> info.getPath().contains("/solutions/") && info.getPath().contains("/revisions/"), MockResponse.success("mockPeerSolutionRevisionResponse.json"));
+					.mockResponse(info -> info.getPath().contains("/solutions/") && info.getPath().contains("/revisions/") && !info.getPath().endsWith("/content"), MockResponse.success("mockPeerSolutionRevisionResponse.json"))
+					.mockResponse(info -> info.getPath().contains("/artifacts/") && info.getPath().endsWith("/content"), MockResponse.success("mockPeerArtifactContent.txt"))
+					.mockResponse(info -> info.getPath().contains("/documents/") && info.getPath().endsWith("/content"), MockResponse.success("mockPeerDocumentContent.txt"));
 
 			when(
 				this.federationClient.execute(
@@ -202,6 +210,20 @@ public class PeerGatewayTest {
 			.thenReturn(nexusClient);
 
 			when(
+				this.nexusConfig.getGroupId()
+			)
+			.thenReturn("com.artifact");
+			when(
+				this.nexusConfig.getNameSeparator()
+			)
+			.thenReturn(".");
+			when(
+				this.nexusConfig.getUrl()
+			)
+			.thenReturn("http://somehost.example.org/");
+
+
+			when(
 				this.nexusClient.exchange(
 					any(RequestEntity.class),any(Class.class)
 				)
@@ -231,4 +253,20 @@ public class PeerGatewayTest {
 		assertTrue(completed);
 	}
 
+	@Test
+	public void testContentService() throws Exception {
+		System.out.println(content);
+	}
+
+	/*
+	@Test
+	public void testNexusGet() throws Exception {
+		Artifact artifact = new Artifact();
+		artifact.setUri("com/artifact/6793411f-c7a1-4e93-85bc-f91d267541d8/2c7e4481-6e6f-47d9-b7a4-c4e674d2b341/artifact/1.0/artifact-1.0.log");
+		artifact.setArtifactTypeCode("DS");
+		content.getArtifactContent("sid", "rid", artifact).getInputStream().close();
+		Document document = new Document();
+		document.setUri("com/artifact/6793411f-c7a1-4e93-85bc-f91d267541d8/2c7e4481-6e6f-47d9-b7a4-c4e674d2b341/document/PB/document-PB.txt");
+		content.getDocumentContent("sid", "rid", document).getInputStream().close();
+	}*/
 }

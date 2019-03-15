@@ -22,12 +22,14 @@ package org.acumos.federation.gateway.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
 import org.acumos.cds.domain.MLPArtifact;
+import org.acumos.cds.domain.MLPDocument;
 import org.acumos.cds.domain.MLPPeer;
 import org.acumos.cds.domain.MLPSolution;
 import org.acumos.cds.domain.MLPSolutionRevision;
@@ -90,116 +92,132 @@ public class ControllerTest {
 	private final Logger log = LoggerFactory.getLogger(getClass().getName());
 	@Autowired
 	private TestRestTemplate restTemplate;
+
 	@Value("${local.server.port}")
 	int port;
 
+	public void setClient(String id) {
+		((HttpComponentsClientHttpRequestFactory)this.restTemplate.getRestTemplate().getRequestFactory()).setHttpClient(prepareHttpClient(id));
+	}
+
+	private <T> void assertGoodResponse(String testname, ResponseEntity<T> response) {
+		if (response != null)   {
+			log.info("{}: {}", testname, response.getBody());
+			log.info("{}: {}", testname, response);
+		}
+		assertNotNull(response);
+		assertEquals(200, response.getStatusCodeValue());
+	}
+
+	private <T> void assertGoodResponseWith(String testname, ResponseEntity<JsonResponse<T>> response, java.util.function.Predicate<T> fcn) {
+		assertGoodResponse(testname, response);
+		assertTrue(fcn.test(response.getBody().getContent()));
+	}
+
+	@Test
+	public void testPeers() {
+		setClient("acumosa");
+
+		ResponseEntity<JsonResponse<List<MLPPeer>>> response =
+			this.restTemplate.exchange("https://localhost:" + this.port + "/peers", HttpMethod.GET, prepareRequest(), new ParameterizedTypeReference<JsonResponse<List<MLPPeer>>>() {});
+		
+		assertGoodResponse("testPeers", response);
+	}
+
+	@Test
+	public void testPing() {
+		setClient("acumosb");
+
+		ResponseEntity<JsonResponse<MLPPeer>> response =
+			this.restTemplate.exchange("https://localhost:" + this.port + "/ping", HttpMethod.GET, prepareRequest(), new ParameterizedTypeReference<JsonResponse<MLPPeer>>() {});
+		
+		assertGoodResponse("testPing", response);
+	}
+
 	@Test
 	public void testSolutions() {
-
-    ((HttpComponentsClientHttpRequestFactory)
-			this.restTemplate.getRestTemplate().getRequestFactory())
-				.setHttpClient(prepareHttpClient());
+		setClient("acumosb");
 		
 		ResponseEntity<JsonResponse<List<MLPSolution>>> response =
 			this.restTemplate.exchange("https://localhost:" + this.port + "/solutions", HttpMethod.GET, prepareRequest(), new ParameterizedTypeReference<JsonResponse<List<MLPSolution>>>() {});
 		
-		if (response != null)	{
-			log.info("testSolutions: {}", response.getBody());
-			log.info("testSolutions: {}", response);
-		}
-		
-		assertNotNull(response);
-		assertEquals(200, response.getStatusCodeValue());
-		assertEquals(1, response.getBody().getContent().size());
+		assertGoodResponseWith("testSolutions", response, content -> content.size() == 1);
 	}
 
 
 	@Test
 	public void testSolutionSuccess() {
-
-    ((HttpComponentsClientHttpRequestFactory)
-			this.restTemplate.getRestTemplate().getRequestFactory())
-				.setHttpClient(prepareHttpClient());
+		setClient("acumosb");
 
 		ResponseEntity<JsonResponse<MLPSolution>> response =
 			this.restTemplate.exchange("https://localhost:" + this.port + "/solutions/00000000-0000-0000-0000-000000000000", HttpMethod.GET, prepareRequest(), new ParameterizedTypeReference<JsonResponse<MLPSolution>>() {} );
 	
-		if (response != null)	{
-			log.info("testSolution: {}", response.getBody());
-			log.info("testSolution: {}", response);
-		}
-
-		assertNotNull(response);
-		assertEquals(200, response.getStatusCodeValue());
-		assertEquals("CL", response.getBody().getContent().getModelTypeCode()); //no errors
+		assertGoodResponseWith("testSolutionSuccess", response, content -> content.getModelTypeCode().equals("CL"));
 	}
 
 	@Test
 	public void testSolutionRevisionsSuccess() {
-    
-		((HttpComponentsClientHttpRequestFactory)
-			this.restTemplate.getRestTemplate().getRequestFactory())
-				.setHttpClient(prepareHttpClient());
+		setClient("acumosb");
 
 		ResponseEntity<JsonResponse<List<MLPSolutionRevision>>> response =
 			this.restTemplate.exchange("https://localhost:" + this.port + "/solutions/00000000-0000-0000-0000-000000000000/revisions", HttpMethod.GET, prepareRequest(), new ParameterizedTypeReference<JsonResponse<List<MLPSolutionRevision>>>() {});
 		
-		if (response != null)	{
-			log.info("testSolutionRevisions: {}", response.getBody());
-			log.info("testSolutionRevisions: {}", response);
-		}
-
-		assertNotNull(response);
-		assertEquals(200, response.getStatusCodeValue());
-		assertEquals(1, response.getBody().getContent().size()); //no errors
+		assertGoodResponseWith("testSolutionRevisionSuccess", response, content ->content.size() == 1);
 	}
 
 	@Test
 	public void testSolutionRevisionSuccess() {
-
-    ((HttpComponentsClientHttpRequestFactory)
-			this.restTemplate.getRestTemplate().getRequestFactory())
-				.setHttpClient(prepareHttpClient());
+		setClient("acumosb");
 
 		ResponseEntity<JsonResponse<MLPSolution>> response =
 			this.restTemplate.exchange("https://localhost:" + this.port + "/solutions/00000000-0000-0000-0000-000000000000/revisions/01010101-0101-0101-0101-010101010101", HttpMethod.GET, prepareRequest(), new ParameterizedTypeReference<JsonResponse<MLPSolution>>() {} );
 	
-		if (response != null)	{
-			log.info("testSolutionRevision: {}", response.getBody());
-			log.info("testSolutionRevision: {}", response);
-		}
-
-		assertNotNull(response);
-		assertEquals(200, response.getStatusCodeValue());
-		assertEquals("admin", response.getBody().getContent().getUserId()); //no errors
+		assertGoodResponseWith("testSolutionRevision", response, content -> content.getUserId().equals("admin"));
 	}
 
 	@Test
 	public void testSolutionRevisionArtifactsSuccess() {
-    
-		((HttpComponentsClientHttpRequestFactory)
-			this.restTemplate.getRestTemplate().getRequestFactory())
-				.setHttpClient(prepareHttpClient());
+		setClient("acumosb");
 
 		ResponseEntity<JsonResponse<List<MLPArtifact>>> response =
 			this.restTemplate.exchange("https://localhost:" + this.port + "/solutions/00000000-0000-0000-0000-000000000000/revisions/01010101-0101-0101-0101-010101010101/artifacts", HttpMethod.GET, prepareRequest(), new ParameterizedTypeReference<JsonResponse<List<MLPArtifact>>>() {});
 		
-		if (response != null)	{
-			log.info("testSolutionRevisionArtifacts: {}", response.getBody());
-			log.info("testSolutionRevisionArtifacts: {}", response);
-		}
+		assertGoodResponseWith("testSolutionRevisionArtifacts", response, content -> content.size() == 1);
+	}
 
-		Assert.assertNotNull(response);
-		Assert.assertEquals(200, response.getStatusCodeValue());
-		Assert.assertEquals(1, response.getBody().getContent().size()); //no errors
+	@Test
+	public void testSolutionRevisionArtifactContentSuccess() {
+		setClient("acumosb");
+
+		ResponseEntity<byte[]> response =
+			this.restTemplate.exchange("https://localhost:" + this.port + "/solutions/00000000-0000-0000-0000-000000000000/revisions/01010101-0101-0101-0101-010101010101/artifacts/a0a0a0a0-a0a0-a0a0-a0a0-a0a0a0a0a0a0/content", HttpMethod.GET, prepareBinaryRequest(), new ParameterizedTypeReference<byte[]>() {});
+		
+		assertGoodResponse("testSolutionRevisionArtifact", response);
+	}
+
+	@Test
+	public void testSolutionRevisionDocumentsSuccess() {
+		setClient("acumosb");
+
+		ResponseEntity<JsonResponse<List<MLPDocument>>> response =
+			this.restTemplate.exchange("https://localhost:" + this.port + "/solutions/00000000-0000-0000-0000-000000000000/revisions/01010101-0101-0101-0101-010101010101/documents", HttpMethod.GET, prepareRequest(), new ParameterizedTypeReference<JsonResponse<List<MLPDocument>>>() {});
+		
+		assertGoodResponseWith("testSolutionRevisionDocuments", response, content -> content.size() == 1);
+	}
+
+	@Test
+	public void testSolutionRevisionDocumentContentSuccess() {
+		setClient("acumosb");
+
+		ResponseEntity<byte[]> response =
+			this.restTemplate.exchange("https://localhost:" + this.port + "/solutions/00000000-0000-0000-0000-000000000000/revisions/01010101-0101-0101-0101-010101010101/documents/2c2c2c2c-6e6f-47d9-b7a4-c4e674d2b342/content", HttpMethod.GET, prepareBinaryRequest(), new ParameterizedTypeReference<byte[]>() {});
+		
+		assertGoodResponse("testSolutionRevisionDocumentContent", response);
 	}
 	
 	@Test
 	public void testRegister() {
-
-    ((HttpComponentsClientHttpRequestFactory)
-			this.restTemplate.getRestTemplate().getRequestFactory())
-				.setHttpClient(prepareHttpClient("acumosc"));
+		setClient("acumosc");
 
 		ResponseEntity<JsonResponse<MLPPeer>> response =
 			this.restTemplate.exchange("https://localhost:" + this.port + "/peer/register", HttpMethod.POST, prepareRequest(), new ParameterizedTypeReference<JsonResponse<MLPPeer>>() {} );
@@ -225,10 +243,7 @@ public class ControllerTest {
 
 	@Test
 	public void testUnregister() {
-
-    ((HttpComponentsClientHttpRequestFactory)
-			this.restTemplate.getRestTemplate().getRequestFactory())
-				.setHttpClient(prepareHttpClient("acumosb"));
+		setClient("acumosb");
 
 		ResponseEntity<JsonResponse<MLPPeer>> response =
 			this.restTemplate.exchange("https://localhost:" + this.port + "/peer/unregister", HttpMethod.POST, prepareRequest(), new ParameterizedTypeReference<JsonResponse<MLPPeer>>() {} );
@@ -243,10 +258,7 @@ public class ControllerTest {
 
 	@Test
 	public void testUnregisterNonExistent() {
-
-    ((HttpComponentsClientHttpRequestFactory)
-			this.restTemplate.getRestTemplate().getRequestFactory())
-				.setHttpClient(prepareHttpClient("acumosc"));
+		setClient("acumosc");
 
 		ResponseEntity<JsonResponse<MLPPeer>> response =
 			this.restTemplate.exchange("https://localhost:" + this.port + "/peer/unregister", HttpMethod.POST, prepareRequest(), new ParameterizedTypeReference<JsonResponse<MLPPeer>>() {} );
@@ -262,10 +274,7 @@ public class ControllerTest {
 
 	@Test
 	public void testPeersForbidden() {
-
-    ((HttpComponentsClientHttpRequestFactory)
-			this.restTemplate.getRestTemplate().getRequestFactory())
-				.setHttpClient(prepareHttpClient());
+		setClient("acumosb");
 
 		ResponseEntity<JsonResponse<List<MLPPeer>>> response =
 			this.restTemplate.exchange("https://localhost:" + this.port + "/peers", HttpMethod.GET, prepareRequest(), new ParameterizedTypeReference<JsonResponse<List<MLPPeer>>>() {} );
@@ -295,9 +304,12 @@ public class ControllerTest {
  		headers.setContentType(MediaType.APPLICATION_JSON);
  		return new HttpEntity<String>(headers);
 	}
-
-	private HttpClient prepareHttpClient() {
-		return prepareHttpClient("acumosb");
+	
+	private HttpEntity prepareBinaryRequest() {
+		HttpHeaders headers = new HttpHeaders();
+ 		headers.setAccept(Collections.singletonList(MediaType.APPLICATION_OCTET_STREAM));
+ 		headers.setContentType(MediaType.APPLICATION_JSON);
+ 		return new HttpEntity<String>(headers);
 	}
 
 	private HttpClient prepareHttpClient(String theIdentity) {
