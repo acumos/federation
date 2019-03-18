@@ -1,0 +1,325 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "480b6f0f_f6656c7d",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/PeerServiceImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-18T13:59:42Z",
+      "side": 1,
+      "message": "Please don\u0027t call toString() explicitly here, better to postpone and keep the logging cost low, the logger will call toString if needed",
+      "range": {
+        "startLine": 140,
+        "startChar": 39,
+        "endLine": 140,
+        "endChar": 47
+      },
+      "revId": "cc279a2d4f918f7241207d2ffe814291024abea2",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "384334d8_ef43becc",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/test/AsdcTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-18T13:59:42Z",
+      "side": 1,
+      "message": "Suggest just putting 2019",
+      "range": {
+        "startLine": 5,
+        "startChar": 17,
+        "endLine": 5,
+        "endChar": 26
+      },
+      "revId": "cc279a2d4f918f7241207d2ffe814291024abea2",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6c75ecb1_15c404b6",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/test/AsdcTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-18T13:59:42Z",
+      "side": 1,
+      "message": "Pls remove unneeded code, don\u0027t comment out",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 30
+      },
+      "revId": "cc279a2d4f918f7241207d2ffe814291024abea2",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "770da4a7_9d05735c",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/test/AsdcTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-18T13:59:42Z",
+      "side": 1,
+      "message": "Admirable that you have spent effort on this code that isn\u0027t used anywhere ..",
+      "range": {
+        "startLine": 63,
+        "startChar": 13,
+        "endLine": 63,
+        "endChar": 21
+      },
+      "revId": "cc279a2d4f918f7241207d2ffe814291024abea2",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e7e107b3_7074a091",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/test/CatalogServiceTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-18T13:59:42Z",
+      "side": 1,
+      "message": "Think you\u0027re best served by just writing the date of file creation.  I don\u0027t update year just cos I touched a file.",
+      "range": {
+        "startLine": 5,
+        "startChar": 17,
+        "endLine": 5,
+        "endChar": 26
+      },
+      "revId": "cc279a2d4f918f7241207d2ffe814291024abea2",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2c9417e2_fcce3e15",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/test/CatalogServiceTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-18T13:59:42Z",
+      "side": 1,
+      "message": "Is there some value in making these constants since they get reused?",
+      "range": {
+        "startLine": 106,
+        "startChar": 43,
+        "endLine": 106,
+        "endChar": 79
+      },
+      "revId": "cc279a2d4f918f7241207d2ffe814291024abea2",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7045d90c_0d67ee0a",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/test/ControllerTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-18T13:59:42Z",
+      "side": 1,
+      "message": "probably should be private",
+      "revId": "cc279a2d4f918f7241207d2ffe814291024abea2",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2092fc1_392f2286",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/test/ControllerTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-18T13:59:42Z",
+      "side": 1,
+      "message": "Maybe this heavily used string could be put in a constant?",
+      "range": {
+        "startLine": 139,
+        "startChar": 13,
+        "endLine": 139,
+        "endChar": 20
+      },
+      "revId": "cc279a2d4f918f7241207d2ffe814291024abea2",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "00f7a541_c7f070bf",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/test/LocalControllerTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-18T13:59:42Z",
+      "side": 1,
+      "message": "please use {} feature instead of string catenation",
+      "revId": "cc279a2d4f918f7241207d2ffe814291024abea2",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb052f3b_46c40542",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/test/PeerGatewayTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-18T13:59:42Z",
+      "side": 1,
+      "message": "please use logger, never ever System.out",
+      "range": {
+        "startLine": 258,
+        "startChar": 0,
+        "endLine": 258,
+        "endChar": 30
+      },
+      "revId": "cc279a2d4f918f7241207d2ffe814291024abea2",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85f91c09_9a74ee01",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/test/PeerGatewayTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-18T13:59:42Z",
+      "side": 1,
+      "message": "Please remove, don\u0027t comment out",
+      "range": {
+        "startLine": 261,
+        "startChar": 1,
+        "endLine": 262,
+        "endChar": 6
+      },
+      "revId": "cc279a2d4f918f7241207d2ffe814291024abea2",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28a9469a_a64ab3d1",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/test/PeerGatewayTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-18T13:59:42Z",
+      "side": 1,
+      "message": "It might not matter, but we usually use org/acumos/artifact/... as the prefix in Nexus; it\u0027s a configuration option",
+      "range": {
+        "startLine": 265,
+        "startChar": 19,
+        "endLine": 265,
+        "endChar": 32
+      },
+      "revId": "cc279a2d4f918f7241207d2ffe814291024abea2",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6c2df2d_ef7516c4",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/test/ServiceTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-18T13:59:42Z",
+      "side": 1,
+      "message": "I think you\u0027re working way too hard on the copy dates",
+      "range": {
+        "startLine": 5,
+        "startChar": 17,
+        "endLine": 5,
+        "endChar": 26
+      },
+      "revId": "cc279a2d4f918f7241207d2ffe814291024abea2",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "882e0db7_e66fa665",
+        "filename": "gateway/src/test/resources/mockPeerArtifactContent.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-18T13:59:42Z",
+      "side": 1,
+      "message": "You may get, ahh, ENCOURAGED, to add a license header.  Might want to just do it now to avoid the headache later.",
+      "revId": "cc279a2d4f918f7241207d2ffe814291024abea2",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a0d0a20_ab42ef08",
+        "filename": "gateway/src/test/resources/mockPeerDocumentContent.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-18T13:59:42Z",
+      "side": 1,
+      "message": "Again, might save grief to add a license statement now",
+      "revId": "cc279a2d4f918f7241207d2ffe814291024abea2",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
