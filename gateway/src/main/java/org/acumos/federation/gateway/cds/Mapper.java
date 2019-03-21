@@ -22,6 +22,7 @@ package org.acumos.federation.gateway.cds;
 import java.io.IOException;
 
 import org.acumos.cds.domain.MLPArtifact;
+import org.acumos.cds.domain.MLPCatalog;
 import org.acumos.cds.domain.MLPDocument;
 import org.acumos.cds.domain.MLPPeerSubscription;
 import org.acumos.cds.domain.MLPRevisionDescription;
@@ -53,6 +54,7 @@ public class Mapper {
     fedModule.addDeserializer(MLPSolution.class, new SolutionDeserializer());
     fedModule.addDeserializer(MLPSolutionRevision.class, new SolutionRevisionDeserializer());
     fedModule.addDeserializer(MLPArtifact.class, new ArtifactDeserializer());
+    fedModule.addDeserializer(MLPCatalog.class, new CatalogDeserializer());
     fedModule.addDeserializer(MLPDocument.class, new DocumentDeserializer());
     fedModule.addDeserializer(MLPPeerSubscription.class, new PeerSubscriptionDeserializer());
     fedModule.addDeserializer(MLPRevisionDescription.class, new RevisionDescriptionDeserializer());
@@ -102,6 +104,20 @@ public class Mapper {
       																								throws IOException, JsonProcessingException {
   	  ObjectMapper mapper = (ObjectMapper) theParser.getCodec();
     	return mapper.readValue(theParser, Artifact.class);
+  	}
+	}
+
+	private static class CatalogDeserializer extends StdDeserializer<MLPCatalog> {
+ 
+		public CatalogDeserializer() {
+			super(MLPCatalog.class);
+		}
+ 
+		@Override
+  	public MLPCatalog deserialize(JsonParser theParser, DeserializationContext theCtx) 
+      																								throws IOException, JsonProcessingException {
+  	  ObjectMapper mapper = (ObjectMapper) theParser.getCodec();
+    	return mapper.readValue(theParser, Catalog.class);
   	}
 	}
 

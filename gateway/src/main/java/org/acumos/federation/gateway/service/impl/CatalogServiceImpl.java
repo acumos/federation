@@ -41,6 +41,7 @@ import javax.annotation.PostConstruct;
 import org.acumos.cds.AccessTypeCode;
 import org.acumos.cds.client.ICommonDataServiceRestClient;
 import org.acumos.cds.domain.MLPArtifact;
+import org.acumos.cds.domain.MLPCatalog;
 import org.acumos.cds.domain.MLPDocument;
 import org.acumos.cds.domain.MLPSolution;
 import org.acumos.cds.domain.MLPSolutionRevision;
@@ -49,6 +50,7 @@ import org.acumos.cds.transport.RestPageRequest;
 import org.acumos.cds.transport.RestPageResponse;
 import org.acumos.federation.gateway.cds.AccessType;
 import org.acumos.federation.gateway.cds.Artifact;
+import org.acumos.federation.gateway.cds.Catalog;
 import org.acumos.federation.gateway.cds.Document;
 import org.acumos.federation.gateway.cds.Solution;
 import org.acumos.federation.gateway.cds.SolutionRevision;
@@ -91,6 +93,24 @@ public class CatalogServiceImpl extends AbstractServiceImpl
 	}
 
 	@Override
+	public List<MLPCatalog> getCatalogs(ServiceContext theContext) throws ServiceException {
+		log.debug("getCatalogs");
+		ICommonDataServiceRestClient cdsClient = getClient(theContext);
+		List<MLPCatalog> catalogs = allPages("getCatalogs", page -> cdsClient.getCatalogs(page));
+		for (MLPCatalog mcat: catalogs) {
+			try {
+				//((Catalog)mcat).setSize((int)cdsClient.getCatalogSolutionCount(mcat.getCatalogId()));
+				// Don't have getCatalogSolutionCount() in cds yet
+				((Catalog)mcat).setSize(getSolutions(Collections.singletonMap(Solution.Fields.catalogId, mcat.getCatalogId()), theContext).size());
+			} catch (HttpStatusCodeException ex) {
+				throw new ServiceException("Failed to count solutions in catalog", ex);
+			}
+		}
+		log.debug("getCatalogs: catalogs count {}", catalogs.size());
+		return catalogs;
+	}
+
+	@Override
 	public List<MLPSolution> getSolutions(Map<String, ?> theSelector, ServiceContext theContext) throws ServiceException {
 		log.debug("getSolutions with selector {}", theSelector);
 
@@ -101,55 +121,27 @@ public class CatalogServiceImpl extends AbstractServiceImpl
 		//could overwrite the basic one end expose non public solutions ..).
 		selector.putAll(this.config.getSolutionsSelector());
 		log.debug("getSolutions with full selector {}", selector);
-
-		RestPageRequest pageRequest = new RestPageRequest(0, this.cdsConfig.getPageSize());
-		RestPageResponse<MLPSolution> pageResponse = null;
-		List<MLPSolution> solutions = new ArrayList<MLPSolution>(),
-												pageSolutions = null;
 		ICommonDataServiceRestClient cdsClient = getClient(theContext);
-		try {
-			Predicate<MLPSolution> matcher = ServiceImpl.compileSelector(selector);
-			String catid = (String)selector.get(Solution.Fields.catalogId);
-			Function<RestPageRequest, RestPageResponse<MLPSolution>> pager = null;
-			if (catid != null) {
-				pager = page -> cdsClient.getSolutionsInCatalog(catid, page);
+		Predicate<MLPSolution> matcher = ServiceImpl.compileSelector(selector);
+		String catid = (String)selector.get(Solution.Fields.catalogId);
+		Function<RestPageRequest, RestPageResponse<MLPSolution>> pager = null;
+		if (catid != null) {
+			pager = page -> cdsClient.getSolutionsInCatalog(catid, page);
+		} else {
+			boolean active = (Boolean)selector.getOrDefault(Solution.Fields.active, Boolean.TRUE);
+			Object o = selector.getOrDefault(Solution.Fields.accessTypeCode, allATs);
+			String[] codes = null;
+			if (o instanceof String) {
+				codes = new String[] { (String)o };
 			} else {
-				boolean active = (Boolean)selector.getOrDefault(Solution.Fields.active, Boolean.TRUE);
-				Object o = selector.getOrDefault(Solution.Fields.accessTypeCode, allATs);
-				String[] codes = null;
-				if (o instanceof String) {
-					codes = new String[] { (String)o };
-				} else {
-					codes = ((List<String>)o).toArray(new String[0]);
-				}
-				String[] xcodes = codes;
-				Instant since = Instant.ofEpochSecond(((Number)selector.get(Solution.Fields.modified)).longValue());
-				pager = page -> cdsClient.findSolutionsByDate(active, xcodes, since, page);
+				codes = ((List<String>)o).toArray(new String[0]);
 			}
-			do {
-				log.debug("getSolutions page {}", pageResponse);
-				pageResponse = pager.apply(pageRequest);
-			
-				log.debug("getSolutions page response {}", pageResponse);
-				//we need to post-process all other selection criteria
-				pageSolutions = pageResponse.getContent().stream()
-															.filter(matcher)
-															.collect(Collectors.toList());
-				log.debug("getSolutions page selection {}", pageSolutions);
-		
-				pageRequest.setPage(pageResponse.getNumber() + 1);
-				solutions.addAll(pageSolutions);
-			} while (!pageResponse.isLast());
+			String[] xcodes = codes;
+			Instant since = Instant.ofEpochSecond(((Number)selector.get(Solution.Fields.modified)).longValue());
+			pager = page -> cdsClient.findSolutionsByDate(active, xcodes, since, page);
 		}
-		catch (HttpStatusCodeException restx) {
-			if (Errors.isCDSNotFound(restx))
-				return Collections.EMPTY_LIST;
-			else {
-				log.debug("getSolutions failed {}: {}", restx, restx.getResponseBodyAsString());
-				throw new ServiceException("Failed to retrieve solutions", restx);
-			}
-		}
-
+		List<MLPSolution> solutions = allPages("getSolutions", pager)
+		    .stream().filter(matcher).collect(Collectors.toList());
 		log.debug("getSolutions: solutions count {}", solutions.size());
 		return solutions;
 	}
@@ -379,4 +371,27 @@ public class CatalogServiceImpl extends AbstractServiceImpl
 		}
 	}
 
+	private <T> List<T> allPages(String opname, Function<RestPageRequest, RestPageResponse<T>> fcn) throws ServiceException {
+		RestPageRequest request = new RestPageRequest(0, cdsConfig.getPageSize());
+		List<T> ret = new ArrayList<T>();
+		while (true) {
+			try {
+				RestPageResponse<T> response = fcn.apply(request);
+				List<T> returned = response.getContent();
+				log.debug("{} returned {}", opname, returned);
+				request.setPage(response.getNumber() + 1);
+				ret.addAll(returned);
+				if (response.isLast()) {
+					break;
+				}
+			} catch (HttpStatusCodeException restx) {
+				if (Errors.isCDSNotFound(restx)) {
+					break;
+				}
+				log.debug("{} failed {}: {}", opname, restx, restx.getResponseBodyAsString());
+				throw new ServiceException("Failed on " + opname, restx);
+			}
+		}
+		return ret;
+	}
 }

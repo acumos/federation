@@ -27,10 +27,12 @@ import java.util.List;
 import java.util.Map;
 
 import org.acumos.cds.domain.MLPArtifact;
+import org.acumos.cds.domain.MLPCatalog;
 import org.acumos.cds.domain.MLPDocument;
 import org.acumos.cds.domain.MLPSolution;
 import org.acumos.cds.domain.MLPSolutionRevision;
 import org.acumos.federation.gateway.cds.Artifact;
+import org.acumos.federation.gateway.cds.Catalog;
 import org.acumos.federation.gateway.cds.Document;
 import org.acumos.federation.gateway.cds.Solution;
 import org.acumos.federation.gateway.cds.SolutionRevision;
@@ -44,6 +46,29 @@ import org.acumos.federation.gateway.cds.SolutionRevision;
  * executed only accesses solutions it was granted access to.
  */
 public interface CatalogService {
+
+	/**
+	 * API to be invoked by Peer Acumos to fetch the list of Catalogs.
+	 *
+	 * @param theContext
+	 *            the execution context.
+	 *
+	 * @return List of Catalogs.
+	 *
+	 * @throws ServiceException if an error is encountered during processing
+	 */
+	public List<MLPCatalog> getCatalogs(ServiceContext theContext) throws ServiceException;
+
+	/**
+	 * Default interface for calls in behalf of the local Acumos service.
+	 *
+	 * @return List of the Catalogs
+	 *
+	 * @throws ServiceException if an error is encoutered during processing
+	 */
+	public default List<MLPCatalog> getCatalogs() throws ServiceException {
+		return getCatalogs(selfService());
+	}
 
 	/**
 	 * API to be invoked by Peer Acumos to fetch the Catalog Solutions List.
