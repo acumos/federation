@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9bb8d273_21e2dea4",
+        "filename": "docs/developer-guide.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-21T20:13:28Z",
+      "side": 1,
+      "message": "All catalogs, or the catalogs that the remote peer is allowed to see?",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 20
+      },
+      "revId": "987232f2e8e2d13ad0313f60be60e779c68db236",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b3e7276_fc7d48e5",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/cds/Mapper.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-21T20:13:28Z",
+      "side": 1,
+      "message": "This slightly random indentation/formatting bugs me a little.  I could format the whole tree at one shot if that will help you, but you\u0027re the owner, I don\u0027t want to surprise you.",
+      "range": {
+        "startLine": 116,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 2
+      },
+      "revId": "987232f2e8e2d13ad0313f60be60e779c68db236",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35a3ebd4_dd51ef90",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/common/FederationClient.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-21T20:13:28Z",
+      "side": 1,
+      "message": "Not just \"Catalog\" the subclass that brings the size?",
+      "range": {
+        "startLine": 114,
+        "startChar": 55,
+        "endLine": 114,
+        "endChar": 65
+      },
+      "revId": "987232f2e8e2d13ad0313f60be60e779c68db236",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a9bdf75_638b3531",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/common/FederationClient.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-21T20:13:28Z",
+      "side": 1,
+      "message": "possibly should be level debug so the long response isn\u0027t dumped to the log under normal conditions?",
+      "range": {
+        "startLine": 273,
+        "startChar": 7,
+        "endLine": 273,
+        "endChar": 11
+      },
+      "revId": "987232f2e8e2d13ad0313f60be60e779c68db236",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1847c9a9_d5df7029",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/controller/AbstractController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-21T20:13:28Z",
+      "side": 1,
+      "message": "please remove information-free space-filling crud like this",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 3
+      },
+      "revId": "987232f2e8e2d13ad0313f60be60e779c68db236",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e177750_ee6d3474",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/controller/AbstractController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-21T20:13:28Z",
+      "side": 1,
+      "message": "this is available from Spring as MediaType.APPLICATION_JSON_VALUE from org.springframework.http.MediaType",
+      "range": {
+        "startLine": 56,
+        "startChar": 31,
+        "endLine": 56,
+        "endChar": 47
+      },
+      "revId": "987232f2e8e2d13ad0313f60be60e779c68db236",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aebe70a0_49162929",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/controller/AbstractController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-21T20:13:28Z",
+      "side": 1,
+      "message": "I don\u0027t think this does what you expect -- print a stack trace.  If you want to use the method that recognizes an exception as the last parameter you\u0027ll be forced to use string catenation, but since this is an error that\u0027s ok.",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 72
+      },
+      "revId": "987232f2e8e2d13ad0313f60be60e779c68db236",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1b6f807_67c44394",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/controller/CatalogController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-21T20:13:28Z",
+      "side": 1,
+      "message": "VISIBLE catalogs, not all",
+      "range": {
+        "startLine": 87,
+        "startChar": 64,
+        "endLine": 87,
+        "endChar": 72
+      },
+      "revId": "987232f2e8e2d13ad0313f60be60e779c68db236",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "131fae17_d0896d8f",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/CatalogService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-21T20:13:28Z",
+      "side": 1,
+      "message": "available to the specified peer -- is that part of theContext ?",
+      "range": {
+        "startLine": 56,
+        "startChar": 20,
+        "endLine": 56,
+        "endChar": 28
+      },
+      "revId": "987232f2e8e2d13ad0313f60be60e779c68db236",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9cd3c6d9_fd47942e",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/CatalogServiceImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-21T20:13:28Z",
+      "side": 1,
+      "message": "This needs to call searchCatalogs with access type PB, then \tList\u003cString\u003e getPeerAccessCatalogIds(String peerId);",
+      "range": {
+        "startLine": 96,
+        "startChar": 25,
+        "endLine": 96,
+        "endChar": 36
+      },
+      "revId": "987232f2e8e2d13ad0313f60be60e779c68db236",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d61f812e_045c6033",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/CatalogServiceImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-21T20:13:28Z",
+      "side": 1,
+      "message": "What? how about \tlong getCatalogSolutionCount(String catalogId);",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 54
+      },
+      "revId": "987232f2e8e2d13ad0313f60be60e779c68db236",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
