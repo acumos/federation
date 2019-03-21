@@ -31,6 +31,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.acumos.cds.domain.MLPArtifact;
+import org.acumos.cds.domain.MLPCatalog;
 import org.acumos.cds.domain.MLPDocument;
 import org.acumos.cds.domain.MLPSolution;
 import org.acumos.cds.domain.MLPSolutionRevision;
@@ -79,12 +80,45 @@ public class CatalogController extends AbstractController {
 	 * @param theHttpRequest Request
 	 * @param theHttpResponse
 	 *            HttpServletResponse
+	 * @return List of Catalogs in JSON format.
+	 */
+	@CrossOrigin
+	@PreAuthorize("isActive && hasAuthority(T(org.acumos.federation.gateway.security.Priviledge).CATALOG_ACCESS)")
+	@ApiOperation(value = "Invoked by Peer Acumos to get a list of Catalogs from the local Acumos Instance .", response = MLPCatalog.class, responseContainer = "List")
+	@RequestMapping(value = { API.Paths.CATALOGS }, method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public JsonResponse<List<MLPCatalog>> getCatalogs(HttpServletRequest theHttpRequest, HttpServletResponse theHttpResponse) {
+		JsonResponse<List<MLPCatalog>> response = null;
+		List<MLPCatalog> catalogs = null;
+		log.debug(API.Paths.CATALOGS);
+		try {
+			log.debug("getCatalogs");
+			catalogs = catalogService.getCatalogs(new ControllerContext());
+			response = JsonResponse.<List<MLPCatalog>> buildResponse()
+														.withMessage("available catalogs")
+														.withContent(catalogs)
+														.build();
+			theHttpResponse.setStatus(HttpServletResponse.SC_OK);
+			log.debug("getCatalogs: provided {} catalogs", catalogs == null ? 0 : catalogs.size());
+		} catch (Throwable x) {
+			response = JsonResponse.<List<MLPCatalog>> buildErrorResponse()
+														 .withError(x)
+														 .build();
+			theHttpResponse.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+			log.error("Exception occurred while fetching catalogs", x);
+		}
+		return response;
+	}
+
+	/**
+	 * @param theHttpRequest Request
+	 * @param theHttpResponse
+	 *            HttpServletResponse
 	 * @param theSelector
 	 *            Solutions selector
 	 * @return List of Published ML Solutions in JSON format.
 	 */
 	@CrossOrigin
-	// @PreAuthorize("hasAuthority('PEER')"
 	@PreAuthorize("isActive && hasAuthority(T(org.acumos.federation.gateway.security.Priviledge).CATALOG_ACCESS)")
 	@ApiOperation(value = "Invoked by Peer Acumos to get a list of Published Solutions from the Catalog of the local Acumos Instance .", response = MLPSolution.class, responseContainer = "List")
 	@RequestMapping(value = { API.Paths.SOLUTIONS }, method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)

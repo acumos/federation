@@ -79,6 +79,10 @@ There is a top level envelope containing error information, and under the entry 
 All identifiers are UUIDs.
 The following endpoints are defined:
 
+* /catalogs
+
+  List all catalogs.
+
 * /solutions
 
   List all public solutions. Accepts a query parameter, 'selector', which contains a JSON object with selection criteria, base64 encoded. Acceptable selection criteria are the solution object attributes. The entries are ANDed (see :ref:`selecting`).
