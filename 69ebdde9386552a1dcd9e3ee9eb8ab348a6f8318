@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9130cf2d_cb180d18",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/controller/AbstractController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-22T18:36:57Z",
+      "side": 1,
+      "message": "why make a copy - why not just reference the constant?",
+      "range": {
+        "startLine": 53,
+        "startChar": 1,
+        "endLine": 54,
+        "endChar": 14
+      },
+      "revId": "69ebdde9386552a1dcd9e3ee9eb8ab348a6f8318",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
