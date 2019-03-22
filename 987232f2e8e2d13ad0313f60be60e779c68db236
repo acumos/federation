@@ -232,6 +232,30 @@
     },
     {
       "key": {
+        "uuid": "4a4919f1_08f62aec",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/CatalogServiceImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2019-03-22T16:15:34Z",
+      "side": 1,
+      "message": "CDS 2.1 doesn\u0027t have these methods, but I agree they should be used when this is upgraded to use CDS 2.2.",
+      "parentUuid": "9cd3c6d9_fd47942e",
+      "range": {
+        "startLine": 96,
+        "startChar": 25,
+        "endLine": 96,
+        "endChar": 36
+      },
+      "revId": "987232f2e8e2d13ad0313f60be60e779c68db236",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d61f812e_045c6033",
         "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/CatalogServiceImpl.java",
         "patchSetId": 2
