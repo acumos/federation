@@ -22,6 +22,23 @@
       "revId": "69ebdde9386552a1dcd9e3ee9eb8ab348a6f8318",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f9ec005_070acdc7",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/CatalogServiceImpl.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2019-03-22T19:04:33Z",
+      "side": 1,
+      "message": "Note: .stream().filter().collect() limits response to only catalogs with the specified access type codes.  This defaults to only \"PB\" (public), but, as is already true with solutions/revisions, this can be overridden with a configuration parameter (catalog.solutions-selector as a JSON object, key \"accessTypeCode\" either a string or list of strings).  Thus this is not get all catalogs, but (unless overridden by configuration) get only public catalogs.",
+      "revId": "69ebdde9386552a1dcd9e3ee9eb8ab348a6f8318",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
     }
   ]
 }
