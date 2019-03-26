@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a8d1f7f0_05c16335",
+        "filename": "docs/config.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-26T20:21:54Z",
+      "side": 1,
+      "message": "this is just one way of setting properties.  I suggest you don\u0027t focus quite so much on this one mechanism, just list all the keys and their values.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 23
+      },
+      "revId": "9fd97c2abd5dc5ffc1cfd0e521fd50ff754e4c9b",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d88c7c51_791ecd55",
+        "filename": "docs/config.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-26T20:21:54Z",
+      "side": 1,
+      "message": "How/where is this name used?  Is there any constraint on special characters?",
+      "range": {
+        "startLine": 60,
+        "startChar": 13,
+        "endLine": 60,
+        "endChar": 41
+      },
+      "revId": "9fd97c2abd5dc5ffc1cfd0e521fd50ff754e4c9b",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a9c4aa6_bd043f33",
+        "filename": "docs/config.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-26T20:21:54Z",
+      "side": 1,
+      "message": "I believe only the Portal communicates directly with Fed-GW.",
+      "range": {
+        "startLine": 123,
+        "startChar": 29,
+        "endLine": 123,
+        "endChar": 45
+      },
+      "revId": "9fd97c2abd5dc5ffc1cfd0e521fd50ff754e4c9b",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74e32499_dd32eb11",
+        "filename": "docs/config.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-26T20:21:54Z",
+      "side": 1,
+      "message": "I think this is already significantly outdated - solutions no longer have an access type code property",
+      "range": {
+        "startLine": 203,
+        "startChar": 2,
+        "endLine": 203,
+        "endChar": 47
+      },
+      "revId": "9fd97c2abd5dc5ffc1cfd0e521fd50ff754e4c9b",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb50e862_2ee60b05",
+        "filename": "docs/config.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-26T20:21:54Z",
+      "side": 1,
+      "message": "I think this will be outdated as soon as you switch to catalog-based subscriptions",
+      "range": {
+        "startLine": 217,
+        "startChar": 24,
+        "endLine": 217,
+        "endChar": 38
+      },
+      "revId": "9fd97c2abd5dc5ffc1cfd0e521fd50ff754e4c9b",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb5fb18e_d6cfdcbd",
+        "filename": "docs/config.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-26T20:21:54Z",
+      "side": 1,
+      "message": "What values are possible? This is confusing",
+      "range": {
+        "startLine": 267,
+        "startChar": 6,
+        "endLine": 267,
+        "endChar": 28
+      },
+      "revId": "9fd97c2abd5dc5ffc1cfd0e521fd50ff754e4c9b",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d7ce442_3e7c8960",
+        "filename": "docs/config.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-26T20:21:54Z",
+      "side": 1,
+      "message": "So this contains the docker.host value?",
+      "range": {
+        "startLine": 289,
+        "startChar": 0,
+        "endLine": 289,
+        "endChar": 19
+      },
+      "revId": "9fd97c2abd5dc5ffc1cfd0e521fd50ff754e4c9b",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5157528e_34f103a6",
+        "filename": "docs/config.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-26T20:21:54Z",
+      "side": 1,
+      "message": "Please dig in the code and decide if this is used or not.  I don\u0027t think it\u0027s especially helpful to state \"IDK\" for users in a document :/",
+      "range": {
+        "startLine": 295,
+        "startChar": 2,
+        "endLine": 295,
+        "endChar": 36
+      },
+      "revId": "9fd97c2abd5dc5ffc1cfd0e521fd50ff754e4c9b",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30bea228_27db70f1",
+        "filename": "docs/config.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-26T20:21:54Z",
+      "side": 1,
+      "message": "Ditto",
+      "range": {
+        "startLine": 300,
+        "startChar": 1,
+        "endLine": 300,
+        "endChar": 36
+      },
+      "revId": "9fd97c2abd5dc5ffc1cfd0e521fd50ff754e4c9b",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22ab06b3_8b3acd65",
+        "filename": "docs/config.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-26T20:21:54Z",
+      "side": 1,
+      "message": "Ditto",
+      "range": {
+        "startLine": 305,
+        "startChar": 2,
+        "endLine": 305,
+        "endChar": 37
+      },
+      "revId": "9fd97c2abd5dc5ffc1cfd0e521fd50ff754e4c9b",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6579dc45_cea4dc9e",
+        "filename": "docs/config.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-26T20:21:54Z",
+      "side": 1,
+      "message": "Ditto",
+      "range": {
+        "startLine": 310,
+        "startChar": 2,
+        "endLine": 310,
+        "endChar": 37
+      },
+      "revId": "9fd97c2abd5dc5ffc1cfd0e521fd50ff754e4c9b",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
