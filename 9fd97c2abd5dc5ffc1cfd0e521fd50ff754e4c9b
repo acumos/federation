@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c035be50_097684a0",
+        "filename": "docs/config.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2019-03-27T15:42:55Z",
+      "side": 1,
+      "message": "The very first line, in main(), of federation, is a call to check that this environment variable is set and verify that it\u0027s a valid JSON string.  I don\u0027t know why that check is there, but that\u0027s why I called out this particular mechanism.",
+      "parentUuid": "a8d1f7f0_05c16335",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 23
+      },
+      "revId": "9fd97c2abd5dc5ffc1cfd0e521fd50ff754e4c9b",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d88c7c51_791ecd55",
         "filename": "docs/config.rst",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2019-03-26T20:21:54Z",
       "side": 1,
       "message": "How/where is this name used?  Is there any constraint on special characters?",
+      "range": {
+        "startLine": 60,
+        "startChar": 13,
+        "endLine": 60,
+        "endChar": 41
+      },
+      "revId": "9fd97c2abd5dc5ffc1cfd0e521fd50ff754e4c9b",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3559fe2a_437c41b4",
+        "filename": "docs/config.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2019-03-27T15:42:55Z",
+      "side": 1,
+      "message": "Looks like it\u0027s only used in the adapters/ONAP code.  I\u0027ll delete this.",
+      "parentUuid": "d88c7c51_791ecd55",
       "range": {
         "startLine": 60,
         "startChar": 13,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "7627fd01_d6c92352",
+        "filename": "docs/config.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2019-03-27T15:42:55Z",
+      "side": 1,
+      "message": "OK.",
+      "parentUuid": "1a9c4aa6_bd043f33",
+      "range": {
+        "startLine": 123,
+        "startChar": 29,
+        "endLine": 123,
+        "endChar": 45
+      },
+      "revId": "9fd97c2abd5dc5ffc1cfd0e521fd50ff754e4c9b",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "74e32499_dd32eb11",
         "filename": "docs/config.rst",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2019-03-26T20:21:54Z",
       "side": 1,
       "message": "I think this is already significantly outdated - solutions no longer have an access type code property",
+      "range": {
+        "startLine": 203,
+        "startChar": 2,
+        "endLine": 203,
+        "endChar": 47
+      },
+      "revId": "9fd97c2abd5dc5ffc1cfd0e521fd50ff754e4c9b",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fccc94b6_592131b1",
+        "filename": "docs/config.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2019-03-27T15:42:55Z",
+      "side": 1,
+      "message": "It looks to me like the CDS 2.1 solutions by date search actually joins with the revisions and filters on this, so this isn\u0027t dead, yet.  Yes, when we go to 2.2, this will get changed, which will call attention to the fact that the configuration parameters are changing.",
+      "parentUuid": "74e32499_dd32eb11",
       "range": {
         "startLine": 203,
         "startChar": 2,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "baa284ac_c39768fc",
+        "filename": "docs/config.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2019-03-27T15:42:55Z",
+      "side": 1,
+      "message": "Yes, it will.  By having it here, now, and changing it with the switch will make it clear that it is changing.",
+      "parentUuid": "cb50e862_2ee60b05",
+      "range": {
+        "startLine": 217,
+        "startChar": 24,
+        "endLine": 217,
+        "endChar": 38
+      },
+      "revId": "9fd97c2abd5dc5ffc1cfd0e521fd50ff754e4c9b",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb5fb18e_d6cfdcbd",
         "filename": "docs/config.rst",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2019-03-26T20:21:54Z",
       "side": 1,
       "message": "What values are possible? This is confusing",
+      "range": {
+        "startLine": 267,
+        "startChar": 6,
+        "endLine": 267,
+        "endChar": 28
+      },
+      "revId": "9fd97c2abd5dc5ffc1cfd0e521fd50ff754e4c9b",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42fb2996_5d7c6875",
+        "filename": "docs/config.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2019-03-27T15:42:55Z",
+      "side": 1,
+      "message": "I\u0027ll add a link to the Docker documentation.",
+      "parentUuid": "eb5fb18e_d6cfdcbd",
       "range": {
         "startLine": 267,
         "startChar": 6,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "a90b5a7a_54da6154",
+        "filename": "docs/config.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2019-03-27T15:42:55Z",
+      "side": 1,
+      "message": "No. Docker.host identifies a Docker server.  This specifies a Docker registry.  A Docker server builds containers from images.  A Docker registry stores images.  A Docker server pulls and pushes images to a Docker registry.  Artifacts that are Docker images are stored in a Docker registry.",
+      "parentUuid": "6d7ce442_3e7c8960",
+      "range": {
+        "startLine": 289,
+        "startChar": 0,
+        "endLine": 289,
+        "endChar": 19
+      },
+      "revId": "9fd97c2abd5dc5ffc1cfd0e521fd50ff754e4c9b",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5157528e_34f103a6",
         "filename": "docs/config.rst",
         "patchSetId": 1
@@ -174,6 +342,30 @@
       "writtenOn": "2019-03-26T20:21:54Z",
       "side": 1,
       "message": "Please dig in the code and decide if this is used or not.  I don\u0027t think it\u0027s especially helpful to state \"IDK\" for users in a document :/",
+      "range": {
+        "startLine": 295,
+        "startChar": 2,
+        "endLine": 295,
+        "endChar": 36
+      },
+      "revId": "9fd97c2abd5dc5ffc1cfd0e521fd50ff754e4c9b",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ee4f014_8dd9bebf",
+        "filename": "docs/config.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2019-03-27T15:42:55Z",
+      "side": 1,
+      "message": "These are actually used to configure an external package (docker-java) that doesn\u0027t seem to have documentation for it\u0027s configuration parameters, but I\u0027ll see what I can do by reading its code.",
+      "parentUuid": "5157528e_34f103a6",
       "range": {
         "startLine": 295,
         "startChar": 2,
