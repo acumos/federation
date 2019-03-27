@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b1c2b35e_e03b903f",
+        "filename": "docs/config.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-03-27T16:14:46Z",
+      "side": 1,
+      "message": "Please update this, either remove or explain.",
+      "range": {
+        "startLine": 319,
+        "startChar": 2,
+        "endLine": 319,
+        "endChar": 37
+      },
+      "revId": "1c869eea333657e5bf3fef6efef9dd3ce36ef11d",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
