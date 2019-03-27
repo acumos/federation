@@ -102,7 +102,7 @@ public class AuthorizationTest {
 				.setHttpClient(prepareUnknownHttpClient());
 
 		ResponseEntity<JsonResponse<List<MLPSolution>>> response =
-			this.restTemplate.exchange("https://localhost:" + this.port + "/solutions", HttpMethod.GET, prepareRequest(), new ParameterizedTypeReference<JsonResponse<List<MLPSolution>>>() {});
+			this.restTemplate.exchange("https://localhost:" + this.port + "/solutions?catalogId=myCatalog", HttpMethod.GET, prepareRequest(), new ParameterizedTypeReference<JsonResponse<List<MLPSolution>>>() {});
 
 		if (response != null)	{
 			log.info("test unknown peer access: {}", response.getBody());
@@ -121,7 +121,7 @@ public class AuthorizationTest {
 				.setHttpClient(prepareKnownHttpClient());
 
 		ResponseEntity<JsonResponse<List<MLPSolution>>> response =
-			this.restTemplate.exchange("https://localhost:" + this.port + "/solutions", HttpMethod.GET, prepareRequest(), new ParameterizedTypeReference<JsonResponse<List<MLPSolution>>>() {});
+			this.restTemplate.exchange("https://localhost:" + this.port + "/solutions?catalogId=myCatalog", HttpMethod.GET, prepareRequest(), new ParameterizedTypeReference<JsonResponse<List<MLPSolution>>>() {});
 		
 		if (response != null)	{
 			log.info("test known peer access: {}", response.getBody());
