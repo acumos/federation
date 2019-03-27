@@ -136,9 +136,6 @@ public class LocalControllerTest {
 			super(theTarget, theClient);
 		}
 
-		public Resource xdownload(URI theUri) throws FederationException {
-			return download(theUri);
-		}
 		public void xsetTarget(String theTarget) {
 			setTarget(theTarget);
 		}
@@ -240,7 +237,7 @@ public class LocalControllerTest {
 
 	@Test
 	public void testPeerSolutions() {
-		String url = "https://localhost:" + this.localPort + "/peer/11111111-1111-1111-1111-111111111111/solutions";
+		String url = "https://localhost:" + this.localPort + "/peer/11111111-1111-1111-1111-111111111111/solutions?catalogId=myCatalog";
 
 		log.info("testPeerSolutions: {}", url);
 		ResponseEntity<JsonResponse<List<MLPSolution>>> response =
@@ -310,7 +307,7 @@ public class LocalControllerTest {
 	
 		verifyFail(badpeer + "/ping", HttpMethod.GET, new ParameterizedTypeReference<JsonResponse<MLPPeer>>() {}, 404);
 		verifyFail(badpeer + "/peers", HttpMethod.GET, new ParameterizedTypeReference<JsonResponse<List<MLPPeer>>>() {}, 404);
-		verifyFail(badpeer + "/solutions?selector=e30K", HttpMethod.GET, new ParameterizedTypeReference<JsonResponse<List<MLPSolution>>>() {}, 404);
+		verifyFail(badpeer + "/solutions?catalogId=XXXX", HttpMethod.GET, new ParameterizedTypeReference<JsonResponse<List<MLPSolution>>>() {}, 404);
 		verifyFail(badpeer + "/solutions/00000000-0000-0000-0000-000000000000", HttpMethod.GET, new ParameterizedTypeReference<JsonResponse<MLPSolution>>() {}, 404);
 	}
 
@@ -320,7 +317,6 @@ public class LocalControllerTest {
 		fedcli.getSolutionRevisions("00000000-0000-0000-0000-000000000000");
 		fedcli.getArtifacts("00000000-0000-0000-0000-000000000000", "00000000-0000-0000-0000-000000000000");
 		fedcli.getDocuments("00000000-0000-0000-0000-000000000000", "00000000-0000-0000-0000-000000000000");
-		fedcli.xdownload(new URI("https://localhost:" + this.localPort + "/download"));
 		try {
 			fedcli.xsetTarget(null);
 			fail("Expected IllegalArgumentException");

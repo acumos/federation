@@ -127,15 +127,17 @@ public class PeerGatewayTest {
 				.mockResponse(info -> info.getPath().equals("/ccds/peer"), MockResponse.success("mockCDSPeerSearchAllResponse.json"))
 				.mockResponse(info -> info.getPath().equals("/ccds/peer/a0a0a0a0-a0a0-a0a0-a0a0-a0a0a0a0a0a0/sub"), MockResponse.success("mockCDSPeerSubscriptionsResponse.json"))
 				.mockResponse(info -> info.getPath().equals("/ccds/peer/sub/1"), MockResponse.success("mockCDSPeerSubscriptionResponse.json")) //this works for GET and PUT ..
-				.mockResponse(info -> info.getMethod().equals("GET") && info.getPath().equals("/ccds/solution/6793411f-c7a1-4e93-85bc-f91d267541d8"), MockResponse.success("mockCDSNoSuchSolutionResponse.json"))
+				.mockResponse(info -> info.getMethod().equals("GET") && info.getPath().equals("/ccds/solution/6793411f-c7a1-4e93-85bc-f91d267541d8"), MockResponse.success("mockCDSNoSuchThingResponse.json"))
 				.mockResponse(info -> info.getMethod().equals("POST") && info.getPath().equals("/ccds/solution"), MockResponse.success("mockCDSCreateSolutionResponse.json", stepTrack))
 				.mockResponse(info -> info.getMethod().equals("PUT") && info.getPath().equals("/ccds/solution/6793411f-c7a1-4e93-85bc-f91d267541d8/pic"), MockResponse.success("mockCDSsaveSolutionPicResponse.json", stepTrack))
 				.mockResponse(info -> info.getMethod().equals("GET") && info.getPath().equals("/ccds/solution/6793411f-c7a1-4e93-85bc-f91d267541d8/revision"), MockResponse.success("mockCDSNoSuchSolutionRevisionsResponse.json"))
 				.mockResponse(info -> info.getMethod().equals("POST") && info.getPath().equals("/ccds/solution/6793411f-c7a1-4e93-85bc-f91d267541d8/revision"), MockResponse.success("mockCDSCreateSolutionRevisionResponse.json", stepTrack))
+				.mockResponse(info -> info.getMethod().equals("GET") && info.getPath().equals("/ccds/artifact/2c2c2c2c-6e6f-47d9-b7a4-c4e674d2b341"), MockResponse.success("mockCDSNoSuchThingResponse.json"))
 				.mockResponse(info -> info.getMethod().equals("POST") && info.getPath().equals("/ccds/artifact"), MockResponse.success("mockCDSCreateArtifactResponse.json", stepTrack))
+				.mockResponse(info -> info.getMethod().equals("GET") && info.getPath().equals("/ccds/document/2c2c2c2c-6e6f-47d9-b7a4-c4e674d2b342"), MockResponse.success("mockCDSNoSuchThingResponse.json"))
 				.mockResponse(info -> info.getMethod().equals("POST") && info.getPath().equals("/ccds/document"), MockResponse.success("mockCDSCreateDocumentResponse.json", stepTrack))
-				.mockResponse(info -> info.getMethod().equals("POST") && info.getPath().equals("/ccds/revision/2c7e4481-6e6f-47d9-b7a4-c4e674d2b341/access/PB/descr"), MockResponse.success("mockCDSCreateRevisionDescriptionResponse.json", stepTrack))
-				.mockResponse(info -> info.getMethod().equals("POST") && info.getPath().equals("/ccds/revision/2c7e4481-6e6f-47d9-b7a4-c4e674d2b341/access/PB/document/2c2c2c2c-6e6f-47d9-b7a4-c4e674d2b342"), MockResponse.success("mockCDSCreateRevisionDocumentResponse.json", stepTrack))
+				.mockResponse(info -> info.getMethod().equals("POST") && info.getPath().equals("/ccds/revision/2c7e4481-6e6f-47d9-b7a4-c4e674d2b341/catalog/myCatalog/descr"), MockResponse.success("mockCDSCreateRevisionDescriptionResponse.json", stepTrack))
+				.mockResponse(info -> info.getMethod().equals("POST") && info.getPath().equals("/ccds/revision/2c7e4481-6e6f-47d9-b7a4-c4e674d2b341/catalog/myCatalog/document/2c2c2c2c-6e6f-47d9-b7a4-c4e674d2b342"), MockResponse.success("mockCDSCreateRevisionDocumentResponse.json", stepTrack))
 				.mockResponse(info -> info.getMethod().equals("POST") && info.getPath().equals("/ccds/revision/2c7e4481-6e6f-47d9-b7a4-c4e674d2b341/artifact/2c2c2c2c-6e6f-47d9-b7a4-c4e674d2b341"), MockResponse.success("mockCDSCreateRevisionArtifactResponse.json", stepTrack))
 				.mockResponse(info -> info.getPath().equals("/ccds/code/pair/PEER_STATUS"), MockResponse.success("mockCDSPeerStatusResponse.json"))
 				.mockResponse(info -> info.getPath().equals("/ccds/code/pair/ARTIFACT_TYPE"), MockResponse.success("mockCDSArtifactTypeResponse.json"));
@@ -250,10 +252,5 @@ public class PeerGatewayTest {
 		}
 		//if we are here is that all steps that we expected took place
 		assertTrue(completed);
-	}
-
-	@Test
-	public void testContentService() throws Exception {
-		log.info("Content: {}", content);
 	}
 }

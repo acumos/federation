@@ -154,7 +154,7 @@ public class ControllerTest {
 		setClient(PEERID);
 		
 		ResponseEntity<JsonResponse<List<MLPSolution>>> response =
-			this.restTemplate.exchange("https://localhost:" + this.port + "/solutions", HttpMethod.GET, prepareRequest(), new ParameterizedTypeReference<JsonResponse<List<MLPSolution>>>() {});
+			this.restTemplate.exchange("https://localhost:" + this.port + "/solutions?catalogId=myCatalog", HttpMethod.GET, prepareRequest(), new ParameterizedTypeReference<JsonResponse<List<MLPSolution>>>() {});
 		
 		assertGoodResponseWith("testSolutions", response, content -> content.size() == 1);
 	}
@@ -205,7 +205,7 @@ public class ControllerTest {
 		setClient(PEERID);
 
 		ResponseEntity<byte[]> response =
-			this.restTemplate.exchange("https://localhost:" + this.port + "/solutions/00000000-0000-0000-0000-000000000000/revisions/01010101-0101-0101-0101-010101010101/artifacts/a0a0a0a0-a0a0-a0a0-a0a0-a0a0a0a0a0a0/content", HttpMethod.GET, prepareBinaryRequest(), new ParameterizedTypeReference<byte[]>() {});
+			this.restTemplate.exchange("https://localhost:" + this.port + "/artifacts/a0a0a0a0-a0a0-a0a0-a0a0-a0a0a0a0a0a0/content", HttpMethod.GET, prepareBinaryRequest(), new ParameterizedTypeReference<byte[]>() {});
 		
 		assertGoodResponse("testSolutionRevisionArtifact", response);
 	}
@@ -215,7 +215,7 @@ public class ControllerTest {
 		setClient(PEERID);
 
 		ResponseEntity<JsonResponse<List<MLPDocument>>> response =
-			this.restTemplate.exchange("https://localhost:" + this.port + "/solutions/00000000-0000-0000-0000-000000000000/revisions/01010101-0101-0101-0101-010101010101/documents", HttpMethod.GET, prepareRequest(), new ParameterizedTypeReference<JsonResponse<List<MLPDocument>>>() {});
+			this.restTemplate.exchange("https://localhost:" + this.port + "/revisions/01010101-0101-0101-0101-010101010101/documents?catalogId=mycatalog", HttpMethod.GET, prepareRequest(), new ParameterizedTypeReference<JsonResponse<List<MLPDocument>>>() {});
 		
 		assertGoodResponseWith("testSolutionRevisionDocuments", response, content -> content.size() == 1);
 	}
@@ -225,7 +225,7 @@ public class ControllerTest {
 		setClient(PEERID);
 
 		ResponseEntity<byte[]> response =
-			this.restTemplate.exchange("https://localhost:" + this.port + "/solutions/00000000-0000-0000-0000-000000000000/revisions/01010101-0101-0101-0101-010101010101/documents/2c2c2c2c-6e6f-47d9-b7a4-c4e674d2b342/content", HttpMethod.GET, prepareBinaryRequest(), new ParameterizedTypeReference<byte[]>() {});
+			this.restTemplate.exchange("https://localhost:" + this.port + "/documents/2c2c2c2c-6e6f-47d9-b7a4-c4e674d2b342/content", HttpMethod.GET, prepareBinaryRequest(), new ParameterizedTypeReference<byte[]>() {});
 		
 		assertGoodResponse("testSolutionRevisionDocumentContent", response);
 	}
