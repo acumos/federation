@@ -1,0 +1,303 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f6c09493_15c33dca",
+        "filename": "docs/developer-guide.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-04-15T20:34:59Z",
+      "side": 1,
+      "message": "Is there no longer an endpoint to get the MLPArtifact entity?",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 33
+      },
+      "revId": "a85db8d6aa5d9811fd2760b34d22d608f696c155",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fc466b7_1fbda7c4",
+        "filename": "docs/release-notes.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-04-15T20:34:59Z",
+      "side": 1,
+      "message": "maybe bump the date",
+      "range": {
+        "startLine": 26,
+        "startChar": 23,
+        "endLine": 26,
+        "endChar": 25
+      },
+      "revId": "a85db8d6aa5d9811fd2760b34d22d608f696c155",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6fc09540_6e976e81",
+        "filename": "docs/selectors.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-04-15T20:34:59Z",
+      "side": 1,
+      "message": "This is a UUID, right?  Maybe show one of those so there is no chance a developer might think it\u0027s a name?",
+      "range": {
+        "startLine": 30,
+        "startChar": 20,
+        "endLine": 30,
+        "endChar": 35
+      },
+      "revId": "a85db8d6aa5d9811fd2760b34d22d608f696c155",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25e05f37_fc23f681",
+        "filename": "gateway/pom.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-04-15T20:34:59Z",
+      "side": 1,
+      "message": "please bump up to 2.1.4.RELEASE",
+      "range": {
+        "startLine": 35,
+        "startChar": 15,
+        "endLine": 35,
+        "endChar": 16
+      },
+      "revId": "a85db8d6aa5d9811fd2760b34d22d608f696c155",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "178419a3_1227645f",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/PeerGateway.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-04-15T20:34:59Z",
+      "side": 1,
+      "message": "CORBA? omg",
+      "range": {
+        "startLine": 79,
+        "startChar": 15,
+        "endLine": 79,
+        "endChar": 20
+      },
+      "revId": "a85db8d6aa5d9811fd2760b34d22d608f696c155",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e2963b6_761d9e63",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/PeerGateway.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-04-15T20:34:59Z",
+      "side": 1,
+      "message": "maybe log exceptions at error level?  Seems wrong to use info here",
+      "range": {
+        "startLine": 208,
+        "startChar": 8,
+        "endLine": 208,
+        "endChar": 12
+      },
+      "revId": "a85db8d6aa5d9811fd2760b34d22d608f696c155",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "61e702ad_3709ccac",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/PeerGateway.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-04-15T20:34:59Z",
+      "side": 1,
+      "message": "solution revisions.  There is no such thing as a \"peer revision\"",
+      "range": {
+        "startLine": 439,
+        "startChar": 17,
+        "endLine": 439,
+        "endChar": 21
+      },
+      "revId": "a85db8d6aa5d9811fd2760b34d22d608f696c155",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "911a310e_470922f6",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/adapter/PeerGateway.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 600,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-04-15T20:34:59Z",
+      "side": 1,
+      "message": "I would love to understand this better someday.",
+      "range": {
+        "startLine": 600,
+        "startChar": 0,
+        "endLine": 600,
+        "endChar": 21
+      },
+      "revId": "a85db8d6aa5d9811fd2760b34d22d608f696c155",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "29ec6352_4fbe8303",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/common/API.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-04-15T20:34:59Z",
+      "side": 1,
+      "message": "Would you possibly consider using a more descriptive name?",
+      "range": {
+        "startLine": 35,
+        "startChar": 12,
+        "endLine": 35,
+        "endChar": 15
+      },
+      "revId": "a85db8d6aa5d9811fd2760b34d22d608f696c155",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "051681d2_cbb68a74",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/common/API.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-04-15T20:34:59Z",
+      "side": 1,
+      "message": "Here too, if this is exposed outside this class.",
+      "range": {
+        "startLine": 156,
+        "startChar": 25,
+        "endLine": 156,
+        "endChar": 30
+      },
+      "revId": "a85db8d6aa5d9811fd2760b34d22d608f696c155",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd6b60da_85f7def5",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/common/FederationClient.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-04-15T20:34:59Z",
+      "side": 1,
+      "message": "why download2?  Could you please use a better name?  If download1 isn\u0027t used, maybe drop it?",
+      "range": {
+        "startLine": 285,
+        "startChar": 27,
+        "endLine": 285,
+        "endChar": 36
+      },
+      "revId": "a85db8d6aa5d9811fd2760b34d22d608f696c155",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b8acda9_42d3a821",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/CatalogServiceImpl.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-04-15T20:34:59Z",
+      "side": 1,
+      "message": "I think in the long run this is dangerous, pulling the entire content into memory.  Are you sure-sure you want to do this?  Is a loop with a generous page size really so onerous?",
+      "range": {
+        "startLine": 110,
+        "startChar": 32,
+        "endLine": 110,
+        "endChar": 40
+      },
+      "revId": "a85db8d6aa5d9811fd2760b34d22d608f696c155",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "61669886_8cdeea04",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/CatalogServiceImpl.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-04-15T20:34:59Z",
+      "side": 1,
+      "message": "sneaky",
+      "range": {
+        "startLine": 329,
+        "startChar": 80,
+        "endLine": 329,
+        "endChar": 87
+      },
+      "revId": "a85db8d6aa5d9811fd2760b34d22d608f696c155",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}

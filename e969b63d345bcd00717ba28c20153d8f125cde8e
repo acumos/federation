@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30fe60e4_b71f8049",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/cds/CodeNames.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-04-15T20:34:59Z",
+      "side": 0,
+      "message": "I\u0027m sad that you removed this.  Code like this revealed a very strange Spring interaction, in some circumstances Federation was misconfigured.",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 3
+      },
+      "revId": "e969b63d345bcd00717ba28c20153d8f125cde8e",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
