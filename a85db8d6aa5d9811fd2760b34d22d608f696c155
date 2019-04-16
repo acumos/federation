@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "11e97122_f555105f",
+        "filename": "docs/developer-guide.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2019-04-16T14:55:33Z",
+      "side": 1,
+      "message": "It was never actually implemented.  It was here, in the documentation, but there was never a controller method for it.",
+      "parentUuid": "f6c09493_15c33dca",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 33
+      },
+      "revId": "a85db8d6aa5d9811fd2760b34d22d608f696c155",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5fc466b7_1fbda7c4",
         "filename": "docs/release-notes.rst",
         "patchSetId": 4
@@ -197,6 +221,30 @@
       "writtenOn": "2019-04-15T20:34:59Z",
       "side": 1,
       "message": "Would you possibly consider using a more descriptive name?",
+      "range": {
+        "startLine": 35,
+        "startChar": 12,
+        "endLine": 35,
+        "endChar": 15
+      },
+      "revId": "a85db8d6aa5d9811fd2760b34d22d608f696c155",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9d6696a5_fc16e643",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/common/API.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2019-04-16T14:55:33Z",
+      "side": 1,
+      "message": "How this is done seems strange (an enum that formats URIs?), and I want to look at it further, but not today.",
+      "parentUuid": "29ec6352_4fbe8303",
       "range": {
         "startLine": 35,
         "startChar": 12,
