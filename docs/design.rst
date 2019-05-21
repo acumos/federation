@@ -1,7 +1,7 @@
 .. ===============LICENSE_START=======================================================
 .. Acumos CC-BY-4.0
 .. ===================================================================================
-.. Copyright (C) 2017-2018 AT&T Intellectual Property & Tech Mahindra. All rights reserved.
+.. Copyright (C) 2017-2019 AT&T Intellectual Property & Tech Mahindra. All rights reserved.
 .. ===================================================================================
 .. This Acumos documentation file is distributed by AT&T and Tech Mahindra
 .. under the Creative Commons Attribution 4.0 International License (the "License");
@@ -17,7 +17,7 @@
 .. ===============LICENSE_END=========================================================
 
 ===============================
-Federation Gateway Design Notes
+Federation Gateway Server Design Notes
 ===============================
 
 The federation gateway is an optional component of an Acumos system whose role
@@ -49,7 +49,7 @@ This interface assumes a pull-based mechanism.
 As such, only the ‘server’ side is defined by E5.
 
 The client side is based on a set of subscriptions, where each subscription defines a set of solutions
-the client is interested in, through a selector (see :ref:`selecting`), and employs periodic polling to detect new material.
+the client is interested in, through a list of one or more catalogs, and employs periodic polling to detect new material.
 This interface defines no shared state, nothing to synchronize; all responsibility resides with the interested party.
 Requires a pre-provisioned peer on the server side, and uses both client and server authentication (CA based),
 principal to certificate matching.
@@ -61,9 +61,6 @@ The private interface
 The private (local) interface is system specific, because a localized mapping of information must be done.
 In Acumos, this includes interactions with the Common Data Service and Portal components and represents
 is a one-to-one mapping of solution information and related artifacts.
-In ONAP, this interacts with the SDC component based on its REST API and
-requires additional processing, for example transforming an Acumos artifact into a set of SDC Asset Artifacts.
-
 
 Federation concepts
 -------------------
@@ -86,11 +83,9 @@ Subscriptions
 ~~~~~~~~~~~~~
 
 A federation subscription defines which models an Acumos system is interested in importing from a peer.
-The subscription is primarily a selector over a peer’s catalog, and can support different scopes,
-ranging from pinpointing one particular solution to all available solutions.
+The subscription is primarily list of catalogs.
 Subscriptions are subject to policies in the peer regarding which models are exposed to whom.
-Current options on a subscription include the refresh period, 
-and full (copy everything) vs. by reference (no artifact content is transferred).
+Current options on a subscription include the refresh period.
 
 Federating models
 ~~~~~~~~~~~~~~~~~
@@ -114,15 +109,13 @@ A subscription towards a peer represents a subset of that peer's model set that 
 The subscription information is there to drive the behavior of the federation gateway (which does
 the actual peer polling and local provisioning of the retrieved information); no subscription
 information is shared between peers. An Acumos instance can have multiple subscriptions towards another
-peer. A subscription can range from one specific model to all the models a peer exposes (with any
-combination of model level selection criteria in between). A subscription further specifies
-options such as the frequency with each the federation gateway should check for updates, how much
-model information should be retrieved every time,etc.
+peer.
+A subscription further specifies
+options such as the frequency with each the federation gateway should check for updates, etc.
 
 It is important to notice that the federation gateway mechanisms for model information exchange
 does not impose an overall peer organization/deployment architecture: tree like structures, fully or sparse
-connected graphs, etc are all possible.
-
+connected graphs, etc. are all possible.
 
 Federation mechanisms
 ---------------------
@@ -145,7 +138,6 @@ In addition to the model information exchange APIs the federation gateway offers
 - status information (ping)
 - in-band registration
 - peer information sharing
-
 
 Dependencies
 ------------
