@@ -1,7 +1,7 @@
 .. ===============LICENSE_START=======================================================
 .. Acumos CC-BY-4.0
 .. ===================================================================================
-.. Copyright (C) 2017 AT&T Intellectual Property & Tech Mahindra. All rights reserved.
+.. Copyright (C) 2017-2019 AT&T Intellectual Property & Tech Mahindra. All rights reserved.
 .. ===================================================================================
 .. This Acumos documentation file is distributed by AT&T and Tech Mahindra
 .. under the Creative Commons Attribution 4.0 International License (the "License");
@@ -26,35 +26,15 @@ on Externalized Configuration for information on how the
 SPRING_APPLICATION_JSON environment variable is parsed and on other methods for
 setting configuration property values.
 
-Most of the configuration properties for the Acumos Federation Gateway always
-apply, but some are selectively enabled by others.  The conditionally enabled
-configuration properties are listed, below, in separate sections, grouped by
-the conditions that activate them.
-
-General Configuration Properties
+Configuration Properties
 --------------------------------
 
-The following configuration properties are always enabled:
-
 federation.address
-  Required.  FQDN or IP address.
+  Optional.  FQDN or IP address.
 
   This specifies which IP interface, on the federation host machine, listens
-  for incoming requests from peers.  A value of 0.0.0.0 specifies listening
+  for incoming requests from peers.  Defaults to listening
   on all interfaces.
-
-federation.instance
-  Required.  Allowed values: "gateway" and "adapter".
-
-  This property controls the mode of operation of federation.
-
-  In "gateway" mode, federation uses the common data service to store
-  metadata, and federation polls its peers for solutions matching its
-  subscriptions.  In this mode, the spring.profiles.active property
-  controls how artifact and document content is stored.
-
-  In "adapter" mode, federation does not process subscriptions and
-  uses flat files to store metadata, artifacts, and documents.
 
 federation.operator
   Required.
@@ -73,8 +53,8 @@ federation.server.port
   This specifies which TCP/IP port, on the interface(s) specified by
   federation.address, listens for incoming requests from peers.
 
-federation.ssl.client-auth
-  Optional.  Allowed values "need", "request", "none".  Default "need".
+federation.client-auth
+  Optional.  Allowed values "NEED", "WANT", "NONE".  Default "WANT".
 
   This specifies whether to request or require 2-way TLS authentication
   of incoming connections from peers.
@@ -114,11 +94,11 @@ federation.ssl.trust-store-type
   Allowed values: JKS or PKCS12.
 
 local.address
-  Required.  FQDN or IP address.
+  Optional.  FQDN or IP address.
 
   This specifies which IP interface, on the federation host machine, listens
   for incoming requests from the local Acumos marketplace portal (the portal).
-  A value of 0.0.0.0 specifies listening on all interfaces.
+  Defaults to listening on all interfaces.
 
 local.server.port
   Required.
@@ -126,8 +106,8 @@ local.server.port
   This specifies which TCP/IP port, on the interface(s) specified by
   federation.address, listens for incoming requests from the portal.
 
-local.ssl.client-auth
-  Optional.  Allowed values "need", "request", "none".  Default "need".
+local.client-auth
+  Optional.  Allowed values "NEED", "WANT", "NONE".  Default "WANT".
 
   This specifies whether to request or require 2-way TLS authentication
   of incoming connections from the portal.
@@ -168,36 +148,6 @@ local.ssl.trust-store-type
 
   This specifies the format of the trust store file.
 
-task.scheduler-pool-size
-  Optional.  Default 100.
-
-  This is the thread pool size for the gateway scheduler.
-
-task.executor-core-pool-size
-  Optional.  Default 20.
-
-  This is the core size of the executor thread pool.
-
-task.executor-max-pool-size
-  Optional.  Default 100.
-
-  This is the maximum size of the executor thread pool.
-
-task.executor-queue-capacity
-  Optional.  Default 50.
-
-  This is the maximum capacity of the executor queue.
-
-Gateway Configuration Properties
---------------------------------
-
-The following configuration properties are enabled when federation.instance is "gateway":
-
-catalog.catalogs-selector
-  Optional.  Default { "accessTypeCode": "PB" }
-
-  A JSON string giving filters to be used when searching for catalogs.
-
 cdms.client.url
   Required.
 
@@ -213,31 +163,11 @@ cdms.client.password
 
   Password for authenticating to the common data service.
 
-cdms.client.page-size
-  Optional.  Default 100
-
-  The number of responses, per "page" to request from the common data service.
-
 peer.jobchecker.interval
   Optional.  Default 400.
 
   The time, in seconds, between checking for changes to the set of active
   subscriptions.
-
-spring.profiles.active
-  Optional.  Default empty.
-
-  If the set of active profiles contains "local", then flat files are used
-  to store artifacts and documents.  If it doesn't and federation.instance is
-  "gateway", artifacts that are Docker images are stored in the Docker
-  Registry and documents and other artifacts are stored in the Nexus
-  repository.
-
-Repository Configuration Properties
------------------------------------
-
-The following configuration properties are enabled when federation.instance
-is "gateway" and spring.profiles.active does not contain "local":
 
 docker.api-version
   Optional.
@@ -322,46 +252,6 @@ nexus.name-separator
 
   Separator between components of the path prefix within the Nexus repository.
   The prefix is of the form groupid separator solutionid separator revisionid.
-
-File-base Metadata Store Configuration Properties
--------------------------------------------------
-
-The following configuration properties are enabled when federation.instance
-is "adapter":
-
-catalog-local.source
-  Required.
-
-  Path to file containing solution metadata available to remote peers.
-  This file is a JSON array of Solution metadata.
-
-catalog-local.catalogs
-  Required.
-
-  Path to file containing catalog metadata available to remote peers.
-  This file is a JSON array of Catalog metadata.
-
-codes-local.source
-  Required.
-
-  Path to file containing code mapping data available to remote peers.
-  This file is a JSON object with keys "ARTIFACT_TYPE", and "PEER_STATUS".
-  The values corresponding to these keys are arrays of code/name pairs, for
-  example, { "ARTIFACT_TYPE": [{ "code": "DI", "name": "DockerImage" }, ... }
-
-peers-local.source
-  Required
-
-  Path to file containing peer metadata.
-  This file is a JSON array of Peer metadata.
-
-peer-local.interval
-  Optional.  Default 60.
-
-  The time, in seconds, between checks for updates to the files specified
-  by the catalog-local.source, catalog-local.catalogs, codes-local.source,
-  and peers-local.source files.
-
 
 =========================================
 Federation Gateway Certificate Generation

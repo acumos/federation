@@ -23,6 +23,58 @@ Federation Gateway Release Notes
 This server is available as a Docker image in a Docker registry at the Linux Foundation.
 The image name is "federation-gateway" and the tag is a version string as shown below. 
 
+Version 2.2.2, 2019-05-21
+-------------------------
+* Publish E5 Federation client library (`ACUMOS-2760 <https://jira.acumos.org/browse/ACUMOS-2760>`_)
+
+  3 new sub-projects are introduced, in addition to the existing "gateway" sub-project.
+  * "acumos-fgw-client-config" contains bean classes used to specify properties
+    of a client's connection to its server, including basic authentication and
+    TLS (SSL) related properties.
+
+  * "acumos-fgw-client-test" contains classes for providing mock responses to
+    a client for testing applications that make calls to a server, as well as
+    dummy key store and trust store files to enable a client to be used to
+    test a server.
+
+  * "acumos-fgw-client" contains implementations of clients for both the
+    external "E5" and private interfaces to the Acumos Federation Gateway
+    as well as bean classes for the JSON wire formats used by those interfaces.
+
+  The existing "gateway" project is modified to use the client subproject when
+  making requests to a peer Acumos instance, when sending or receiving
+  artifacts from the Nexus server, and for creating the rest template used
+  to communicate with CDS.
+
+* Access to the Swagger API is fixed and now gives responses appropriate to
+  the interface being queried (external "E5" or private).
+
+* Some configuration is simplified.
+  * The federation.ssl.client-auth configuration parameter is now named
+    federation.client-auth and defaults to WANT, enabling access to the
+    Swagger specification on the external "E5" interface without requiring
+    a client certificate.  Attempts to access the REST API endpoints without
+    providing a client certificate will return a 403 Forbidden error.
+  * The local.ssl.client-auth configuration parameter is now named
+    local.client-auth and defaults to WANT, enabling access to the
+    Swagger specification on the private interface without requiring
+    a client certificate.  Attempts to access the REST API endpoints without
+    providing a client certificate will return a 403 Forbidden error.
+  * The federation.registration.enabled configuration parameter is now named
+    federation.registration-enabled.  It still defaults to False.
+  * The federation.instance configuration parameter no longer needs to be set to
+    "gateway" and no longer has any effect.
+  * The value "local" in the spring.profiles.active configuration parameter no
+    longer has any effect.
+  * The catalog.catalogs-selector configuration parameter no longer has any effect.
+  * The various task.* configuration parameters no longer have any effect.
+  * The cdms.client.page-size configuration parameter no longer has any effect.
+  * The catalog-local.source, catalog-local.catalogs, codes-local.source,
+    peers-local.source, and peer-local.interval configuration parameters no
+    longer have any effect.
+
+* Documentation is updated to reflect these changes.
+
 Version 2.2.0, 2019-04-16
 -------------------------
 * Increase Spring async task timeout value (spring.mvc.async.request-timeout)
@@ -33,7 +85,7 @@ Version 2.2.0, 2019-04-16
 * Update to CDS 2.2.x with subscription by catalogs (`ACUMOS-2732 <https://jira.acumos.org/browse/ACUMOS-2732>`_)
 
   This makes changes to the REST api for accessing Federation on both the
-  public and internal interfaces:
+  public and private interfaces:
 
   * When listing solutions, the optional selector query parameter is replaced
     by a required catalogId query parameter
