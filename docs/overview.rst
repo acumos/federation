@@ -27,7 +27,7 @@ The goal was to have a mechanism that provides great flexibility when designing 
 The Gateway feature does not define how multiple Acumos instances are to be interconnected
 or what roles they play.
 
-Like many other system components, the Gateway is implemented as a server that listens 
+Like many other system components, the Gateway is implemented as a server that listens
 for requests on a REST API.  The Gateway provides two interfaces, both using REST:
 
 * Public: towards peers (also known as the "E5" interface)
@@ -46,7 +46,7 @@ other Acumos features.  All communication is secured by use of client and server
 Developer Resources
 -------------------
 The source is available from the Linux Foundation Gerrit server:
- 
+
     `<https://gerrit.acumos.org/r/gitweb?p=federation.git;a=summary>`_
 
 The build (CI) jobs are in the Linux Foundation Jenkins server:
