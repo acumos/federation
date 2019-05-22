@@ -1,0 +1,588 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "03a9b376_d87ddf47",
+        "filename": "acumos-fgw-client-config/pom.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T10:29:32Z",
+      "side": 1,
+      "message": "Why does this not name the parent project?  It does not HAVE to, but it\u0027s a convenient way of managing lockstep versions.",
+      "range": {
+        "startLine": 26,
+        "startChar": 15,
+        "endLine": 26,
+        "endChar": 16
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ab986bb_e3d8e417",
+        "filename": "acumos-fgw-client-config/src/main/lombok/org/acumos/federation/client/config/ClientConfig.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T10:29:32Z",
+      "side": 1,
+      "message": "please be a bit more verbose here",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 30
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c218eaf7_b12ba50b",
+        "filename": "acumos-fgw-client-config/src/main/lombok/org/acumos/federation/client/config/ClientConfig.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T10:29:32Z",
+      "side": 1,
+      "message": "Why are tabs embedded within lines?",
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "93e2209d_bc84ef1e",
+        "filename": "acumos-fgw-client-config/src/main/lombok/org/acumos/federation/client/config/TlsConfig.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T10:29:32Z",
+      "side": 1,
+      "message": "Would it be at all interesting to use a java.nio.file.Path object instead of String?",
+      "range": {
+        "startLine": 37,
+        "startChar": 9,
+        "endLine": 37,
+        "endChar": 15
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa550d50_04f36299",
+        "filename": "acumos-fgw-client-config/src/main/lombok/org/acumos/federation/client/config/TlsConfig.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T10:29:32Z",
+      "side": 1,
+      "message": "what are valid types?  Would you consider an enum?",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 33
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "edb54f95_aaf8a6dd",
+        "filename": "acumos-fgw-client-config/src/main/lombok/org/acumos/federation/client/config/TlsConfig.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T10:29:32Z",
+      "side": 1,
+      "message": "See above Path",
+      "range": {
+        "startLine": 68,
+        "startChar": 9,
+        "endLine": 68,
+        "endChar": 15
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a24d774_fe7c4e16",
+        "filename": "acumos-fgw-client-config/src/main/lombok/org/acumos/federation/client/config/TlsConfig.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T10:29:32Z",
+      "side": 1,
+      "message": "See above enum",
+      "range": {
+        "startLine": 76,
+        "startChar": 9,
+        "endLine": 76,
+        "endChar": 15
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3645090_5c97ae15",
+        "filename": "acumos-fgw-client-test/pom.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T10:29:32Z",
+      "side": 1,
+      "message": "Why not inherit the parent here?",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 34
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1d959c7_7a628f78",
+        "filename": "acumos-fgw-client-test/src/main/java/org/acumos/federation/client/test/package-info.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T10:29:32Z",
+      "side": 1,
+      "message": "client singular ?",
+      "range": {
+        "startLine": 21,
+        "startChar": 67,
+        "endLine": 21,
+        "endChar": 74
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ccdb08c_0337e537",
+        "filename": "acumos-fgw-client-test/src/main/resources/acumosTrustStore.jks",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T10:29:32Z",
+      "side": 1,
+      "message": "It may be worth considering adding a file acumosTrustStore.jks.readme or something like that with a note about what is in here?",
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "806731ff_aa9f7d61",
+        "filename": "acumos-fgw-client/pom.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T10:29:32Z",
+      "side": 1,
+      "message": "Here it might make sense to name the parent?",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 34
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa614a19_bf0f5a1e",
+        "filename": "acumos-fgw-client/pom.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T10:29:32Z",
+      "side": 1,
+      "message": "Uh, I really disagree with this.  The client should NOT depend on spring-boot.  That\u0027s for servers.  It\u0027s ok to depend on spring-core etc.  Please see cds client for an example.",
+      "range": {
+        "startLine": 59,
+        "startChar": 2,
+        "endLine": 63,
+        "endChar": 15
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36f99801_3329be80",
+        "filename": "acumos-fgw-client/pom.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T10:29:32Z",
+      "side": 1,
+      "message": "Are you sure you need this?  I don\u0027t think you\u0027re doing any java persistence, so should not depend on the JPA",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 15
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf712e35_36e109b3",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/ClientBase.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T10:29:32Z",
+      "side": 1,
+      "message": "Here I think you might consider using something less generic.  Maybe FederationBase, I don\u0027t know.  Good names are difficult to choose.",
+      "range": {
+        "startLine": 102,
+        "startChar": 13,
+        "endLine": 102,
+        "endChar": 23
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c577a72_0c78d8e2",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/FederationClient.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T10:29:32Z",
+      "side": 1,
+      "message": "Why are all these URIs public?  No user needs them, right?",
+      "range": {
+        "startLine": 49,
+        "startChar": 1,
+        "endLine": 49,
+        "endChar": 7
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "257712a6_3631e700",
+        "filename": "docs/client.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T10:29:32Z",
+      "side": 1,
+      "message": "please fix line length",
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6749782b_9ee9f2cc",
+        "filename": "docs/client.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T10:29:32Z",
+      "side": 1,
+      "message": "Typo",
+      "range": {
+        "startLine": 27,
+        "startChar": 55,
+        "endLine": 27,
+        "endChar": 56
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82fbfb8c_35c7d8ec",
+        "filename": "docs/client.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T10:29:32Z",
+      "side": 1,
+      "message": "Don\u0027t list the snapshot repo - that\u0027s not for public use",
+      "range": {
+        "startLine": 36,
+        "startChar": 2,
+        "endLine": 39,
+        "endChar": 14
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0900db3_33b146ec",
+        "filename": "docs/client.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T10:29:32Z",
+      "side": 1,
+      "message": "Best practice in maven is to include all dependencies that your code actively uses -- which in this case is the new configuration library -- please list that one too",
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "91aa1c9e_5c340a41",
+        "filename": "docs/client.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T10:29:32Z",
+      "side": 1,
+      "message": "Absolutely not - clients should use only released versions.",
+      "range": {
+        "startLine": 50,
+        "startChar": 17,
+        "endLine": 50,
+        "endChar": 25
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "efe95305_19dea2fb",
+        "filename": "docs/client.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T10:29:32Z",
+      "side": 1,
+      "message": "Please publish in a src/test/java area a minimal client - the fewest possible lines of code to connect and get the count of something, but don\u0027t annotate it with @test - then here in the doc add a Gerrit link to the code. Keeping it in the source tree ensures it always compiles.",
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bdccca64_4c0c22b6",
+        "filename": "docs/config.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T10:29:32Z",
+      "side": 1,
+      "message": "please insert \"SERVER\" !!",
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4534d8c_e8ccacdd",
+        "filename": "docs/config.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T10:29:32Z",
+      "side": 1,
+      "message": "Please insert an example.  It\u0027s far from obvious that foo.bar \u003d1 must be written as \"foo { bar : 1 }\"",
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f3a54e6c_26ec8d35",
+        "filename": "docs/design.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T10:29:32Z",
+      "side": 1,
+      "message": "pls fix line length",
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "73c65b7e_183c81dd",
+        "filename": "gateway/pom.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T10:29:32Z",
+      "side": 1,
+      "message": "you almost certainly should write the parent pom as a child of spring-boot, and have your child (submodule) pom files inherit from your parent.  This will ensure the spring versions are published to your client pom, and then you don\u0027t have to repeat versions and especially you don\u0027t have to try to keep them up to date.  I should have done that in CDS :(",
+      "range": {
+        "startLine": 28,
+        "startChar": 1,
+        "endLine": 28,
+        "endChar": 9
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a18f748f_b64b540a",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/Application.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T10:29:32Z",
+      "side": 1,
+      "message": "server",
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a808b7b_8f51a3b4",
+        "filename": "gateway/src/main/resources/application.properties",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T10:29:32Z",
+      "side": 1,
+      "message": "I would publish all the known properties here with empty values, or with values that cause the server to crash immediately.  It\u0027s valuable documentation AND identifies if some required config is missing in the SPRING_APP_JSON structure.",
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1bd3d946_eea9c129",
+        "filename": "pom.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T10:29:32Z",
+      "side": 1,
+      "message": "This was a hyper-optimization that I did for CDS which I\u0027m coming to regret. Please see comments elsewhere.",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 49
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
