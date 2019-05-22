@@ -312,6 +312,29 @@
     },
     {
       "key": {
+        "uuid": "f4e4dcfa_a8b6cb7b",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/FederationClient.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": "In my mind the difference between FederationClient and GatewayClient is too small to measure.  Is there any possibility of adding another term, or possibly naming these classes something like LocalGatewayClient and ExternalGatewayClient (just thought that up, it\u0027s not great) so the difference is sharp \u0026 clear?",
+      "range": {
+        "startLine": 45,
+        "startChar": 13,
+        "endLine": 45,
+        "endChar": 29
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c577a72_0c78d8e2",
         "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/FederationClient.java",
         "patchSetId": 2
@@ -328,6 +351,346 @@
         "startChar": 1,
         "endLine": 49,
         "endChar": 7
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aca03120_caf6acca",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/FederationClient.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": "Maybe I should have asked, do these belong in a constants class?",
+      "parentUuid": "1c577a72_0c78d8e2",
+      "range": {
+        "startLine": 49,
+        "startChar": 1,
+        "endLine": 49,
+        "endChar": 7
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04f1ded9_58d24193",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/FederationClient.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": "I like to put javadoc like this on the parameter, rather than in the paragraph that describes the method.",
+      "range": {
+        "startLine": 134,
+        "startChar": 4,
+        "endLine": 134,
+        "endChar": 49
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fea3113_ff959f38",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/FederationClient.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": "So this is a Jackson thing?",
+      "range": {
+        "startLine": 141,
+        "startChar": 22,
+        "endLine": 141,
+        "endChar": 28
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "078ad48c_bee7fb21",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/FederationClient.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": "Ping seems like the wrong term bcos an ICMP ping sends no data, requires no authentication etc.  This seems much more like checkHealth() because it makes an authenticated connection.  Please document all the preconditions and tasks performed cos it\u0027s a whole lot more than just a packet transiting routers successfully.",
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc40cecd_0a06f9d5",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/FederationClient.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": "Register for callbacks or something else?  I\u0027m totally unclear why registration is required.",
+      "range": {
+        "startLine": 167,
+        "startChar": 22,
+        "endLine": 167,
+        "endChar": 29
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44db27d2_bf96736a",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/FederationClient.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": "Might be worth mentioning that this checks the peer\u0027s authorization to see the solution, and can reject.",
+      "range": {
+        "startLine": 204,
+        "startChar": 19,
+        "endLine": 204,
+        "endChar": 27
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "feb1edb6_447ecda3",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/FederationClient.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": ".. if authorized for the solution",
+      "range": {
+        "startLine": 214,
+        "startChar": 9,
+        "endLine": 214,
+        "endChar": 17
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c89510f9_a0f5c2ee",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/FederationClient.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": ".. if authorized for the solution",
+      "range": {
+        "startLine": 224,
+        "startChar": 27,
+        "endLine": 224,
+        "endChar": 28
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf9025a6_d5941603",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/FederationClient.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": ".. if authorized for the solution",
+      "range": {
+        "startLine": 246,
+        "startChar": 26,
+        "endLine": 246,
+        "endChar": 38
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bdba1ab_f487f7ea",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/FederationClient.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": ".. if authorized for the solution ?  I hope so",
+      "range": {
+        "startLine": 257,
+        "startChar": 20,
+        "endLine": 257,
+        "endChar": 38
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f88ec54_4393165f",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/FederationClient.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": ".. if authorized for the solution and catalog",
+      "range": {
+        "startLine": 268,
+        "startChar": 26,
+        "endLine": 268,
+        "endChar": 38
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dec2ac3f_b5e3f032",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/GatewayClient.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": ".. but you\u0027re pinging locally, right?  Also see comments about ping on GatewayClient",
+      "range": {
+        "startLine": 79,
+        "startChar": 13,
+        "endLine": 79,
+        "endChar": 17
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "49a0450c_14cbef1e",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/GatewayClient.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": "What does registration accomplish?  I mean, does it cause a change in state inside the target local gateway?",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 27
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12268c87_83330370",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/TlsConfigException.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": "What value does this wrapper add?  In general I\u0027m not a fan of wrapping exceptions in this fashion.",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 17
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "00502e7d_5e300031",
+        "filename": "acumos-fgw-client/src/main/lombok/org/acumos/federation/client/data/Document.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": "could this be a java.nio.Path?  How/when is a LOCAL file made available?  I sorta figured everything is URLs etc.",
+      "range": {
+        "startLine": 41,
+        "startChar": 9,
+        "endLine": 41,
+        "endChar": 15
       },
       "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
@@ -546,6 +909,569 @@
     },
     {
       "key": {
+        "uuid": "13bf87a3_723b9f78",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/CatalogServiceImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": "I\u0027m a little surprised there\u0027s no logger, no logger.debug calls.",
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57e44586_87c0ded0",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/CatalogServiceImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": "CDS createSolution() method creates tags not seen before.  One of the very few things it does without being asked.",
+      "range": {
+        "startLine": 207,
+        "startChar": 8,
+        "endLine": 207,
+        "endChar": 9
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "017f4cfe_2e605042",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/Clients.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": "Would you possibly consider a less generic name, just for clarity?",
+      "range": {
+        "startLine": 40,
+        "startChar": 13,
+        "endLine": 40,
+        "endChar": 20
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce86639b_82463b51",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/Clients.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": "I don\u0027t quite understand why nobody creates a @Bean annotated method to return a CDS client, just let Spring do the work, of course that method must be in a class with @Configuration so the properties can be found.  Maybe this is just as easy, IDK.",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 66
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "585f16f5_04f1a0d4",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/Clients.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": "You could do the same thing for the Nexus and Docker clients.",
+      "range": {
+        "startLine": 80,
+        "startChar": 8,
+        "endLine": 80,
+        "endChar": 20
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3a49202_5462033a",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/ContentService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": "stream.  Does this method close the stream when it\u0027s done?",
+      "range": {
+        "startLine": 52,
+        "startChar": 18,
+        "endLine": 52,
+        "endChar": 22
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99a13479_f41ae500",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/ContentService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": "stream.  Does this method close the stream when it\u0027s done?",
+      "range": {
+        "startLine": 76,
+        "startChar": 18,
+        "endLine": 76,
+        "endChar": 22
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eae2bdf5_832253c0",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": "This isn\u0027t a web site -- why is this needed?",
+      "range": {
+        "startLine": 68,
+        "startChar": 1,
+        "endLine": 68,
+        "endChar": 12
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76570e7a_998abc72",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": "Please use the method handles lookup trick",
+      "range": {
+        "startLine": 70,
+        "startChar": 59,
+        "endLine": 70,
+        "endChar": 79
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b4f0a40_aff45273",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": "Please call log.error, not info",
+      "range": {
+        "startLine": 332,
+        "startChar": 0,
+        "endLine": 332,
+        "endChar": 125
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "437a5648_06c945f0",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": "Please don\u0027t repeat the class name, use the MethodHandles.lookupClass() trick.",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 84
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43237911_a10ff510",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": "I don\u0027t think the peerId gets logged here, right?  I doubt you embedded the magic {} char sequence in those constants, right?  Same comment applies to all the logger invocations here.",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 76
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea54d743_23bd267f",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/PeerGateway.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": "So this isn\u0027t exactly a gateway, is it?  Sounds like a worker, a poller; maybe the name could be clarified?",
+      "range": {
+        "startLine": 61,
+        "startChar": 13,
+        "endLine": 61,
+        "endChar": 24
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6433bcdd_42100ed3",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/PeerGateway.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": "Pls use the method handles trick",
+      "range": {
+        "startLine": 62,
+        "startChar": 59,
+        "endLine": 62,
+        "endChar": 76
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a96ee78a_79d26452",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/PeerGateway.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": "You never seem to include the method name in your log output strings, I think that saves a lot of time.",
+      "range": {
+        "startLine": 136,
+        "startChar": 12,
+        "endLine": 136,
+        "endChar": 14
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5562b25_8afbdf10",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/PeerGateway.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": "I would DEFINITELY log the exception here before throwing",
+      "range": {
+        "startLine": 205,
+        "startChar": 0,
+        "endLine": 205,
+        "endChar": 111
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39f305df_aa027f9e",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/Security.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": "would you possibly consider a less generic name, maybe GatewaySecurity or ?",
+      "range": {
+        "startLine": 61,
+        "startChar": 13,
+        "endLine": 61,
+        "endChar": 21
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b658b0aa_cddcfd0f",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/Security.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": "maybe log an error?",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 196,
+        "endChar": 15
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05e15112_51e3c89a",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/Security.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": "if file is not found, maybe you should log the exception? How can you just discard continue like this?",
+      "range": {
+        "startLine": 204,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 38
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f3c52a3d_4c4bc0e3",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/Security.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": "Please log the exception.  Maybe this is normal, but it sure looks like a strange case, creating an empty peer",
+      "range": {
+        "startLine": 239,
+        "startChar": 0,
+        "endLine": 239,
+        "endChar": 26
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c29f25c8_a925f549",
+        "filename": "gateway/src/main/lombok/org/acumos/federation/gateway/DockerConfig.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": "what are valid values?",
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b4bac07_2aba3916",
+        "filename": "gateway/src/main/lombok/org/acumos/federation/gateway/DockerConfig.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": "Maybe consider java.io.File or java.nio.Path instead of String?",
+      "range": {
+        "startLine": 60,
+        "startChar": 9,
+        "endLine": 60,
+        "endChar": 15
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "caa0b05b_e60676cb",
+        "filename": "gateway/src/main/lombok/org/acumos/federation/gateway/DockerConfig.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": "Maybe use a URL?",
+      "range": {
+        "startLine": 76,
+        "startChar": 9,
+        "endLine": 76,
+        "endChar": 15
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "887fb460_6be4e711",
+        "filename": "gateway/src/main/lombok/org/acumos/federation/gateway/FederationConfig.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": "Would you please clarify this?  It\u0027s pretty ambiguous.",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 58
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "32cded8e_f55a4605",
+        "filename": "gateway/src/main/lombok/org/acumos/federation/gateway/ServiceConfig.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": "How about using type URL for a url?  Then you have no worries that it\u0027s invalid.",
+      "range": {
+        "startLine": 39,
+        "startChar": 9,
+        "endLine": 39,
+        "endChar": 15
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a808b7b_8f51a3b4",
         "filename": "gateway/src/main/resources/application.properties",
         "patchSetId": 2
@@ -557,6 +1483,52 @@
       "writtenOn": "2019-05-22T10:29:32Z",
       "side": 1,
       "message": "I would publish all the known properties here with empty values, or with values that cause the server to crash immediately.  It\u0027s valuable documentation AND identifies if some required config is missing in the SPRING_APP_JSON structure.",
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17915ea8_ee3718af",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/ClientsTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": "gotta be careful here.  I know that this is meaningless test data, but the security scan people FLIP OUT when they find this sort of thing in code.  Can these properties possibly be externalized in a config file?  Can the values be stripped here so there are only keys, not values?",
+      "range": {
+        "startLine": 41,
+        "startChar": 22,
+        "endLine": 41,
+        "endChar": 30
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2769d9d9_223699af",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/FederationControllerTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-05-22T19:22:00Z",
+      "side": 1,
+      "message": "See comment elsewhere re properties, code, passwords",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 46
+      },
       "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": false
