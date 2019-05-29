@@ -203,6 +203,30 @@
     },
     {
       "key": {
+        "uuid": "9b3117b8_691fd83c",
+        "filename": "acumos-fgw-client-test/src/main/java/org/acumos/federation/client/test/package-info.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2019-05-29T20:07:51Z",
+      "side": 1,
+      "message": "Yes, plural.  FederationClient, GatewayClient, and any other subclasses of ClientBase an application might define.",
+      "parentUuid": "e1d959c7_7a628f78",
+      "range": {
+        "startLine": 21,
+        "startChar": 67,
+        "endLine": 21,
+        "endChar": 74
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ccdb08c_0337e537",
         "filename": "acumos-fgw-client-test/src/main/resources/acumosTrustStore.jks",
         "patchSetId": 2
@@ -266,6 +290,30 @@
     },
     {
       "key": {
+        "uuid": "0ca8b33e_b4c8e481",
+        "filename": "acumos-fgw-client/pom.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2019-05-29T20:07:51Z",
+      "side": 1,
+      "message": "This is to pick up the RestTemplateBuilder class, which, for some reason, is in spring-boot, rather than in spring-web with the RestTemplate class it builds.",
+      "parentUuid": "aa614a19_bf0f5a1e",
+      "range": {
+        "startLine": 59,
+        "startChar": 2,
+        "endLine": 63,
+        "endChar": 15
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36f99801_3329be80",
         "filename": "acumos-fgw-client/pom.xml",
         "patchSetId": 2
@@ -300,6 +348,30 @@
       "writtenOn": "2019-05-22T10:29:32Z",
       "side": 1,
       "message": "Here I think you might consider using something less generic.  Maybe FederationBase, I don\u0027t know.  Good names are difficult to choose.",
+      "range": {
+        "startLine": 102,
+        "startChar": 13,
+        "endLine": 102,
+        "endChar": 23
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6f6cb4e_8ee12b9f",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/ClientBase.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2019-05-29T20:07:51Z",
+      "side": 1,
+      "message": "It is actually a pretty generic class.  The gateway module uses it to create a Nexus client, for example.",
+      "parentUuid": "bf712e35_36e109b3",
       "range": {
         "startLine": 102,
         "startChar": 13,
@@ -370,6 +442,30 @@
       "side": 1,
       "message": "Maybe I should have asked, do these belong in a constants class?",
       "parentUuid": "1c577a72_0c78d8e2",
+      "range": {
+        "startLine": 49,
+        "startChar": 1,
+        "endLine": 49,
+        "endChar": 7
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ad10ad6_a019ff8e",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/FederationClient.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2019-05-29T20:07:51Z",
+      "side": 1,
+      "message": "I think this is appropriate.  These constants are fundamental to the API being implemented by this class, so it\u0027s appropriate to put them in it, and they are used by the RequestMappings in the corresponding controller class, so they need to be public.",
+      "parentUuid": "aca03120_caf6acca",
       "range": {
         "startLine": 49,
         "startChar": 1,
@@ -663,6 +759,30 @@
       "writtenOn": "2019-05-22T19:22:00Z",
       "side": 1,
       "message": "What value does this wrapper add?  In general I\u0027m not a fan of wrapping exceptions in this fashion.",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 17
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8b8f3c3_1953ed17",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/TlsConfigException.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2019-05-29T20:07:51Z",
+      "side": 1,
+      "message": "Originally I didn\u0027t have this, but the Java stuff for TLS throws a lot of different checked exceptions, all of which translate to \"the TLS configuration is wrong.\"  I think, in this case, having the wrapper gives clarity.",
+      "parentUuid": "12268c87_83330370",
       "range": {
         "startLine": 34,
         "startChar": 0,
@@ -972,6 +1092,30 @@
     },
     {
       "key": {
+        "uuid": "8c44f424_2ceabcb6",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/Clients.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2019-05-29T20:07:51Z",
+      "side": 1,
+      "message": "I think it makes sense: this class is the one the rest of the module uses to get all the various clients.",
+      "parentUuid": "017f4cfe_2e605042",
+      "range": {
+        "startLine": 40,
+        "startChar": 13,
+        "endLine": 40,
+        "endChar": 20
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ce86639b_82463b51",
         "filename": "gateway/src/main/java/org/acumos/federation/gateway/Clients.java",
         "patchSetId": 2
@@ -983,6 +1127,30 @@
       "writtenOn": "2019-05-22T19:22:00Z",
       "side": 1,
       "message": "I don\u0027t quite understand why nobody creates a @Bean annotated method to return a CDS client, just let Spring do the work, of course that method must be in a class with @Configuration so the properties can be found.  Maybe this is just as easy, IDK.",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 66
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "55513ace_42bcad43",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/Clients.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2019-05-29T20:07:51Z",
+      "side": 1,
+      "message": "I ran into a timing problem that led to crazy unpredictable results, and this fixed it.",
+      "parentUuid": "ce86639b_82463b51",
       "range": {
         "startLine": 61,
         "startChar": 0,
@@ -1075,6 +1243,30 @@
       "writtenOn": "2019-05-22T19:22:00Z",
       "side": 1,
       "message": "This isn\u0027t a web site -- why is this needed?",
+      "range": {
+        "startLine": 68,
+        "startChar": 1,
+        "endLine": 68,
+        "endChar": 12
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bff4a414_2b622cd4",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2019-05-29T20:07:51Z",
+      "side": 1,
+      "message": "Serban had this, I don\u0027t know why, but I assume there was a reason.",
+      "parentUuid": "eae2bdf5_832253c0",
       "range": {
         "startLine": 68,
         "startChar": 1,
@@ -1271,6 +1463,30 @@
     },
     {
       "key": {
+        "uuid": "29b466cf_57b9fe68",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/PeerGateway.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2019-05-29T20:07:51Z",
+      "side": 1,
+      "message": "This gets logged down at line 321, along with all the other exceptions that can be thrown when federating solutions.  Adding logging here would just result in redundant log entries.",
+      "parentUuid": "f5562b25_8afbdf10",
+      "range": {
+        "startLine": 205,
+        "startChar": 0,
+        "endLine": 205,
+        "endChar": 111
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39f305df_aa027f9e",
         "filename": "gateway/src/main/java/org/acumos/federation/gateway/Security.java",
         "patchSetId": 2
@@ -1282,6 +1498,30 @@
       "writtenOn": "2019-05-22T19:22:00Z",
       "side": 1,
       "message": "would you possibly consider a less generic name, maybe GatewaySecurity or ?",
+      "range": {
+        "startLine": 61,
+        "startChar": 13,
+        "endLine": 61,
+        "endChar": 21
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "091db3c2_b2d0f103",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/Security.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2019-05-29T20:07:51Z",
+      "side": 1,
+      "message": "I think Security is appropriate.  org.acumos.federation.gateway.GatewaySecurity seems redundant.",
+      "parentUuid": "39f305df_aa027f9e",
       "range": {
         "startLine": 61,
         "startChar": 13,
@@ -1317,6 +1557,30 @@
     },
     {
       "key": {
+        "uuid": "7fb3b7bb_a480bcca",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/Security.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2019-05-29T20:07:51Z",
+      "side": 1,
+      "message": "This can\u0027t actually ever happen.  new LdapName() throws this if it\u0027s given a malformed string representation of a DN, but the value, here, comes from the client\u0027s certificate, which is in the ASN-1 binary representation of the DN, so the very fact that the client certificate\u0027s subject can be converted to a string representation means the resulting string is well formed.",
+      "parentUuid": "b658b0aa_cddcfd0f",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 196,
+        "endChar": 15
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "05e15112_51e3c89a",
         "filename": "gateway/src/main/java/org/acumos/federation/gateway/Security.java",
         "patchSetId": 2
@@ -1328,6 +1592,30 @@
       "writtenOn": "2019-05-22T19:22:00Z",
       "side": 1,
       "message": "if file is not found, maybe you should log the exception? How can you just discard continue like this?",
+      "range": {
+        "startLine": 204,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 38
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "783ecec4_8ceb564b",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/Security.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2019-05-29T20:07:51Z",
+      "side": 1,
+      "message": "The source can be a resource location or a file name.  If it isn\u0027t a resource location (as indicated by the FileNotFoundException), this tries opening it as a file.  If that fails, new FileInputStream(String) will throw an IOException (possibly another FileNotFoundException), which will get propagated and logged, by the caller.",
+      "parentUuid": "05e15112_51e3c89a",
       "range": {
         "startLine": 204,
         "startChar": 0,
@@ -1500,6 +1788,30 @@
       "writtenOn": "2019-05-22T19:22:00Z",
       "side": 1,
       "message": "gotta be careful here.  I know that this is meaningless test data, but the security scan people FLIP OUT when they find this sort of thing in code.  Can these properties possibly be externalized in a config file?  Can the values be stripped here so there are only keys, not values?",
+      "range": {
+        "startLine": 41,
+        "startChar": 22,
+        "endLine": 41,
+        "endChar": 30
+      },
+      "revId": "7a4afdde6957600e0d82d76d96958e9a8fe4e2d1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d8628ffc_8b1db6a7",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/ClientsTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2019-05-29T20:07:51Z",
+      "side": 1,
+      "message": "These correspond to the test certificates delivered with the client-test module, so yes, it\u0027s meaningless test data, but the values still have to actually decrypt the test key stores.  I haven\u0027t found any way to have something that works without making it look worse, but if the security scan people can show me a better way, I\u0027ll be delighted to use it.",
+      "parentUuid": "17915ea8_ee3718af",
       "range": {
         "startLine": 41,
         "startChar": 22,
