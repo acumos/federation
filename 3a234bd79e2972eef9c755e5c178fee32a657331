@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad54d409_c1aebfc4",
+        "filename": "README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-06-04T15:21:33Z",
+      "side": 1,
+      "message": "Architecture?  Maybe gateway, or something just a bit more descriptive?",
+      "range": {
+        "startLine": 3,
+        "startChar": 41,
+        "endLine": 3,
+        "endChar": 53
+      },
+      "revId": "3a234bd79e2972eef9c755e5c178fee32a657331",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f5d0f17_eb45f7a8",
+        "filename": "acumos-fgw-client-test/pom.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-06-04T15:21:33Z",
+      "side": 1,
+      "message": "so here you inherit the parent version - that\u0027s fine - but tho this is new, i think it needs to enter the world with a version that lines up with the gateway/server version, which is 2.something.",
+      "range": {
+        "startLine": 26,
+        "startChar": 11,
+        "endLine": 26,
+        "endChar": 24
+      },
+      "revId": "3a234bd79e2972eef9c755e5c178fee32a657331",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6994fae4_0bbf6bcc",
+        "filename": "acumos-fgw-client/pom.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-06-04T15:21:33Z",
+      "side": 1,
+      "message": "So this is a little weird, using a parent at 1.0.0 and setting a version a 2.2.2.  I think you should publish the version in the parent POM and reuse it in the gateway and client.",
+      "range": {
+        "startLine": 26,
+        "startChar": 11,
+        "endLine": 30,
+        "endChar": 25
+      },
+      "revId": "3a234bd79e2972eef9c755e5c178fee32a657331",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "059412b1_652ad7be",
+        "filename": "acumos-fgw-client/src/test/java/org/acumos/federation/client/ClientDemo.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-06-04T15:21:33Z",
+      "side": 1,
+      "message": "This is *great* but please add a few bits of javadoc, or if you\u0027ve explained it in RST somewhere, add a link to that.",
+      "range": {
+        "startLine": 32,
+        "startChar": 13,
+        "endLine": 32,
+        "endChar": 23
+      },
+      "revId": "3a234bd79e2972eef9c755e5c178fee32a657331",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b947b4f6_84fea726",
+        "filename": "acumos-fgw-client/src/test/java/org/acumos/federation/client/ClientDemo.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-06-04T15:21:33Z",
+      "side": 1,
+      "message": "Would you please add a PING (healthcheck) as the first item demonstrated?",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 81
+      },
+      "revId": "3a234bd79e2972eef9c755e5c178fee32a657331",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5875c6bd_ce294af6",
+        "filename": "docs/client.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-06-04T15:21:33Z",
+      "side": 1,
+      "message": "maybe remove \"the\"?",
+      "range": {
+        "startLine": 20,
+        "startChar": 20,
+        "endLine": 20,
+        "endChar": 23
+      },
+      "revId": "3a234bd79e2972eef9c755e5c178fee32a657331",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35aede80_b63fd0cc",
+        "filename": "docs/overview.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-06-04T15:21:33Z",
+      "side": 1,
+      "message": "Now that you have added extensive client \u0026 testing features, please amend this overview to ensure people notice those.",
+      "range": {
+        "startLine": 30,
+        "startChar": 16,
+        "endLine": 30,
+        "endChar": 22
+      },
+      "revId": "3a234bd79e2972eef9c755e5c178fee32a657331",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "81174763_45e57bfd",
+        "filename": "docs/overview.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-06-04T15:21:33Z",
+      "side": 1,
+      "message": "Did you update this picture to indicate your new client bits?",
+      "range": {
+        "startLine": 44,
+        "startChar": 10,
+        "endLine": 44,
+        "endChar": 20
+      },
+      "revId": "3a234bd79e2972eef9c755e5c178fee32a657331",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff30ffe1_1c3dade0",
+        "filename": "docs/release-notes.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-06-04T15:21:33Z",
+      "side": 1,
+      "message": "as mentioned elsewhere I\u0027d go with 2.3.0",
+      "range": {
+        "startLine": 26,
+        "startChar": 8,
+        "endLine": 26,
+        "endChar": 13
+      },
+      "revId": "3a234bd79e2972eef9c755e5c178fee32a657331",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e6da3515_e8d2184d",
+        "filename": "gateway/pom.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-06-04T15:21:33Z",
+      "side": 1,
+      "message": "This is not an API breaking change, but it is a major refactoring of the code (not a mere bugfix on 2.2 branch).  Of course this discards the alignment with CDS but still I suggest going with version 2.3.0.",
+      "range": {
+        "startLine": 30,
+        "startChar": 10,
+        "endLine": 30,
+        "endChar": 24
+      },
+      "revId": "3a234bd79e2972eef9c755e5c178fee32a657331",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34106b5b_24eedcf8",
+        "filename": "pom.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-06-04T15:21:33Z",
+      "side": 1,
+      "message": "I think you might want to manage your own version here, whether you choose 2.2.2 or 2.3.0, so the parent and the new client and libraries all have this version.  1.0.0 is just not right, this has been in existence a while.",
+      "range": {
+        "startLine": 32,
+        "startChar": 10,
+        "endLine": 32,
+        "endChar": 24
+      },
+      "revId": "3a234bd79e2972eef9c755e5c178fee32a657331",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
