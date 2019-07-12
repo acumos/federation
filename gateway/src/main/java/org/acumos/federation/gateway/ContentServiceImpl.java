@@ -81,7 +81,7 @@ public class ContentServiceImpl implements ContentService {
 	@Override
 	public void setArtifactUri(String solutionId, MLPArtifact artifact) {
 		if (FederationClient.ATC_DOCKER.equals(artifact.getArtifactTypeCode())) {
-			artifact.setUri(dockerConfig.getRegistryUrl() + "/" + artifact.getArtifactId() + ":" + artifact.getVersion());
+			artifact.setUri(dockerConfig.getRegistryUrl() + "/" + artifact.getName().toLowerCase() + "_" + solutionId  + ":" + artifact.getVersion());
 			artifact.setDescription(artifact.getUri());
 		} else {
 			artifact.setUri(makeNexusUri(solutionId, ((Artifact)artifact).getFilename(), artifact.getName(), artifact.getVersion()));
@@ -100,7 +100,7 @@ public class ContentServiceImpl implements ContentService {
 			}
 			String name = dockerConfig.getRegistryUrl() + "/" + artifact.getArtifactId();
 			docker.tagImageCmd(image.getId(), name, artifact.getVersion()).exec();
-			docker.removeImageCmd(artifact.getDescription()).withForce(true).exec();
+			docker.removeImageCmd(tag).withForce(true).exec();
 			try (PushImageResultCallback result = new PushImageResultCallback()) {
 				AuthConfig auth = (new AuthConfig())
 				    .withUsername(dockerConfig.getRegistryUsername())
