@@ -192,7 +192,7 @@ public class GatewayControllerTest {
 		    .on("POST /peer/register", xq("{ 'content': {}}"))
 		    .on("GET /solutions?catalogId=somecatalog", xq("{ 'content': [ { 'solutionId': 'somesolution' } ]}"))
 		    .on("GET /solutions/somesolution", xq("{ 'content': { 'picture': 'YXNkZg==', 'revisions': [ { 'revisionId': 'revid1' } ] }}"))
-		    .on("GET /solutions/somesolution/revisions/revid1?catalogId=somecatalog", xq("{ 'content': { 'solutionId': 'somesolution', 'revisionId': 'revid1', 'documents': [ { 'documentId': 'docid1', 'filename': 'docfile.doctype', 'version': 'docversion' } ], 'artifacts': [ { 'artifactId': 'artid1', 'filename': 'someimage', 'version': 'someversion', 'artifactTypeCode': 'DI', 'description': 'thisimage:thistag' } ], 'revCatDescription': { 'revisionId': 'revid1', 'catalogId': 'somecatalog', 'description': 'some description' }}}"))
+		    .on("GET /solutions/somesolution/revisions/revid1?catalogId=somecatalog", xq("{ 'content': { 'solutionId': 'somesolution', 'revisionId': 'revid1', 'documents': [ { 'documentId': 'docid1', 'filename': 'docfile.doctype', 'version': 'docversion' } ], 'artifacts': [ { 'artifactId': 'artid1', 'name': 'somename', 'filename': 'someimage', 'version': 'someversion', 'artifactTypeCode': 'DI', 'description': 'thisimage:thistag' } ], 'revCatDescription': { 'revisionId': 'revid1', 'catalogId': 'somecatalog', 'description': 'some description' }}}"))
 		    .on("GET /artifacts/artid1/content", "Artifact Content")
 		    .on("GET /artifacts/artid2/content", "Artifact Content 2")
 		    .on("GET /documents/docid1/content", "Document Content")
