@@ -52,7 +52,6 @@ public class Clients {
 
 	private ICommonDataServiceRestClient cdsClient;
 	private NexusClient nexusClient;
-	private DockerClient dockerClient;
 
 	public FederationClient getFederationClient(String url) {
 		return new FederationClient(url, federation);
@@ -78,21 +77,18 @@ public class Clients {
 	}
 
 	public synchronized DockerClient getDockerClient() {
-		if (dockerClient == null) {
-			dockerClient = DockerClientBuilder.getInstance(
-			    DefaultDockerClientConfig.createDefaultConfigBuilder()
-				.withDockerHost(dockerConfig.getHost())
-				.withDockerTlsVerify(dockerConfig.getTlsVerify())
-				.withDockerConfig(dockerConfig.getDockerConfig())
-				.withDockerCertPath(dockerConfig.getDockerCertPath())
-				.withApiVersion(dockerConfig.getApiVersion())
-				.withRegistryUsername(dockerConfig.getRegistryUsername())
-				.withRegistryPassword(dockerConfig.getRegistryPassword())
-				.withRegistryEmail(dockerConfig.getRegistryEmail())
-				.withRegistryUrl(dockerConfig.getRegistryUrl())
-			        .build()
-			    ).build();
-		}
-		return dockerClient;
+		return DockerClientBuilder.getInstance(
+		    DefaultDockerClientConfig.createDefaultConfigBuilder()
+			.withDockerHost(dockerConfig.getHost())
+			.withDockerTlsVerify(dockerConfig.getTlsVerify())
+			.withDockerConfig(dockerConfig.getDockerConfig())
+			.withDockerCertPath(dockerConfig.getDockerCertPath())
+			.withApiVersion(dockerConfig.getApiVersion())
+			.withRegistryUsername(dockerConfig.getRegistryUsername())
+			.withRegistryPassword(dockerConfig.getRegistryPassword())
+			.withRegistryEmail(dockerConfig.getRegistryEmail())
+			.withRegistryUrl(dockerConfig.getRegistryUrl())
+			.build()
+		    ).build();
 	}
 }

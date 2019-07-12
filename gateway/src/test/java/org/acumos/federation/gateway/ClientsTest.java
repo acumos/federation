@@ -58,6 +58,6 @@ public class ClientsTest {
 		assertNotNull(clients.getFederationClient("https://somepeer.example.org"));
 		assertEquals(clients.getCDSClient(), clients.getCDSClient());
 		assertEquals(clients.getNexusClient(), clients.getNexusClient());
-		assertEquals(clients.getDockerClient(), clients.getDockerClient());
+		assertNotNull(clients.getDockerClient());
 	}
 }
