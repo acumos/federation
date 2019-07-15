@@ -44,19 +44,14 @@ import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.http.client.CredentialsProvider;
 import org.apache.http.client.HttpClient;
-import org.apache.http.config.Registry;
-import org.apache.http.config.RegistryBuilder;
 import org.apache.http.conn.routing.HttpRoute;
 import org.apache.http.conn.routing.HttpRoutePlanner;
-import org.apache.http.conn.socket.ConnectionSocketFactory;
-import org.apache.http.conn.socket.PlainConnectionSocketFactory;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.conn.ssl.SSLContextBuilder;
 import org.apache.http.conn.ssl.SSLContexts;
 import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.client.HttpClients;
-import org.apache.http.impl.conn.BasicHttpClientConnectionManager;
 import org.apache.http.protocol.HttpContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -532,12 +527,6 @@ public class InterfaceConfiguration {
 			log.trace("SSL connection factory configured");
 		}
 
-		RegistryBuilder<ConnectionSocketFactory> registryBuilder = RegistryBuilder.<ConnectionSocketFactory>create();
-		registryBuilder.register("http", PlainConnectionSocketFactory.getSocketFactory());
-		if (sslSocketFactory != null) {
-			registryBuilder.register("https", sslSocketFactory);
-		}
-		Registry<ConnectionSocketFactory> registry = registryBuilder.build();
 		CredentialsProvider credsProvider = null;
 		if (hasClient()) {
 			credsProvider = new BasicCredentialsProvider();
@@ -549,8 +538,6 @@ public class InterfaceConfiguration {
 		}
 
 		HttpClientBuilder clientBuilder = HttpClients.custom();
-
-		clientBuilder.setConnectionManager(new BasicHttpClientConnectionManager(registry));
 
 		if (sslSocketFactory != null)
 			clientBuilder.setSSLSocketFactory(sslSocketFactory);
