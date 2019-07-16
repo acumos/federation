@@ -156,7 +156,7 @@ public class ContentServiceTest	extends ServiceTest {
 
 	private List<Image> dockerImages = Arrays.asList(new Image[] {
 	    makeImage("abc", "repo2.example.org/name:1.0"),
-	    makeImage("def", "repo1.example.org/thatone:latest", "repo1.example.org/thatone:1.0")
+	    makeImage("def", "repo1.example.org/thatone:latest", "repo1.example.org/thatone:1.0", "repo1.example.org/thatone_1234-5678-0909:1.0")
 	});
 	private AuthConfig dockerAuthConfig = new AuthConfig()
 	    .withUsername("username")
@@ -254,9 +254,9 @@ public class ContentServiceTest	extends ServiceTest {
 		artifact.setName("thatone");
 		artifact.setVersion("1.0");
 		artifact.setArtifactId("AnArtifactId");
-		artifact.setDescription("repo1.example.org/thatone:1.0");
+		artifact.setDescription("repo1.example.org/thatone_1234-5678-0909:1.0");
 		contentService.putArtifactContent("sid", artifact, new InputStreamResource(new ByteArrayInputStream("xxx".getBytes())));
-		assertEquals("dockerhost.example.com/AnArtifactId:1.0", artifact.getUri());
+		assertEquals("dockerhost.example.com/thatone_1234-5678-0909:1.0", artifact.getUri());
 		try {
 			artifact.setDescription("repo1.example.org/notthere:9.9");
 			contentService.putArtifactContent("sid", artifact, new InputStreamResource(new ByteArrayInputStream("xxx".getBytes())));

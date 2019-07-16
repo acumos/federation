@@ -24,6 +24,8 @@ import java.io.InputStream;
 import java.lang.invoke.MethodHandles;
 import java.net.URI;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 import org.acumos.federation.gateway.cds.Artifact;
@@ -61,6 +63,8 @@ import com.github.dockerjava.core.command.PushImageResultCallback;
 public class ContentServiceImpl extends AbstractServiceImpl implements ContentService {
 
 	private static final Logger log = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+	// docker image URI pattern - <hostName>:<port>/model-name_uuid:version
+	private Pattern diURLPattern = Pattern.compile("\\/(.+):.*");
 
 	@Autowired
 	private NexusConfiguration nexusConfig;
@@ -127,7 +131,16 @@ public class ContentServiceImpl extends AbstractServiceImpl implements ContentSe
 				}
 	
 				//new image name for re-tagging
-				String imageName = dockerConfig.getRegistryUrl() + "/" + theArtifact.getArtifactId();
+				// Create Pattern and Matcher objects to match the imageName group in "<hostName>:<port>/model-name_uuid:version"
+				Matcher m = diURLPattern.matcher(theArtifact.getDescription());
+				String imageName = null;
+				if (m.find()) {
+					imageName = m.group(1);
+				}
+				if (imageName == null) {
+					imageName = theArtifact.getArtifactId();
+				}
+				imageName = dockerConfig.getRegistryUrl() + "/" + imageName;
 				String imageTag = imageName;
 				log.debug("Attempt re-tagging of docker image {} with {}:{}", image, imageTag, theArtifact.getVersion());
 				docker.tagImageCmd(image.getId(), imageTag, theArtifact.getVersion()).exec();

@@ -26,6 +26,7 @@ The image name is "federation-gateway" and the tag is a version string as shown 
 Version 2.2.1, 2019-07-15
 -------------------------
 * Fix DI artifact create fail due to Federation use of a stale TCP stream (`ACUMOS-3193 <https://jira.acumos.org/browse/ACUMOS-3193>`_)
+* Federated model DI name to include model name - same as source peer DI name (`ACUMOS-3195 <https://jira.acumos.org/browse/ACUMOS-3195>`_)
 
 Version 2.2.0, 2019-04-16
 -------------------------
