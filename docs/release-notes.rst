@@ -23,6 +23,10 @@ Federation Gateway Release Notes
 This server is available as a Docker image in a Docker registry at the Linux Foundation.
 The image name is "federation-gateway" and the tag is a version string as shown below. 
 
+Version 2.2.1, 2019-07-15
+-------------------------
+* Federated model DI name to include model name - same as source peer DI name.
+
 Version 2.2.0, 2019-04-16
 -------------------------
 * Increase Spring async task timeout value (spring.mvc.async.request-timeout)
