@@ -256,7 +256,7 @@ public class ContentServiceTest	extends ServiceTest {
 		artifact.setArtifactId("AnArtifactId");
 		artifact.setDescription("repo1.example.org/thatone:1.0");
 		contentService.putArtifactContent("sid", artifact, new InputStreamResource(new ByteArrayInputStream("xxx".getBytes())));
-		assertEquals("dockerhost.example.com/AnArtifactId:1.0", artifact.getUri());
+		assertEquals("dockerhost.example.com/thatone:1.0", artifact.getUri());
 		try {
 			artifact.setDescription("repo1.example.org/notthere:9.9");
 			contentService.putArtifactContent("sid", artifact, new InputStreamResource(new ByteArrayInputStream("xxx".getBytes())));
