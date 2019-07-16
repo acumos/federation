@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "95d0afde_bd7c4a91",
+        "filename": "docs/release-notes.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2019-07-16T17:00:32Z",
+      "side": 1,
+      "message": "Please refer to the JIRA (3195) for the change",
+      "revId": "5e2172fd54f04d9e1f495b108d83d81c2e767284",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
