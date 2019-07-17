@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0f376803_47fe00be",
+        "filename": "docs/release-notes.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 291
+      },
+      "writtenOn": "2019-07-17T19:37:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "983d7dab_e4258a3f",
+      "revId": "7ece26a8f0c5ad2d2f2098a54a7f4f84593b5566",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ac2eea29_536cd17e",
         "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/ContentServiceImpl.java",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2019-07-16T18:42:00Z",
       "side": 1,
       "message": "Remove code don\u0027t comment out",
+      "revId": "7ece26a8f0c5ad2d2f2098a54a7f4f84593b5566",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "de39ac96_89083ec5",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/ContentServiceImpl.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 291
+      },
+      "writtenOn": "2019-07-17T19:37:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac2eea29_536cd17e",
       "revId": "7ece26a8f0c5ad2d2f2098a54a7f4f84593b5566",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "4e6fe867_aedb151a",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/service/impl/ContentServiceImpl.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 291
+      },
+      "writtenOn": "2019-07-17T19:37:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a9e674f_2d3f458f",
+      "revId": "7ece26a8f0c5ad2d2f2098a54a7f4f84593b5566",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ce9d4eb2_753afd72",
         "filename": "gateway/src/test/java/org/acumos/federation/gateway/test/ContentServiceTest.java",
         "patchSetId": 3
@@ -64,6 +118,24 @@
       "writtenOn": "2019-07-16T18:42:00Z",
       "side": 1,
       "message": "maybe better name is example-model-UUID:1.0.0",
+      "revId": "7ece26a8f0c5ad2d2f2098a54a7f4f84593b5566",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "98655f3e_819f3381",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/test/ContentServiceTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 291
+      },
+      "writtenOn": "2019-07-17T19:37:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce9d4eb2_753afd72",
       "revId": "7ece26a8f0c5ad2d2f2098a54a7f4f84593b5566",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": false
