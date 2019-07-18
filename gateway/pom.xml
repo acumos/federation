@@ -40,6 +40,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<maven.deploy.skip>true</maven.deploy.skip>
 		<!-- Stand-alone RESTFul application -->
 		<start-class>org.acumos.federation.gateway.Application</start-class>
 		<!-- Jenkins invokes mvn with argument -Dbuild.number=${BUILD_NUMBER} -->
@@ -292,15 +293,6 @@
 						</configuration>
 					</execution>
 				</executions>
-			</plugin>
-			<!-- No need to deploy Spring super-jar -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-deploy-plugin</artifactId>
-				<!-- Spring sets the <version>2.8</version> -->
-				<configuration>
-					<skip>true</skip>
-				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>io.fabric8</groupId>
