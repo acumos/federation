@@ -3,14 +3,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.acumos.federation</groupId>
 	<artifactId>federation-parent</artifactId>
-	<!-- this version is not used -->
-	<version>0</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Federation Parent</name>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<maven.deploy.skip>true</maven.deploy.skip>
 	</properties>
 	<modules>
 		<!-- Child modules do NOT name this parent. -->
