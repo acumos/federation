@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7a7f4a78_3bdf3cc5",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/Clients.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2019-07-22T12:35:43Z",
+      "side": 1,
+      "message": "I\u0027ll add some comments.",
+      "parentUuid": "a0b26402_2a4bf614",
+      "range": {
+        "startLine": 54,
+        "startChar": 1,
+        "endLine": 54,
+        "endChar": 32
+      },
+      "revId": "5a88d1225f487895dd4f422f88fcd55b90db1674",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6d4e5e8_ffe05b48",
         "filename": "gateway/src/test/java/org/acumos/federation/gateway/ClientsTest.java",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2019-07-22T12:14:37Z",
       "side": 1,
       "message": "These are vacuous assertions and should be improved",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 67
+      },
+      "revId": "5a88d1225f487895dd4f422f88fcd55b90db1674",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bbebaa91_803dd3d3",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/ClientsTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2019-07-22T12:35:43Z",
+      "side": 1,
+      "message": "Not vacuous.  Verifies that the connection caching works by exercising both the first time and not-first time cases and checking that they return the same result.",
+      "parentUuid": "b6d4e5e8_ffe05b48",
       "range": {
         "startLine": 59,
         "startChar": 0,
