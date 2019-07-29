@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8a50a442_ee279926",
+        "filename": "docs/release-notes.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-07-29T12:23:15Z",
+      "side": 1,
+      "message": "I don\u0027t see this change listed in the 2.3.0 version notes, is that just an oversight, is it still pending, or does the 2.3.0 version not suffer from this problem?",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 139
+      },
+      "revId": "200de9e94be9d2f6f1a075ecf7851b07f1db0757",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    }
+  ]
+}
