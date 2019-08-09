@@ -169,7 +169,7 @@
 						<image>
 							<name>federation-gateway:${project.version}</name>
 							<build>
-								<from>openjdk:8-jre-slim</from>
+								<from>adoptopenjdk/openjdk11-openj9:alpine-jre</from>
 								<tags>
 									<tag>${project.version}-b${build.number}</tag>
 								</tags>
@@ -177,8 +177,8 @@
 									<descriptorRef>artifact</descriptorRef>
 								</assembly>
 								<runCmds>
-									<runCmd>mkdir /maven/logs</runCmd>
 									<runCmd>chmod -R 777 /maven</runCmd>
+									<runCmd>mkdir -m 777 /maven/logs</runCmd>
 								</runCmds>
 								<cmd>
 									<shell><![CDATA[cd /maven; java -Xms256m -Xmx2g -Djava.security.egd=file:/dev/./urandom -jar ${project.artifactId}-${project.version}.${project.packaging}]]></shell>
