@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6bc79274_92e288ee",
+        "filename": "gateway/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2019-08-09T16:53:51Z",
+      "side": 0,
+      "message": "Hi Andrew - On 8/7/2019 architecture call we discussed using jre11 + alpine (instead of slim) + openj9 instead of hotspot.  \n\n\u003cfrom\u003eopenjdk:11-jre-slim\u003c/from\u003e to\n\u003cfrom\u003eadoptopenjdk/openjdk11-openj9:alpine-jre\u003c/from\u003e\n\nThe last 2 help with memory footprint and faster ramp up times.  Please refer to - https://wiki.acumos.org/display/AR/Platform+Memory+Footprint+Reduction\n\nI have also updated portal-be and portal-fe to use all of the above for your reference.. \nhttps://gerrit.acumos.org/r/c/portal-marketplace/+/4985",
+      "revId": "5111e09ffba88e0af66236b6d0622fab03017cef",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    }
+  ]
+}
