@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e06b882_8b331550",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/SubscriptionPoller.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-09-06T19:43:41Z",
+      "side": 1,
+      "message": "should all these chatty statements be logged at level debug?",
+      "range": {
+        "startLine": 470,
+        "startChar": 7,
+        "endLine": 470,
+        "endChar": 11
+      },
+      "revId": "351ce89c4320f79e24d4f7c1da969dc1f3923495",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    }
+  ]
+}
