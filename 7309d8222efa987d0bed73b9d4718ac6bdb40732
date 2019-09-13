@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f2e61962_2e0df5f0",
+        "filename": "acumos-fgw-client/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2019-09-13T15:14:03Z",
+      "side": 1,
+      "message": "Covered by the parent, which also covers the client-config and client-test libraries.",
+      "parentUuid": "25106db2_997ba273",
+      "range": {
+        "startLine": 32,
+        "startChar": 1,
+        "endLine": 32,
+        "endChar": 2
+      },
+      "revId": "7309d8222efa987d0bed73b9d4718ac6bdb40732",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c2e119bb_e5be61ca",
         "filename": "docs/release-notes.rst",
         "patchSetId": 1
@@ -94,6 +118,30 @@
     },
     {
       "key": {
+        "uuid": "aa024f26_69aa47e9",
+        "filename": "gateway/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2019-09-13T15:14:03Z",
+      "side": 1,
+      "message": "I was looking for an answer, earlier, and now I\u0027ve found one.  Looks like, if the actual compiler is JDK 9 or later, you can set property maven.compiler.release.  It combines the effect of setting source and target and also uses the matching bootstrap libraries.  I\u0027ll change to use it.",
+      "parentUuid": "9fffa6cc_760ac7bd",
+      "range": {
+        "startLine": 48,
+        "startChar": 3,
+        "endLine": 48,
+        "endChar": 24
+      },
+      "revId": "7309d8222efa987d0bed73b9d4718ac6bdb40732",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d0600159_6e5964ac",
         "filename": "pom.xml",
         "patchSetId": 1
@@ -105,6 +153,30 @@
       "writtenOn": "2019-09-13T14:34:50Z",
       "side": 1,
       "message": "I would keep parent ignorant of the version",
+      "range": {
+        "startLine": 47,
+        "startChar": 3,
+        "endLine": 47,
+        "endChar": 24
+      },
+      "revId": "7309d8222efa987d0bed73b9d4718ac6bdb40732",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "654101db_1b6eddb8",
+        "filename": "pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2019-09-13T15:14:03Z",
+      "side": 1,
+      "message": "The parent sets the default for all the children, so it covers all 3 libraries.",
+      "parentUuid": "d0600159_6e5964ac",
       "range": {
         "startLine": 47,
         "startChar": 3,
