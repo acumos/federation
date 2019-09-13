@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "25106db2_997ba273",
+        "filename": "acumos-fgw-client/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-09-13T14:34:50Z",
+      "side": 1,
+      "message": "I would add java 8 compliance here",
+      "range": {
+        "startLine": 32,
+        "startChar": 1,
+        "endLine": 32,
+        "endChar": 2
+      },
+      "revId": "7309d8222efa987d0bed73b9d4718ac6bdb40732",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2e119bb_e5be61ca",
+        "filename": "docs/release-notes.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-09-13T14:34:50Z",
+      "side": 1,
+      "message": "Perhaps phrase as \"Upgrade server to Java 11. Compile client for Java 8.\"",
+      "range": {
+        "startLine": 28,
+        "startChar": 2,
+        "endLine": 28,
+        "endChar": 19
+      },
+      "revId": "7309d8222efa987d0bed73b9d4718ac6bdb40732",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ef664ce_09aeb3a0",
+        "filename": "docs/release-notes.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-09-13T14:34:50Z",
+      "side": 1,
+      "message": "compliance",
+      "range": {
+        "startLine": 29,
+        "startChar": 58,
+        "endLine": 29,
+        "endChar": 68
+      },
+      "revId": "7309d8222efa987d0bed73b9d4718ac6bdb40732",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fffa6cc_760ac7bd",
+        "filename": "gateway/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-09-13T14:34:50Z",
+      "side": 1,
+      "message": "How is this different from property java.version ?  Which is recommended in modern maven, modern java, etc?",
+      "range": {
+        "startLine": 48,
+        "startChar": 3,
+        "endLine": 48,
+        "endChar": 24
+      },
+      "revId": "7309d8222efa987d0bed73b9d4718ac6bdb40732",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0600159_6e5964ac",
+        "filename": "pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2019-09-13T14:34:50Z",
+      "side": 1,
+      "message": "I would keep parent ignorant of the version",
+      "range": {
+        "startLine": 47,
+        "startChar": 3,
+        "endLine": 47,
+        "endChar": 24
+      },
+      "revId": "7309d8222efa987d0bed73b9d4718ac6bdb40732",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    }
+  ]
+}
