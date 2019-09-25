@@ -95,6 +95,11 @@
 			<artifactId>security-verification-client</artifactId>
 			<version>0.0.24</version>
 		</dependency>
+		<dependency>
+			<groupId>org.acumos.license-manager</groupId>
+			<artifactId>license-manager-client-library</artifactId>
+			<version>1.0.0</version>
+		</dependency>
 		<!-- Compile time only dependencies -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
