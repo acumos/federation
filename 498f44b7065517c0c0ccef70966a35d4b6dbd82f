@@ -68,6 +68,24 @@
       "revId": "498f44b7065517c0c0ccef70966a35d4b6dbd82f",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07509495_2fa1ba30",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/SubscriptionPoller.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2019-09-26T19:41:12Z",
+      "side": 1,
+      "message": "Agreed -- we proposed an idea for that but we don\u0027t have pub/sub infrastructure in Clio. We have  also thought about this and brought this to Architecture meeting -- please refer to this decision page - https://wiki.acumos.org/display/LM/Best+approach+for+registering+software+with+LUM+..+connecting+Acumos+to+LUM\n\nFor now we are relying on having each service directly connect to SV or LUM.",
+      "parentUuid": "5167adb5_cb27ac1b",
+      "revId": "498f44b7065517c0c0ccef70966a35d4b6dbd82f",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
     }
   ]
 }
