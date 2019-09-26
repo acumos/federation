@@ -22,6 +22,30 @@
       "revId": "8bfa5e3382101c4e41220c25ac2030672d214c3c",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22a5ce9b_5db07e8f",
+        "filename": "docs/release-notes.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2019-09-26T12:40:33Z",
+      "side": 1,
+      "message": "I was undecided on which way to go with this: was it better to keep version in sync with CDS or to make it a new version.  I\u0027ll change the version and resubmit.",
+      "parentUuid": "9468c70b_4ed94c54",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 3
+      },
+      "revId": "8bfa5e3382101c4e41220c25ac2030672d214c3c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
     }
   ]
 }
