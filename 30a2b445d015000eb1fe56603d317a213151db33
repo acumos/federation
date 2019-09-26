@@ -22,6 +22,30 @@
       "revId": "30a2b445d015000eb1fe56603d317a213151db33",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40b3f9ed_9d7adefa",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/SubscriptionPoller.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2019-09-26T20:30:34Z",
+      "side": 1,
+      "message": "Definitely don\u0027t want thread.join().  The whole point of using these threads is this shouldn\u0027t block federation\u0027s processing.  This is background processing that\u0027s supposed to be triggered when a solution revision is created, no matter how the revision is created, so this logic gets duplicated everywhere a solution revision gets created (portal as well as federation).  It really should be part of something else, probably some generic separate service that monitors the database and looks for revisions (or other things) that need some processing done on them.\n\nAnd there\u0027s no point in interrupting the worker threads.  In the case of securityVerificationScan, it\u0027s waiting for a response to an HTTP request and the server will keep going even if this thread gets interrupted.  In the case of license manager registration, the worker thread is just waiting for some other threads to complete (which are just making HTTP requests).  It doesn\u0027t do any work, itself.  There is a cancel() method for CompleteableFuture, and it does take an interrupt flag, but that flag doesn\u0027t actually do anything and, even if it did, the structure of the registration code has yet another set of CompleteableFutures that are actually responsible for doing the work, so cancel couldn\u0027t even find the actual threads that would need to be interrupted.  In neither case is the respective \"client\" structured anything like how the federation or CDS clients are structured (i.e., each method corresponds to a single REST request to a server).",
+      "parentUuid": "d298a851_3fdc9e0a",
+      "range": {
+        "startLine": 424,
+        "startChar": 4,
+        "endLine": 424,
+        "endChar": 5
+      },
+      "revId": "30a2b445d015000eb1fe56603d317a213151db33",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
     }
   ]
 }
