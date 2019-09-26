@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c115c779_ccb021af",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/SubscriptionPoller.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2019-09-26T16:01:15Z",
+      "side": 1,
+      "message": "one thread for both SV scan call and license asset registration? consider using CompletableFuture one for each service request?",
+      "revId": "498f44b7065517c0c0ccef70966a35d4b6dbd82f",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dac4ffbf_6b244583",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/SubscriptionPoller.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2019-09-26T16:01:15Z",
+      "side": 1,
+      "message": "Separate completable future here",
+      "revId": "498f44b7065517c0c0ccef70966a35d4b6dbd82f",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce449ac0_6c7ec55c",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/SubscriptionPoller.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2019-09-26T16:01:15Z",
+      "side": 1,
+      "message": "Hi Andrew,\n\nThanks for this change.. \n\n1: you are calling register but then you are not verifying the results that the asset was indeed registered... \n\n    CompletableFuture\u003cRegisterAssetResponse\u003e responseFuture \u003d asset.register(request);\n    RegisterAssetResponse response \u003d responseFuture.get();\n    response.isSuccess();\n\nIf there is a failure isSuccess will be false and you can call response.getMessage() and log failure. \n\n2: We ideally want to handle errors better than just log error. If the software requires a RTU we may need Acumos to prevent usage until software is correctly registered -- we can create different story to handle this better. \n\nJust side note - in Demeter we would like an event to be produced here and then each feature SV + Licensing + other can listen to the subscribedSolutionChanged event and have independent handlers so we don\u0027t couple this together. \n\nJustin",
+      "revId": "498f44b7065517c0c0ccef70966a35d4b6dbd82f",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    }
+  ]
+}
