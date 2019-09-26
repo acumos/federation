@@ -50,6 +50,24 @@
       "revId": "498f44b7065517c0c0ccef70966a35d4b6dbd82f",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5167adb5_cb27ac1b",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/SubscriptionPoller.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2019-09-26T18:32:26Z",
+      "side": 1,
+      "message": "OK.  Going with separate threads and checking the response.  I\u0027ll upload a new patch shortly.\n\nTo my mind, this seems like poor design: each thing that puts/updates solution-revisions has to have some code added to it.  Wouldn\u0027t it be better to have this done through something like a database trigger or some other mechanism that watches for changes to revisions in the database, so that it\u0027s all handled in one place rather than copied/pasted in multiple places (like both federation and portal)?",
+      "parentUuid": "ce449ac0_6c7ec55c",
+      "revId": "498f44b7065517c0c0ccef70966a35d4b6dbd82f",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
     }
   ]
 }
