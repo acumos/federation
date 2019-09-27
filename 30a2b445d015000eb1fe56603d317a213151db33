@@ -46,6 +46,30 @@
       "revId": "30a2b445d015000eb1fe56603d317a213151db33",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b398f7c8_c4a63b4b",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/SubscriptionPoller.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2019-09-27T16:16:11Z",
+      "side": 1,
+      "message": "Do you need to be able to cancel the requests? We can update library to include that feature / test for canceling of the requests.",
+      "parentUuid": "40b3f9ed_9d7adefa",
+      "range": {
+        "startLine": 424,
+        "startChar": 4,
+        "endLine": 424,
+        "endChar": 5
+      },
+      "revId": "30a2b445d015000eb1fe56603d317a213151db33",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
     }
   ]
 }
