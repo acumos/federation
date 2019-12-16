@@ -23,9 +23,15 @@ Federation Gateway Release Notes
 This server is available as a Docker image in a Docker registry at the Linux Foundation.
 The image name is "federation-gateway" and the tag is a version string as shown below.
 
+<<<<<<< HEAD   (a6d678 Release 3.0.3 Clio Federation)
 Version 3.0.3, 2020-02-26
 -------------------------
 * LicenseAsset support NexusArtifactClient - `ACUMOS-3960 <https://jira.acumos.org/browse/ACUMOS-3960>`_
+=======
+Version 3.1.0, 2019-12-16
+-------------------------
+* Update dependency version for the common data service client to 3.1.0 (`ACUMOS-3845 <https://jira.acumos.org/browse/ACUMOS-3845>`_)
+>>>>>>> CHANGE (c3305f Upgrade CDS client dependency to version 3.1.0)
 
 Version 3.0.2, 2019-11-04
 -------------------------
