@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c2bb46b7_3bcc2455",
+        "filename": "gateway/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2020-01-27T17:53:22Z",
+      "side": 1,
+      "message": "just for the record, if the gateway depends on CDS, it should name the dependency here.  You should not rely on the transitive dependency brought in by the client.  This is just basic best practice in Maven.  In this case of course you know what\u0027s going on, but in the general case, a dependency could be dropped at any time and if you didn\u0027t name it explicitly, the departure would break your build.",
+      "range": {
+        "startLine": 50,
+        "startChar": 1,
+        "endLine": 50,
+        "endChar": 2
+      },
+      "revId": "ae0ac9a1d66a99e293c187184d3926e0e39bf59f",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    }
+  ]
+}
