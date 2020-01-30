@@ -187,6 +187,8 @@ public class Security extends WebSecurityConfigurerAdapter {
 
 	/**
 	 * Generate an MLPPeer from the current user's subject DN.
+	 *
+	 * @return MLPPeer
 	 */
 	public static MLPPeer getCertificatePeer() {
 		try {
@@ -214,6 +216,8 @@ public class Security extends WebSecurityConfigurerAdapter {
 
 	/**
 	 * Get the full peer information for the Federation Gateway, itself.
+	 *
+	 * @return MLPPeer
 	 */
 	public MLPPeer getSelf() {
 		if (myself == null) {

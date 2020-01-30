@@ -19,24 +19,20 @@
  */
 package org.acumos.federation.client;
 
-import java.util.List;
-import java.io.InputStream;
-import java.net.URI;
-
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.core.io.ResourceLoader;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpMethod;
-
-import org.acumos.cds.domain.MLPPeer;
-import org.acumos.cds.domain.MLPCatalog;
-import org.acumos.cds.domain.MLPSolution;
-import org.acumos.cds.domain.MLPSolutionRevision;
-import org.acumos.cds.domain.MLPArtifact;
-import org.acumos.cds.domain.MLPDocument;
-
+import org.acumos.cds.domain.*;
 import org.acumos.federation.client.config.ClientConfig;
 import org.acumos.federation.client.data.JsonResponse;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.core.io.ResourceLoader;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
+import org.springframework.web.client.RestClientException;
+
+import java.io.InputStream;
+import java.util.List;
+
 
 /**
  * Client for the Federation Server's public (E5) API.  Note that servers
@@ -44,7 +40,7 @@ import org.acumos.federation.client.data.JsonResponse;
  * share with clients.  Servers may refuse access to some clients, may refuse
  * access to some operations, may restrict what data is visible to clients,
  * etc., based on their particular policies.  This may result in client
- * methods returning null, returning lists with reduced numbers of elements, or 
+ * methods returning null, returning lists with reduced numbers of elements, or
  * throwing {@link org.springframework.web.client.RestClientException} or its
  * subclasses.
  * @see GatewayClient
@@ -109,6 +105,13 @@ public class FederationClient extends ClientBase {
 	public static final String CATID_QUERY = "?catalogId={catalogId}";
 
 	/**
+	 * The URI for sending model data from subscriber to supplier.
+	 */
+	public static final String MODEL_DATA = "/modeldata";
+
+	public static final String PEER_MODEL_DATA = "/peermodeldata";
+
+	/**
 	 * Peer Status Code for Active
 	 */
 	public static final String PSC_ACTIVE = "AC";
@@ -158,7 +161,7 @@ public class FederationClient extends ClientBase {
 	 * @return The server's own MLPPeer record.
 	 */
 	public MLPPeer ping() {
-		return handleResponse(PING_URI, new ParameterizedTypeReference<JsonResponse<MLPPeer>>(){});
+		return handleResponse(PING_URI, null, new ParameterizedTypeReference<JsonResponse<MLPPeer>>(){});
 	}
 
 	/**
@@ -167,7 +170,7 @@ public class FederationClient extends ClientBase {
 	 * @return The list of peers.
 	 */
 	public List<MLPPeer> getPeers() {
-		return handleResponse(PEERS_URI, new ParameterizedTypeReference<JsonResponse<List<MLPPeer>>>(){});
+		return handleResponse(PEERS_URI,null, new ParameterizedTypeReference<JsonResponse<List<MLPPeer>>>(){});
 	}
 
 	/**
@@ -176,7 +179,7 @@ public class FederationClient extends ClientBase {
 	 * @return The server's own MLPPeer record.
 	 */
 	public MLPPeer register() {
-		return handleResponse(REGISTER_URI, HttpMethod.POST, new ParameterizedTypeReference<JsonResponse<MLPPeer>>(){});
+		return handleResponse(REGISTER_URI, HttpMethod.POST, null, new ParameterizedTypeReference<JsonResponse<MLPPeer>>(){});
 	}
 
 	/**
@@ -185,8 +188,21 @@ public class FederationClient extends ClientBase {
 	 * @return The server's own MLPPeer record.
 	 */
 	public MLPPeer unregister() {
-		return handleResponse(UNREGISTER_URI, HttpMethod.POST, new ParameterizedTypeReference<JsonResponse<MLPPeer>>(){});
+		return handleResponse(UNREGISTER_URI,  HttpMethod.POST, null, new ParameterizedTypeReference<JsonResponse<MLPPeer>>(){});
 	}
+
+	/**
+	 * @param entity payload model (json) data payload
+	 * @return json response
+	 * @throws RestClientException
+	 *             if remote acumos is not available
+	 */
+	public JsonNode modelData(HttpEntity<JsonNode> entity) throws RestClientException {
+		return handleResponse(MODEL_DATA,HttpMethod.POST, entity, new ParameterizedTypeReference<JsonResponse<JsonNode>>(){});
+	}
+
+	/**
+
 
 	/**
 	 * Get a list of the server's catalogs.
@@ -194,7 +210,7 @@ public class FederationClient extends ClientBase {
 	 * @return The list of catalogs (enhanced with their sizes), the peer is willing to share.
 	 */
 	public List<MLPCatalog> getCatalogs() {
-		return handleResponse(CATALOGS_URI, new ParameterizedTypeReference<JsonResponse<List<MLPCatalog>>>(){});
+		return handleResponse(CATALOGS_URI, null, new ParameterizedTypeReference<JsonResponse<List<MLPCatalog>>>(){});
 	}
 
 	/**
@@ -204,7 +220,7 @@ public class FederationClient extends ClientBase {
 	 * @return The list of solutions in the catalog.
 	 */
 	public List<MLPSolution> getSolutions(String catalogId) {
-		return handleResponse(SOLUTIONS_URI + CATID_QUERY, new ParameterizedTypeReference<JsonResponse<List<MLPSolution>>>(){}, catalogId);
+		return handleResponse(SOLUTIONS_URI + CATID_QUERY, null,new ParameterizedTypeReference<JsonResponse<List<MLPSolution>>>(){}, catalogId);
 	}
 
 	/**
@@ -214,7 +230,7 @@ public class FederationClient extends ClientBase {
 	 * @return The solution's metadata, enhanced with its picture and revisions.
 	 */
 	public MLPSolution getSolution(String solutionId) {
-		return handleResponse(SOLUTION_URI, new ParameterizedTypeReference<JsonResponse<MLPSolution>>(){}, solutionId);
+		return handleResponse(SOLUTION_URI,null, new ParameterizedTypeReference<JsonResponse<MLPSolution>>(){}, solutionId);
 	}
 
 	/**
@@ -224,7 +240,7 @@ public class FederationClient extends ClientBase {
 	 * @return The solution's revisions.
 	 */
 	public List<MLPSolutionRevision> getSolutionRevisions(String solutionId) {
-		return handleResponse(REVISIONS_URI, new ParameterizedTypeReference<JsonResponse<List<MLPSolutionRevision>>>(){}, solutionId);
+		return handleResponse(REVISIONS_URI, null, new ParameterizedTypeReference<JsonResponse<List<MLPSolutionRevision>>>(){}, solutionId);
 	}
 
 	/**
@@ -238,9 +254,9 @@ public class FederationClient extends ClientBase {
 	 */
 	public MLPSolutionRevision getSolutionRevision(String solutionId, String revisionId, String catalogId) {
 		if (catalogId != null) {
-			return handleResponse(REVISION_URI + CATID_QUERY, new ParameterizedTypeReference<JsonResponse<MLPSolutionRevision>>(){}, solutionId, revisionId, catalogId);
+			return handleResponse(REVISION_URI + CATID_QUERY, null, new ParameterizedTypeReference<JsonResponse<MLPSolutionRevision>>(){}, solutionId, revisionId, catalogId);
 		}
-		return handleResponse(REVISION_URI, new ParameterizedTypeReference<JsonResponse<MLPSolutionRevision>>(){}, solutionId, revisionId);
+		return handleResponse(REVISION_URI, null, new ParameterizedTypeReference<JsonResponse<MLPSolutionRevision>>(){}, solutionId, revisionId);
 	}
 
 	/**
@@ -251,7 +267,7 @@ public class FederationClient extends ClientBase {
 	 * @return The revision's artifacts.
 	 */
 	public List<MLPArtifact> getArtifacts(String solutionId, String revisionId) {
-		return handleResponse(ARTIFACTS_URI, new ParameterizedTypeReference<JsonResponse<List<MLPArtifact>>>(){}, solutionId, revisionId);
+		return handleResponse(ARTIFACTS_URI, null, new ParameterizedTypeReference<JsonResponse<List<MLPArtifact>>>(){}, solutionId, revisionId);
 	}
 
 	/**
@@ -273,7 +289,7 @@ public class FederationClient extends ClientBase {
 	 * @return The revision's documents.
 	 */
 	public List<MLPDocument> getDocuments(String revisionId, String catalogId) {
-		return handleResponse(DOCUMENTS_URI + CATID_QUERY, new ParameterizedTypeReference<JsonResponse<List<MLPDocument>>>(){}, revisionId, catalogId);
+		return handleResponse(DOCUMENTS_URI + CATID_QUERY, null, new ParameterizedTypeReference<JsonResponse<List<MLPDocument>>>(){}, revisionId, catalogId);
 	}
 
 	/**

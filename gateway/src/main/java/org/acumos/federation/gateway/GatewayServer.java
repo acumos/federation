@@ -50,6 +50,11 @@ public class GatewayServer {
 	}
 
 	@Bean
+	public PeerModelDataController peerModelDataController() {
+		return new PeerModelDataController();
+	}
+
+	@Bean
 	public WebServerFactoryCustomizer<ConfigurableServletWebServerFactory> localServer() {
 		return server -> Application.configureServer(server, this.local);
 	}
