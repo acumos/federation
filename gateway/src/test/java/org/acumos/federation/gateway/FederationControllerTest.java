@@ -22,7 +22,8 @@ package org.acumos.federation.gateway;
 import java.io.InputStream;
 
 import javax.servlet.http.HttpServletResponse;
-
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -41,7 +42,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.web.client.HttpClientErrorException.Conflict;
@@ -81,7 +85,8 @@ import static org.acumos.federation.client.test.ClientMocking.xq;
 	"cdms.client.url=http://dummy.org:999",
 	"cdms.client.username=dummyuser",
 	"cdms.client.password=dummypass",
-	"nexus.url=http://dummy.org:1234"
+	"nexus.url=http://dummy.org:1234",
+	"logstash.url=http://logstash:2345",
     }
 )
 public class FederationControllerTest {
@@ -93,6 +98,9 @@ public class FederationControllerTest {
 
 	@Autowired
 	private NexusConfig nexusConfig;
+
+	@Autowired
+	private ServiceConfig logstashConfig;
 
 	@Autowired
 	private PeerService peerService;
@@ -169,10 +177,11 @@ public class FederationControllerTest {
 		    .on("GET /peer/2/sub", "[]")
 		    .on("GET /solution/ignored/revision/altrevid", xq("{ 'solutionId': 'somesolid', 'revisionId': 'altrevid' }"))
 		    .on("GET /revision/altrevid/artifact", xq("[ { 'artifactId': 'altart1', 'artifactTypeCode': 'DI', 'version': 'aa1ver', 'uri': 'host:999/xxx/stuff:aa1ver' }, { 'artifactId': 'altart2', 'artifactTypeCode': 'DI', 'version': 'aa2ver', 'uri': 'someimagename' }]"))
-		    .on("GET /revision/altrevid/catalog/somecatid/document", xq("[ { 'documentId': 'altdoc1', 'version': 'ad1ver', 'uri': 'somepath/ad1name/ua/ad1name-ua.ad1type' }, { 'documentId': 'altdoc2', 'version': 'ad2ver', 'uri': 'somepath/ad2name/ua/ad2name.ad2type' }]"))
+				.on("GET /revision/altrevid/catalog/somecatid/document", xq("[ { 'documentId': 'altdoc1', 'version': 'ad1ver', 'uri': 'somepath/ad1name/ua/ad1name-ua.ad1type' }, { 'documentId': 'altdoc2', 'version': 'ad2ver', 'uri': 'somepath/ad2name/ua/ad2name.ad2type' }]"))
 		    .applyTo(cdsClient);
 
 		when(clients.getCDSClient()).thenReturn(cdsClient);
+
 
 		ClientConfig ncc = new ClientConfig();
 		ncc.setCreds(nexusConfig);
@@ -187,6 +196,23 @@ public class FederationControllerTest {
 		docker = new SimulatedDockerClient();
 		docker.setSaveResult("abcdefg".getBytes());
 		when(clients.getDockerClient()).thenReturn(docker.getClient());
+
+		initLogstashMock(clients);
+	}
+
+	public void initLogstashMock(Clients clients) throws Exception {
+
+		String url = logstashConfig.getUrl();
+		ClientConfig ccc = new ClientConfig();
+		ccc.setCreds(logstashConfig);
+		LogstashClient mockLogstashClient = new LogstashClient(url, ccc);
+
+		(new ClientMocking())
+		.on("POST /", xq("{}"))
+		.applyTo(mockLogstashClient);
+
+		when(clients.getLogstashClient()).thenReturn(mockLogstashClient);
+
 	}
 
 	@Test
@@ -305,6 +331,24 @@ public class FederationControllerTest {
 		assertNotNull(self.getDocuments("altrevid", "somecatid"));
 		assertNotNull(self.getArtifacts("somesolid", "altrevid"));
 	}
+
+	@Test
+	public void testModelData() throws Exception {
+		// TODO mock logstash to avoid 403
+		FederationClient self = new FederationClient("https://localhost:" + port, getConfig("acumosa"));
+		FederationClient known = new FederationClient("https://localhost:" + port, getConfig("acumosb"));
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		ObjectMapper objectMapper = new ObjectMapper();
+		JsonNode payloadObjectNode =  objectMapper.readValue("{\"model\": { \"solutionId\": \"UUID\"}}", JsonNode.class);
+		HttpEntity<JsonNode> entity = new HttpEntity<>(payloadObjectNode, headers);
+
+		assertNotNull(self.sendModelData(entity));
+
+
+	}
+
 
 	@Test
 	public void testSwagger() throws Exception {
