@@ -22,7 +22,7 @@ package org.acumos.federation.gateway;
 import java.io.InputStream;
 
 import javax.servlet.http.HttpServletResponse;
-
+import com.fasterxml.jackson.databind.ObjectMapper;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -41,7 +41,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.web.client.HttpClientErrorException.Conflict;
@@ -58,8 +61,11 @@ import org.acumos.federation.client.ClientBase;
 import org.acumos.federation.client.config.ClientConfig;
 import org.acumos.federation.client.config.BasicAuthConfig;
 import org.acumos.federation.client.config.TlsConfig;
+import org.acumos.federation.client.data.JsonResponse;
+import org.acumos.federation.client.data.ModelData;
 
 import org.acumos.federation.client.test.ClientMocking;
+import org.apache.http.entity.ContentType;
 import static org.acumos.federation.client.test.ClientMocking.getConfig;
 import static org.acumos.federation.client.test.ClientMocking.xq;
 
@@ -81,7 +87,8 @@ import static org.acumos.federation.client.test.ClientMocking.xq;
 	"cdms.client.url=http://dummy.org:999",
 	"cdms.client.username=dummyuser",
 	"cdms.client.password=dummypass",
-	"nexus.url=http://dummy.org:1234"
+	"nexus.url=http://dummy.org:1234",
+	"logstash.url=http://logstash:2345",
     }
 )
 public class FederationControllerTest {
@@ -93,6 +100,9 @@ public class FederationControllerTest {
 
 	@Autowired
 	private NexusConfig nexusConfig;
+
+	@Autowired
+	private ServiceConfig logstashConfig;
 
 	@Autowired
 	private PeerService peerService;
@@ -187,6 +197,23 @@ public class FederationControllerTest {
 		docker = new SimulatedDockerClient();
 		docker.setSaveResult("abcdefg".getBytes());
 		when(clients.getDockerClient()).thenReturn(docker.getClient());
+
+		initLogstashMock(clients);
+	}
+
+	public void initLogstashMock(Clients clients) throws Exception {
+
+		String url = logstashConfig.getUrl();
+		ClientConfig ccc = new ClientConfig();
+		ccc.setCreds(logstashConfig);
+		LogstashClient mockLogstashClient = new LogstashClient(url, ccc);
+
+		(new ClientMocking())
+		.on("POST /", "ok", ContentType.TEXT_PLAIN)
+		.applyTo(mockLogstashClient);
+
+		when(clients.getLogstashClient()).thenReturn(mockLogstashClient);
+
 	}
 
 	@Test
@@ -305,6 +332,19 @@ public class FederationControllerTest {
 		assertNotNull(self.getDocuments("altrevid", "somecatid"));
 		assertNotNull(self.getArtifacts("somesolid", "altrevid"));
 	}
+
+	@Test
+	public void testModelData() throws Exception {
+		FederationClient self = new FederationClient("https://localhost:" + port, getConfig("acumosa"));
+
+		ObjectMapper objectMapper = new ObjectMapper();
+		ModelData payloadObjectNode =  objectMapper.readValue("{\"model\": { \"solutionId\": \"UUID\"}}", ModelData.class);
+		JsonResponse response = self.receiveModelData(payloadObjectNode);
+		assertNotNull(response);
+		System.out.println("response:" + response);
+		assertEquals("modelData - posted to logstash", response.getMessage());
+	}
+
 
 	@Test
 	public void testSwagger() throws Exception {

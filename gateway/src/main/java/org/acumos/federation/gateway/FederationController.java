@@ -31,6 +31,11 @@ import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestClientResponseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
@@ -41,9 +46,11 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriTemplateHandler;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -61,6 +68,7 @@ import org.acumos.federation.client.FederationClient;
 import org.acumos.federation.client.data.Artifact;
 import org.acumos.federation.client.data.Document;
 import org.acumos.federation.client.data.JsonResponse;
+import org.acumos.federation.client.data.ModelData;
 import org.acumos.federation.client.data.SolutionRevision;
 
 /**
@@ -85,7 +93,11 @@ public class FederationController {
 	private CatalogService catalogService;
 
 	@Autowired
+	private LogstashService logstashService;
+
+	@Autowired
 	private ContentService contentService;
+
 
 	private UriTemplateHandler originBuilder;
 
@@ -263,6 +275,7 @@ public class FederationController {
 		return respond(ret);
 	}
 
+
 	@Secured(Security.ROLE_PEER)
 	@ApiOperation(value = "Invoked by Peer Acumos to get a list of solution revision artifacts from the local Acumos Instance .", response = MLPArtifact.class, responseContainer = "List")
 	@GetMapping(FederationClient.ARTIFACTS_URI)
@@ -321,6 +334,46 @@ public class FederationController {
 			throw new BadRequestException(HttpServletResponse.SC_NOT_FOUND, "No document with id " + documentId);
 		}
 		return new InputStreamResource(contentService.getDocumentContent(catalogService.getDocument(documentId)));
+	}
+
+	/**
+	 * Receives model data payload from
+	 * {@link GatewayController#peerModelData(HttpServletResponse, ModelData, String)}
+	 *
+	 * @param payload model data payload The payload must have a model.solutionId
+	 * 
+	 * @param theHttpResponse HttpServletResponse
+	 * @return success message in JSON format
+	 * 
+	 */
+	@CrossOrigin
+	@Secured(Security.ROLE_PEER)
+	@ApiOperation(value = "Invoked by Peer Acumos to post model data to elastic search service .",
+			response = JsonResponse.class)
+	@PostMapping(FederationClient.MODEL_DATA)
+	@ResponseBody
+	public JsonResponse receiveModelData(@RequestBody ModelData payload,
+			HttpServletResponse theHttpResponse) {
+
+		log.debug(FederationClient.MODEL_DATA);
+
+		log.debug("Model parameters:" + payload);
+		JsonResponse response = new JsonResponse();
+			try {
+				String message = logstashService.sendModelData(payload);
+				response.setMessage(message);
+				if (message != null ) {
+					log.debug("{}: {}", "modelData - posted to logstash", response);
+				}
+			} catch (RestClientResponseException ex) {
+				log.error("Cannot post to Log Stash {}", ex);
+				response.setMessage("Cannot post to Logstash");
+				theHttpResponse.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+				return response;
+			}
+		response.setMessage("modelData - posted to logstash");
+		theHttpResponse.setStatus(HttpServletResponse.SC_OK);
+		return response;
 	}
 
 	private <T> JsonResponse<T> respond(T content) {

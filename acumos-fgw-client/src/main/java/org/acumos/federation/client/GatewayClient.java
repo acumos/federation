@@ -19,20 +19,24 @@
  */
 package org.acumos.federation.client;
 
+import java.util.LinkedHashMap;
 import java.util.List;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
-
-
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestClientException;
 import org.acumos.cds.domain.MLPPeer;
 import org.acumos.cds.domain.MLPCatalog;
 import org.acumos.cds.domain.MLPSolution;
 
 import org.acumos.federation.client.config.ClientConfig;
 import org.acumos.federation.client.data.JsonResponse;
+import org.acumos.federation.client.data.ModelData;
 
 /**
  * Client for the Federation Gateway's private API.  Except as specified,
@@ -163,5 +167,27 @@ public class GatewayClient extends ClientBase {
 	 */
 	public void triggerPeerSubscription(String peerId, long subscriptionId) {
 		handleResponse(PEER_PFX + SUBSCRIPTION_URI, HttpMethod.POST, new ParameterizedTypeReference<JsonResponse<Void>>(){}, peerId, subscriptionId);
+	}
+
+	/**
+	 * Ask the local gateway server to poll a subscription. Note that this operation is not proxied by
+	 * the local gateway server but rather requests the local gateway server to immediately poll the
+	 * specified subscription to the remote federation server, without waiting until its normally
+	 * scheduled time.
+	 * 
+	 * @param <ModelData>
+	 *
+	 * @param entity      Log entry
+	 */
+	public JsonResponse sendModelData(String peerId, ModelData modelData)
+			throws RestClientException {
+				HttpHeaders headers = new HttpHeaders();
+				headers.setContentType(MediaType.APPLICATION_JSON);
+				HttpEntity<ModelData> entity = new HttpEntity<>(modelData, headers);
+		JsonResponse<JsonResponse> ret = restTemplate.exchange(PEER_PFX + FederationClient.MODEL_DATA, HttpMethod.POST, entity, new ParameterizedTypeReference<JsonResponse<JsonResponse>>(){}, peerId).getBody();
+		if(ret.getContent() != null){
+			return ret.getContent();
+		}
+		return ret;
 	}
 }
