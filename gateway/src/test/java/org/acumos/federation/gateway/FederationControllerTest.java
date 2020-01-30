@@ -22,7 +22,8 @@ package org.acumos.federation.gateway;
 import java.io.InputStream;
 
 import javax.servlet.http.HttpServletResponse;
-
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -41,7 +42,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.web.client.HttpClientErrorException.Conflict;
@@ -134,7 +138,7 @@ public class FederationControllerTest {
 		    .on("GET /peer/2", xq("{'peerId': '2', 'subjectName': 'gateway.acumosb.org', 'statusCode': 'RQ', 'self': false }"))
 		    .on("PUT /peer/2", "")
 		    .on("GET /peer/search?subjectName=gateway.acumosc.org&_j=a&page=0&size=100", xq("{ 'content': [ ], 'last': true, 'number': 0, 'size': 100, 'numberOfElements': 0 }"))
-		    .on("POST /peer", xq("{}"))
+				.on("POST /peer", xq("{}"))
 		    .on("GET /catalog/search?accessTypeCode=PB&_j=a&page=0&size=100", xq("{ 'content': [ { 'catalogId': '1' }, { 'catalogId': '2' } ], 'last': true, 'number': 2, 'size': 100, 'numberOfElements': 2 }"))
 		    .on("GET /access/peer/1/catalog", xq("[ '2', '7', '8' ]"))
 		    .on("GET /peer?page=0&size=100", xq("{ 'content': [ { 'peerId': '1' }, { 'peerId': '2' } ], 'last': true, 'number': 2, 'size': 100, 'numberOfElements': 2 }"))
@@ -169,7 +173,7 @@ public class FederationControllerTest {
 		    .on("GET /peer/2/sub", "[]")
 		    .on("GET /solution/ignored/revision/altrevid", xq("{ 'solutionId': 'somesolid', 'revisionId': 'altrevid' }"))
 		    .on("GET /revision/altrevid/artifact", xq("[ { 'artifactId': 'altart1', 'artifactTypeCode': 'DI', 'version': 'aa1ver', 'uri': 'host:999/xxx/stuff:aa1ver' }, { 'artifactId': 'altart2', 'artifactTypeCode': 'DI', 'version': 'aa2ver', 'uri': 'someimagename' }]"))
-		    .on("GET /revision/altrevid/catalog/somecatid/document", xq("[ { 'documentId': 'altdoc1', 'version': 'ad1ver', 'uri': 'somepath/ad1name/ua/ad1name-ua.ad1type' }, { 'documentId': 'altdoc2', 'version': 'ad2ver', 'uri': 'somepath/ad2name/ua/ad2name.ad2type' }]"))
+				.on("GET /revision/altrevid/catalog/somecatid/document", xq("[ { 'documentId': 'altdoc1', 'version': 'ad1ver', 'uri': 'somepath/ad1name/ua/ad1name-ua.ad1type' }, { 'documentId': 'altdoc2', 'version': 'ad2ver', 'uri': 'somepath/ad2name/ua/ad2name.ad2type' }]"))
 		    .applyTo(cdsClient);
 
 		when(clients.getCDSClient()).thenReturn(cdsClient);
@@ -305,6 +309,32 @@ public class FederationControllerTest {
 		assertNotNull(self.getDocuments("altrevid", "somecatid"));
 		assertNotNull(self.getArtifacts("somesolid", "altrevid"));
 	}
+
+	@Test
+	public void testModelData() throws Exception {
+		// TODO mock logstash to avoid 403
+		FederationClient self = new FederationClient("https://localhost:" + port, getConfig("acumosa"));
+		FederationClient known = new FederationClient("https://localhost:" + port, getConfig("acumosb"));
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		ObjectMapper objectMapper = new ObjectMapper();
+		JsonNode payloadObjectNode =  objectMapper.readValue("{\"model\": { \"solutionId\": \"UUID\"}}", JsonNode.class);
+		HttpEntity<JsonNode> entity = new HttpEntity<>(payloadObjectNode, headers);
+		
+		try {
+			self.register();
+			fail();
+		} catch (Conflict c) {
+			// expected case
+		}
+		assertNotNull(known.unregister());
+		assertNotNull(self.ping());
+		assertNotNull(self.sendModelData(entity));
+
+
+	}
+
 
 	@Test
 	public void testSwagger() throws Exception {

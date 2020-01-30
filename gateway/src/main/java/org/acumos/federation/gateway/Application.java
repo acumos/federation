@@ -75,6 +75,7 @@ public class Application {
 	public Application(){} //NOSONAR
 
 	/**
+	 * @param <T> This is the type parameter
 	 * Gather values from multi-page common-dataservice requests.
 	 * @param fcn Function to fetch a page of values.
 	 * @return All of the values.
@@ -147,6 +148,12 @@ public class Application {
 	@ConfigurationProperties(prefix="nexus")
 	NexusConfig nexusConfig() {
 		return new NexusConfig();
+	}
+
+	@Bean
+	@ConfigurationProperties(prefix="logstash")
+	ServiceConfig logstashConfig() {
+		return new ServiceConfig();
 	}
 
 	@Bean
@@ -238,5 +245,6 @@ public class Application {
 		    .bannerMode(Banner.Mode.OFF)
 		    .web(WebApplicationType.SERVLET)
 		    .run(args);
+
 	}
 }

@@ -76,6 +76,9 @@ public class Clients {
 	@Autowired
 	private ServiceConfig lmConfig;
 
+	@Autowired
+	private ServiceConfig logstashConfig;
+
 	private ICommonDataServiceRestClient cdsClient;
 	private NexusClient nexusClient;
 	private ISecurityVerificationClientService svClient;

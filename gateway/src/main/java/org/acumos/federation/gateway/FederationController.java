@@ -23,6 +23,8 @@ import java.lang.invoke.MethodHandles;
 import java.util.concurrent.Callable;
 import java.util.List;
 
+import com.fasterxml.jackson.databind.JsonNode;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -31,6 +33,11 @@ import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestClientResponseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
@@ -41,9 +48,11 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriTemplateHandler;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -86,6 +95,14 @@ public class FederationController {
 
 	@Autowired
 	private ContentService contentService;
+
+	// NOTE: rest template with default settings
+	// this is to call local logstash service
+	private RestTemplate logStashHttpInput = new RestTemplate();
+
+	@Autowired
+	private ServiceConfig logstashConfig;
+
 
 	private UriTemplateHandler originBuilder;
 
@@ -243,9 +260,9 @@ public class FederationController {
 	@GetMapping(FederationClient.REVISION_URI)
 	@ResponseBody
 	public JsonResponse<MLPSolutionRevision> getRevision(
-	    @PathVariable("solutionId") String solutionId,
-	    @PathVariable("revisionId") String revisionId,
-	    @RequestParam(value = "catalogId", required = false) String catalogId) {
+			@PathVariable("solutionId") String solutionId,
+			@PathVariable("revisionId") String revisionId,
+			@RequestParam(value = "catalogId", required = false) String catalogId) {
 		log.debug("/solutions/{}/revisions/{}?catalogId={}", solutionId, revisionId, catalogId);
 		if (catalogId != null && !catalogService.isCatalogAllowed(catalogId)) {
 			catalogId = null;
@@ -268,8 +285,8 @@ public class FederationController {
 	@GetMapping(FederationClient.ARTIFACTS_URI)
 	@ResponseBody
 	public JsonResponse<List<MLPArtifact>> getArtifacts(
-	    @PathVariable("solutionId") String solutionId,
-	    @PathVariable("revisionId") String revisionId) {
+			@PathVariable("solutionId") String solutionId,
+			@PathVariable("revisionId") String revisionId) {
 		log.debug("/solutions/{}/revisions/{}/artifacts", solutionId, revisionId);
 		if (!catalogService.isRevisionAllowed(revisionId)) {
 			throw new BadRequestException(HttpServletResponse.SC_NOT_FOUND, "No revision with id " + revisionId);
@@ -286,8 +303,8 @@ public class FederationController {
 	@GetMapping(FederationClient.DOCUMENTS_URI)
 	@ResponseBody
 	public JsonResponse<List<MLPDocument>> getDocuments(
-	    @PathVariable("revisionId") String revisionId,
-	    @RequestParam(value = "catalogId", required = true) String catalogId) {
+			@PathVariable("revisionId") String revisionId,
+			@RequestParam(value = "catalogId", required = true) String catalogId) {
 		log.debug("/revisions/{}/documents?catalogId={}", revisionId, catalogId);
 		if (!catalogService.isCatalogAllowed(catalogId)) {
 			throw new BadRequestException(HttpServletResponse.SC_NOT_FOUND, "No catalog with id " + catalogId);
@@ -321,6 +338,109 @@ public class FederationController {
 			throw new BadRequestException(HttpServletResponse.SC_NOT_FOUND, "No document with id " + documentId);
 		}
 		return new InputStreamResource(contentService.getDocumentContent(catalogService.getDocument(documentId)));
+	}
+
+	/**
+	 * Receives model data payload from
+	 * {@link GatewayController#peerModelData(HttpServletResponse, JsonNode, String)}
+	 * 
+	 * Logstash must be configured with the http input plugin to allow posting of the inbound payload.
+	 * Example logstash configuration with http input plugin:
+	 * 
+	 * <pre>
+	 * {@code
+			input
+			http {
+					port => 5043
+			}
+	 * }
+	 * </pre>
+	 * 
+	 * Then port 5043 could be used / exposed and must be set using the logstash configuration
+	 * 
+	 * <pre>
+	 *  logstash.url=http://[LOGSTASH-HOST]:5043
+	 * </pre>
+	 *
+	 * @param payload         model data payload The payload must have a model.solutionId Example
+	 *                        payload sending 3 parameters A,B,C to peer id
+	 * 
+	 *                        <pre>
+	 * {@code
+	 *   {
+					"@version": "1",
+					"host": "filebeat-200211-233649-czzcs",
+					"source": "/var/log/params/model_param_update.log",
+					"prospector": {
+					"type": "log"
+					},
+					"@timestamp": "2020-02-17T21:21:09.338Z",
+					"tags": [
+							"acumos-model-param-logs",
+							"beats_input_raw_event"
+					],
+					"offset": 1492397,
+					"beat": {
+							"hostname": "filebeat-200211-233649-czzcs",
+							"version": "6.0.1",
+							"name": "filebeat-200211-233649-czzcs"
+					},
+					"model": {
+							"userId": "12345678-abcd-90ab-cdef-1234567890ab",
+							"revisionId": "1c0a4ea4-e822-4fb3-bef1-11f92958c315",
+							"solutionId": "149ea34c-44fc-4329-8189-52d3ae523a15",
+							"subscriberId": "50045f9a-3662-4123-8007-f6246608e4ab",
+					},
+					"value": {
+							"B": "121",
+							"C": "270",
+							"A": "601"
+					}
+			}
+	 * }
+	 * </pre>
+	 * 
+	 * @param theHttpResponse HttpServletResponse
+	 * @return success message in JSON format
+	 * 
+	 */
+	@CrossOrigin
+	@Secured(Security.ROLE_PEER)
+	@ApiOperation(value = "Invoked by Peer Acumos to post model data to elastic search service .",
+			response = JsonNode.class)
+	@PostMapping(FederationClient.MODEL_DATA)
+	@ResponseBody
+	public JsonResponse<JsonNode> modelData(@RequestBody JsonNode payload,
+			HttpServletResponse theHttpResponse) {
+
+		log.debug(FederationClient.MODEL_DATA);
+		JsonResponse<JsonNode> response = null;
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		HttpEntity<JsonNode> entity = new HttpEntity<JsonNode>(payload, headers);
+		log.debug("Model parameters:" + payload);
+		String logStashUrl = logstashConfig.getUrl();
+		log.debug("logStashUrl {}", logStashUrl);
+		if (logStashUrl != null) {
+			try {
+				ResponseEntity<String> respEntity =
+						this.logStashHttpInput.exchange(logStashUrl, HttpMethod.POST, entity, String.class);
+				if (respEntity != null) {
+					String output = respEntity.getBody();
+					log.debug("{}: {}", "modelData - posted to logstash", output);
+				}
+			} catch (RestClientResponseException ex) {
+				log.error("Cannot post to Log Stash {}", ex);
+				response.setMessage("Cannot post to Logstash");
+				theHttpResponse.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+				return response;
+			}
+		}
+		response = new JsonResponse<JsonNode>();
+		response.setMessage("modelData - posted to logstash");
+		response.setContent(payload);
+		theHttpResponse.setStatus(HttpServletResponse.SC_OK);
+		return response;
 	}
 
 	private <T> JsonResponse<T> respond(T content) {
