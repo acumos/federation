@@ -31,6 +31,7 @@ import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import org.springframework.web.client.RestClientResponseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
@@ -41,6 +42,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -61,6 +63,7 @@ import org.acumos.federation.client.FederationClient;
 import org.acumos.federation.client.data.Artifact;
 import org.acumos.federation.client.data.Document;
 import org.acumos.federation.client.data.JsonResponse;
+import org.acumos.federation.client.data.ModelData;
 import org.acumos.federation.client.data.SolutionRevision;
 
 /**
@@ -83,6 +86,9 @@ public class FederationController {
 
 	@Autowired
 	private CatalogService catalogService;
+
+	@Autowired
+	private LogstashService logstashService;
 
 	@Autowired
 	private ContentService contentService;
@@ -338,4 +344,29 @@ public class FederationController {
 		response.setStatus(badRequest.getCode());
 		return ret;
 	}
+
+	/**
+	 * Receives model data payload from
+	 * {@link GatewayController#peerModelData(HttpServletResponse, ModelData, String)}
+	 *
+	 * @param payload         model data payload The payload must have a model.solutionId
+	 * 
+	 * @param theHttpResponse HttpServletResponse
+	 * 
+	 */
+	@CrossOrigin
+	@Secured(Security.ROLE_PEER)
+	@ApiOperation(value = "Invoked by Peer Acumos to post model data to elastic search service .",
+			response = Void.class)
+	@PostMapping(FederationClient.MODEL_DATA)
+	@ResponseBody
+	public void receiveModelData(@RequestBody ModelData payload,
+			HttpServletResponse theHttpResponse) {
+
+		log.debug(FederationClient.MODEL_DATA);
+		log.debug("Model parameters: {}", payload);
+		logstashService.sendModelData(payload);
+		theHttpResponse.setStatus(HttpServletResponse.SC_OK);
+	}
+
 }
