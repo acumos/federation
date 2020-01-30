@@ -50,6 +50,12 @@ public class GatewayServer {
 	}
 
 	@Bean
+	public ModelDataController modelDataController() {
+		return new ModelDataController();
+	}
+
+
+	@Bean
 	public WebServerFactoryCustomizer<ConfigurableServletWebServerFactory> localServer() {
 		return server -> Application.configureServer(server, this.local);
 	}

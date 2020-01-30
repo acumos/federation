@@ -34,6 +34,7 @@ limitations under the License.
 		<dependency>
 			<groupId>org.acumos.federation</groupId>
 			<artifactId>acumos-fgw-client-config</artifactId>
+			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>

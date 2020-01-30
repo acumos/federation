@@ -138,6 +138,18 @@ public class Application {
 	}
 
 	@Bean
+	@ConfigurationProperties(prefix="federation")
+	PeerModelDataConfig peerModelTracking() {
+		return new PeerModelDataConfig();
+	}
+
+	@Bean
+	@ConfigurationProperties(prefix="federation")
+	ModelDataConfig modelTracking() {
+		return new ModelDataConfig();
+	}
+
+	@Bean
 	@ConfigurationProperties(prefix="cdms.client")
 	ServiceConfig cdmsConfig() {
 		return new ServiceConfig();
@@ -238,5 +250,6 @@ public class Application {
 		    .bannerMode(Banner.Mode.OFF)
 		    .web(WebApplicationType.SERVLET)
 		    .run(args);
+
 	}
 }

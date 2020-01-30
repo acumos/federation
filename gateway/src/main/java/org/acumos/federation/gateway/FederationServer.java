@@ -49,6 +49,12 @@ public class FederationServer {
 		return new FederationController();
 	}
 
+
+	@Bean
+	public PeerModelDataController peerModelDataController() {
+		return new PeerModelDataController();
+	}
+
 	@Bean
 	WebServerFactoryCustomizer<ConfigurableServletWebServerFactory> externalServer() {
 		return server -> Application.configureServer(server, this.federation);
