@@ -50,6 +50,11 @@ public class FederationServer {
 	}
 
 	@Bean
+	public ModelDataController modelDataController() {
+		return new ModelDataController();
+	}
+
+	@Bean
 	WebServerFactoryCustomizer<ConfigurableServletWebServerFactory> externalServer() {
 		return server -> Application.configureServer(server, this.federation);
 	}

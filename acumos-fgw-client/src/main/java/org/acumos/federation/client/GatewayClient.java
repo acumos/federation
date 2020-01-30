@@ -92,7 +92,7 @@ public class GatewayClient extends ClientBase {
 	 * @return The remote server's own MLPPeer record.
 	 */
 	public MLPPeer ping(String peerId) {
-		return handleResponse(PEER_PFX + FederationClient.PING_URI, new ParameterizedTypeReference<JsonResponse<MLPPeer>>(){}, peerId);
+		return handleResponse(PEER_PFX + FederationClient.PING_URI, null, new ParameterizedTypeReference<JsonResponse<MLPPeer>>(){}, peerId);
 	}
 
 	/**
@@ -103,7 +103,7 @@ public class GatewayClient extends ClientBase {
 	 * @return The list of the peer's peers.
 	 */
 	public List<MLPPeer> getPeers(String peerId) {
-		return handleResponse(PEER_PFX + FederationClient.PEERS_URI, new ParameterizedTypeReference<JsonResponse<List<MLPPeer>>>(){}, peerId);
+		return handleResponse(PEER_PFX + FederationClient.PEERS_URI, null, new ParameterizedTypeReference<JsonResponse<List<MLPPeer>>>(){}, peerId);
 	}
 
 	/**
@@ -114,7 +114,7 @@ public class GatewayClient extends ClientBase {
 	 * @return The remote server's own MLPPeer record.
 	 */
 	public MLPPeer register(String peerId) {
-		return handleResponse(PEER_PFX + FederationClient.REGISTER_URI, HttpMethod.POST, new ParameterizedTypeReference<JsonResponse<MLPPeer>>(){}, peerId);
+		return handleResponse(PEER_PFX + FederationClient.REGISTER_URI, HttpMethod.POST, null, new ParameterizedTypeReference<JsonResponse<MLPPeer>>(){}, peerId);
 	}
 
 	/**
@@ -125,7 +125,7 @@ public class GatewayClient extends ClientBase {
 	 * @return The list of catalogs (enhanced with their sizes), the peer is willing to share.
 	 */
 	public List<MLPCatalog> getCatalogs(String peerId) {
-		return handleResponse(PEER_PFX + FederationClient.CATALOGS_URI, new ParameterizedTypeReference<JsonResponse<List<MLPCatalog>>>(){}, peerId);
+		return handleResponse(PEER_PFX + FederationClient.CATALOGS_URI, null, new ParameterizedTypeReference<JsonResponse<List<MLPCatalog>>>(){}, peerId);
 	}
 
 	/**
@@ -137,7 +137,7 @@ public class GatewayClient extends ClientBase {
 	 * @return The list of solutions in the peer's catalog.
 	 */
 	public List<MLPSolution> getSolutions(String peerId, String catalogId) {
-		return handleResponse(PEER_PFX + FederationClient.SOLUTIONS_URI + FederationClient.CATID_QUERY, new ParameterizedTypeReference<JsonResponse<List<MLPSolution>>>(){}, peerId, catalogId);
+		return handleResponse(PEER_PFX + FederationClient.SOLUTIONS_URI + FederationClient.CATID_QUERY, null, new ParameterizedTypeReference<JsonResponse<List<MLPSolution>>>(){}, peerId, catalogId);
 	}
 
 	/**
@@ -148,7 +148,7 @@ public class GatewayClient extends ClientBase {
 	 * @return The solution's metadata, enhanced with its picture and revisions.
 	 */
 	public MLPSolution getSolution(String peerId, String solutionId) {
-		return handleResponse(PEER_PFX + FederationClient.SOLUTION_URI, new ParameterizedTypeReference<JsonResponse<MLPSolution>>(){}, peerId, solutionId);
+		return handleResponse(PEER_PFX + FederationClient.SOLUTION_URI, null, new ParameterizedTypeReference<JsonResponse<MLPSolution>>(){}, peerId, solutionId);
 	}
 
 	/**
@@ -162,6 +162,6 @@ public class GatewayClient extends ClientBase {
 	 * @param subscriptionId The ID of the local Acumos' subscription to the peer.
 	 */
 	public void triggerPeerSubscription(String peerId, long subscriptionId) {
-		handleResponse(PEER_PFX + SUBSCRIPTION_URI, HttpMethod.POST, new ParameterizedTypeReference<JsonResponse<Void>>(){}, peerId, subscriptionId);
+		handleResponse(PEER_PFX + SUBSCRIPTION_URI, HttpMethod.POST, null, new ParameterizedTypeReference<JsonResponse<Void>>(){}, peerId, subscriptionId);
 	}
 }

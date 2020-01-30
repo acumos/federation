@@ -153,6 +153,7 @@ public class ClientMocking implements Answer<HttpResponse> {
 		/**
 		 * Check whether the named header is missing.
 		 *
+		 * @param name attribute name to assert
 		 * @return true if the header is absent.
 		 */
 		public boolean lacksHeader(String name) {
@@ -162,6 +163,8 @@ public class ClientMocking implements Answer<HttpResponse> {
 		/**
 		 * Check whether the header has the specified header value.
 		 *
+		 * @param name attribute name to assert
+		 * @param value value of attribute to assert
 		 * @return true if the header is missing or has the wrong value.
 		 */
 		public boolean lacksHeaderValue(String name, String value) {
@@ -187,7 +190,10 @@ public class ClientMocking implements Answer<HttpResponse> {
 
 	/**
 	 * Create a responder to handle requests.
+	 *
+	 * @throws IOException when there is no http answer
 	 */
+
 	public ClientMocking() throws IOException {
 		responses = new ArrayList<>();
 		client = mock(HttpClient.class);

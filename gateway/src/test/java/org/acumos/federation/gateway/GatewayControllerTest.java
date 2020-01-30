@@ -110,7 +110,7 @@ public class GatewayControllerTest {
 		}
 
 		public byte[] get(String uri) {
-			return handle(uri, HttpMethod.GET, new ParameterizedTypeReference<byte[]>(){});
+			return handle(uri, HttpMethod.GET, null, new ParameterizedTypeReference<byte[]>(){});
 		}
 	}
 

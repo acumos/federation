@@ -85,35 +85,32 @@ public class SubscriptionPoller {
 	private Clients clients;
 
 	private static final ObjectMapper mapper = new ObjectMapper();
-	private static final TypeReference<Map<String, Object>> trMapStoO = new TypeReference<Map<String, Object>>(){};
+	private static final TypeReference<Map<String, Object>> trMapStoO =
+			new TypeReference<Map<String, Object>>() {
+			};
 
 	private static <T> HashMap<String, T> index(List<T> list, Function<T, String> getId) {
 		HashMap<String, T> ret = new HashMap<>();
-		for (T item: list) {
+		for (T item : list) {
 			ret.put(getId.apply(item), item);
 		}
 		return ret;
 	}
 
 	private enum Action {
-		PROCESS("Processed", "processing"),
-		FETCH("Fetched", "fetching"),
-		PARSE("Parsed", "parsing"),
-		CREATE("Created", "creating"),
-		UPDATE("Updated", "updating"),
-		ADD("Added", "adding"),
-		DELETE("Deleted", "deleting"),
-		COPY("Copied", "copying");
+		PROCESS("Processed", "processing"), FETCH("Fetched", "fetching"), PARSE("Parsed",
+				"parsing"), CREATE("Created", "creating"), UPDATE("Updated", "updating"), ADD("Added",
+						"adding"), DELETE("Deleted", "deleting"), COPY("Copied", "copying");
 
 		private String done;
 		private String during;
 
 		public String getDone() {
-			return(done);
+			return (done);
 		}
 
 		public String getDuring() {
-			return(during);
+			return (during);
 		}
 
 		Action(String done, String during) {
@@ -122,7 +119,7 @@ public class SubscriptionPoller {
 		}
 	}
 
-	private static class PendingAction	{
+	private static class PendingAction {
 		private PendingAction parent;
 		private Action action;
 		private String item;
@@ -141,33 +138,33 @@ public class SubscriptionPoller {
 		}
 
 		public boolean getForce() {
-			return(this.force);
+			return (this.force);
 		}
 
 		public PendingAction pop() {
 			PendingAction ret = parent;
 			parent = null;
-			return(ret);
+			return (ret);
 		}
 
 		public String getDone() {
-			return(action.getDone() + item);
+			return (action.getDone() + item);
 		}
 
 		public String getDuring() {
-			return(action.getDuring() + item);
+			return (action.getDuring() + item);
 		}
 
 		public String getItem() {
-			return(item);
+			return (item);
 		}
-		
+
 		public Instant getStart() {
-			return(start);
+			return (start);
 		}
 	}
 
-	private static class Notifier	{
+	private static class Notifier {
 		private PendingAction actions;
 		private PendingAction leaf;
 		private ICommonDataServiceRestClient cds;
@@ -221,9 +218,9 @@ public class SubscriptionPoller {
 				if (logit) {
 					note(cur, "LO", cur.getDone());
 				}
-				return(cur);
+				return (cur);
 			}
-			return(null);
+			return (null);
 		}
 
 		public void fail(PendingAction handle, String msg) {
@@ -284,13 +281,15 @@ public class SubscriptionPoller {
 			}
 		}
 
-		private boolean checkRevision(String revisionId, String solutionId, String catalogId, FederationClient peer) {
+		private boolean checkRevision(String revisionId, String solutionId, String catalogId,
+				FederationClient peer) {
 			log.info("Checking revision {} from peer {}", revisionId, peerId);
 			PendingAction act = events.begin("revision %s", revisionId);
 			events.check(Action.FETCH, "remote revision");
-			SolutionRevision pRev = (SolutionRevision)peer.getSolutionRevision(solutionId, revisionId, catalogId);
+			SolutionRevision pRev =
+					(SolutionRevision) peer.getSolutionRevision(solutionId, revisionId, catalogId);
 			events.check(Action.FETCH, "local revision");
-			SolutionRevision lRev = (SolutionRevision)catalogService.getRevision(revisionId, catalogId);
+			SolutionRevision lRev = (SolutionRevision) catalogService.getRevision(revisionId, catalogId);
 			boolean changed = false;
 			boolean isnew = lRev == null;
 			pRev.setUserId(userId);
@@ -298,13 +297,14 @@ public class SubscriptionPoller {
 				log.info("Revision {} doesn't exist locally.  Creating it", revisionId);
 				pRev.setSourceId(peerId);
 				events.action(Action.CREATE, "revision %s", revisionId);
-				lRev = (SolutionRevision)catalogService.createRevision(pRev);
+				lRev = (SolutionRevision) catalogService.createRevision(pRev);
 			}
 			MLPRevCatDescription pDesc = pRev.getRevCatDescription();
 			MLPRevCatDescription lDesc = lRev.getRevCatDescription();
 			if (pDesc != null) {
 				if (lDesc == null) {
-					log.info("Description for revision {} in catalog {} doesn't exist locally.  Creating it", revisionId, catalogId);
+					log.info("Description for revision {} in catalog {} doesn't exist locally.  Creating it",
+							revisionId, catalogId);
 					events.action(Action.CREATE, "revision description");
 					catalogService.createDescription(pDesc);
 				} else if (!Objects.equals(pDesc.getDescription(), lDesc.getDescription())) {
@@ -319,7 +319,7 @@ public class SubscriptionPoller {
 			}
 			List<MLPArtifact> pArts = pRev.getArtifacts();
 			HashMap<String, MLPArtifact> lArts = index(lRev.getArtifacts(), MLPArtifact::getArtifactId);
-			for (MLPArtifact pArt: pArts) {
+			for (MLPArtifact pArt : pArts) {
 				String artifactId = pArt.getArtifactId();
 				log.debug("Checking artifact {} from peer {}", artifactId, peerId);
 				String pTag = pArt.getDescription();
@@ -334,7 +334,8 @@ public class SubscriptionPoller {
 					log.info("Artifact {} doesn't exist locally.  Creating it", artifactId);
 					events.action(Action.CREATE, "artifact %s metadata", artifactId);
 					lArt = catalogService.createArtifact(pArt);
-				} else if (!Objects.equals(pArt.getSize(), lArt.getSize()) || !Objects.equals(pArt.getVersion(), lArt.getVersion())) {
+				} else if (!Objects.equals(pArt.getSize(), lArt.getSize())
+						|| !Objects.equals(pArt.getVersion(), lArt.getVersion())) {
 					log.info("Updating artifact {}", artifactId);
 					events.action(Action.UPDATE, "artifact %s metadata", artifactId);
 					catalogService.updateArtifact(pArt);
@@ -347,10 +348,11 @@ public class SubscriptionPoller {
 					events.action(Action.COPY, "artifact %s content", artifactId);
 					contentService.putArtifactContent(pArt, pTag, is);
 				} catch (IOException ioe) {
-					throw new ResourceAccessException("Failure copying artifact " + artifactId + " from peer " + peerId, ioe);
+					throw new ResourceAccessException(
+							"Failure copying artifact " + artifactId + " from peer " + peerId, ioe);
 				}
 			}
-			for (MLPArtifact pArt: pArts) {
+			for (MLPArtifact pArt : pArts) {
 				if (lArts.get(pArt.getArtifactId()) == null) {
 					log.info("Adding artifact {} to revision {}", pArt.getArtifactId(), revisionId);
 					events.action(Action.ADD, "artifact %s to revision %s", pArt.getArtifactId(), revisionId);
@@ -359,7 +361,7 @@ public class SubscriptionPoller {
 			}
 			List<MLPDocument> pDocs = pRev.getDocuments();
 			HashMap<String, MLPDocument> lDocs = index(lRev.getDocuments(), MLPDocument::getDocumentId);
-			for (MLPDocument pDoc: pDocs) {
+			for (MLPDocument pDoc : pDocs) {
 				String documentId = pDoc.getDocumentId();
 				log.debug("Checking document {} from peer {}", documentId, peerId);
 				pDoc.setUserId(userId);
@@ -373,7 +375,8 @@ public class SubscriptionPoller {
 					log.info("Document {} doesn't exist locally.  Creating it", documentId);
 					events.action(Action.CREATE, "document %s metadata", documentId);
 					catalogService.createDocument(pDoc);
-				} else if (!Objects.equals(pDoc.getSize(), lDoc.getSize()) || !Objects.equals(pDoc.getVersion(), lDoc.getVersion())) {
+				} else if (!Objects.equals(pDoc.getSize(), lDoc.getSize())
+						|| !Objects.equals(pDoc.getVersion(), lDoc.getVersion())) {
 					log.info("Updating document {}", documentId);
 					events.action(Action.UPDATE, "document %s metadata", documentId);
 					catalogService.updateDocument(pDoc);
@@ -385,13 +388,16 @@ public class SubscriptionPoller {
 					events.action(Action.COPY, "document %s content", documentId);
 					contentService.putDocumentContent(pDoc, is);
 				} catch (IOException ioe) {
-					throw new ResourceAccessException("Failure copying document " + documentId + " from peer " + peerId, ioe);
+					throw new ResourceAccessException(
+							"Failure copying document " + documentId + " from peer " + peerId, ioe);
 				}
 			}
-			for (MLPDocument pDoc: pDocs) {
+			for (MLPDocument pDoc : pDocs) {
 				if (lDocs.get(pDoc.getDocumentId()) == null) {
-					log.info("Adding document {} to revision {} in catalog {}", pDoc.getDocumentId(), revisionId, catalogId);
-					events.action(Action.ADD, "document %s to revision %s in catalog %s", pDoc.getDocumentId(), revisionId, catalogId);
+					log.info("Adding document {} to revision {} in catalog {}", pDoc.getDocumentId(),
+							revisionId, catalogId);
+					events.action(Action.ADD, "document %s to revision %s in catalog %s",
+							pDoc.getDocumentId(), revisionId, catalogId);
 					catalogService.addDocument(revisionId, catalogId, pDoc.getDocumentId());
 				}
 			}
@@ -403,7 +409,8 @@ public class SubscriptionPoller {
 			if (changed) {
 				new Thread(() -> {
 					try {
-						clients.getSVClient().securityVerificationScan(solutionId, revisionId, "created", userId);
+						clients.getSVClient().securityVerificationScan(solutionId, revisionId, "created",
+								userId);
 					} catch (Exception e) {
 						log.error("SV scan failure on revision " + revisionId, e);
 					}
@@ -416,7 +423,8 @@ public class SubscriptionPoller {
 						rar.setLoggedIdUser(userId);
 						RegisterAssetResponse rax = clients.getLMClient().register(rar).get();
 						if (!rax.isSuccess()) {
-							log.error("License asset registration failure on revision " + revisionId + ": " + rax.getMessage());
+							log.error("License asset registration failure on revision " + revisionId + ": "
+									+ rax.getMessage());
 						}
 					} catch (Exception e) {
 						log.error("License asset registration failure on revision " + revisionId, e);
@@ -424,16 +432,17 @@ public class SubscriptionPoller {
 				}).start();
 			}
 			events.end(act);
-			return(changed);
+			return (changed);
 		}
 
-		private void checkSolution(String solutionId, String catalogId, boolean inLocalCatalog, FederationClient peer) {
+		private void checkSolution(String solutionId, String catalogId, boolean inLocalCatalog,
+				FederationClient peer) {
 			log.info("Checking solution {} from peer {}", solutionId, peerId);
 			PendingAction act = events.begin("solution %s", solutionId);
 			events.check(Action.FETCH, "remote solution");
-			Solution pSol = (Solution)peer.getSolution(solutionId);
+			Solution pSol = (Solution) peer.getSolution(solutionId);
 			events.check(Action.FETCH, "local solution");
-			Solution lSol = (Solution)catalogService.getSolution(solutionId);
+			Solution lSol = (Solution) catalogService.getSolution(solutionId);
 			boolean changed = false;
 			boolean isnew = lSol == null;
 			if (isnew) {
@@ -446,7 +455,7 @@ public class SubscriptionPoller {
 				pSol.setUserId(userId);
 				pSol.setViewCount(0L);
 				events.action(Action.CREATE, "solution %s", solutionId);
-				lSol = (Solution)catalogService.createSolution(pSol);
+				lSol = (Solution) catalogService.createSolution(pSol);
 			} else {
 				pSol.setActive(lSol.isActive());
 				pSol.setDownloadCount(lSol.getDownloadCount());
@@ -478,7 +487,7 @@ public class SubscriptionPoller {
 				events.action(Action.ADD, "solution %s to catalog %s", solutionId, catalogId);
 				catalogService.addSolution(solutionId, catalogId);
 			}
-			for (MLPSolutionRevision rev: pSol.getRevisions()) {
+			for (MLPSolutionRevision rev : pSol.getRevisions()) {
 				changed |= checkRevision(rev.getRevisionId(), solutionId, catalogId, peer);
 			}
 			if (changed && !isnew) {
@@ -496,15 +505,20 @@ public class SubscriptionPoller {
 			events.check(Action.FETCH, "list of solutions in remote catalog");
 			List<MLPSolution> peerSolutions = peer.getSolutions(catalogId);
 			events.check(Action.FETCH, "list of solutions in local catalog");
-			HashMap<String, MLPSolution> localSolutions = index(catalogService.getSolutions(catalogId), MLPSolution::getSolutionId);
-			if (localSolutions.isEmpty() && !peerSolutions.isEmpty() && index(catalogService.getAllCatalogs(), MLPCatalog::getCatalogId).get(catalogId) == null) {
+			HashMap<String, MLPSolution> localSolutions =
+					index(catalogService.getSolutions(catalogId), MLPSolution::getSolutionId);
+			if (localSolutions.isEmpty() && !peerSolutions.isEmpty()
+					&& index(catalogService.getAllCatalogs(), MLPCatalog::getCatalogId)
+							.get(catalogId) == null) {
 				log.info("Catalog {} doesn't exist locally.  Creating it", catalogId);
 				events.action(Action.CREATE, "catalog %s", catalogId);
-				catalogService.createCatalog(index(peer.getCatalogs(), MLPCatalog::getCatalogId).get(catalogId));
+				catalogService
+						.createCatalog(index(peer.getCatalogs(), MLPCatalog::getCatalogId).get(catalogId));
 				events.end();
 			}
-			for (MLPSolution solution: peerSolutions) {
-				checkSolution(solution.getSolutionId(), catalogId, localSolutions.get(solution.getSolutionId()) != null, peer);
+			for (MLPSolution solution : peerSolutions) {
+				checkSolution(solution.getSolutionId(), catalogId,
+						localSolutions.get(solution.getSolutionId()) != null, peer);
 			}
 			log.info("Checked catalog {} from peer {}", catalogId, peerId);
 			events.noteEnd(act);
@@ -518,21 +532,23 @@ public class SubscriptionPoller {
 			events.check(Action.PARSE, "subscription's selector");
 			Object xcatalogs;
 			try {
-				xcatalogs = ((Map<String, Object>)mapper.readValue(subscription.getSelector(), trMapStoO)).get("catalogId");
+				xcatalogs = ((Map<String, Object>) mapper.readValue(subscription.getSelector(), trMapStoO))
+						.get("catalogId");
 				if (xcatalogs instanceof String) {
-					xcatalogs = new String[] { (String)xcatalogs };
+					xcatalogs = new String[] {(String) xcatalogs};
 				} else {
-					xcatalogs = ((List)xcatalogs).toArray(new String[((List)xcatalogs).size()]);
+					xcatalogs = ((List) xcatalogs).toArray(new String[((List) xcatalogs).size()]);
 				}
 			} catch (IOException | NullPointerException | ArrayStoreException | ClassCastException ioe) {
-				log.error(String.format("Malformed selector %s on subscription %s to peer %s", subscription.getSelector(), subId, peerId));
+				log.error(String.format("Malformed selector %s on subscription %s to peer %s",
+						subscription.getSelector(), subId, peerId));
 				events.fail(act, "Subscription selector was malformed");
 				return;
 			}
 			events.end();
-			String[] catalogs = (String[])xcatalogs;
+			String[] catalogs = (String[]) xcatalogs;
 			Instant startTime = Instant.now();
-			for (String catalogId: catalogs) {
+			for (String catalogId : catalogs) {
 				checkCatalog(catalogId);
 			}
 			subscription.setProcessed(startTime);
@@ -546,7 +562,9 @@ public class SubscriptionPoller {
 			try {
 				checkSubscription();
 			} catch (Exception ex) {
-				log.error(String.format("Unexpected error processing subscription %s for peer %s", subId, peerId), ex);
+				log.error(
+						String.format("Unexpected error processing subscription %s for peer %s", subId, peerId),
+						ex);
 				events.fail(null, ex.toString());
 			}
 		}
@@ -557,35 +575,35 @@ public class SubscriptionPoller {
 
 	/**
 	 * Schedule an immediate poll of the specified subscription.
+	 * 
 	 * @param subscription The subscription to poll.
 	 */
-	public void
-	triggerSubscription(MLPPeerSubscription subscription) {
+	public void triggerSubscription(MLPPeerSubscription subscription) {
 		require(subscription, true);
 	}
 
 	/**
 	 * Check for changes to the list of peers and subscriptions.
 	 */
-	@Scheduled(initialDelay=5000,fixedRateString="${peer.jobchecker.interval:400}000")
+	@Scheduled(initialDelay = 5000, fixedRateString = "${peer.jobchecker.interval:400}000")
 	public void checkPeerJobs() {
 		HashSet<Long> valid = new HashSet<>();
-		for (MLPPeer peer: peerService.getPeers()) {
+		for (MLPPeer peer : peerService.getPeers()) {
 			if (peer.isSelf()) {
 				continue;
 			}
-			for (MLPPeerSubscription subscription: peerService.getSubscriptions(peer.getPeerId())) {
+			for (MLPPeerSubscription subscription : peerService.getSubscriptions(peer.getPeerId())) {
 				require(subscription, false);
 				valid.add(subscription.getSubId());
 			}
 		}
 		HashSet<Long> invalid = new HashSet<>();
-		for (Long subid: subscriptions.keySet()) {
+		for (Long subid : subscriptions.keySet()) {
 			if (!valid.contains(subid)) {
 				invalid.add(subid);
 			}
 		}
-		for (Long subid: invalid) {
+		for (Long subid : invalid) {
 			subscriptions.remove(subid).cancel();
 		}
 	}
@@ -596,9 +614,11 @@ public class SubscriptionPoller {
 		Long interval = subscription.getRefreshInterval();
 		PeerSubscriptionPoller poller = subscriptions.get(subId);
 		if (poller == null) {
-			poller = new PeerSubscriptionPoller(subId, subscription.getUserId(), subscription.getPeerId(), interval);
+			poller = new PeerSubscriptionPoller(subId, subscription.getUserId(), subscription.getPeerId(),
+					interval);
 			subscriptions.put(subId, poller);
-			if (force || (interval != null && (interval.longValue() > 0L || subscription.getProcessed() == null))) {
+			if (force || (interval != null
+					&& (interval.longValue() > 0L || subscription.getProcessed() == null))) {
 				poller.schedule();
 			}
 		} else if (force || (interval != null && !interval.equals(poller.getInterval()))) {
