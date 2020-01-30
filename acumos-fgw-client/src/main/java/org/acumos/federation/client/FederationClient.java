@@ -19,24 +19,20 @@
  */
 package org.acumos.federation.client;
 
-import java.util.List;
-import java.io.InputStream;
-import java.net.URI;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.core.io.ResourceLoader;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpMethod;
-
-import org.acumos.cds.domain.MLPPeer;
-import org.acumos.cds.domain.MLPCatalog;
-import org.acumos.cds.domain.MLPSolution;
-import org.acumos.cds.domain.MLPSolutionRevision;
-import org.acumos.cds.domain.MLPArtifact;
-import org.acumos.cds.domain.MLPDocument;
-
+import org.acumos.cds.domain.*;
 import org.acumos.federation.client.config.ClientConfig;
 import org.acumos.federation.client.data.JsonResponse;
+import org.acumos.federation.client.data.ModelData;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.core.io.ResourceLoader;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
+import org.springframework.web.client.RestClientException;
+
+import java.io.InputStream;
+import java.util.List;
+
 
 /**
  * Client for the Federation Server's public (E5) API.  Note that servers
@@ -44,7 +40,7 @@ import org.acumos.federation.client.data.JsonResponse;
  * share with clients.  Servers may refuse access to some clients, may refuse
  * access to some operations, may restrict what data is visible to clients,
  * etc., based on their particular policies.  This may result in client
- * methods returning null, returning lists with reduced numbers of elements, or 
+ * methods returning null, returning lists with reduced numbers of elements, or
  * throwing {@link org.springframework.web.client.RestClientException} or its
  * subclasses.
  * @see GatewayClient
@@ -107,6 +103,11 @@ public class FederationClient extends ClientBase {
 	 * The query for specifying a catalog ID.
 	 */
 	public static final String CATID_QUERY = "?catalogId={catalogId}";
+
+	/**
+	 * The URI for sending model data from subscriber to supplier.
+	 */
+	public static final String MODEL_DATA = "/modeldata";
 
 	/**
 	 * Peer Status Code for Active
@@ -185,7 +186,17 @@ public class FederationClient extends ClientBase {
 	 * @return The server's own MLPPeer record.
 	 */
 	public MLPPeer unregister() {
-		return handleResponse(UNREGISTER_URI, HttpMethod.POST, new ParameterizedTypeReference<JsonResponse<MLPPeer>>(){});
+		return handleResponse(UNREGISTER_URI,  HttpMethod.POST, new ParameterizedTypeReference<JsonResponse<MLPPeer>>(){});
+	}
+
+	/**
+	 * @param entity payload model (json) data payload
+	 * @return json response
+	 * @throws RestClientException
+	 *             if remote acumos is not available
+	 */
+	public ModelData receiveModelData(HttpEntity<ModelData> entity) throws RestClientException {
+		return handleResponse(MODEL_DATA,HttpMethod.POST, entity, new ParameterizedTypeReference<JsonResponse<ModelData>>(){});
 	}
 
 	/**
