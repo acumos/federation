@@ -22,7 +22,7 @@ package org.acumos.federation.gateway;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
-
+import com.fasterxml.jackson.databind.ObjectMapper;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -41,7 +41,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.web.client.HttpClientErrorException.Forbidden;
@@ -58,13 +61,14 @@ import org.acumos.federation.client.ClientBase;
 import org.acumos.federation.client.config.ClientConfig;
 import org.acumos.federation.client.config.BasicAuthConfig;
 import org.acumos.federation.client.config.TlsConfig;
+import org.acumos.federation.client.data.ModelData;
 
 import org.acumos.federation.client.test.ClientMocking;
 import static org.acumos.federation.client.test.ClientMocking.getConfig;
 import static org.acumos.federation.client.test.ClientMocking.xq;
 
 @RunWith(SpringRunner.class)
-@ContextConfiguration(classes=GatewayServer.class)
+@ContextConfiguration(classes = GatewayServer.class)
 @SpringBootTest(
     classes = Application.class,
     webEnvironment = WebEnvironment.RANDOM_PORT,
@@ -78,7 +82,8 @@ import static org.acumos.federation.client.test.ClientMocking.xq;
 	"nexus.group-id=nxsgrpid",
 	"nexus.name-separator=,",
 	"docker.registry-url=someregistry:9999",
-	"federation.operator=defuserid"
+	"federation.operator=defuserid",
+	"logstash.url=http://logstash:2345",
     }
 )
 public class GatewayControllerTest {
@@ -110,7 +115,8 @@ public class GatewayControllerTest {
 		}
 
 		public byte[] get(String uri) {
-			return handle(uri, HttpMethod.GET, new ParameterizedTypeReference<byte[]>(){});
+			return handle(uri, HttpMethod.GET, new ParameterizedTypeReference<byte[]>() {
+			});
 		}
 	}
 
@@ -278,6 +284,74 @@ public class GatewayControllerTest {
 		self.triggerPeerSubscription("somepeer", 999);
 		steps.await(2, TimeUnit.SECONDS);
 		assertEquals("Incomplete steps remain", 0, steps.getCount() - 1);
+	}
+
+	@Test
+	public void testModelDataNoPeerLookup() throws Exception {
+		GatewayClient self = new GatewayClient("https://localhost:" + port, getConfig("acumosa"));
+
+		ICommonDataServiceRestClient cdsClient =
+				CommonDataServiceRestClientImpl.getInstance("http://cds:999",
+						ClientBase.buildRestTemplate("http://cds:999", new ClientConfig(), null, null));
+		String peerUrl = "https://somepeer.org:999";
+
+		(new ClientMocking())
+				.on("GET /peer/peerid", xq("{ 'peerId': 'peerid', 'apiUrl': \'" + peerUrl + "\'}"))
+				.on("GET /solution/cat2soln", xq("{ 'solutionId': 'cat2soln', 'sourceId': 'peerid' }"))
+				.on("GET /peer/search?subjectName=gateway.acumosa.org&_j=a&page=0&size=100", xq(
+						"{ 'content': [ {'peerId': 'acumosa', 'subjectName': 'gateway.acumosa.org', 'statusCode': 'AC', 'self': true } ], 'last': true, 'number': 0, 'size': 100, 'numberOfElements': 1 }"))
+				.applyTo(cdsClient);
+		when(clients.getCDSClient()).thenReturn(cdsClient);
+
+		FederationClient fedClient = new FederationClient(peerUrl, new ClientConfig());
+		(new ClientMocking()).on("POST /modeldata", xq("{'content':{'model': { 'solutionId': 'UUID'}}}"))
+				.applyTo(fedClient);
+		when(clients.getFederationClient(any(String.class))).thenReturn(fedClient);
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		ObjectMapper objectMapper = new ObjectMapper();
+		ModelData payloadObjectNode =
+				objectMapper.readValue("{\"model\": { \"solutionId\": \"cat2soln\"}}", ModelData.class);
+		HttpEntity<ModelData> entity = new HttpEntity<>(payloadObjectNode, headers);
+
+		ModelData sendModelData = self.sendModelData("peerid", entity);
+		assertNotNull(sendModelData);
+	}
+
+	@Test
+	public void testModelDataWithPeerLookup() throws Exception {
+		GatewayClient self = new GatewayClient("https://localhost:" + port, getConfig("acumosa"));
+
+		ICommonDataServiceRestClient cdsClient =
+				CommonDataServiceRestClientImpl.getInstance("http://cds:999",
+						ClientBase.buildRestTemplate("http://cds:999", new ClientConfig(), null, null));
+		String peerUrl = "https://somepeer.org:999";
+
+		(new ClientMocking())
+			.on("GET /peer/peerid", xq("{ 'peerId': 'peerid', 'apiUrl': \'" + peerUrl + "\'}"))
+			.on("GET /solution/cat2soln", xq("{ 'solutionId': 'cat2soln', 'sourceId': 'peerid' }"))
+			.on("GET /peer/search?subjectName=gateway.acumosa.org&_j=a&page=0&size=100", xq(
+				"{ 'content': [ {'peerId': 'acumosa', 'subjectName': 'gateway.acumosa.org', 'statusCode': 'AC', 'self': true } ], 'last': true, 'number': 0, 'size': 100, 'numberOfElements': 1 }"))
+			.applyTo(cdsClient);
+		when(clients.getCDSClient()).thenReturn(cdsClient);
+
+		FederationClient fedClient = new FederationClient(peerUrl, new ClientConfig());
+		(new ClientMocking()).on("POST /modeldata", xq("{'content':{'model': { 'solutionId': 'UUID'}}}"))
+				.applyTo(fedClient);
+		when(clients.getFederationClient(any(String.class))).thenReturn(fedClient);
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		ObjectMapper objectMapper = new ObjectMapper();
+		ModelData payloadObjectNode =
+				objectMapper.readValue("{\"model\": { \"solutionId\": \"cat2soln\"}}", ModelData.class);
+		HttpEntity<ModelData> entity = new HttpEntity<>(payloadObjectNode, headers);
+
+		ModelData solutionSource = self.sendModelData("USE_SOLUTION_SOURCE", entity);
+		System.out.println(solutionSource);
+		assertNotNull(solutionSource);
+
 	}
 
 

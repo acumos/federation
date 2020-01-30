@@ -54,6 +54,7 @@ import org.springframework.http.client.ClientHttpRequest;
 import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.lang.Nullable;
 import org.springframework.http.converter.ByteArrayHttpMessageConverter;
 import org.springframework.http.converter.ResourceHttpMessageConverter;
 import org.springframework.http.HttpEntity;
@@ -276,6 +277,21 @@ public class ClientBase {
 	/**
 	 * Execute a REST transaction.
 	 *
+	 * @param <T> This is the type parameter
+	 * @param uri The URI relative, to this client's target.
+	 * @param method The HTTP method.
+	 * @param requestEntity The http request entity for sending payload and headers
+	 * @param type The wire type of the expected response.
+	 * @param params Values for parameters in the target and uri.
+	 * @return the response as entity
+	 */
+	protected <T> T handle(String uri, HttpMethod method, @Nullable HttpEntity<?> requestEntity, ParameterizedTypeReference<T> type, Object ... params) {
+		return restTemplate.exchange(uri, method, requestEntity, type, params).getBody();
+	}
+
+	/**
+	 * Execute a REST transaction.
+	 *
 	 * @param uri The URI relative, to this client's target.
 	 * @param method The HTTP method.
 	 * @param type The wire type of the expected response.
@@ -283,6 +299,22 @@ public class ClientBase {
 	 */
 	protected <T> T handle(String uri, HttpMethod method, ParameterizedTypeReference<T> type, Object ... params) {
 		return restTemplate.exchange(uri, method, null, type, params).getBody();
+	}
+
+	/**
+	 * Execute a REST transaction and unwrap the response, returning its content.
+	 *
+	 * @param <T> This is the type parameter
+	 * @param uri The URI relative, to this client's target.
+	 * @param method The HTTP method.
+	 * @param requestEntity The http request entity for sending payload and headers
+	 * @param type The wire type of the expected response.
+	 * @param params Values for parameters in the target and uri.
+	 * @return the response as entity
+	 */
+	protected <T> T handleResponse(String uri, HttpMethod method, @Nullable HttpEntity<?> requestEntity, ParameterizedTypeReference<JsonResponse<T>> type, Object ... params) {
+		JsonResponse<T> ret = handle(uri, method, requestEntity, type, params);
+		return ret == null? null: ret.getContent();
 	}
 
 	/**

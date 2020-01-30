@@ -22,6 +22,7 @@ package org.acumos.federation.client;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.List;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.junit.Test;
 import org.junit.Before;
@@ -33,6 +34,9 @@ import static org.junit.Assert.fail;
 import org.apache.http.entity.ContentType;
 
 import org.springframework.core.io.DefaultResourceLoader;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.web.client.HttpClientErrorException.Forbidden;
 import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.util.UriTemplateHandler;
@@ -41,6 +45,7 @@ import org.springframework.web.util.UriTemplateHandler;
 import org.acumos.cds.domain.MLPSolution;
 
 import org.acumos.federation.client.config.ClientConfig;
+import org.acumos.federation.client.data.ModelData;
 import org.acumos.federation.client.data.Solution;
 import org.acumos.federation.client.data.SolutionRevision;
 
@@ -113,6 +118,26 @@ public class ClientTest {
 		assertNotNull(client.register("somepeerid"));
 		client.triggerPeerSubscription("somepeerid", 99);
 	}
+
+	@Test
+	public void testGatewayModelData() throws Exception {
+		GatewayClient client = new GatewayClient("http://localhost:8888", getConfig("acumosa"));
+		(new ClientMocking()).errorOnNoAuth(401, "Unauthorized")
+		.errorOnBadAuth("acumosa", "acumosa", 403, "Forbidden")
+		    .on("POST /peer/somepeerid/modeldata", xq(
+		      "{ 'content': { 'model': { 'solutionId': '132', 'revisionId': 'revid', 'subscriberId': '1' } } }"))
+		    .applyTo(client);
+		ObjectMapper objectMapper = new ObjectMapper();
+		ModelData payloadObjectNode =
+				objectMapper.readValue("{\"model\": { \"solutionId\": \"UUID\"}}", ModelData.class);
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		HttpEntity<ModelData> entity = new HttpEntity<>(payloadObjectNode, headers);
+
+		client.sendModelData("somepeerid", entity);
+	}
+
 
 	@Test
 	public void testFederation() throws Exception {
