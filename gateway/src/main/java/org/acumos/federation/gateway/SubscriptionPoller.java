@@ -462,6 +462,7 @@ public class SubscriptionPoller {
 					pSol.setSourceId(null);
 					pSol.setUserId(lSol.getUserId());
 				} else {
+					pSol.setSourceId(lSol.getSourceId());
 					pSol.setUserId(userId);
 				}
 				changed |= !pSol.getTags().equals(lSol.getTags());
