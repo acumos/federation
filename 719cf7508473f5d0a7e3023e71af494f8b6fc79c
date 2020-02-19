@@ -1,0 +1,514 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "173711f5_2f7fe70e",
+        "filename": "acumos-fgw-client-test/pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-19T15:38:33Z",
+      "side": 1,
+      "message": "No.  This is covered by dependency management in the parent pom.",
+      "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b7788ab_2ecfa7f2",
+        "filename": "acumos-fgw-client-test/src/main/java/org/acumos/federation/client/test/ClientMocking.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-19T15:38:33Z",
+      "side": 1,
+      "message": "I would have said \"The name of the header\"",
+      "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7c87a89_831166ba",
+        "filename": "acumos-fgw-client-test/src/main/java/org/acumos/federation/client/test/ClientMocking.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-19T15:38:33Z",
+      "side": 1,
+      "message": "I would have said \"The name of the header\"",
+      "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbd718b1_ba9c4d5e",
+        "filename": "acumos-fgw-client-test/src/main/java/org/acumos/federation/client/test/ClientMocking.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-19T15:38:33Z",
+      "side": 1,
+      "message": "I would have said \"The specified header value\"",
+      "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13fdb166_4850ac12",
+        "filename": "acumos-fgw-client-test/src/main/java/org/acumos/federation/client/test/ClientMocking.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-19T15:38:33Z",
+      "side": 1,
+      "message": "No.  Since this is the object that contains the answers, having an answer or not is not applicable.\n\nThis will never really throw an IOException, but javac insists that it can, so, either I do a try/catch or declare it as throwing one.  If I do a try catch, someone will insist that I log if it catches, and then we have to think about how to get code coverage on something that literally can\u0027t ever happen, and it just gets ridiculous.\n\nOn the other hand, by saying it throws the exception, the caller, which is some kind of test case or test case setup, can say it throws (which it probably already does), and, if a miracle were to ever happen, the test framework would fail the test, log the stack trace, etc.",
+      "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b437c43_87685916",
+        "filename": "acumos-fgw-client/pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-19T15:38:33Z",
+      "side": 1,
+      "message": "Is breaking backward compatibility necessary?  If not, why label this as a breaking change by bumping the release number?",
+      "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "714b7b35_cc64b9c9",
+        "filename": "acumos-fgw-client/pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-19T15:38:33Z",
+      "side": 1,
+      "message": "No.  This is covered by dependency management in the parent pom.",
+      "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "324a08ff_1f1b876b",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/ClientBase.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-19T15:38:33Z",
+      "side": 1,
+      "message": "Don\u0027t break backward compatibility by removing existing method signatures.  Add a version of handleResponse with the extra argument, if you must, but don\u0027t remove the version without it.",
+      "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a902fce2_01e01b19",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/ClientBase.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-19T15:38:33Z",
+      "side": 1,
+      "message": "Don\u0027t break backward compatibility by removing existing method signatures.  Add a version of handleResponse with the extra argument, if you must, but don\u0027t remove the version without it.",
+      "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75757ccb_107aaf54",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/ClientBase.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-19T15:38:33Z",
+      "side": 1,
+      "message": "Don\u0027t break backward compatibility by removing existing method signatures.  Add a version of handleResponse with the extra argument, if you must, but don\u0027t remove the version without it.",
+      "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc5bfeca_b2d33657",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/FederationClient.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-19T15:38:33Z",
+      "side": 1,
+      "message": "No.  It isn\u0027t used here, so it doesn\u0027t belong here.  Also, the convention is to maintain symmetry between the internal and external APIs.  If it\u0027s \"modeldata\" on the Federation side, it should be \"modeldata\" on the Gateway side.",
+      "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8acc9076_f79ac10d",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/FederationClient.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-19T15:38:33Z",
+      "side": 1,
+      "message": "As I\u0027ve noted elsewhere, the handleResponse signature without the extra argument should be retained.  As a consequence, none of the changes to add the extra argument with a value of null should be needed here and in 11 other places in this file.",
+      "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a16a49ef_c8022004",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/FederationClient.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-19T15:38:33Z",
+      "side": 1,
+      "message": "Where\u0027s the new test case to test this new method?",
+      "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f2e208b_d8c1f1bc",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/FederationClient.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-19T15:38:33Z",
+      "side": 1,
+      "message": "Need summary of what this method does.  Parameter descriptions should be capitalized.",
+      "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "086268f2_ce363810",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/FederationClient.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-19T15:38:33Z",
+      "side": 1,
+      "message": "Name should be a verb or verb phrase, not a noun.  How about pushModelData or sendModelData?",
+      "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b3ea6cf8_741adaaf",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/GatewayClient.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-19T15:38:33Z",
+      "side": 1,
+      "message": "This should have a method for invoking the new internal API.  That method should then have a test case.",
+      "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810fb5b7_b4f4665c",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/GatewayClient.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-19T15:38:33Z",
+      "side": 1,
+      "message": "As I\u0027ve noted elsewhere, the handleResponse signature without the extra argument should be retained.  As a consequence, none of the changes to add the extra argument with a value of null should be needed here and in 6 other places in this file.",
+      "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aaec4dbb_3146f9bd",
+        "filename": "gateway/pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-19T15:38:33Z",
+      "side": 1,
+      "message": "This is not a breaking change.  It only adds additional APIs.  It should not be a new release number.",
+      "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75ac3da9_f9a54e6d",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/Clients.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-19T15:38:33Z",
+      "side": 1,
+      "message": "Where is this used?",
+      "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df12870f_8b5f1f25",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationServer.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-19T15:38:33Z",
+      "side": 1,
+      "message": "No.  The convention in Federation is that the FederationController handles all inbound requests from peer instances.",
+      "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d5ef977_fc6d2dd5",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayServer.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-19T15:38:33Z",
+      "side": 1,
+      "message": "No.  The convention in Federation is that GatewayController handles all requests from other internal Acumos systems.",
+      "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "32bfb8ab_5d5dc58a",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/ModelDataController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-19T15:38:33Z",
+      "side": 1,
+      "message": "No.  The convention in Federation is that the FederationController handles all requests received from peers.  By doing it this way you\u0027ve had to duplicate code.",
+      "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "686cdba5_e069b5e1",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/PeerModelDataController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-19T15:38:33Z",
+      "side": 1,
+      "message": "No.  The convention in the Federation code is that the GatewayController handles all requests on the internal interface.  By doing it this way, you\u0027ve had to duplicate code.",
+      "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1418d304_d50fb74c",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/SubscriptionPoller.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-19T15:38:33Z",
+      "side": 1,
+      "message": "As near as I can see, this is the only actual change being made here.",
+      "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a8f1018_38bfe754",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/SubscriptionPoller.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-19T15:38:33Z",
+      "side": 1,
+      "message": "Why?",
+      "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cc64c858_9e5ef77f",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/SubscriptionPoller.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-19T15:38:33Z",
+      "side": 1,
+      "message": "No.  This is a lot harder to read.",
+      "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6cda259c_6051222a",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/SubscriptionPoller.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-19T15:38:33Z",
+      "side": 1,
+      "message": "These changes are all just noise.  Change them back.",
+      "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e27538c_cbef9eb0",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/FederationControllerTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-19T15:38:33Z",
+      "side": 1,
+      "message": "No.  Put the signature back into ClientBase.",
+      "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6995b127_8a60ba56",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/GatewayControllerTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-19T15:38:33Z",
+      "side": 1,
+      "message": "No.  Put the signature back into ClientBase.",
+      "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a9d9e4f8_cae1170d",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/ModelDataControllerTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-19T15:38:33Z",
+      "side": 1,
+      "message": "2020.  I assume you plan to do something about the whole file being commented out.",
+      "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
