@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca11182d_7ace79dc",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/SubscriptionPoller.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-20T13:35:22Z",
+      "side": 1,
+      "message": "Should set to peerId, consistent with setting of sourceid and peerid on lines 445 and 446",
+      "revId": "8b29c06e4edddcc5bbdccac068362d37e478fd67",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
