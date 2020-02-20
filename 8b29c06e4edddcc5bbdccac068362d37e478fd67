@@ -16,6 +16,24 @@
       "revId": "8b29c06e4edddcc5bbdccac068362d37e478fd67",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2fcfd2cd_2e28909b",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/SubscriptionPoller.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-02-20T22:29:36Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ca11182d_7ace79dc",
+      "revId": "8b29c06e4edddcc5bbdccac068362d37e478fd67",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
     }
   ]
 }
