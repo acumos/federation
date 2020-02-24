@@ -1,0 +1,378 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "656b6443_d3e252aa",
+        "filename": "acumos-fgw-client-test/pom.xml",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-24T20:31:38Z",
+      "side": 1,
+      "message": "See previous objection.",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a1b215c_1fccef41",
+        "filename": "acumos-fgw-client-test/src/main/java/org/acumos/federation/client/test/ClientMocking.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-24T20:31:38Z",
+      "side": 1,
+      "message": "No.  See previous objections to including unneeded and irrelevant changes in something considered \"critical\"",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf11901a_dabb1c49",
+        "filename": "acumos-fgw-client/pom.xml",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-24T20:31:38Z",
+      "side": 1,
+      "message": "No.  See previous objection.",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "95db8f7e_7140f70b",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/ClientBase.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-24T20:31:38Z",
+      "side": 1,
+      "message": "No.  See previous objection to including unneeded and irrelevant changes in something considered \"critical.\"",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2719eef_f7987ad6",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/ClientBase.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-24T20:31:38Z",
+      "side": 1,
+      "message": "No.  See previous objection concerning arbitrary white space changes.",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "40f5923d_fc2c589b",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/ClientBase.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-24T20:31:38Z",
+      "side": 1,
+      "message": "Indentation should be consistent with style of existing code.",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8567de29_83d0b98b",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/ClientBase.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-24T20:31:38Z",
+      "side": 1,
+      "message": "Unnecessary change.  Method never invoked.",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fd2a01f3_560e5fb5",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/ClientBase.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-24T20:31:38Z",
+      "side": 1,
+      "message": "No.  Unnecessary change.",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e2f145d_30a51a92",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/Clients.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-24T20:31:38Z",
+      "side": 1,
+      "message": "No.  See previous objection",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06067eb2_ee5e378a",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-24T20:31:38Z",
+      "side": 1,
+      "message": "No.  Use the ClientBase to construct a proper client for LogStash, if one does not exist.  See NexusClient.java, in this directory, for an example.",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3595330d_ec1110a7",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-24T20:31:38Z",
+      "side": 1,
+      "message": "No.  Create an instance of a client in Clients.java, using the config, there.  The config must also be described in the documentation (config.rst), and the release notes must also describe any new or changed configuration fields for Federation.",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1980ec94_def7838c",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-24T20:31:38Z",
+      "side": 1,
+      "message": "No.  See previous objection to irrelevant white space changes",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b17e61f_b231cb4b",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-24T20:31:38Z",
+      "side": 1,
+      "message": "How to configure logstash belongs in the documentation section, not in the javadoc.",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d8209858_775c6b58",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-24T20:31:38Z",
+      "side": 1,
+      "message": "No.  Don\u0027t use arbitrary JSON as request or response.  Either reference existing classes defining the layout or create new ones, as necessary.  See, for example, the classes defined in the federation/acumos-fgw-client/src/main/lombok/org/acumos/federation/client/data directory.",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8fc54872_56b7776b",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-24T20:31:38Z",
+      "side": 1,
+      "message": "No.  See previous objection to arbitrary white space changes.",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11aab57c_ee8f2500",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-24T20:31:38Z",
+      "side": 1,
+      "message": "No.  This belongs in the project documentation, not in the javadoc for an internal method.",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b11e057_50cfd400",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-24T20:31:38Z",
+      "side": 1,
+      "message": "No.  This will not work.  Locally originated solutions have a sourceId of null.  The sourceId is only set when a solution has been federated from another Acumos system.",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3438be3d_6b5dc76a",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-24T20:31:38Z",
+      "side": 1,
+      "message": "I really think this kind of error should be reported up to the client that made the call.  The Gateway Controller is acting like a proxy, so it should report errors back to clients in a manner similar to what is done by proxies.",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0881208a_1b540875",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/Security.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-24T20:31:38Z",
+      "side": 1,
+      "message": "No.  See previous objections to unnecessary and irrelevant changes in something considered \"critical\"",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9aba7995_5ae8bed7",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/SubscriptionPoller.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-24T20:31:38Z",
+      "side": 1,
+      "message": "Isn\u0027t this a duplicate of the other change?",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6daacb0_19f431b3",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/FederationControllerTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-24T20:31:38Z",
+      "side": 1,
+      "message": "No.  See previous objection to arbitrary white space changes.",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "811f7fa5_45b814f0",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/FederationControllerTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-24T20:31:38Z",
+      "side": 1,
+      "message": "No.  Making wrong call.",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
