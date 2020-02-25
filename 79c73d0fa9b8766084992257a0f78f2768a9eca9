@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f2ca38e_7355cfc4",
+        "filename": "acumos-fgw-client-config/pom.xml",
+        "patchSetId": 8
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-25T15:44:26Z",
+      "side": 1,
+      "message": "No.  Do not do this.",
+      "revId": "79c73d0fa9b8766084992257a0f78f2768a9eca9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a81ec00f_4487b827",
+        "filename": "acumos-fgw-client-test/pom.xml",
+        "patchSetId": 8
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-25T15:44:26Z",
+      "side": 1,
+      "message": "No.",
+      "revId": "79c73d0fa9b8766084992257a0f78f2768a9eca9",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
