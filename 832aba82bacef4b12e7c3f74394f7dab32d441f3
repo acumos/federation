@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "b4adc3b4_5abbacfa",
+        "filename": "acumos-fgw-client/pom.xml",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-02-25T01:32:34Z",
+      "side": 1,
+      "message": "will use the parent pom property -- that will also work. Using no version here causes build to fail and requires more than one build to work.",
+      "parentUuid": "bf11901a_dabb1c49",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "95db8f7e_7140f70b",
         "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/ClientBase.java",
         "patchSetId": 6
@@ -342,6 +360,24 @@
     },
     {
       "key": {
+        "uuid": "08b834e2_18576daf",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/SubscriptionPoller.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-02-25T01:32:34Z",
+      "side": 1,
+      "message": "will revert and rebase",
+      "parentUuid": "9aba7995_5ae8bed7",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a6daacb0_19f431b3",
         "filename": "gateway/src/test/java/org/acumos/federation/gateway/FederationControllerTest.java",
         "patchSetId": 6
@@ -359,6 +395,24 @@
     },
     {
       "key": {
+        "uuid": "1d488fa0_1684b216",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/FederationControllerTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-02-25T01:32:34Z",
+      "side": 1,
+      "message": "ok I see there are tabs and spaces as tabs here. Reverted back",
+      "parentUuid": "a6daacb0_19f431b3",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "811f7fa5_45b814f0",
         "filename": "gateway/src/test/java/org/acumos/federation/gateway/FederationControllerTest.java",
         "patchSetId": 6
@@ -370,6 +424,24 @@
       "writtenOn": "2020-02-24T20:31:38Z",
       "side": 1,
       "message": "No.  Making wrong call.",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b7d22d9_3bceb823",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/FederationControllerTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-02-25T01:32:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "811f7fa5_45b814f0",
       "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": false
