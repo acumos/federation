@@ -90,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "d6ea6253_49db7626",
+        "filename": "acumos-fgw-client-test/src/main/java/org/acumos/federation/client/test/ClientMocking.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-02-26T01:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "371a24bc_31457eb6",
+      "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d7c87a89_831166ba",
         "filename": "acumos-fgw-client-test/src/main/java/org/acumos/federation/client/test/ClientMocking.java",
         "patchSetId": 3
@@ -137,6 +155,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "a5c54a5c_ffe513a7",
+      "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76c1048c_a7bb857c",
+        "filename": "acumos-fgw-client-test/src/main/java/org/acumos/federation/client/test/ClientMocking.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-02-26T01:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bfe6a9db_c5cb0052",
       "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": false
@@ -196,6 +232,24 @@
     },
     {
       "key": {
+        "uuid": "1866d7fe_843a8107",
+        "filename": "acumos-fgw-client-test/src/main/java/org/acumos/federation/client/test/ClientMocking.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-02-26T01:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60e7a5c6_b0851002",
+      "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "13fdb166_4850ac12",
         "filename": "acumos-fgw-client-test/src/main/java/org/acumos/federation/client/test/ClientMocking.java",
         "patchSetId": 3
@@ -243,6 +297,24 @@
       "side": 1,
       "message": "reverting this for now putting back the javadoc warning",
       "parentUuid": "4298bef4_9a22ba13",
+      "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5304cc8_70a161e7",
+        "filename": "acumos-fgw-client-test/src/main/java/org/acumos/federation/client/test/ClientMocking.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-02-26T01:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86536eb5_ce502b48",
       "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": false
@@ -302,6 +374,24 @@
     },
     {
       "key": {
+        "uuid": "a70e1d5f_3f6e9e45",
+        "filename": "acumos-fgw-client/pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-02-26T01:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d76933dc_5323d976",
+      "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "714b7b35_cc64b9c9",
         "filename": "acumos-fgw-client/pom.xml",
         "patchSetId": 3
@@ -349,6 +439,24 @@
       "side": 1,
       "message": "Fixed circular dependency .. had to remove federation modules from this dependency list but I use the version info from parent pom properties.",
       "parentUuid": "63567d36_9306c358",
+      "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e1a6811_bb645686",
+        "filename": "acumos-fgw-client/pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-02-26T01:04:51Z",
+      "side": 1,
+      "message": "backed out these changes",
+      "parentUuid": "80533bb3_6298584a",
       "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": false
@@ -737,6 +845,24 @@
       "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce639c34_f684960e",
+        "filename": "docs/release-notes.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-02-26T01:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca6f3898_c5e39cb7",
+      "revId": "719cf7508473f5d0a7e3023e71af494f8b6fc79c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
     },
     {
       "key": {
