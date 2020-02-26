@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0350da2b_df6d0927",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/Clients.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-26T20:37:34Z",
+      "side": 1,
+      "message": "Any idea what this gets used for (if anything)?",
+      "revId": "d59a9da4f0982fcb90b658bc57d00000f7ef53bf",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef647689_1d777f2d",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/Clients.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-26T20:37:34Z",
+      "side": 1,
+      "message": "Looking at the code at acumos-nexus-client:src/main/java/org/acumos/nexus/client/MvnRepoWagonConnectionManager.java:l87, it looks to me like setting a proxy disables the login/password, which would be a bad thing, so we don\u0027t want to do anything for proxy setup.",
+      "revId": "d59a9da4f0982fcb90b658bc57d00000f7ef53bf",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
