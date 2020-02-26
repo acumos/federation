@@ -35,6 +35,8 @@ import org.acumos.federation.client.FederationClient;
 import org.acumos.securityverification.service.ISecurityVerificationClientService;
 import org.acumos.securityverification.service.SecurityVerificationClientServiceImpl;
 import org.acumos.licensemanager.client.rtu.LicenseAsset;
+import org.acumos.nexus.client.NexusArtifactClient;
+import org.acumos.nexus.client.RepositoryLocation;
 
 /**
  * Defines all beans used to access outside services.
@@ -78,6 +80,7 @@ public class Clients {
 
 	private ICommonDataServiceRestClient cdsClient;
 	private NexusClient nexusClient;
+	private NexusArtifactClient nexusArtifactClient;
 	private ISecurityVerificationClientService svClient;
 	private LicenseAsset lmClient;
 
@@ -112,6 +115,19 @@ public class Clients {
 			nexusClient = new NexusClient(nexusConfig.getUrl(), cc);
 		}
 		return nexusClient;
+	}
+
+	public synchronized NexusArtifactClient getNexusArtifactClient() {
+		if (nexusArtifactClient == null) {
+			RepositoryLocation repositoryLocation = new RepositoryLocation();
+			repositoryLocation.setId("1");
+			repositoryLocation.setUrl(nexusConfig.getUrl());
+			repositoryLocation.setUsername(nexusConfig.getUsername());
+			repositoryLocation.setPassword(nexusConfig.getPassword());
+			// TODO http proxy setup? asking this should be automatic based on https://docs.oracle.com/javase/8/docs/technotes/guides/net/proxies.html
+			nexusArtifactClient = new NexusArtifactClient(repositoryLocation);
+		}
+		return nexusArtifactClient;
 	}
 
 	public synchronized DockerClient getDockerClient() {
@@ -154,7 +170,7 @@ public class Clients {
 
 	public synchronized LicenseAsset getLMClient() {
 		if (lmClient == null) {
-			lmClient = new LicenseAsset(getCDSClient(), lmConfig.getUrl(), nexusConfig.getUrl().replaceAll("/*$", "") + "/");
+			lmClient = new LicenseAsset(getCDSClient(), lmConfig.getUrl(), getNexusArtifactClient());
 		}
 		return lmClient;
 	}
