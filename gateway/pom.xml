@@ -27,7 +27,11 @@
 	</parent>
 	<groupId>org.acumos.federation</groupId>
 	<artifactId>gateway</artifactId>
+<<<<<<< HEAD   (f4f122 Fix solution sourceId !=null)
 	<version>3.1.1-SNAPSHOT</version>
+=======
+	<version>3.0.3-SNAPSHOT</version>
+>>>>>>> CHANGE (d59a9d LMCL 1.4.4 - Nexus auth support)
 	<name>Federation Gateway</name>
 	<description>Federated Acumos Interface for inter-acumos communication</description>
 	<properties>
@@ -98,7 +102,12 @@
 		<dependency>
 			<groupId>org.acumos.license-manager</groupId>
 			<artifactId>license-manager-client-library</artifactId>
-			<version>1.4.1</version>
+			<version>1.4.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.acumos.acumos-nexus-client</groupId>
+			<artifactId>acumos-nexus-client</artifactId>
+			<version>2.2.1</version>
 		</dependency>
 		<!-- Compile time only dependencies -->
 		<dependency>

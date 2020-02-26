@@ -23,6 +23,7 @@ Federation Gateway Release Notes
 This server is available as a Docker image in a Docker registry at the Linux Foundation.
 The image name is "federation-gateway" and the tag is a version string as shown below.
 
+<<<<<<< HEAD   (f4f122 Fix solution sourceId !=null)
 Version 3.1.1, 2020-01-27
 -------------------------
 * Update dependency version for the common data service client to 3.1.1 (`ACUMOS-3951 <https://jira.acumos.org/browse/ACUMOS-3951>`_)
@@ -30,6 +31,11 @@ Version 3.1.1, 2020-01-27
 Version 3.1.0, 2019-12-16
 -------------------------
 * Update dependency version for the common data service client to 3.1.0 (`ACUMOS-3845 <https://jira.acumos.org/browse/ACUMOS-3845>`_)
+=======
+Version 3.0.3, 2020-02-26
+-------------------------
+* LicenseAsset support NexusArtifactClient - `ACUMOS-3960 <https://jira.acumos.org/browse/ACUMOS-3960>`_
+>>>>>>> CHANGE (d59a9d LMCL 1.4.4 - Nexus auth support)
 
 Version 3.0.2, 2019-11-04
 -------------------------

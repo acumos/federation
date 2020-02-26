@@ -27,7 +27,11 @@ limitations under the License.
 	</parent>
 	<groupId>org.acumos.federation</groupId>
 	<artifactId>acumos-fgw-client</artifactId>
+<<<<<<< HEAD   (f4f122 Fix solution sourceId !=null)
 	<version>3.1.1-SNAPSHOT</version>
+=======
+	<version>3.0.3-SNAPSHOT</version>
+>>>>>>> CHANGE (d59a9d LMCL 1.4.4 - Nexus auth support)
 	<name>Federation Gateway Client</name>
 	<properties>
 		<!-- dependency versions -->
