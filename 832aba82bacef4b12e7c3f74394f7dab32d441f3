@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "bc8311f8_3e90d3c3",
+        "filename": "acumos-fgw-client-test/pom.xml",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-02-26T01:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "656b6443_d3e252aa",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a1b215c_1fccef41",
         "filename": "acumos-fgw-client-test/src/main/java/org/acumos/federation/client/test/ClientMocking.java",
         "patchSetId": 6
@@ -30,6 +48,24 @@
       "writtenOn": "2020-02-24T20:31:38Z",
       "side": 1,
       "message": "No.  See previous objections to including unneeded and irrelevant changes in something considered \"critical\"",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1ce0286_c2d82b12",
+        "filename": "acumos-fgw-client-test/src/main/java/org/acumos/federation/client/test/ClientMocking.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-02-26T01:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a1b215c_1fccef41",
       "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "4067f012_ea26bffb",
+        "filename": "acumos-fgw-client/pom.xml",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-02-26T01:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4adc3b4_5abbacfa",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "95db8f7e_7140f70b",
         "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/ClientBase.java",
         "patchSetId": 6
@@ -82,6 +136,24 @@
       "writtenOn": "2020-02-24T20:31:38Z",
       "side": 1,
       "message": "No.  See previous objection to including unneeded and irrelevant changes in something considered \"critical.\"",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7fda656d_4d07f752",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/ClientBase.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-02-26T01:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95db8f7e_7140f70b",
       "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": false
@@ -105,6 +177,24 @@
     },
     {
       "key": {
+        "uuid": "34f75a57_62d954fc",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/ClientBase.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-02-26T01:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d2719eef_f7987ad6",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "40f5923d_fc2c589b",
         "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/ClientBase.java",
         "patchSetId": 6
@@ -116,6 +206,24 @@
       "writtenOn": "2020-02-24T20:31:38Z",
       "side": 1,
       "message": "Indentation should be consistent with style of existing code.",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d3133b5_1192709c",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/ClientBase.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-02-26T01:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40f5923d_fc2c589b",
       "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": false
@@ -139,6 +247,24 @@
     },
     {
       "key": {
+        "uuid": "8676fb1b_e00202dd",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/ClientBase.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-02-26T01:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8567de29_83d0b98b",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fd2a01f3_560e5fb5",
         "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/ClientBase.java",
         "patchSetId": 6
@@ -150,6 +276,24 @@
       "writtenOn": "2020-02-24T20:31:38Z",
       "side": 1,
       "message": "No.  Unnecessary change.",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a44fd808_5c0c9858",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/ClientBase.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-02-26T01:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd2a01f3_560e5fb5",
       "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": false
@@ -173,6 +317,24 @@
     },
     {
       "key": {
+        "uuid": "df70285f_4a1acaa3",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/Clients.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-02-26T01:04:51Z",
+      "side": 1,
+      "message": "Setup a client but I still need external configuration.",
+      "parentUuid": "9e2f145d_30a51a92",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "06067eb2_ee5e378a",
         "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
         "patchSetId": 6
@@ -184,6 +346,24 @@
       "writtenOn": "2020-02-24T20:31:38Z",
       "side": 1,
       "message": "No.  Use the ClientBase to construct a proper client for LogStash, if one does not exist.  See NexusClient.java, in this directory, for an example.",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5e95c5b_311f37ca",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-02-26T01:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06067eb2_ee5e378a",
       "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": false
@@ -207,6 +387,24 @@
     },
     {
       "key": {
+        "uuid": "579e08b3_f3a09bac",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-02-26T01:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3595330d_ec1110a7",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1980ec94_def7838c",
         "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
         "patchSetId": 6
@@ -218,6 +416,24 @@
       "writtenOn": "2020-02-24T20:31:38Z",
       "side": 1,
       "message": "No.  See previous objection to irrelevant white space changes",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9fb20352_c391675b",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-02-26T01:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1980ec94_def7838c",
       "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": false
@@ -241,6 +457,24 @@
     },
     {
       "key": {
+        "uuid": "042a31cc_b229eb70",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-02-26T01:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b17e61f_b231cb4b",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d8209858_775c6b58",
         "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
         "patchSetId": 6
@@ -252,6 +486,24 @@
       "writtenOn": "2020-02-24T20:31:38Z",
       "side": 1,
       "message": "No.  Don\u0027t use arbitrary JSON as request or response.  Either reference existing classes defining the layout or create new ones, as necessary.  See, for example, the classes defined in the federation/acumos-fgw-client/src/main/lombok/org/acumos/federation/client/data directory.",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa751737_6c5bca95",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-02-26T01:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8209858_775c6b58",
       "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": false
@@ -275,6 +527,24 @@
     },
     {
       "key": {
+        "uuid": "cca993c6_6e1424ab",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-02-26T01:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fc54872_56b7776b",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "11aab57c_ee8f2500",
         "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
         "patchSetId": 6
@@ -286,6 +556,24 @@
       "writtenOn": "2020-02-24T20:31:38Z",
       "side": 1,
       "message": "No.  This belongs in the project documentation, not in the javadoc for an internal method.",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6608dc26_92fbc3af",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-02-26T01:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11aab57c_ee8f2500",
       "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": false
@@ -309,6 +597,24 @@
     },
     {
       "key": {
+        "uuid": "183c03b9_77ef3f1c",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-02-26T01:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b11e057_50cfd400",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3438be3d_6b5dc76a",
         "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
         "patchSetId": 6
@@ -326,6 +632,24 @@
     },
     {
       "key": {
+        "uuid": "e56d8f5e_11399dfe",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-02-26T01:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3438be3d_6b5dc76a",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0881208a_1b540875",
         "filename": "gateway/src/main/java/org/acumos/federation/gateway/Security.java",
         "patchSetId": 6
@@ -337,6 +661,24 @@
       "writtenOn": "2020-02-24T20:31:38Z",
       "side": 1,
       "message": "No.  See previous objections to unnecessary and irrelevant changes in something considered \"critical\"",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3d33f55f_804504bd",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/Security.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-02-26T01:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0881208a_1b540875",
       "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": false
@@ -378,6 +720,24 @@
     },
     {
       "key": {
+        "uuid": "43618a9a_5523e563",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/SubscriptionPoller.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-02-26T01:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08b834e2_18576daf",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a6daacb0_19f431b3",
         "filename": "gateway/src/test/java/org/acumos/federation/gateway/FederationControllerTest.java",
         "patchSetId": 6
@@ -407,6 +767,24 @@
       "side": 1,
       "message": "ok I see there are tabs and spaces as tabs here. Reverted back",
       "parentUuid": "a6daacb0_19f431b3",
+      "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92c1d983_33b6d24c",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/FederationControllerTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-02-26T01:04:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d488fa0_1684b216",
       "revId": "832aba82bacef4b12e7c3f74394f7dab32d441f3",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": false
