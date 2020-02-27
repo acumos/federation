@@ -1,0 +1,208 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5345fd5e_98635132",
+        "filename": "acumos-fgw-client-config/pom.xml",
+        "patchSetId": 10
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-27T14:04:34Z",
+      "side": 1,
+      "message": "No.  Don\u0027t make unnecessary changes as part of a critical feature.",
+      "revId": "66043ee6a423a3e284ea47daed948b28151d663e",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c31fd4e5_2009ae08",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/GatewayClient.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-27T14:04:34Z",
+      "side": 1,
+      "message": "What is the purpose of having the application using the client have to create an HttpEntity to wrap the ModelData rather than having this code hide those details?",
+      "revId": "66043ee6a423a3e284ea47daed948b28151d663e",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f685cb88_1d9c4f13",
+        "filename": "acumos-fgw-client/src/main/lombok/org/acumos/federation/client/data/ModelData.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-27T14:04:34Z",
+      "side": 1,
+      "message": "Needs updating.",
+      "revId": "66043ee6a423a3e284ea47daed948b28151d663e",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b79ea5d_8442bd4f",
+        "filename": "acumos-fgw-client/src/main/lombok/org/acumos/federation/client/data/ModelData.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-27T14:04:34Z",
+      "side": 1,
+      "message": "Needs a summary describing what this field is ending with punctuation (like a period).",
+      "revId": "66043ee6a423a3e284ea47daed948b28151d663e",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8120ce9b_b015f645",
+        "filename": "acumos-fgw-client/src/main/lombok/org/acumos/federation/client/data/ModelData.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-27T14:04:34Z",
+      "side": 1,
+      "message": "Needs javadoc comment with minimally a summary ending with punctuation, an at-param tags, and an at-return",
+      "revId": "66043ee6a423a3e284ea47daed948b28151d663e",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2be10724_92e17811",
+        "filename": "acumos-fgw-client/src/main/lombok/org/acumos/federation/client/data/ModelData.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-27T14:04:34Z",
+      "side": 1,
+      "message": "Needs javadoc comment with minimally a summary ending with punctuation, an at-param timestamp, and an at-return.\n\nIf this field is a timestamp, why isn\u0027t it specified as type (java.time.)Instant, like all the other time stamps used by common data service and federation?",
+      "revId": "66043ee6a423a3e284ea47daed948b28151d663e",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99c77222_f2636376",
+        "filename": "acumos-fgw-client/src/main/lombok/org/acumos/federation/client/data/ModelData.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-27T14:04:34Z",
+      "side": 1,
+      "message": "Needs javadoc comment with minimally a summary ending with punctuation, an at-param model, and an at-return.",
+      "revId": "66043ee6a423a3e284ea47daed948b28151d663e",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcc45b18_c3023154",
+        "filename": "acumos-fgw-client/src/main/lombok/org/acumos/federation/client/data/ModelInfo.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-27T14:04:34Z",
+      "side": 1,
+      "message": "Needs updating.",
+      "revId": "66043ee6a423a3e284ea47daed948b28151d663e",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47203980_bc753a32",
+        "filename": "acumos-fgw-client/src/main/lombok/org/acumos/federation/client/data/ModelInfo.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-27T14:04:34Z",
+      "side": 1,
+      "message": "Need javadoc comments for these 3 fields each minimally containing a summary describing what the field is, an at-param -fieldname-, and an at-return.",
+      "revId": "66043ee6a423a3e284ea47daed948b28151d663e",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d8349ce5_adb953fc",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-27T14:04:34Z",
+      "side": 1,
+      "message": "This isn\u0027t useful.  The ID of a peer is not shared between instances.  When I create my Acumos, I generate my local peerId.  When you add me as a peer, you generate your peerId for me, independently.  They are guaranteed to never be equal.\n\nI think the only mutually agreed identifier is the \"subjectName\" (actually the CN part of it) in the TLS certificate, which you can get from MLPPeer self using getSubjectName().",
+      "revId": "66043ee6a423a3e284ea47daed948b28151d663e",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e35e0f8_1d50b132",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-27T14:04:34Z",
+      "side": 1,
+      "message": "You shouldn\u0027t have to deal with this here.  The client should deal with stuff like the media type and headers.",
+      "revId": "66043ee6a423a3e284ea47daed948b28151d663e",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9de4788b_492a4b48",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/LogstashServiceImpl.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-02-27T14:04:34Z",
+      "side": 1,
+      "message": "You shouldn\u0027t have to deal with this here.  The client should deal with things like the content type.",
+      "revId": "66043ee6a423a3e284ea47daed948b28151d663e",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
