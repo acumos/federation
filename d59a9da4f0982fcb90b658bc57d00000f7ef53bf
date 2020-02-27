@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e8212002_7778fffc",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/Clients.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-02-27T02:19:57Z",
+      "side": 1,
+      "message": "This was duplicate from what we saw in portal - it is the repository id .. portal has also hard coded the value. I did not determine exactly what this is for. API doesn\u0027t describe it  - https://javadocs.acumos.org/org.acumos.acumos-nexus-client/master/ Here is the reference code we found in portal - https://github.com/acumos/portal-marketplace/blob/ecccf850f4fd373b1ecfedb6cadacc3f943c95df/acumos-portal-be/src/main/java/org/acumos/portal/be/service/impl/AbstractServiceImpl.java#L53",
+      "parentUuid": "0350da2b_df6d0927",
+      "revId": "d59a9da4f0982fcb90b658bc57d00000f7ef53bf",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef647689_1d777f2d",
         "filename": "gateway/src/main/java/org/acumos/federation/gateway/Clients.java",
         "patchSetId": 1
