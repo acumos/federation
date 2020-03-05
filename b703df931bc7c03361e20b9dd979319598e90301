@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "4bf4b476_1f44ef11",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/GatewayClient.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-03-05T20:11:22Z",
+      "side": 1,
+      "message": "yes logstash response is pretty simple we can use void for now and there will be exception which will let subscriber know if communication channel is working.",
+      "parentUuid": "74a3ea34_e76c3cfd",
+      "revId": "b703df931bc7c03361e20b9dd979319598e90301",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "21aba4bc_59094420",
         "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/GatewayClient.java",
         "patchSetId": 13
@@ -47,6 +65,24 @@
       "writtenOn": "2020-03-05T14:18:33Z",
       "side": 1,
       "message": "No.  Use postForObject().  See comments in GatewayController that it should not be returning JsonResponse\u003cJsonResponse\u003e",
+      "revId": "b703df931bc7c03361e20b9dd979319598e90301",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e17e3b4f_f04114ca",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/GatewayClient.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-03-05T20:11:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21aba4bc_59094420",
       "revId": "b703df931bc7c03361e20b9dd979319598e90301",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": false
@@ -70,6 +106,24 @@
     },
     {
       "key": {
+        "uuid": "ab5685e4_72b22ddd",
+        "filename": "acumos-fgw-client/src/test/java/org/acumos/federation/client/ClientTest.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-03-05T20:11:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ae72cca_a735701e",
+      "revId": "b703df931bc7c03361e20b9dd979319598e90301",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43acbba3_2e62591e",
         "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
         "patchSetId": 13
@@ -81,6 +135,24 @@
       "writtenOn": "2020-03-05T14:18:33Z",
       "side": 1,
       "message": "Should return JsonResponse\u003cString\u003e since String is what\u0027s returned from the log stash service.\n\nThat\u0027s assuming that the answer from log stash service is useful.  If the response from the log stash service is not useful, then don\u0027t save it, don\u0027t call response.setMessage(message), and declare the JsonResponse as JsonResponse\u003cVoid\u003e",
+      "revId": "b703df931bc7c03361e20b9dd979319598e90301",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b884c72e_71d76eda",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-03-05T20:11:22Z",
+      "side": 1,
+      "message": "Void is fine for now",
+      "parentUuid": "43acbba3_2e62591e",
       "revId": "b703df931bc7c03361e20b9dd979319598e90301",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": false
@@ -104,6 +176,24 @@
     },
     {
       "key": {
+        "uuid": "9be25c77_4c5b9432",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-03-05T20:11:22Z",
+      "side": 1,
+      "message": "Done - went with spring default behavior .. less code.",
+      "parentUuid": "36d02b21_845b44de",
+      "revId": "b703df931bc7c03361e20b9dd979319598e90301",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a817d6e6_6ed33d55",
         "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
         "patchSetId": 13
@@ -115,6 +205,24 @@
       "writtenOn": "2020-03-05T14:18:33Z",
       "side": 1,
       "message": "This should be either JsonResponse\u003cString\u003e or JsonResponse\u003cVoid\u003e, depending on whether the response from log stash is useful.",
+      "revId": "b703df931bc7c03361e20b9dd979319598e90301",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6dab2d56_19565403",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-03-05T20:11:22Z",
+      "side": 1,
+      "message": "JsonResponse\u003cVoid\u003e used",
+      "parentUuid": "a817d6e6_6ed33d55",
       "revId": "b703df931bc7c03361e20b9dd979319598e90301",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": false
@@ -155,6 +263,24 @@
     },
     {
       "key": {
+        "uuid": "01a4831c_fa223916",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/LogstashClient.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-03-05T20:11:22Z",
+      "side": 1,
+      "message": "Changed to JsonResponse\u003cVoid\u003e",
+      "parentUuid": "2480f321_4cf264be",
+      "revId": "b703df931bc7c03361e20b9dd979319598e90301",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "132522b9_8ac85f82",
         "filename": "gateway/src/main/java/org/acumos/federation/gateway/LogstashClient.java",
         "patchSetId": 13
@@ -166,6 +292,24 @@
       "writtenOn": "2020-03-05T14:18:33Z",
       "side": 1,
       "message": "Use postForObject.",
+      "revId": "b703df931bc7c03361e20b9dd979319598e90301",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b00dc9ce_8e356c06",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/LogstashClient.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-03-05T20:11:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "132522b9_8ac85f82",
       "revId": "b703df931bc7c03361e20b9dd979319598e90301",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": false
@@ -189,6 +333,24 @@
     },
     {
       "key": {
+        "uuid": "15d39b59_86a5cacd",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/LogstashService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-03-05T20:11:22Z",
+      "side": 1,
+      "message": "returning void now",
+      "parentUuid": "ded09b96_66747b1c",
+      "revId": "b703df931bc7c03361e20b9dd979319598e90301",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ae169db_1edd1011",
         "filename": "gateway/src/main/java/org/acumos/federation/gateway/LogstashServiceImpl.java",
         "patchSetId": 13
@@ -200,6 +362,24 @@
       "writtenOn": "2020-03-05T14:18:33Z",
       "side": 1,
       "message": "If the response from log stash is not useful, then this should return void, not String.",
+      "revId": "b703df931bc7c03361e20b9dd979319598e90301",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "61a6f26c_8350582b",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/LogstashServiceImpl.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-03-05T20:11:22Z",
+      "side": 1,
+      "message": "yes returning Void",
+      "parentUuid": "9ae169db_1edd1011",
       "revId": "b703df931bc7c03361e20b9dd979319598e90301",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": false
