@@ -1,0 +1,208 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b944785_8d1d799f",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/FederationClient.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-05T14:18:33Z",
+      "side": 1,
+      "message": "Should return String or void depending on whether the response from log stash is useful.  Certainly not JsonResponse.",
+      "revId": "b703df931bc7c03361e20b9dd979319598e90301",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74a3ea34_e76c3cfd",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/GatewayClient.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-05T14:18:33Z",
+      "side": 1,
+      "message": "Should be void or String (depending on whether anything cares about the text of the response from LogStash).",
+      "revId": "b703df931bc7c03361e20b9dd979319598e90301",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "21aba4bc_59094420",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/GatewayClient.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-05T14:18:33Z",
+      "side": 1,
+      "message": "No.  Use postForObject().  See comments in GatewayController that it should not be returning JsonResponse\u003cJsonResponse\u003e",
+      "revId": "b703df931bc7c03361e20b9dd979319598e90301",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ae72cca_a735701e",
+        "filename": "acumos-fgw-client/src/test/java/org/acumos/federation/client/ClientTest.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-05T14:18:33Z",
+      "side": 1,
+      "message": "See comments in main code.  Don\u0027t use JsonResponse inside JsonResponse.",
+      "revId": "b703df931bc7c03361e20b9dd979319598e90301",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43acbba3_2e62591e",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-05T14:18:33Z",
+      "side": 1,
+      "message": "Should return JsonResponse\u003cString\u003e since String is what\u0027s returned from the log stash service.\n\nThat\u0027s assuming that the answer from log stash service is useful.  If the response from the log stash service is not useful, then don\u0027t save it, don\u0027t call response.setMessage(message), and declare the JsonResponse as JsonResponse\u003cVoid\u003e",
+      "revId": "b703df931bc7c03361e20b9dd979319598e90301",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36d02b21_845b44de",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-05T14:18:33Z",
+      "side": 1,
+      "message": "Don\u0027t return a JsonResponse.  Throw a new BadRequestException(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, \"Cannot post to Logstash\"). (Or just don\u0027t catch the exception and let Spring\u0027s default behavior take care of it).",
+      "revId": "b703df931bc7c03361e20b9dd979319598e90301",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a817d6e6_6ed33d55",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-05T14:18:33Z",
+      "side": 1,
+      "message": "This should be either JsonResponse\u003cString\u003e or JsonResponse\u003cVoid\u003e, depending on whether the response from log stash is useful.",
+      "revId": "b703df931bc7c03361e20b9dd979319598e90301",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2c7554f7_a3e48582",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-05T14:18:33Z",
+      "side": 1,
+      "message": "No.  Throw a new BadRequestException(HttpServletResponse.SC_BAD_GATEWAY, \"Failed posting ...\")",
+      "revId": "b703df931bc7c03361e20b9dd979319598e90301",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2480f321_4cf264be",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/LogstashClient.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-05T14:18:33Z",
+      "side": 1,
+      "message": "I suspect that the body returned by log stash is useless.  I could be wrong (it might be some kind of receipt).  If it is useless, then this should return void, not String, with the corresponding LogstashService, LogstashServiceImpl, FederationClient, and GatewayClient methods also returning void, and the corresponding FederationController and GatewayController methods returning JsonResponse\u003cVoid\u003e instead of JsonResponse\u003cString\u003e.",
+      "revId": "b703df931bc7c03361e20b9dd979319598e90301",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "132522b9_8ac85f82",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/LogstashClient.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-05T14:18:33Z",
+      "side": 1,
+      "message": "Use postForObject.",
+      "revId": "b703df931bc7c03361e20b9dd979319598e90301",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ded09b96_66747b1c",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/LogstashService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-05T14:18:33Z",
+      "side": 1,
+      "message": "If the response from logstash is not useful, then this should be void, not String.",
+      "revId": "b703df931bc7c03361e20b9dd979319598e90301",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ae169db_1edd1011",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/LogstashServiceImpl.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-05T14:18:33Z",
+      "side": 1,
+      "message": "If the response from log stash is not useful, then this should return void, not String.",
+      "revId": "b703df931bc7c03361e20b9dd979319598e90301",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
