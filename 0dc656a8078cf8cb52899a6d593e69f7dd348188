@@ -22,6 +22,30 @@
       "revId": "0dc656a8078cf8cb52899a6d593e69f7dd348188",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d732c0c7_6c6e28a4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-03-05T23:41:08Z",
+      "side": 1,
+      "message": "Part of the cherry-pick I guess? Do you want me to remove?",
+      "parentUuid": "2b39e820_0077a3a7",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 1
+      },
+      "revId": "0dc656a8078cf8cb52899a6d593e69f7dd348188",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
     }
   ]
 }
