@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "848d49a0_6c901507",
+        "filename": "acumos-fgw-client/pom.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-06T13:42:49Z",
+      "side": 1,
+      "message": "This is not sem ver compliant.  You can find an online semantic versioning syntax checker at, for example, https://jubianchi.github.io/semver-check/\nIf you enter 3.0.3 into it, it will show you what the next version should be for each type of change: If the change is not backward compatible, then the next version would be 4.0.0.  If the change adds features, the next version would be 3.1.0, if the change fixes bugs, the next version would be 3.0.4.\n\nIn this case, the common dataservice has added features (with its version going from 3.0.0 to 3.1.0).  Since those new features are not used by Federation, and since common dataservice maintained compatibility (it didn\u0027t go to 4.0.0), there is no need for any change to Federation, at all.\n\nBut if we insist on building a new version of Federation, I recommend, as I said before, 3.0.4 as the new version (indicating a bug fix), since compatibility is being maintained and no features are being added to federation.",
+      "revId": "aafab5d741a4af9a1c35ad9b1c1f3b57d6629eb6",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    }
+  ]
+}
