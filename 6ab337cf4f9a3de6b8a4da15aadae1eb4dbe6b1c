@@ -282,6 +282,24 @@
     },
     {
       "key": {
+        "uuid": "cdac43c9_5349c4ad",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/LogstashClient.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-06T21:36:47Z",
+      "side": 1,
+      "message": "OK. Leave it.",
+      "parentUuid": "f159d0f7_4bec7cb2",
+      "revId": "6ab337cf4f9a3de6b8a4da15aadae1eb4dbe6b1c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a14dc2d1_09b25a9f",
         "filename": "gateway/src/main/java/org/acumos/federation/gateway/LogstashService.java",
         "patchSetId": 15
