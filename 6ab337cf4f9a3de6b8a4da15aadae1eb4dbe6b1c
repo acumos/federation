@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "214801ef_a9c16211",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/GatewayClient.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-03-06T20:06:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6da2ca42_a7fc0ab4",
+      "revId": "6ab337cf4f9a3de6b8a4da15aadae1eb4dbe6b1c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5d6fa5b9_04ce04bf",
         "filename": "acumos-fgw-client/src/main/lombok/org/acumos/federation/client/data/ModelData.java",
         "patchSetId": 15
@@ -30,6 +48,24 @@
       "writtenOn": "2020-03-06T18:59:51Z",
       "side": 1,
       "message": "Why isn\u0027t this using java.time.Instant (see, e.g. common-dataservice cmn-data-svc-client/src/main/java/org/acumos/cds/domain/MLPTimestampedEntity.java)?",
+      "revId": "6ab337cf4f9a3de6b8a4da15aadae1eb4dbe6b1c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d069c4a9_fa30dcb3",
+        "filename": "acumos-fgw-client/src/main/lombok/org/acumos/federation/client/data/ModelData.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-03-06T20:06:21Z",
+      "side": 1,
+      "message": "There is no need to parse timestamp in federation information is processed by log stash.",
+      "parentUuid": "5d6fa5b9_04ce04bf",
       "revId": "6ab337cf4f9a3de6b8a4da15aadae1eb4dbe6b1c",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": true
@@ -50,6 +86,24 @@
       "revId": "6ab337cf4f9a3de6b8a4da15aadae1eb4dbe6b1c",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f0b13e2_9d33b3ee",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-03-06T20:06:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a041f8d3_412a225e",
+      "revId": "6ab337cf4f9a3de6b8a4da15aadae1eb4dbe6b1c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
     },
     {
       "key": {
@@ -105,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "63a1ecca_2e8e8ff0",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-03-06T20:06:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c02e7360_3c1ff432",
+      "revId": "6ab337cf4f9a3de6b8a4da15aadae1eb4dbe6b1c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed9b49cd_06f013a6",
         "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
         "patchSetId": 15
@@ -119,6 +191,24 @@
       "revId": "6ab337cf4f9a3de6b8a4da15aadae1eb4dbe6b1c",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64f2c762_e827dad9",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-03-06T20:06:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed9b49cd_06f013a6",
+      "revId": "6ab337cf4f9a3de6b8a4da15aadae1eb4dbe6b1c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
     },
     {
       "key": {
@@ -139,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "e3cf4d89_b8c279d3",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/LogstashClient.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-03-06T20:06:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ad931b7_62f243cd",
+      "revId": "6ab337cf4f9a3de6b8a4da15aadae1eb4dbe6b1c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "677e3f6e_5e914ef2",
         "filename": "gateway/src/main/java/org/acumos/federation/gateway/LogstashClient.java",
         "patchSetId": 15
@@ -150,6 +258,24 @@
       "writtenOn": "2020-03-06T18:59:51Z",
       "side": 1,
       "message": "Void.class",
+      "revId": "6ab337cf4f9a3de6b8a4da15aadae1eb4dbe6b1c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f159d0f7_4bec7cb2",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/LogstashClient.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-03-06T20:06:21Z",
+      "side": 1,
+      "message": "Void.class I tried this but I get an error that there is no message converter for Void but there is one for String. Any suggesstions?",
+      "parentUuid": "677e3f6e_5e914ef2",
       "revId": "6ab337cf4f9a3de6b8a4da15aadae1eb4dbe6b1c",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": true
@@ -173,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "d269bdeb_dd7c543f",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/LogstashService.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-03-06T20:06:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a14dc2d1_09b25a9f",
+      "revId": "6ab337cf4f9a3de6b8a4da15aadae1eb4dbe6b1c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2c4e490d_10eb2bf9",
         "filename": "gateway/src/main/java/org/acumos/federation/gateway/LogstashServiceImpl.java",
         "patchSetId": 15
@@ -187,6 +331,24 @@
       "revId": "6ab337cf4f9a3de6b8a4da15aadae1eb4dbe6b1c",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85ae2c1c_73dfb8a3",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/LogstashServiceImpl.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2020-03-06T20:06:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c4e490d_10eb2bf9",
+      "revId": "6ab337cf4f9a3de6b8a4da15aadae1eb4dbe6b1c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
     }
   ]
 }
