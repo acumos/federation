@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6da2ca42_a7fc0ab4",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/GatewayClient.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-06T18:59:51Z",
+      "side": 1,
+      "message": "Remove unused imports",
+      "revId": "6ab337cf4f9a3de6b8a4da15aadae1eb4dbe6b1c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d6fa5b9_04ce04bf",
+        "filename": "acumos-fgw-client/src/main/lombok/org/acumos/federation/client/data/ModelData.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-06T18:59:51Z",
+      "side": 1,
+      "message": "Why isn\u0027t this using java.time.Instant (see, e.g. common-dataservice cmn-data-svc-client/src/main/java/org/acumos/cds/domain/MLPTimestampedEntity.java)?",
+      "revId": "6ab337cf4f9a3de6b8a4da15aadae1eb4dbe6b1c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a041f8d3_412a225e",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-06T18:59:51Z",
+      "side": 1,
+      "message": "Git rid of unused import",
+      "revId": "6ab337cf4f9a3de6b8a4da15aadae1eb4dbe6b1c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5ad6ba8_539b0c6f",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-06T18:59:51Z",
+      "side": 1,
+      "message": "For consistency, you could return a JsonResponse\u003cVoid\u003e, (with return new JsonResponse\u003cVoid\u003e();), but I\u0027m OK with this (I would like to get rid of the JsonResponse wrappers across the board except it would break backward compatibility).",
+      "revId": "6ab337cf4f9a3de6b8a4da15aadae1eb4dbe6b1c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c02e7360_3c1ff432",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-06T18:59:51Z",
+      "side": 1,
+      "message": "Why?  This is the default, isn\u0027t it.",
+      "revId": "6ab337cf4f9a3de6b8a4da15aadae1eb4dbe6b1c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed9b49cd_06f013a6",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-06T18:59:51Z",
+      "side": 1,
+      "message": "Not needed.",
+      "revId": "6ab337cf4f9a3de6b8a4da15aadae1eb4dbe6b1c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ad931b7_62f243cd",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/LogstashClient.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-06T18:59:51Z",
+      "side": 1,
+      "message": "get rid of unused imports",
+      "revId": "6ab337cf4f9a3de6b8a4da15aadae1eb4dbe6b1c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "677e3f6e_5e914ef2",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/LogstashClient.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-06T18:59:51Z",
+      "side": 1,
+      "message": "Void.class",
+      "revId": "6ab337cf4f9a3de6b8a4da15aadae1eb4dbe6b1c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a14dc2d1_09b25a9f",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/LogstashService.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-06T18:59:51Z",
+      "side": 1,
+      "message": "get rid of unused imports",
+      "revId": "6ab337cf4f9a3de6b8a4da15aadae1eb4dbe6b1c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c4e490d_10eb2bf9",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/LogstashServiceImpl.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-06T18:59:51Z",
+      "side": 1,
+      "message": "get rid of unused imports",
+      "revId": "6ab337cf4f9a3de6b8a4da15aadae1eb4dbe6b1c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    }
+  ]
+}
