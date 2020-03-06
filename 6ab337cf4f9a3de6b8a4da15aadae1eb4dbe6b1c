@@ -70,6 +70,24 @@
     },
     {
       "key": {
+        "uuid": "3b2650eb_c064de94",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2020-03-06T19:12:54Z",
+      "side": 1,
+      "message": "I really like the Spring ResponseEntity for controller return values.  The class has some convenient static methods, it allows returning an empty body, etc.  When you use it, you never have to inject HttpServletResponse into your method signature.\n\nhttps://www.baeldung.com/spring-response-entity\n\nHTH",
+      "parentUuid": "d5ad6ba8_539b0c6f",
+      "revId": "6ab337cf4f9a3de6b8a4da15aadae1eb4dbe6b1c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c02e7360_3c1ff432",
         "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
         "patchSetId": 15
