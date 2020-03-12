@@ -100,6 +100,20 @@ public class Clients {
 		 */
 		return new FederationClient(url, federation);
 	}
+	public DeployedModelClient getDeployedModelClient(String url) {
+		/*
+		 * The set of peers can change, at runtime, and there is no
+		 * notification when one is deleted (or has its API URL
+		 * changed).  It would have been possible to keep federation
+		 * clients in a hash and fault them in, as needed, but, without
+		 * a means for identifying clients that were no longer needed,
+		 * that would have constituted a memory (and possibly a TCP/IP
+		 * connection) leak.  So this code does not cache federation
+		 * clients.
+		 */
+		ClientConfig cc = new ClientConfig();
+		return new DeployedModelClient(url, cc);
+	}
 
 	public synchronized ICommonDataServiceRestClient getCDSClient() {
 		if (cdsClient == null) {
