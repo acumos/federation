@@ -3,6 +3,7 @@
  * Acumos
  * ===================================================================================
  * Copyright (C) 2019 AT&T Intellectual Property & Tech Mahindra. All rights reserved.
+ * Modifications Copyright (C) 2020 Nordix Foundation.
  * ===================================================================================
  * This Acumos software file is distributed by AT&T and Tech Mahindra
  * under the Apache License, Version 2.0 (the "License");
@@ -22,6 +23,8 @@ package org.acumos.federation.client;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.List;
+
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.junit.Test;
@@ -128,6 +131,23 @@ public class ClientTest {
 				objectMapper.readValue("{\"model\": { \"solutionId\": \"UUID\"}}", ModelData.class);
 				try {
 					client.sendModelData("somepeerid", modelData);
+				} catch (Exception e) {
+					fail("failed to send model data");
+				}
+	}
+
+
+	@Test
+	public void testDeployedModelClient() throws Exception {
+		DeployedModelClient client = new DeployedModelClient("http://localhost:8888", getConfig("acumosa"));
+		(new ClientMocking())
+		    .on("POST /model/methods/updateParams", xq("{}"))
+		    .applyTo(client);
+		ObjectMapper objectMapper = new ObjectMapper();
+		JsonNode params =
+				objectMapper.readValue("{\"params\": { \"param1\": \"1\",\"param2\": \"2\",\"param1\": \"3\"}}", JsonNode.class);
+				try {
+					client.updateModelParams(params);
 				} catch (Exception e) {
 					fail("failed to send model data");
 				}
