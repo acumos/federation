@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "472574a5_d6e0a135",
+        "filename": "acumos-fgw-client/src/test/java/org/acumos/federation/client/ClientTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2020-03-26T18:35:55Z",
+      "side": 1,
+      "message": "Why use try-catch in test? why not just let the exception bubble up?",
+      "range": {
+        "startLine": 149,
+        "startChar": 4,
+        "endLine": 149,
+        "endChar": 7
+      },
+      "revId": "88a009856efdb7c78fdae991e361d420e0654b26",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b421802d_d498a8a8",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/DeployedModelService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2020-03-26T18:35:55Z",
+      "side": 1,
+      "message": "to logstash?",
+      "range": {
+        "startLine": 29,
+        "startChar": 30,
+        "endLine": 29,
+        "endChar": 41
+      },
+      "revId": "88a009856efdb7c78fdae991e361d420e0654b26",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d10fed19_6c625484",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2020-03-26T18:35:55Z",
+      "side": 1,
+      "message": "To elastic search service?",
+      "range": {
+        "startLine": 389,
+        "startChar": 69,
+        "endLine": 389,
+        "endChar": 91
+      },
+      "revId": "88a009856efdb7c78fdae991e361d420e0654b26",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8358650b_5e1bdae0",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2020-03-26T18:35:55Z",
+      "side": 1,
+      "message": "don\u0027t use catenation, instead use this syntax:\n\n    log.debug(\"Model parameters: {}\", payload);",
+      "range": {
+        "startLine": 398,
+        "startChar": 0,
+        "endLine": 398,
+        "endChar": 5
+      },
+      "revId": "88a009856efdb7c78fdae991e361d420e0654b26",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1af2008_24d784bc",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2020-03-26T18:35:55Z",
+      "side": 1,
+      "message": "should report method name, or end point, something",
+      "range": {
+        "startLine": 254,
+        "startChar": 14,
+        "endLine": 254,
+        "endChar": 20
+      },
+      "revId": "88a009856efdb7c78fdae991e361d420e0654b26",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b52cd07_e7e0c14d",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2020-03-26T18:35:55Z",
+      "side": 1,
+      "message": "Don\u0027t use catenation, use {} notation as you have done elsewhere in this method",
+      "range": {
+        "startLine": 254,
+        "startChar": 48,
+        "endLine": 254,
+        "endChar": 59
+      },
+      "revId": "88a009856efdb7c78fdae991e361d420e0654b26",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa267000_e981f655",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/FederationControllerTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2020-03-26T18:35:55Z",
+      "side": 1,
+      "message": "use logger, never (ever) System.err",
+      "range": {
+        "startLine": 362,
+        "startChar": 0,
+        "endLine": 362,
+        "endChar": 4
+      },
+      "revId": "88a009856efdb7c78fdae991e361d420e0654b26",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f5d5a4d_e5cb4c57",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/GatewayControllerTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2020-03-26T18:35:55Z",
+      "side": 1,
+      "message": "log the exception?",
+      "range": {
+        "startLine": 381,
+        "startChar": 0,
+        "endLine": 381,
+        "endChar": 4
+      },
+      "revId": "88a009856efdb7c78fdae991e361d420e0654b26",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    }
+  ]
+}
