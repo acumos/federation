@@ -1,0 +1,344 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57f9a8cd_1a37c8f6",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/DeployedModelClient.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-27T19:46:22Z",
+      "side": 1,
+      "message": "Unless doesn\u0027t belong in acumos-fgw-client.  It is not a client used to talk to the Federation Gateway.\n\nIf it is used exclusively by the Federation Gateway to talk to other things, then it belongs in federation/gateway/src/main/java/org/acumos/federation/gateway.\n\nIf it is used by multiple systems to talk to whatever it talks to, then it belongs in a package that is part of that other thing.",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "854ab17f_e4f64025",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/DeployedModelClient.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-27T19:46:22Z",
+      "side": 1,
+      "message": "The HttpHeader stuff is not required.\n\nSee, for example, federation/gateway/src/main/java/org/acumos/federation/gateway/LogstashClient.java",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a733aa8_c2f7f8b7",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/DeployedModelClient.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-27T19:46:22Z",
+      "side": 1,
+      "message": "Presumably there is some structure to this data?  If so, that structure should be defined in a class.",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ad2db67_ee639378",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/FederationClient.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-27T19:46:22Z",
+      "side": 1,
+      "message": "No.  No method in federation client should ever return a JsonResponse.  This should most likely return String, as that is what is returned by the underlying DeployedModelService call made in the FederationController.",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a5b11d5_98102804",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/FederationClient.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-27T19:46:22Z",
+      "side": 1,
+      "message": "Should extract and return the String content of the JsonResponse, not the whole JsonResponse, consistent with all other methods in this class.",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ee2b5e4_50613115",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/GatewayClient.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-27T19:46:22Z",
+      "side": 1,
+      "message": "Should have the same return type as the corresponding method in FederationClient",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb1946fc_fc23c6eb",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/DeployedModelServiceImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-27T19:46:22Z",
+      "side": 1,
+      "message": "No spurious blank lines.\n\nThis applies throughout, not just in this case.",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54389edb_b341639f",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/DeployedModelServiceImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-27T19:46:22Z",
+      "side": 1,
+      "message": "All statements and declaration should be indented with tabs, not with bunches of spaces.\n\nThis applies throughout, not just in this case.",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "848f7790_aec64ae6",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/DeployedModelServiceImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-27T19:46:22Z",
+      "side": 1,
+      "message": "No.  The convention is that all clients are created in Clients.java.  For an example of creating multiple clients of the same type, see Clients.getFederationClient(String).  This is done to allow stubbing out calls to outside services for testing.\n\nThis applies throughout, not just this one instance.",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a7c0dd7_2f46f02a",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/DeployedModelServiceImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-27T19:46:22Z",
+      "side": 1,
+      "message": "Continuations of statements should be indented to the level of the parent statement plus 4 blanks.\n\nThis applies throughout, not just this one instance",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78fc2f31_8ebf7ee4",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/DeployedModelServiceImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-27T19:46:22Z",
+      "side": 1,
+      "message": "If this is a structured field (which it being formatted as JSON, an the queries for individual fields, would seem to indicate), that structure should be declared in a class.  Such classes should be declared using lombok code generation and should be in src/main/lombok/org/acumos/federation/gateway or referenced from some other jar.",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aaf50d16_f83ef13a",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/DeployedModelServiceImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-27T19:46:22Z",
+      "side": 1,
+      "message": "Success should not log as an error",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c93d7240_afc16c48",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-27T19:46:22Z",
+      "side": 1,
+      "message": "JsonResponse\u003cString\u003e",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df3d0bd4_405ff2ae",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-27T19:46:22Z",
+      "side": 1,
+      "message": "JsonResponse\u003cString\u003e response \u003d new JsonResponse\u003c\u003e();",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4cdea2da_1eea3ae3",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-27T19:46:22Z",
+      "side": 1,
+      "message": "response \u003d String.class",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42aebc27_55a0fe15",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-27T19:46:22Z",
+      "side": 1,
+      "message": "JsonResponse\u003cString\u003e not JsonResponse\n\nThis entire method should be re-written along the lines of the ping() method, above.",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c65e7c2e_8debb637",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-27T19:46:22Z",
+      "side": 1,
+      "message": "JsonResponse\u003cString\u003e response \u003d new JsonResponse\u003c\u003e();",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "574addd0_a16dcd04",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-27T19:46:22Z",
+      "side": 1,
+      "message": "Not used.",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bcfe0c92_a6fc1ca9",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-27T19:46:22Z",
+      "side": 1,
+      "message": "In the peerModelData case, peerId resulted from a lookup of the solution in CDS, and the null occurred when the solution originated on the local Acumos (had never been federated).  I don\u0027t think it\u0027s possible to see peerId \u003d\u003d null, here, because it\u0027s coming from the URL.",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99ca984a_c8873a4e",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-27T19:46:22Z",
+      "side": 1,
+      "message": "No.  The Gateway Controller should return the same response as the corresponding Federation Controller method.  That is, it should pass the data through, verbatum.",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    }
+  ]
+}
