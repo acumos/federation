@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "aadf09e5_7ea53621",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/DeployedModelClient.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 378
+      },
+      "writtenOn": "2020-03-30T17:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57f9a8cd_1a37c8f6",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "854ab17f_e4f64025",
         "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/DeployedModelClient.java",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2020-03-27T19:46:22Z",
       "side": 1,
       "message": "The HttpHeader stuff is not required.\n\nSee, for example, federation/gateway/src/main/java/org/acumos/federation/gateway/LogstashClient.java",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "755a7ae2_64ddb609",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/DeployedModelClient.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 378
+      },
+      "writtenOn": "2020-03-30T17:42:55Z",
+      "side": 1,
+      "message": "Deployedmodel has 2 protocols , one is json and other is protobuf . We wanted to json call.\n\nRef : https://wiki.acumos.org/pages/viewpage.action?pageId\u003d17696349",
+      "parentUuid": "854ab17f_e4f64025",
       "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "6975a9b6_1a5a0f67",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/DeployedModelClient.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 378
+      },
+      "writtenOn": "2020-03-30T17:42:55Z",
+      "side": 1,
+      "message": "It is just model params,not fixed structure at all",
+      "parentUuid": "7a733aa8_c2f7f8b7",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8ad2db67_ee639378",
         "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/FederationClient.java",
         "patchSetId": 2
@@ -67,6 +121,24 @@
       "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4323875f_74c4c3d8",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/FederationClient.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 378
+      },
+      "writtenOn": "2020-03-30T17:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ad2db67_ee639378",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "ae8d9dc4_c6b316a3",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/FederationClient.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 378
+      },
+      "writtenOn": "2020-03-30T17:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a5b11d5_98102804",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ee2b5e4_50613115",
         "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/GatewayClient.java",
         "patchSetId": 2
@@ -101,6 +191,24 @@
       "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb984daf_eef608e3",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/GatewayClient.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 378
+      },
+      "writtenOn": "2020-03-30T17:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ee2b5e4_50613115",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
     },
     {
       "key": {
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "a4201aa6_4077d368",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/DeployedModelServiceImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 378
+      },
+      "writtenOn": "2020-03-30T17:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb1946fc_fc23c6eb",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "54389edb_b341639f",
         "filename": "gateway/src/main/java/org/acumos/federation/gateway/DeployedModelServiceImpl.java",
         "patchSetId": 2
@@ -132,6 +258,24 @@
       "writtenOn": "2020-03-27T19:46:22Z",
       "side": 1,
       "message": "All statements and declaration should be indented with tabs, not with bunches of spaces.\n\nThis applies throughout, not just in this case.",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c134bd39_bb25c0a2",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/DeployedModelServiceImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 378
+      },
+      "writtenOn": "2020-03-30T17:42:55Z",
+      "side": 1,
+      "message": "Unable to find bunch of spaces,all of the lines start with \\t.Help me understand the problem.",
+      "parentUuid": "54389edb_b341639f",
       "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": true
@@ -155,6 +299,42 @@
     },
     {
       "key": {
+        "uuid": "8a697ef9_f349ab8b",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/DeployedModelServiceImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 378
+      },
+      "writtenOn": "2020-03-30T17:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "848f7790_aec64ae6",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "49a47227_2a49526b",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/DeployedModelServiceImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 378
+      },
+      "writtenOn": "2020-03-30T17:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "848f7790_aec64ae6",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7a7c0dd7_2f46f02a",
         "filename": "gateway/src/main/java/org/acumos/federation/gateway/DeployedModelServiceImpl.java",
         "patchSetId": 2
@@ -169,6 +349,24 @@
       "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89bb70c8_3c737529",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/DeployedModelServiceImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 378
+      },
+      "writtenOn": "2020-03-30T17:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a7c0dd7_2f46f02a",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
     },
     {
       "key": {
@@ -206,6 +404,42 @@
     },
     {
       "key": {
+        "uuid": "b0d8a245_637d595c",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/DeployedModelServiceImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 378
+      },
+      "writtenOn": "2020-03-30T17:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aaf50d16_f83ef13a",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed3e8419_973c398e",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/DeployedModelServiceImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 378
+      },
+      "writtenOn": "2020-03-30T17:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aaf50d16_f83ef13a",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c93d7240_afc16c48",
         "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
         "patchSetId": 2
@@ -220,6 +454,42 @@
       "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bbb471c1_cc30dfab",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 378
+      },
+      "writtenOn": "2020-03-30T17:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c93d7240_afc16c48",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e70bcf01_f77b601f",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 378
+      },
+      "writtenOn": "2020-03-30T17:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c93d7240_afc16c48",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
     },
     {
       "key": {
@@ -240,6 +510,42 @@
     },
     {
       "key": {
+        "uuid": "c8506029_bcf7d18f",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 378
+      },
+      "writtenOn": "2020-03-30T17:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df3d0bd4_405ff2ae",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a157f42_f238fb37",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 378
+      },
+      "writtenOn": "2020-03-30T17:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df3d0bd4_405ff2ae",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4cdea2da_1eea3ae3",
         "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
         "patchSetId": 2
@@ -254,6 +560,24 @@
       "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "faee0bb0_a2713dd5",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 378
+      },
+      "writtenOn": "2020-03-30T17:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4cdea2da_1eea3ae3",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
     },
     {
       "key": {
@@ -274,6 +598,24 @@
     },
     {
       "key": {
+        "uuid": "f50b026f_94d51d23",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 378
+      },
+      "writtenOn": "2020-03-30T17:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42aebc27_55a0fe15",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c65e7c2e_8debb637",
         "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
         "patchSetId": 2
@@ -288,6 +630,24 @@
       "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21b0956e_de86a46a",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 378
+      },
+      "writtenOn": "2020-03-30T17:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c65e7c2e_8debb637",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
     },
     {
       "key": {
@@ -308,6 +668,24 @@
     },
     {
       "key": {
+        "uuid": "00bb9b2d_38fa5214",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 378
+      },
+      "writtenOn": "2020-03-30T17:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "574addd0_a16dcd04",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcfe0c92_a6fc1ca9",
         "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
         "patchSetId": 2
@@ -325,6 +703,24 @@
     },
     {
       "key": {
+        "uuid": "f00539ee_c9a2fe50",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 378
+      },
+      "writtenOn": "2020-03-30T17:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcfe0c92_a6fc1ca9",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99ca984a_c8873a4e",
         "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
         "patchSetId": 2
@@ -339,6 +735,24 @@
       "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6e498b9_c6f83e37",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 378
+      },
+      "writtenOn": "2020-03-30T17:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99ca984a_c8873a4e",
+      "revId": "7002d42bb955c2da9b150c41195d0dc064bf00aa",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
     }
   ]
 }
