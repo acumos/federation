@@ -1,0 +1,344 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c8f19e72_4df25e63",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/FederationClient.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-30T20:07:14Z",
+      "side": 1,
+      "message": "Should have javadoc comment",
+      "revId": "fbce57961055212dd374e6ef1de1d71f8c2d717e",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9de51c0e_f6f6956e",
+        "filename": "acumos-fgw-client/src/main/java/org/acumos/federation/client/GatewayClient.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-30T20:07:14Z",
+      "side": 1,
+      "message": "Continuation indentation 4 spaces past the indent of the parent line, no 2 tabs past.  Actually, on this one, I probably wouldn\u0027t have split it into multiple lines.",
+      "revId": "fbce57961055212dd374e6ef1de1d71f8c2d717e",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aef782cf_1eaece3c",
+        "filename": "acumos-fgw-client/src/test/java/org/acumos/federation/client/ClientTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-30T20:07:14Z",
+      "side": 1,
+      "message": "Need to add tests for new methods in FederationClient and GatewayClient.",
+      "revId": "fbce57961055212dd374e6ef1de1d71f8c2d717e",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "adb03795_0579d541",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/Clients.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-30T20:07:14Z",
+      "side": 1,
+      "message": "Needs javadoc comment",
+      "revId": "fbce57961055212dd374e6ef1de1d71f8c2d717e",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b83019c2_4083d04a",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/Clients.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-30T20:07:14Z",
+      "side": 1,
+      "message": "Incorrect comment - this is not talking to peer Acumos instances and deployments are likely more volatile than Acumos instances and deployments aren\u0027t being regularly polled, here, caching would have far fewer benefits.",
+      "revId": "fbce57961055212dd374e6ef1de1d71f8c2d717e",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac12d3a8_d42efb2c",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/Clients.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-30T20:07:14Z",
+      "side": 1,
+      "message": "These connections use no authentication at all, not even as a configurable option?",
+      "revId": "fbce57961055212dd374e6ef1de1d71f8c2d717e",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10a51012_79761341",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/DeployedModelClient.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-30T20:07:14Z",
+      "side": 1,
+      "message": "See comment in the ServiceImpl class for replacing JsonNode.",
+      "revId": "fbce57961055212dd374e6ef1de1d71f8c2d717e",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a165bac_ec982454",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/DeployedModelClient.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-30T20:07:14Z",
+      "side": 1,
+      "message": "Use restTemplate.postForObject(MODEL_UPDATE_PARAMS, params, Void.class);\nThe restTemplate will convert the params object to JSON and automatically put on the application/json content type header.\n\nOnce you\u0027ve done that, there will be some imports you can clean up",
+      "revId": "fbce57961055212dd374e6ef1de1d71f8c2d717e",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30a0d106_a2173243",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/DeployedModelService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-30T20:07:14Z",
+      "side": 1,
+      "message": "If updateModelParams isn\u0027t called, using this interface, delete it.",
+      "revId": "fbce57961055212dd374e6ef1de1d71f8c2d717e",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa055204_750bb095",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/DeployedModelServiceImpl.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-30T20:07:14Z",
+      "side": 1,
+      "message": "Indent this file with tabs, not lots of spaces.",
+      "revId": "fbce57961055212dd374e6ef1de1d71f8c2d717e",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "caad0c6d_79fc90f3",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/DeployedModelServiceImpl.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-30T20:07:14Z",
+      "side": 1,
+      "message": "See comment on updateParamsForDeployment on replacement for JsonNode in this case.\n\nI don\u0027t see any calls to this, outside of this class.  If there aren\u0027t any, this should be private.",
+      "revId": "fbce57961055212dd374e6ef1de1d71f8c2d717e",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a92a1033_feb5fff0",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/DeployedModelServiceImpl.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-30T20:07:14Z",
+      "side": 1,
+      "message": "Indent continuation lines 4 spaces past the parent statement\u0027s indentation.",
+      "revId": "fbce57961055212dd374e6ef1de1d71f8c2d717e",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a128751_70335147",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/DeployedModelServiceImpl.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-30T20:07:14Z",
+      "side": 1,
+      "message": "Define a class, perhaps named ModelParams, using lombok, with a single field (JsonNode) params.\n\nDefine a second class, perhaps named DeploymentDetails, using lombok, with fields (boolean) continuousTrainingEnabled and (String )nodePortUrl, and possibly annotate the class with @JsonIgnoreProperties(ignoreUnknown\u003dtrue).\n\nThen use:\n    DeploymentDetails details \u003d objectMapper.readValue(mlpSolutionDeployment.getDetail(), DeploymentDetails.class);\n    if (details !\u003d null \u0026\u0026 details.isContinuousTrainingEnabled() \u0026\u0026 details.getNodePortUrl() !\u003d null) {\n        ModelParams params \u003d new ModelParams();\n        params.setParams(payload.getValue());\n        try {\n            updateModelParams(ingressUrl, params);\n        } catch ...",
+      "revId": "fbce57961055212dd374e6ef1de1d71f8c2d717e",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc731cb4_9df99960",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-30T20:07:14Z",
+      "side": 1,
+      "message": "Indent continuation 4 spaces beyond indent of parent statement",
+      "revId": "fbce57961055212dd374e6ef1de1d71f8c2d717e",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a05540ac_13aa043a",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/FederationController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-30T20:07:14Z",
+      "side": 1,
+      "message": "Indent continuation 4 spaces beyond indent of parent statement",
+      "revId": "fbce57961055212dd374e6ef1de1d71f8c2d717e",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4738b16b_320c263d",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-30T20:07:14Z",
+      "side": 1,
+      "message": "Indent continuation 4 spaces beyond indent of parent statement",
+      "revId": "fbce57961055212dd374e6ef1de1d71f8c2d717e",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0cdc9172_d9b3fef4",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/GatewayController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-30T20:07:14Z",
+      "side": 1,
+      "message": "Indent continuation 4 spaces beyond indent of parent statement",
+      "revId": "fbce57961055212dd374e6ef1de1d71f8c2d717e",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ebe6430_f1d897bf",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/FederationControllerTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-30T20:07:14Z",
+      "side": 1,
+      "message": "Don\u0027t populate fields you aren\u0027t going to test",
+      "revId": "fbce57961055212dd374e6ef1de1d71f8c2d717e",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65b21edb_a731512c",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/GatewayControllerTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-30T20:07:14Z",
+      "side": 1,
+      "message": "Indent continuation line 4 spaces beyond indentation of parent statement",
+      "revId": "fbce57961055212dd374e6ef1de1d71f8c2d717e",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3eb2b78_4d20a9e7",
+        "filename": "gateway/src/test/java/org/acumos/federation/gateway/GatewayControllerTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 288
+      },
+      "writtenOn": "2020-03-30T20:07:14Z",
+      "side": 1,
+      "message": "Indent continuation 4 spaces beyond indentation of parent statement",
+      "revId": "fbce57961055212dd374e6ef1de1d71f8c2d717e",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    }
+  ]
+}
