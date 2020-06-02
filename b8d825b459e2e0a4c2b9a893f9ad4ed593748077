@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "34a43397_6cbaae5a",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/SubscriptionPoller.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2020-06-02T20:39:10Z",
+      "side": 1,
+      "message": "I\u0027m not a big fan of these hardcoded numbers.  Would you please consider defining them as constants at the top, with a pointer to the (CDS schema?) place where the limit is established?",
+      "range": {
+        "startLine": 212,
+        "startChar": 23,
+        "endLine": 214,
+        "endChar": 41
+      },
+      "revId": "b8d825b459e2e0a4c2b9a893f9ad4ed593748077",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b4a7b6e_516b93ed",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/SubscriptionPoller.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2020-06-02T20:39:10Z",
+      "side": 1,
+      "message": "2003 is a pretty odd value.",
+      "range": {
+        "startLine": 216,
+        "startChar": 22,
+        "endLine": 216,
+        "endChar": 26
+      },
+      "revId": "b8d825b459e2e0a4c2b9a893f9ad4ed593748077",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    }
+  ]
+}
