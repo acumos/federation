@@ -208,9 +208,21 @@ public class SubscriptionPoller {
 		}
 
 		private void note(PendingAction cur, String sev, String msg) {
+			String item = cur.getItem().strip();
+			if (item.length() > 73) {
+				msg = item + " - " + msg;
+				item = item.substring(0, 70) + "...";
+			}
+			if (msg.length() > 2003) {
+				msg = msg.substring(0, 2000) + "...";
+			}
 			MLPNotification note = new MLPNotification(cur.getItem(), sev, cur.getStart(), Instant.now());
 			note.setMessage(msg);
-			cds.addUserToNotification(cds.createNotification(note).getNotificationId(), userId);
+			try {
+				cds.addUserToNotification(cds.createNotification(note).getNotificationId(), userId);
+			} catch (Exception e) {
+				log.error("Error notifying user of federation actions", e);
+			}
 		}
 
 		public PendingAction end() {
