@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "322a72ef_1cd92bbd",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/SubscriptionPoller.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2020-06-03T14:39:13Z",
+      "side": 1,
+      "message": "this was a clear miss on my part.  you\u0027re the first to ask for it tho.  if I have to open the Acumos CDS can of worms at some point, I\u0027ll see about adding constants.",
+      "range": {
+        "startLine": 213,
+        "startChar": 5,
+        "endLine": 213,
+        "endChar": 60
+      },
+      "revId": "b4d11471cd5f0c63dcb542d82c94c748a9571a3c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8aa658c4_0c984806",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/SubscriptionPoller.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2020-06-03T14:39:13Z",
+      "side": 1,
+      "message": "why is msg rewritten only if the item is over the max length?  this really looks strange to me.",
+      "range": {
+        "startLine": 228,
+        "startChar": 4,
+        "endLine": 228,
+        "endChar": 29
+      },
+      "revId": "b4d11471cd5f0c63dcb542d82c94c748a9571a3c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef8e99c8_ad31eb27",
+        "filename": "gateway/src/main/java/org/acumos/federation/gateway/SubscriptionPoller.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2020-06-03T14:39:13Z",
+      "side": 1,
+      "message": "may be helpful to show the method name here?",
+      "range": {
+        "startLine": 239,
+        "startChar": 15,
+        "endLine": 239,
+        "endChar": 20
+      },
+      "revId": "b4d11471cd5f0c63dcb542d82c94c748a9571a3c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    }
+  ]
+}
