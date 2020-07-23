@@ -68,7 +68,7 @@ import org.acumos.federation.client.data.ModelData;
 import org.acumos.federation.client.data.SolutionRevision;
 
 /**
- * Controller bean for the external (public) API.
+ * Controller bean for the external (public) API. dummy change.
  */
 @Controller
 @CrossOrigin
