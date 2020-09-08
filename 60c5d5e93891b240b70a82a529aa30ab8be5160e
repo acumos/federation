@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ea7c75b5_5b1f7056",
+        "filename": "releases/3.2.3-maven.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 223
+      },
+      "writtenOn": "2020-09-08T22:08:03Z",
+      "side": 1,
+      "message": "This is the problem. You can see in the logs that it\u0027s looking to pull from staging job 357. Update this to something more recent.",
+      "range": {
+        "startLine": 5,
+        "startChar": 9,
+        "endLine": 5,
+        "endChar": 45
+      },
+      "revId": "60c5d5e93891b240b70a82a529aa30ab8be5160e",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    }
+  ]
+}
